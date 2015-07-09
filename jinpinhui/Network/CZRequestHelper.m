@@ -43,7 +43,6 @@
     }];
 }
 
-
 - (void)czPOSTWithRequest:(CZRequestModel *)request delegate:(id<CZRequestHelperDelegate>)delegate code:(NSInteger)code object:(id)obj
 {
     NSLog(@"urlStr = %@",request.urlStr);
