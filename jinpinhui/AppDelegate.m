@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "IndexViewController.h"
 #import "JPHNavigationController.h"
+#import "LoginViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -25,7 +26,7 @@
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
-    JPHNavigationController *nav = [[JPHNavigationController alloc]initWithRootViewController:[IndexViewController new]];
+    JPHNavigationController *nav = [[JPHNavigationController alloc]initWithRootViewController:[LoginViewController new]];
 //    IndexViewController *indexVC = [[IndexViewController alloc] init];
     self.window.rootViewController = nav;
     
