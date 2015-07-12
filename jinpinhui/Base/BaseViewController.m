@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 chenzhen. All rights reserved.
 //
 
+#import <CommonCrypto/CommonDigest.h>
 #import "BaseViewController.h"
 #import "MBProgressHUD.h" //HUD指示器
 //#import "BaiduMobStat.h"  //百度统计
@@ -59,6 +60,12 @@
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
+    //点击背景键盘回收
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(recycleKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -304,7 +311,20 @@
 {
     [self.view endEditing:YES];
 }
-
+//md5 加密
+- (NSString *)md5:(NSString *)encryptionStr
+{
+    const char *cStr = [encryptionStr UTF8String];
+    unsigned char result[16];
+    CC_MD5(cStr, (CC_LONG)strlen(cStr), result); // This is the md5 call
+    return [NSString stringWithFormat:
+            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",    // 小写 x 表示输出的是小写 MD5 ，大写 X 表示输出的是大写 MD5
+            result[0], result[1], result[2], result[3],
+            result[4], result[5], result[6], result[7],
+            result[8], result[9], result[10], result[11],
+            result[12], result[13], result[14], result[15]
+            ];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

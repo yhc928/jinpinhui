@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD852E9E1B520E02009944C8 /* JPHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852E9D1B520E02009944C8 /* JPHNavigationController.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
 		D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3E21B4A970E002C65CA /* AppDelegate.m */; };
 		D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D078C3EA1B4A970E002C65CA /* Images.xcassets */; };
@@ -82,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD852E9C1B520E02009944C8 /* JPHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHNavigationController.h; sourceTree = "<group>"; };
+		CD852E9D1B520E02009944C8 /* JPHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHNavigationController.m; sourceTree = "<group>"; };
 		D078C3DA1B4A970E002C65CA /* jinpinhui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jinpinhui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D078C3DE1B4A970E002C65CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D078C3DF1B4A970E002C65CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 			children = (
 				D078C4061B4A9C8D002C65CA /* BaseViewController.h */,
 				D078C4071B4A9C8D002C65CA /* BaseViewController.m */,
+				CD852E9C1B520E02009944C8 /* JPHNavigationController.h */,
+				CD852E9D1B520E02009944C8 /* JPHNavigationController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -687,6 +692,7 @@
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
+				CD852E9E1B520E02009944C8 /* JPHNavigationController.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
 				D078C4C51B4A9C8D002C65CA /* SDWebImageDownloaderOperation.m in Sources */,
 				D078C49F1B4A9C8D002C65CA /* AFHTTPSessionManager.m in Sources */,
@@ -871,6 +877,7 @@
 				D078C3FF1B4A970E002C65CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D078C4001B4A970E002C65CA /* Build configuration list for PBXNativeTarget "jinpinhuiTests" */ = {
 			isa = XCConfigurationList;
@@ -879,6 +886,7 @@
 				D078C4021B4A970E002C65CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
