@@ -2,7 +2,7 @@
 //  CZRequestModel.h
 //  Shequ001
 //
-//  Created by xiao7 on 15/6/5.
+//  Created by 陈震 on 15/6/5.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
  * 网络请求model
  */
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 @interface CZRequestModel : NSObject
 
@@ -28,4 +27,5 @@
  *  @return self
  */
 - (instancetype)initWithUrlStr:(NSString *)urlStr jsonStr:(NSString *)jsonStr uploadImage:(UIImage *)uploadImage;
+
 @end
