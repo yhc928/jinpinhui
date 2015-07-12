@@ -25,6 +25,8 @@
     _automaticBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self.rightButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    
+    [_loginBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
 }
 //设置text左侧标题
 -(void) setLeftTextView{
@@ -80,5 +82,8 @@
 - (IBAction)automaticClick:(id)sender {
     [_automaticBtn setImage:[UIImage imageNamed:@"selectedyes"] forState:UIControlStateNormal];
     [_rememberBtn setImage:[UIImage imageNamed:@"selectedno"] forState:UIControlStateNormal];
+}
+- (IBAction)loginClick:(id)sender {
+    
 }
 @end

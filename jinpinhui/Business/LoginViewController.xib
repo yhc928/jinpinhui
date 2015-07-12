@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="accountText" destination="jA0-oS-FyW" id="Q9Z-m5-9ca"/>
                 <outlet property="automaticBtn" destination="Wnz-wk-jjn" id="bul-Ha-B9S"/>
+                <outlet property="loginBtn" destination="P17-Qo-HQA" id="YrX-1g-aJX"/>
                 <outlet property="passwordText" destination="C4B-pd-m1Z" id="GJt-jw-3Ax"/>
                 <outlet property="rememberBtn" destination="Ckv-Z5-932" id="74X-8r-CBx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -60,7 +61,7 @@
                         <constraint firstAttribute="width" constant="76" id="cxo-kZ-pYZ"/>
                         <constraint firstAttribute="height" constant="30" id="dDq-O1-a3t"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <state key="normal" title="忘记密码？">
                         <color key="titleColor" red="0.054901960784313725" green="0.5725490196078431" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -109,16 +110,18 @@
                         <constraint firstAttribute="bottom" secondItem="Ckv-Z5-932" secondAttribute="bottom" id="sEq-O8-F5x"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P17-Qo-HQA">
-                    <rect key="frame" x="15" y="285" width="345" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P17-Qo-HQA">
+                    <rect key="frame" x="15" y="285" width="345" height="38"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="P17-Qo-HQA" secondAttribute="height" multiplier="23:2" id="EmI-08-Wjb"/>
+                        <constraint firstAttribute="width" secondItem="P17-Qo-HQA" secondAttribute="height" multiplier="345:38" id="1Zh-fj-ZBK"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="登录" backgroundImage="loginback">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="loginClick:" destination="-1" eventType="touchUpInside" id="QWO-xU-jBu"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -127,29 +130,29 @@
                 <constraint firstAttribute="trailing" secondItem="Eci-2H-wUn" secondAttribute="trailing" constant="40" id="5do-Oe-UBT"/>
                 <constraint firstItem="jA0-oS-FyW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="AGE-S1-E9Y"/>
                 <constraint firstItem="jA0-oS-FyW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EZ9-Wa-bIV"/>
-                <constraint firstItem="P17-Qo-HQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="LEc-uy-9zA"/>
                 <constraint firstItem="C4B-pd-m1Z" firstAttribute="top" secondItem="Po0-ew-pCw" secondAttribute="bottom" constant="8" id="Ofs-se-u5X"/>
                 <constraint firstItem="Po0-ew-pCw" firstAttribute="top" secondItem="jA0-oS-FyW" secondAttribute="bottom" constant="5" id="Ths-Gu-rYU"/>
                 <constraint firstItem="Eci-2H-wUn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="U2b-D5-keT"/>
                 <constraint firstItem="UYc-qJ-pn6" firstAttribute="top" secondItem="C4B-pd-m1Z" secondAttribute="bottom" constant="5" id="UdN-kt-uMC"/>
                 <constraint firstAttribute="trailing" secondItem="jA0-oS-FyW" secondAttribute="trailing" id="VeF-V2-S8d"/>
-                <constraint firstAttribute="trailing" secondItem="P17-Qo-HQA" secondAttribute="trailing" constant="15" id="WoI-sv-9Rh"/>
                 <constraint firstItem="Po0-ew-pCw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="X4i-hU-ldS"/>
-                <constraint firstItem="P17-Qo-HQA" firstAttribute="top" secondItem="Eci-2H-wUn" secondAttribute="bottom" constant="30" id="aUD-74-5rQ"/>
                 <constraint firstItem="C4B-pd-m1Z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dJ1-gK-ubz"/>
                 <constraint firstAttribute="trailing" secondItem="UYc-qJ-pn6" secondAttribute="trailing" constant="10" id="eTb-Gq-dtX"/>
                 <constraint firstItem="Eci-2H-wUn" firstAttribute="top" secondItem="Gn6-8a-QeJ" secondAttribute="bottom" constant="15" id="ftt-QK-gmH"/>
                 <constraint firstAttribute="trailing" secondItem="Po0-ew-pCw" secondAttribute="trailing" constant="10" id="gnx-ig-lM2"/>
+                <constraint firstAttribute="trailing" secondItem="P17-Qo-HQA" secondAttribute="trailing" constant="15" id="ifU-3Z-bCs"/>
                 <constraint firstItem="Gn6-8a-QeJ" firstAttribute="top" secondItem="UYc-qJ-pn6" secondAttribute="bottom" id="kEE-4k-H12"/>
+                <constraint firstItem="P17-Qo-HQA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="nwp-VT-Njl"/>
                 <constraint firstItem="Gn6-8a-QeJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="256" id="uky-VE-MaV"/>
                 <constraint firstItem="UYc-qJ-pn6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="wRw-fT-3a4"/>
+                <constraint firstItem="P17-Qo-HQA" firstAttribute="top" secondItem="Eci-2H-wUn" secondAttribute="bottom" constant="30" id="wvb-lL-aPK"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="352.5" y="325.5"/>
         </view>
     </objects>
     <resources>
-        <image name="loginback" width="273" height="31"/>
+        <image name="loginback" width="273" height="38"/>
         <image name="selectedno" width="17" height="17"/>
         <image name="selectedyes" width="17" height="17"/>
     </resources>
