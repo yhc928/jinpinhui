@@ -21,6 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //导航栏通用设置 标题颜色：白色 按钮颜色：白色
+    
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
