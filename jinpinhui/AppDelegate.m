@@ -7,9 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "MMDrawerController.h"
 #import "IndexViewController.h"
-#import "JPHNavigationController.h"
+#import "LeftSideViewController.h"
+#import "RightSideViewController.h"
 #import "LoginViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -22,13 +25,46 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //导航栏通用设置 标题颜色：白色 按钮颜色：白色
+    UIImage *navBgImage = nil;
+    if (IS_IOS_7) {
+        navBgImage = [UIImage imageNamed:@"navbarbackios7"];
+        navBgImage = [navBgImage resizableImageWithCapInsets:UIEdgeInsetsZero
+                                                resizingMode:UIImageResizingModeStretch];
+    } else {
+        navBgImage = [UIImage imageNamed:@"navbarbackios6"];
+    }
+    
+    [[UINavigationBar appearance] setBackgroundImage:navBgImage
+                                       forBarMetrics:UIBarMetricsDefault];
     
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
-    JPHNavigationController *nav = [[JPHNavigationController alloc]initWithRootViewController:[LoginViewController new]];
-//    IndexViewController *indexVC = [[IndexViewController alloc] init];
-    self.window.rootViewController = nav;
+    
+//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
+    
+    //首页
+    IndexViewController *indexVC = [[IndexViewController alloc] init];
+    UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
+    
+    //左侧边栏
+    LeftSideViewController *leftSideVC = [[LeftSideViewController alloc] init];
+    
+    //右侧边栏
+    RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
+    UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
+    
+    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
+                                                                           leftDrawerViewController:leftSideVC
+                                                                          rightDrawerViewController:rightSideNav];
+    
+    drawerController.showsShadow = YES;
+    drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
+    drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
+    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    
+    self.window.rootViewController = drawerController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

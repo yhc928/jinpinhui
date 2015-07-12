@@ -11,11 +11,9 @@
  */
 #import <UIKit/UIKit.h>
 
-#import "AppMacro.h"
 #import "CZRequest.h"         //在AFNetworking下二次封装网络请求
-//#import "UIView+AutoLayout.h" //自动布局类目
+#import "UIView+AutoLayout.h" //自动布局类目
 #import "MJRefresh.h"         //下拉刷新
-//#import "MJExtension.h"       //json转model
 
 @class MBProgressHUD;
 
@@ -38,11 +36,6 @@
                delegate:(id<CZRequestHelperDelegate>)delegate
                    code:(NSInteger)code
                  object:(id)obj;
-
-/**
- *  取消所有网络请求
- */
-- (void)cancelAllRequest;
 
 /**
  *  显示文字提示
@@ -134,10 +127,5 @@
  * 回收键盘
  */
 - (void)recycleKeyboard;
-
-/**
- * MD5加密
- */
-- (NSString *)md5:(NSString *)encryptionStr;
 
 @end

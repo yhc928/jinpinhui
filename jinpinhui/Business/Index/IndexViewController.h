@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
+/**
+ *  首页VC
+ */
 #import "BaseViewController.h"
 
 @interface IndexViewController : BaseViewController

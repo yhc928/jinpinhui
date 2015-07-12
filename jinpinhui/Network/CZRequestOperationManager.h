@@ -2,7 +2,7 @@
 //  CZRequestOperationManager.h
 //  Shequ001
 //
-//  Created by xiao7 on 15/6/5.
+//  Created by 陈震 on 15/6/5.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
@@ -18,4 +18,5 @@
  * 在AFHTTPRequestOperationManager的基础上创建一个全局唯一的单例用来调用网络请求
  */
 + (instancetype)sharedClient;
+
 @end

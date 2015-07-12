@@ -39,7 +39,7 @@
 #define LAYER_COLOR        ([UIColor colorWithRed:200/255.0 green:199/255.0 blue:204/255.0 alpha:1.0])
 
 //视图背景色
-#define BACKGROUND_COLOR   ([UIColor colorWithRed:241/255.0 green:240/255.0 blue:246/255.0 alpha:1.0])
+#define BACKGROUND_COLOR   ([UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1.0])
 
 //section的背景色
 #define SECTION_COLOR      ([UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0])

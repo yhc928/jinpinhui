@@ -2,7 +2,7 @@
 //  CZRequestHelper.m
 //  Shequ001
 //
-//  Created by xiao7 on 15/6/5.
+//  Created by 陈震 on 15/6/5.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
@@ -13,7 +13,9 @@
 
 @implementation CZRequestHelper
 
-- (void)czGETWithRequest:(CZRequestModel *)request delegate:(id<CZRequestHelperDelegate>)delegate code:(NSInteger)code object:(id)obj
+- (void)czGETWithRequest:(CZRequestModel *)request
+                delegate:(id<CZRequestHelperDelegate>)delegate
+                    code:(NSInteger)code object:(id)obj
 {
     NSLog(@"urlStr = %@",request.urlStr);
     
@@ -43,7 +45,9 @@
     }];
 }
 
-- (void)czPOSTWithRequest:(CZRequestModel *)request delegate:(id<CZRequestHelperDelegate>)delegate code:(NSInteger)code object:(id)obj
+- (void)czPOSTWithRequest:(CZRequestModel *)request
+                 delegate:(id<CZRequestHelperDelegate>)delegate
+                     code:(NSInteger)code object:(id)obj
 {
     NSLog(@"urlStr = %@",request.urlStr);
     

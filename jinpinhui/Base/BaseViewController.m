@@ -6,10 +6,9 @@
 //  Copyright (c) 2014年 chenzhen. All rights reserved.
 //
 
-#import <CommonCrypto/CommonDigest.h>
 #import "BaseViewController.h"
+#import "AFNetworkReachabilityManager.h" //AFNetworking网络检测
 #import "MBProgressHUD.h" //HUD指示器
-//#import "BaiduMobStat.h"  //百度统计
 #import "RegExp.h"        //正则验证
 
 @interface BaseViewController ()
@@ -60,12 +59,6 @@
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
-    //点击背景键盘回收
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(recycleKeyboard)];
-    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -78,41 +71,29 @@
 - (void)jsonWithRequest:(CZRequestModel *)request delegate:(id<CZRequestHelperDelegate>)delegate code:(NSInteger)code object:(id)obj
 {
     //检测网络状态
-    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
-    [reachabilityManager startMonitoring];
+    AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     
-    [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        //-1 未知 0 无连接 1 3G 2 WIFI
-        if (status == AFNetworkReachabilityStatusNotReachable) {
-            //显示无网络提示
-            if (self.noNetworkAlertView) {
-                [self.noNetworkAlertView dismissWithClickedButtonIndex:0 animated:NO];
-                self.noNetworkAlertView = nil;
-            }
-            
-            self.noNetworkAlertView = [self showAlertViewWithTitle:@""
-                                                           message:@"当前网络不可用，请检查您的网络设置…"
-                                                            cancel:@"关闭"
-                                                             other:@"电话下单"];
-            
-            //隐藏HUD、指示器
-            [self hideProgressHUD];
-        } else {
-            //发送网络请求
-            CZRequestHelper *helper = [[CZRequestHelper alloc] init];
-            if (NULL_STR(request.jsonStr)) {
-                [helper czGETWithRequest:request delegate:delegate code:code object:obj];
-            } else {
-                [helper czPOSTWithRequest:request delegate:delegate code:code object:obj];
-            }
+    NSLog(@"status = %ld",(long)status);
+    //-1 未知 0 无连接 1 3G 2 WIFI
+    if (status == AFNetworkReachabilityStatusNotReachable) {
+        //显示无网络提示
+        if (self.noNetworkAlertView) {
+            [self.noNetworkAlertView dismissWithClickedButtonIndex:0 animated:NO];
+            self.noNetworkAlertView = nil;
         }
-    }];
-}
-
-//取消所有网络请求
-- (void)cancelAllRequest
-{
-    [[CZRequestOperationManager sharedClient].operationQueue cancelAllOperations];
+        
+        self.noNetworkAlertView = [self showAlertViewWithTitle:@""
+                                                       message:@"当前网络不可用，请检查您的网络设置…"
+                                                        cancel:@"关闭"
+                                                         other:@"电话下单"];
+        
+        //隐藏HUD、指示器
+        [self hideProgressHUD];
+    } else {
+        //发送网络请求
+        CZRequestHelper *helper = [[CZRequestHelper alloc] init];
+        [helper czGETWithRequest:request delegate:delegate code:code object:obj];
+    } 
 }
 
 //显示简单提示
@@ -311,20 +292,7 @@
 {
     [self.view endEditing:YES];
 }
-//md5 加密
-- (NSString *)md5:(NSString *)encryptionStr
-{
-    const char *cStr = [encryptionStr UTF8String];
-    unsigned char result[16];
-    CC_MD5(cStr, (CC_LONG)strlen(cStr), result); // This is the md5 call
-    return [NSString stringWithFormat:
-            @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",    // 小写 x 表示输出的是小写 MD5 ，大写 X 表示输出的是大写 MD5
-            result[0], result[1], result[2], result[3],
-            result[4], result[5], result[6], result[7],
-            result[8], result[9], result[10], result[11],
-            result[12], result[13], result[14], result[15]
-            ];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
