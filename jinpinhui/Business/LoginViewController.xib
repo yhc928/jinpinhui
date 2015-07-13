@@ -29,7 +29,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入手机号登陆或注册，金品汇不会在任何地方泄露你的号码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-ew-pCw">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入手机号登陆或注册，金品汇不会在任何地方泄露您的号码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-ew-pCw">
                     <rect key="frame" x="10" y="72" width="355" height="20"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Po0-ew-pCw" secondAttribute="height" multiplier="71:4" id="uE4-8M-rcY"/>

@@ -128,4 +128,8 @@
  */
 - (void)recycleKeyboard;
 
+/**
+ * MD5加密
+ */
+- (NSString *)md5:(NSString *)encryptionStr;
 @end

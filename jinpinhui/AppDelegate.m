@@ -64,7 +64,7 @@
     drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     
-    self.window.rootViewController = drawerController;
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "AppMacro.h"
+#import "RegisteredViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -25,8 +25,14 @@
     _automaticBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self.rightButton setTitle:@"注册" forState:UIControlStateNormal];
     [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    
+    [self.rightButton addTarget:self action:@selector(regAction:) forControlEvents:UIControlEventTouchUpInside];
     [_loginBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
+    //点击背景键盘回收
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 //设置text左侧标题
 -(void) setLeftTextView{
@@ -38,6 +44,7 @@
     accountLab.font = [UIFont systemFontOfSize:12.0];
     accountLab.text = @"手机号码";
     [accountView addSubview:accountLab];
+    _accountText.backgroundColor = UIColorFromRGB(240, 241, 242);
     _accountText .leftView = accountView;
     _accountText.leftViewMode = UITextFieldViewModeAlways;
     _accountText.layer.borderWidth = 1;
@@ -52,6 +59,7 @@
     passwordLab.font = [UIFont systemFontOfSize:12.0];
     passwordLab.text = @"登录密码";
     [passwordView addSubview:passwordLab];
+    _passwordText.backgroundColor = UIColorFromRGB(240, 241, 242);
     _passwordText .leftView = passwordView;
     _passwordText.leftViewMode = UITextFieldViewModeAlways;
     _passwordText.layer.borderWidth = 1;
@@ -73,7 +81,10 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+- (void)regAction:(id)sender{
+    RegisteredViewController *registered = [[RegisteredViewController alloc]init];
+    [self.navigationController pushViewController:registered animated:YES];
+}
 - (IBAction)rememberClick:(id)sender {
     [_rememberBtn setImage:[UIImage imageNamed:@"selectedyes"] forState:UIControlStateNormal];
     [_automaticBtn setImage:[UIImage imageNamed:@"selectedno"] forState:UIControlStateNormal];
@@ -85,5 +96,9 @@
 }
 - (IBAction)loginClick:(id)sender {
     
+}
+-(void)dismissKeyboard{
+    
+    [self.view endEditing:YES];
 }
 @end
