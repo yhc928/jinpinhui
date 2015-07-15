@@ -7,10 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import <CommonCrypto/CommonDigest.h>    //MD5
 #import "AFNetworkReachabilityManager.h" //AFNetworking网络检测
-#import "MBProgressHUD.h" //HUD指示器
-#import "RegExp.h"        //正则验证
-#import <CommonCrypto/CommonDigest.h> //MD5
+#import "MBProgressHUD.h"                //HUD指示器
+#import "RegExp.h"                       //正则验证
+
 @interface BaseViewController ()
 
 @property (nonatomic, strong) MBProgressHUD           *progressHUD;        //HUD
@@ -92,8 +93,12 @@
     } else {
         //发送网络请求
         CZRequestHelper *helper = [[CZRequestHelper alloc] init];
-        [helper czGETWithRequest:request delegate:delegate code:code object:obj];
-    } 
+        if (request.parameters == nil) {
+            [helper czGETWithRequest:request delegate:delegate code:code object:obj];
+        } else {
+            [helper czPOSTWithRequest:request delegate:delegate code:code object:obj];
+        }
+    }
 }
 
 //显示简单提示
@@ -118,12 +123,7 @@
 #pragma mark - UIAlertViewDelegate iOS8以前
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
-    
-    if ([title isEqualToString:@"电话下单"]) {
-        //显示打电话警告
-        [self showActionSheetWithTitle:SERVICE_TEL];
-    }
+//    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
 }
 
 //显示打电话警告
@@ -229,58 +229,6 @@
     }
 }
 
-/**
- * 功能：显示加载图片view
- */
-- (void)showLoadImageView
-{
-    //隐藏加载图片
-    [self hideLoadImageView];
-    
-    //动画图片
-    NSMutableArray *loadImageArray = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i = 1; i <= 4; i++) {
-        NSString *loadImageStr = [NSString stringWithFormat:@"LoadBig%d",i];
-        UIImage *loadImage = [UIImage imageNamed:loadImageStr];
-        [loadImageArray addObject:loadImage];
-    }
-    
-    //加载图片view
-    self.loadImageView = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-64)/2, (SCREEN_HEIGHT-64-80)/2, 64, 80)];
-    [self.view addSubview:self.loadImageView];
-    
-    //设置动画数组
-    self.loadImageView.animationImages = loadImageArray;
-    //设置动画播放次数
-    self.loadImageView.animationRepeatCount = 99;
-    //设置动画播放时间
-    self.loadImageView.animationDuration = 0.4;
-    //开始动画
-    [self.loadImageView startAnimating];
-}
-
-//隐藏加载图片view
-- (void)hideLoadImageView
-{
-    if (self.loadImageView) {
-        [self.loadImageView stopAnimating];
-        [self.loadImageView removeFromSuperview];
-        self.loadImageView = nil;
-    }
-}
-
-/**
- * 功能：重写页面名字的get方法
- */
-- (NSString *)pageName
-{
-    if (_pageName == nil) {
-        _pageName = self.navigationItem.title;
-    }
-    
-    return _pageName;
-}
-
 //点击返回上一页面
 - (void)didBack
 {
@@ -319,7 +267,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    NSLog(@"%@收到内存警告",self.pageName);
     // Dispose of any resources that can be recreated.
 }
 

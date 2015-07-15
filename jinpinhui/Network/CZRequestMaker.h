@@ -21,12 +21,10 @@
  */
 + (instancetype)sharedClient;
 
-/**
- *  获取城市列表
- *
- *  @return CZRequestModel
- */
-- (CZRequestModel *)getCityList;
+
+- (CZRequestModel *)getBin_cmdWithParameters:(NSDictionary *)parameters;
+
+- (CZRequestModel *)getUserActionWithParameters:(NSDictionary *)parameters;
 
 /**
  *  获取城市社区商圈列表

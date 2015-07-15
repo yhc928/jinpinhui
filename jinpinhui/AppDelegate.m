@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "AFNetworkActivityIndicatorManager.h" //AFNetworking状态栏指示器
+#import "AFNetworkReachabilityManager.h"      //AFNetworking网络检测
+
 #import "MMDrawerController.h"
 #import "IndexViewController.h"
 #import "LeftSideViewController.h"
@@ -19,10 +22,21 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //打开网络请求状态栏指示器
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    //检测网络状态
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        //-1 未知 0 无连接 1 3G 2 WIFI
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            
+        }
+    }];
     
     //导航栏通用设置 标题颜色：白色 按钮颜色：白色
     UIImage *navBgImage = nil;
@@ -64,7 +78,9 @@
     drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     
-    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
+    self.window.rootViewController = drawerController;
+    
+//    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

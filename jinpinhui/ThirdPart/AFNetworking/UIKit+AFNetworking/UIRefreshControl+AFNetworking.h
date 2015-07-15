@@ -28,8 +28,6 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class AFURLConnectionOperation;
 
 /**
@@ -62,7 +60,5 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setRefreshingWithStateOfOperation:(AFURLConnectionOperation *)operation;
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 #endif

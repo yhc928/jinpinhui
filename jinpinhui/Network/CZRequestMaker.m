@@ -24,6 +24,23 @@
     return _sharedClient;
 }
 
+- (CZRequestModel *)getBin_cmdWithParameters:(NSDictionary *)parameters
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://yupala.com/bin_cmd"];
+    CZRequestModel *request = [[CZRequestModel alloc] initWithUrlStr:urlStr parameters:parameters uploadImage:nil];
+    
+    return request;
+}
+
+- (CZRequestModel *)getUserActionWithParameters:(NSDictionary *)parameters
+{
+    NSString *urlStr = [NSString stringWithFormat:@"http://114.112.96.70:80/hxhServer/userAction"];
+    CZRequestModel *request = [[CZRequestModel alloc] initWithUrlStr:urlStr parameters:parameters uploadImage:nil];
+    
+    return request;
+}
+
+
 /*
 //获取城市列表
 - (CZRequestModel *)getCityList

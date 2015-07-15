@@ -10,9 +10,7 @@
  *  网络请求助手类
  */
 #import <Foundation/Foundation.h>
-
 @class CZRequestModel;
-
 @protocol CZRequestHelperDelegate;
 
 @interface CZRequestHelper : NSObject

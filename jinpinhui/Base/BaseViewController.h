@@ -10,17 +10,13 @@
  * 页面的基类
  */
 #import <UIKit/UIKit.h>
-
 #import "CZRequest.h"         //在AFNetworking下二次封装网络请求
 #import "UIView+AutoLayout.h" //自动布局类目
 #import "MJRefresh.h"         //下拉刷新
 
 @class MBProgressHUD;
 
-@interface BaseViewController : UIViewController<UIActionSheetDelegate,UIScrollViewDelegate,UIAlertViewDelegate,UIActionSheetDelegate,CZRequestHelperDelegate>
-
-@property (nonatomic, assign) BOOL     isLoading;    //是否正在请求网络
-@property (nonatomic, strong) NSString *pageName;    //统计页面名
+@interface BaseViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate>
 
 @property (nonatomic, strong) UIButton *rightButton; //导航栏右侧按钮
 
@@ -69,7 +65,7 @@
 /**
  * 显示HUD
  */
-//- (MBProgressHUD *)showProgressHUD;
+- (MBProgressHUD *)showProgressHUD;
 
 /**
  *  显示有文字HUD
@@ -78,7 +74,7 @@
  *
  *  @return HUD
  */
-//- (MBProgressHUD *)showProgressHUDWithText:(NSString *)text;
+- (MBProgressHUD *)showProgressHUDWithText:(NSString *)text;
 
 /**
  *  显示自定义HUD
@@ -109,16 +105,6 @@
 - (void)hideIndicatorView;
 
 /**
- * 显示加载图片
- */
-- (void)showLoadImageView;
-
-/**
- * 隐藏加载图片
- */
-- (void)hideLoadImageView;
-
-/**
  * 点击返回上一页面
  */
 - (void)didBack;
@@ -132,4 +118,5 @@
  * MD5加密
  */
 - (NSString *)md5:(NSString *)encryptionStr;
+
 @end

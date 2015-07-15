@@ -13,19 +13,21 @@
 
 @interface CZRequestModel : NSObject
 
-@property (nonatomic, readonly) NSString *urlStr;      //url地址
-@property (nonatomic, readonly) NSString *jsonStr;     //post的字符串
-@property (nonatomic, readonly) UIImage  *uploadImage; //post的图片
+@property (nonatomic, strong, readonly) NSString     *urlStr;      //url地址
+@property (nonatomic, strong, readonly) NSDictionary *parameters;  //post的参数
+@property (nonatomic, strong, readonly) UIImage      *uploadImage; //post的图片
 
 /**
  *  创建请求的数据model
  *
  *  @param urlStr      url地址
- *  @param jsonStr     post的字符串
+ *  @param parameters  post的参数
  *  @param uploadImage post的图片
  *
- *  @return self
+ *  @return CZRequestModel
  */
-- (instancetype)initWithUrlStr:(NSString *)urlStr jsonStr:(NSString *)jsonStr uploadImage:(UIImage *)uploadImage;
+- (instancetype)initWithUrlStr:(NSString *)urlStr
+                    parameters:(NSDictionary *)parameters
+                   uploadImage:(UIImage *)uploadImage;
 
 @end

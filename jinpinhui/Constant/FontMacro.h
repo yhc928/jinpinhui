@@ -11,12 +11,6 @@
  */
 #import <Foundation/Foundation.h>
 
-#define NAV_BTN_FONT ([UIFont systemFontOfSize:18]) //导航栏按钮字体
-#define SECTION_FONT ([UIFont systemFontOfSize:15]) //cell的section的字体
-#define ROW_FONT     ([UIFont systemFontOfSize:16]) //cell的row的字体
-
-
-
 #define FONT_22PX ([UIFont systemFontOfSize:11]) //11号字体 22px
 #define FONT_24PX ([UIFont systemFontOfSize:12]) //12号字体 24px
 #define FONT_26PX ([UIFont systemFontOfSize:13]) //13号字体 26px

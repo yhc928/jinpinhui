@@ -7,12 +7,12 @@
 //
 
 #import "CZRequestHelper.h"
-
 #import "CZRequestOperationManager.h"
 #import "CZRequestModel.h"
 
 @implementation CZRequestHelper
 
+//get请求
 - (void)czGETWithRequest:(CZRequestModel *)request
                 delegate:(id<CZRequestHelperDelegate>)delegate
                     code:(NSInteger)code object:(id)obj
@@ -45,6 +45,7 @@
     }];
 }
 
+//post请求
 - (void)czPOSTWithRequest:(CZRequestModel *)request
                  delegate:(id<CZRequestHelperDelegate>)delegate
                      code:(NSInteger)code object:(id)obj
@@ -57,7 +58,7 @@
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     //网络请求
-    [manager POST:request.urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:request.urlStr parameters:request.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         //调用系统方法解析json字符串
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject
                                                                   options:NSJSONReadingAllowFragments
@@ -68,6 +69,8 @@
             [delegate czRequestForResultDic:resultDic code:code object:obj];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error = %@",error);
+        
         //请求失败设置代理
         if ([delegate respondsToSelector:@selector(czRequestForResultDic:code:object:)]) {
             [delegate czRequestForResultDic:nil code:code object:obj];

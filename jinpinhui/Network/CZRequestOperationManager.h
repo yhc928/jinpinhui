@@ -16,6 +16,8 @@
 /**
  * 网络操作对象的单例
  * 在AFHTTPRequestOperationManager的基础上创建一个全局唯一的单例用来调用网络请求
+ *
+ *  @return CZRequestOperationManager
  */
 + (instancetype)sharedClient;
 

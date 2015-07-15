@@ -10,12 +10,14 @@
 
 @implementation CZRequestModel
 
-- (instancetype)initWithUrlStr:(NSString *)urlStr jsonStr:(NSString *)jsonStr uploadImage:(UIImage *)uploadImage
+- (instancetype)initWithUrlStr:(NSString *)urlStr
+                    parameters:(NSDictionary *)parameters
+                   uploadImage:(UIImage *)uploadImage
 {
     self = [super init];
     if (self) {
         _urlStr = urlStr;
-        _jsonStr = jsonStr;
+        _parameters = parameters;
         _uploadImage = uploadImage;
     }
     return self;
@@ -23,7 +25,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"url:%@,json:%@,image:%@", _urlStr,_jsonStr,_uploadImage];
+    return [NSString stringWithFormat:@"urlStr:%@,parameters:%@,uploadImage:%@",_urlStr,_parameters,_uploadImage];
 }
 
 @end

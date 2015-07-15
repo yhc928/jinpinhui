@@ -376,12 +376,12 @@
 			isa = PBXGroup;
 			children = (
 				D078C40A1B4A9C8D002C65CA /* AppMacro.h */,
+				D078C4101B4A9C8D002C65CA /* UtilsMacro.h */,
 				D078C40B1B4A9C8D002C65CA /* ColorMacro.h */,
 				D078C40C1B4A9C8D002C65CA /* FontMacro.h */,
 				D078C40D1B4A9C8D002C65CA /* NetworkMacro.h */,
 				D078C40E1B4A9C8D002C65CA /* NotificationMacro.h */,
 				D078C40F1B4A9C8D002C65CA /* ThirdPartMacro.h */,
-				D078C4101B4A9C8D002C65CA /* UtilsMacro.h */,
 			);
 			path = Constant;
 			sourceTree = "<group>";

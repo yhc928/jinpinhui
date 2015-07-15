@@ -11,8 +11,8 @@
 @interface LeftSideViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;   //城市列表
-
 @property (nonatomic, strong) NSArray     *dataArray;   //数据
+
 @end
 
 @implementation LeftSideViewController
@@ -38,7 +38,7 @@
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(64, 0, 0, 0)]; //设置autoLayout
     
-//*********************************************************************************************
+//*************************************************************************************************************
     NSString *leftSidePath = [[NSBundle mainBundle] pathForResource:@"leftSide" ofType:@"plist"];
     self.dataArray = [NSArray arrayWithContentsOfFile:leftSidePath];
 }
@@ -94,15 +94,6 @@
 {
     //取消选中效果
 //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-/**
- *  获取城市列表
- */
-- (void)requestCityList
-{
-//    CZRequestModel *request = [[CZRequestMaker sharedClient] getCityList];
-//    [self jsonWithRequest:request delegate:self code:CITY_LIST_CODE object:nil];
 }
 
 @end
