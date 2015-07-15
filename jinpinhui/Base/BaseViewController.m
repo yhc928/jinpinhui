@@ -241,8 +241,9 @@
     [self.view endEditing:YES];
 }
 //MD5加密
-- (NSString *)md5:(NSString *)encryptionStr
+- (NSString *)encryption
 {
+    NSString *encryptionStr = [NSString stringWithFormat:@"%@%@%@%@%@",[_Parameters objectForKey:@"username"],[_Parameters objectForKey:@"password"],[_Parameters objectForKey:@"cmd"],[self getMD5Time:[_Parameters objectForKey:@"date"]],@"436x7f6dz2ah53xc"];
     const char *cStr = [encryptionStr UTF8String]; //转换成utf-8
     unsigned char result[16]; //开辟一个16字节（128位：md5加密出来就是128位/bit）的空间（一个字节=8字位=8个二进制数）
     CC_MD5(cStr, (CC_LONG)strlen(cStr), result); // This is the md5 call
@@ -263,6 +264,40 @@
      NSLog("%02X", 0x888);  //888
      NSLog("%02X", 0x4); //04
      */
+}
+//获取日期 yyyy-MM-dd HH:mm:ss
+-(NSString *)getCurrentTime{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *datetime = [formatter stringFromDate:[NSDate date]];
+    return datetime;
+}
+//获取日期 yyyyMMdd HHmmss MD5加密需要的格式
+-(NSString *)getMD5Time:(NSString *)reqtime{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *md5date = [formatter dateFromString:reqtime];
+    
+    NSDateFormatter *Newformatter = [[NSDateFormatter alloc]init];
+    [Newformatter setDateFormat:@"yyyyMMddHHmmss"];
+    NSString *datetime = [Newformatter stringFromDate:md5date];
+    return datetime;
+}
+
+//post 请求参数
+-(NSMutableDictionary *)Parameters{
+    if (!_Parameters) {
+        _Parameters = [[NSMutableDictionary alloc]init];
+        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
+        [_Parameters setValue:[userdefaults objectForKey:@"username"] forKey:@"username"];
+        [_Parameters setValue:[userdefaults objectForKey:@"password"] forKey:@"password"];
+    }
+    [_Parameters setValue:@"" forKey:@"cmd"];
+    [_Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [_Parameters setValue:@"" forKey:@"md5"];
+
+    return _Parameters;
 }
 - (void)didReceiveMemoryWarning
 {

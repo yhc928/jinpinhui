@@ -19,7 +19,8 @@
 @interface BaseViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate>
 
 @property (nonatomic, strong) UIButton *rightButton; //导航栏右侧按钮
-
+@property (nonatomic, strong) NSMutableDictionary *Parameters; //post 请求参数
+@property (nonatomic, strong) NSString *encryption;//md5 加密参数
 /**
  *  发送网路请求
  *
@@ -113,10 +114,5 @@
  * 回收键盘
  */
 - (void)recycleKeyboard;
-
-/**
- * MD5加密
- */
-- (NSString *)md5:(NSString *)encryptionStr;
 
 @end

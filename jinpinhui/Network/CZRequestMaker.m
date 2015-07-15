@@ -26,7 +26,7 @@
 
 - (CZRequestModel *)getBin_cmdWithParameters:(NSDictionary *)parameters
 {
-    NSString *urlStr = [NSString stringWithFormat:@"http://yupala.com/bin_cmd"];
+    NSString *urlStr = [NSString stringWithFormat:@"http://yupala.com/bin_cmd/index.asp"];
     CZRequestModel *request = [[CZRequestModel alloc] initWithUrlStr:urlStr parameters:parameters uploadImage:nil];
     
     return request;
