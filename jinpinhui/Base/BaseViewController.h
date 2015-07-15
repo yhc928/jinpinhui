@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIButton *rightButton; //导航栏右侧按钮
 @property (nonatomic, strong) NSMutableDictionary *Parameters; //post 请求参数
 @property (nonatomic, strong) NSString *encryption;//md5 加密参数
+@property (nonatomic, strong) NSString *getCurrentTime;
 /**
  *  发送网路请求
  *

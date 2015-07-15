@@ -55,18 +55,21 @@
     CZRequestOperationManager *manager = [CZRequestOperationManager sharedClient];
     
     //设置返回格式
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    manager.requestSerializer.timeoutInterval=30;
     
     //网络请求
     [manager POST:request.urlStr parameters:request.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
         //调用系统方法解析json字符串
-        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject
-                                                                  options:NSJSONReadingAllowFragments
-                                                                    error:nil];
+//        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:responseObject
+//                                                                  options:NSJSONReadingAllowFragments
+//                                                                    error:nil];
         
         //请求成功设置代理
         if ([delegate respondsToSelector:@selector(czRequestForResultDic:code:object:)]) {
-            [delegate czRequestForResultDic:resultDic code:code object:obj];
+            [delegate czRequestForResultDic:responseObject code:code object:obj];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error = %@",error);

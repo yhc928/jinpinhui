@@ -141,6 +141,40 @@
     
 }
 - (IBAction)regClick:(id)sender {
+    if (_accountText.text.length == 0)
+        [self showAlertViewWithMessage:@"请输入手机号！"];
+    else if (_passwordText.text.length == 0)
+        [self showAlertViewWithMessage:@"请输入密码！"];
+    else if (_confirmText.text.length == 0)
+          [self showAlertViewWithMessage:@"请输入确认密码！"];
+    else if (![_passwordText.text isEqualToString:_confirmText.text])
+         [self showAlertViewWithMessage:@"密码输入不一致！"];
+    else if (_passwordText.text.length < 6||_passwordText.text.length > 20)
+        [self showAlertViewWithMessage:@"密码长度不正确！"];
+    else {
+        [self.Parameters setValue:_accountText.text forKey:@"username"];
+        [self.Parameters setValue:_passwordText.text forKey:@"password"];
+        [self.Parameters setValue:@"REG" forKey:@"cmd"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        NSLog(@"%@",self.Parameters);
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:111 object:nil];
+    }
+//    else if (_codeText.text.length == 0)
+//        [self showAlertViewWithMessage:@"请输入验证码！"];
     
+}
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        NSUserDefaults *userdefaules = [NSUserDefaults standardUserDefaults];
+        [userdefaules setValue:_accountText.text forKey:@"username"];
+        [userdefaules setValue:_passwordText.text forKey:@"password"];
+        [userdefaules synchronize];
+        [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
+    }
+
 }
 @end

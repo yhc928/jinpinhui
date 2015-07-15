@@ -95,7 +95,10 @@
     [_rememberBtn setImage:[UIImage imageNamed:@"selectedno"] forState:UIControlStateNormal];
 }
 - (IBAction)loginClick:(id)sender {
-    
+    if (_accountText.text.length == 0)
+        [self showAlertViewWithMessage:@"请输入手机号！"];
+    else if (_passwordText.text.length == 0)
+        [self showAlertViewWithMessage:@"请输入密码！"];
 }
 -(void)dismissKeyboard{
     
