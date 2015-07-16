@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD2A58641B580AB90007B8EE /* yaoqing.txt */; };
 		CD852EA31B522560009944C8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA11B522560009944C8 /* LoginViewController.m */; };
 		CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA21B522560009944C8 /* LoginViewController.xib */; };
 		CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */; };
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
+		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
 		D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3E21B4A970E002C65CA /* AppDelegate.m */; };
 		D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D078C3EA1B4A970E002C65CA /* Images.xcassets */; };
@@ -92,6 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD2A58641B580AB90007B8EE /* yaoqing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yaoqing.txt; sourceTree = "<group>"; };
 		CD852EA01B522560009944C8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CD852EA11B522560009944C8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CD852EA21B522560009944C8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 		CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredViewController.xib; sourceTree = "<group>"; };
 		CDD69DE41B5556350062FD86 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
+		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
+		CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
 		D078C3DA1B4A970E002C65CA /* jinpinhui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jinpinhui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D078C3DE1B4A970E002C65CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D078C3DF1B4A970E002C65CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -274,6 +279,8 @@
 				CD852EA51B52AFC4009944C8 /* RegisteredViewController.h */,
 				CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */,
 				CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */,
+				CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */,
+				CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -629,6 +636,7 @@
 		D08F82431B527E5C00F6E7C9 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				CD2A58641B580AB90007B8EE /* yaoqing.txt */,
 				D08F82441B527E5C00F6E7C9 /* aboutUs.txt */,
 				D08F82451B527E5C00F6E7C9 /* leftSide.plist */,
 				D08F82461B527E5C00F6E7C9 /* registerProtocol.txt */,
@@ -717,6 +725,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D08F82471B527E5C00F6E7C9 /* aboutUs.txt in Resources */,
+				CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
@@ -740,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */,
 				D078C4C91B4A9C8D002C65CA /* UIImage+GIF.m in Sources */,
 				D078C4A21B4A9C8D002C65CA /* AFURLConnectionOperation.m in Sources */,
 				D078C4BF1B4A9C8D002C65CA /* MKAnnotationView+WebCache.m in Sources */,

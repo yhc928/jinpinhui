@@ -42,8 +42,8 @@
     //返回按钮
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     backButton.frame = ITEM_FRAME;
-    [backButton setImage:[UIImage imageNamed:@"NavBack"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"NavBackHighlighted"] forState:UIControlStateHighlighted];
+    [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateNormal];
+    [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateHighlighted];
     backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [backButton addTarget:self action:@selector(didBack) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];

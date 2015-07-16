@@ -8,8 +8,13 @@
 
 #import "LoginViewController.h"
 #import "RegisteredViewController.h"
-@interface LoginViewController ()
+#import "MMDrawerController.h"
+#import "IndexViewController.h"
+#import "LeftSideViewController.h"
+#import "RightSideViewController.h"
 
+@interface LoginViewController ()
+@property (nonatomic ,assign)NSInteger loginStatus;
 @end
 
 @implementation LoginViewController
@@ -17,14 +22,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = UIColorFromRGB(231, 232, 234);
     self.title = @"登录";
     [self setLeftTextView];
     //设置记住密码、自动登录按钮
     _rememberBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     _automaticBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self.rightButton setTitle:@"注册" forState:UIControlStateNormal];
-    [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [self.rightButton addTarget:self action:@selector(regAction:) forControlEvents:UIControlEventTouchUpInside];
     [_loginBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
     //点击背景键盘回收
@@ -33,6 +37,8 @@
                                    action:@selector(dismissKeyboard)];
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
+    //默认
+    _loginStatus = 2; //自动登录
 }
 //设置text左侧标题
 -(void) setLeftTextView{
@@ -51,6 +57,8 @@
     _accountText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _accountText.keyboardType = UIKeyboardTypeNumberPad;
     _accountText.clearButtonMode = UITextFieldViewModeWhileEditing;
+    //记住账号
+    _accountText.text = [[NSUserDefaults standardUserDefaults] objectForKey:USERNAME];
     //密码
     UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_passwordText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
@@ -82,6 +90,7 @@
 }
 */
 - (void)regAction:(id)sender{
+     _loginStatus = 1; //记住账号
     RegisteredViewController *registered = [[RegisteredViewController alloc]init];
     [self.navigationController pushViewController:registered animated:YES];
 }
@@ -91,6 +100,7 @@
 }
 
 - (IBAction)automaticClick:(id)sender {
+     _loginStatus = 2; //自动登录
     [_automaticBtn setImage:[UIImage imageNamed:@"selectedyes"] forState:UIControlStateNormal];
     [_rememberBtn setImage:[UIImage imageNamed:@"selectedno"] forState:UIControlStateNormal];
 }
@@ -99,6 +109,53 @@
         [self showAlertViewWithMessage:@"请输入手机号！"];
     else if (_passwordText.text.length == 0)
         [self showAlertViewWithMessage:@"请输入密码！"];
+    else{
+        [self.Parameters setValue:_accountText.text forKey:@"username"];
+        [self.Parameters setValue:_passwordText.text forKey:@"password"];
+        [self.Parameters setValue:@"LOG" forKey:@"cmd"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:111 object:nil];
+        
+    }
+}
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        NSUserDefaults *userdefaules = [NSUserDefaults standardUserDefaults];
+        [userdefaules setValue:_accountText.text forKey:USERNAME];
+        [userdefaules setValue:_passwordText.text forKey:PASSWORD];
+        [userdefaules setValue:[NSString stringWithFormat:@"%zi",_loginStatus] forKey:LOGINSTATUS];
+        [userdefaules synchronize];
+        
+        //首页
+        IndexViewController *indexVC = [[IndexViewController alloc] init];
+        UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
+        
+        //左侧边栏
+        LeftSideViewController *leftSideVC = [[LeftSideViewController alloc] init];
+        
+        //右侧边栏
+        RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
+        UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
+        
+        MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
+                                                                               leftDrawerViewController:leftSideVC
+                                                                              rightDrawerViewController:rightSideNav];
+        
+        drawerController.showsShadow = YES;
+        drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
+        drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
+        drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        window.rootViewController = drawerController;
+    }else {
+        [self showCustomProgressHUD:[resultDic objectForKey:@"error"]];
+    }
+    
 }
 -(void)dismissKeyboard{
     

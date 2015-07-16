@@ -45,3 +45,8 @@
 #define VER_CODE_TIME 61   //验证码时间间隔
 
 #define NULL_STR(str) (str == nil || (NSNull *)str == [NSNull null] || str.length == 0) //判断对象为空
+
+//登录信息、状态
+#define LOGINSTATUS @"loginstatus"   //记住密码、自动登录
+#define USERNAME @"username" //用户名
+#define PASSWORD @"password" //密码

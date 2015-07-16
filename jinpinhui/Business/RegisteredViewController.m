@@ -174,6 +174,8 @@
         [userdefaules setValue:_passwordText.text forKey:@"password"];
         [userdefaules synchronize];
         [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
+    }else {
+        [self showAlertViewWithMessage:[resultDic objectForKey:@"error"]];
     }
 
 }
