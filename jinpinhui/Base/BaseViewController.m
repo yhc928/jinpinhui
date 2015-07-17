@@ -60,6 +60,12 @@
         backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
+    //点击背景键盘回收
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(recycleKeyboard)];
+    tap.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:tap];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -262,7 +268,7 @@
     for(int i =0; i < CC_MD5_DIGEST_LENGTH; i++)
         [result appendFormat:@"%02x", digest[i]];
         _encryption =[[result substringToIndex:24] substringFromIndex:8];
-     return _encryption;//即9～25位
+     return _encryption;//即9～25位  16位
     /*
      x表示十六进制，%02X  意思是不足两位将用0补齐，如果多余两位则不影响
      NSLog("%02X", 0x888);  //888

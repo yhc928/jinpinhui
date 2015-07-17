@@ -31,12 +31,6 @@
     [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
     [self.rightButton addTarget:self action:@selector(regAction:) forControlEvents:UIControlEventTouchUpInside];
     [_loginBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
-    //点击背景键盘回收
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
     //默认
     _loginStatus = 2; //自动登录
 }

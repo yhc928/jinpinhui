@@ -24,12 +24,6 @@
     //高亮
     [_regBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
     [self setLeftTextView];
-    //点击背景键盘回收
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    tap.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:tap];
 }
 //设置text左侧标题
 -(void) setLeftTextView{
@@ -93,10 +87,6 @@
     _codeText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _codeText.keyboardType = UIReturnKeyDone;
     _codeText.clearButtonMode = UITextFieldViewModeWhileEditing;
-}
--(void)dismissKeyboard{
-    
-    [self.view endEditing:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

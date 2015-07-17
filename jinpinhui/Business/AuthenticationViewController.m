@@ -8,7 +8,7 @@
 
 #import "AuthenticationViewController.h"
 
-@interface AuthenticationViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface AuthenticationViewController ()<UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate , UINavigationControllerDelegate>
 @property (nonatomic ,strong)UITableView *tableView;
 @property (nonatomic ,strong)UILabel *industryLab;
 @property (nonatomic ,strong)UIButton *CardBtn;
@@ -41,7 +41,32 @@
     
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(CGRectGetMaxY(topView.frame), 0, 0, 0)]; //设置autoLayout
+    //使用NSNotificationCenter 鍵盤出現時
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWasShown:)
+     
+                                                 name:UIKeyboardWillShowNotification object:nil];
+    //使用NSNotificationCenter 鍵盤隐藏時
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWillBeHidden:)
+     
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
+//实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    CGRect keyboardBounds = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, keyboardBounds.size.height, 0);
+}
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+
+    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, 0, 0);
+
+}
+    
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 4;
 }
@@ -78,7 +103,7 @@
         }else if (indexPath.row == 3){
              cell.backgroundColor = [UIColor clearColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone; 
-            UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 250)];
+            UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 150)];
             backView.backgroundColor = [UIColor whiteColor];
             [cell.contentView addSubview:backView];
             
@@ -109,13 +134,54 @@
     if (indexPath.row == 1) {
         return 184;
     }else if (indexPath.row == 3){
-        return 270;
+        return 170;
     }else
         return 44;
 }
 //身份证上传
 -(void)CardAction{
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"从手机相册选择", @"拍照", nil];
+    [sheet showInView:self.view];
+
+}
+#pragma mark -
+#pragma mark UIActionSheetDelegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     
+    switch (buttonIndex) {
+        case 0:
+        {
+            UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+            ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            ipc.delegate = self;
+            ipc.allowsEditing = YES;
+            [self presentViewController:ipc animated:YES completion:nil];
+        }
+            break;
+            
+        case 1:
+        {
+            UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+            ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+            ipc.delegate = self;
+            ipc.allowsEditing = YES;
+            [self presentViewController:ipc animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // 刚刚选择的图片
+    UIImage *Cardimage = [info objectForKey:UIImagePickerControllerEditedImage];
+    [_CardBtn setImage:Cardimage forState:UIControlStateNormal];
+    [picker dismissViewControllerAnimated:YES completion:^{
+//        NSData *data = UIImageJPEGRepresentation(Cardimage, 0.75);
+    }];
 }
 //提交
 -(void)submitAction:(id)sender{
