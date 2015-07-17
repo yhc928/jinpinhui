@@ -10,6 +10,7 @@
  *  首页VC
  */
 #import "BaseViewController.h"
+#import "TitleCollectionView.h"
 
 @interface IndexViewController : BaseViewController
 

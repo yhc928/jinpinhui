@@ -11,7 +11,6 @@
  */
 #import <UIKit/UIKit.h>
 #import "CZRequest.h"         //在AFNetworking下二次封装网络请求
-#import "UIView+AutoLayout.h" //自动布局类目
 #import "MJRefresh.h"         //下拉刷新
 
 @class MBProgressHUD;
