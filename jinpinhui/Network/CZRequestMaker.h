@@ -31,7 +31,7 @@
  *
  *  @return CZRequestModel
  */
-- (CZRequestModel *)getBusinessCircleList;
+//- (CZRequestModel *)getBusinessCircleList;
 
 /**
  *  轮播图列表
@@ -40,21 +40,21 @@
  *
  *  @return CZRequestModel
  */
-- (CZRequestModel *)getBannerListWithMarket_type:(NSString *)market_type;
+//- (CZRequestModel *)getBannerListWithMarket_type:(NSString *)market_type;
 
 /**
  *  ⾸⻚页超市商品信息
  *
  *  @return CZRequestModel
  */
-- (CZRequestModel *)getHomeMarketGoods;
+//- (CZRequestModel *)getHomeMarketGoods;
 
 /**
  *  推荐商户
  *
  *  @return CZRequestModel
  */
-- (CZRequestModel *)getRecomdBusinessList;
+//- (CZRequestModel *)getRecomdBusinessList;
 
 /**
  *  特价商品
@@ -63,6 +63,6 @@
  *
  *  @return CZRequestModel
  */
-- (CZRequestModel *)getBargainGoodsWithMarket_type:(NSString *)market_type;
+//- (CZRequestModel *)getBargainGoodsWithMarket_type:(NSString *)market_type;
 
 @end

@@ -66,11 +66,10 @@
     
     //右侧边栏
     RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
-    UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
-    
+//    UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
     MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
                                                                            leftDrawerViewController:leftSideVC
-                                                                          rightDrawerViewController:rightSideNav];
+                                                                          rightDrawerViewController:rightSideVC];
     
     drawerController.showsShadow = YES;
     drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
@@ -79,11 +78,12 @@
     drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     
     //直接进入首页、还是主页
-//    NSString *loginStatus = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:LOGINSTATUS]];
-//    if (!NULL_STR(loginStatus) && [loginStatus isEqualToString:@"2"]) {
-//         self.window.rootViewController =  drawerController;
-//    }else
-    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[AuthenticationViewController new]];
+    NSString *loginStatus = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:LOGINSTATUS]];
+    if (!NULL_STR(loginStatus) && [loginStatus isEqualToString:@"2"]) {
+         self.window.rootViewController =  drawerController;
+    }else
+    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
+
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

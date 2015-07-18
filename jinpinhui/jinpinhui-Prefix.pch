@@ -10,5 +10,6 @@
 #define jinpinhui_jinpinhui_Prefix_pch
 
 #import "AppMacro.h"
+#import "UIView+AutoLayout.h"
 
 #endif

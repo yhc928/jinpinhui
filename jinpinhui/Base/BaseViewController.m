@@ -11,7 +11,8 @@
 #import "AFNetworkReachabilityManager.h" //AFNetworking网络检测
 #import "MBProgressHUD.h"                //HUD指示器
 #import "RegExp.h"                       //正则验证
-
+#import "LoginViewController.h"
+#import "IndexViewController.h"
 @interface BaseViewController ()
 
 @property (nonatomic, strong) MBProgressHUD           *progressHUD;        //HUD
@@ -39,15 +40,6 @@
     //设置所有页面的背景色
     self.view.backgroundColor = BACKGROUND_COLOR;
     
-    //返回按钮
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.frame = ITEM_FRAME;
-    [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateHighlighted];
-    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [backButton addTarget:self action:@selector(didBack) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    
     //导航栏右侧按钮
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rightButton.frame = ITEM_FRAME;
@@ -57,7 +49,6 @@
         //设置滑动返回手势
         self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
         
-        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
     //点击背景键盘回收
@@ -67,7 +58,22 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
 }
+-(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if (![viewController isKindOfClass:[IndexViewController class]] && ![viewController isKindOfClass:[LoginViewController class]]) {
+        //返回按钮
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        backButton.frame = ITEM_FRAME;
+        [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateNormal];
+        [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateHighlighted];
+        backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        [backButton addTarget:self action:@selector(didBack) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        if (IS_IOS_7) {
+            backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+        }
+    }
 
+}
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {

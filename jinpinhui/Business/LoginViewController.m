@@ -133,11 +133,11 @@
         
         //右侧边栏
         RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
-        UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
+    
         
         MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
                                                                                leftDrawerViewController:leftSideVC
-                                                                              rightDrawerViewController:rightSideNav];
+                                                                              rightDrawerViewController:rightSideVC];
         
         drawerController.showsShadow = YES;
         drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;

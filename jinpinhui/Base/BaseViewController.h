@@ -11,12 +11,11 @@
  */
 #import <UIKit/UIKit.h>
 #import "CZRequest.h"         //在AFNetworking下二次封装网络请求
-#import "UIView+AutoLayout.h" //自动布局类目
 #import "MJRefresh.h"         //下拉刷新
 
 @class MBProgressHUD;
 
-@interface BaseViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate>
+@interface BaseViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) UIButton *rightButton; //导航栏右侧按钮
 @property (nonatomic, strong) NSMutableDictionary *Parameters; //post 请求参数
