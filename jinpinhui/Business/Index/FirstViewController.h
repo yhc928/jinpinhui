@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CycleScrollView.h"
 
-@interface FirstViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface FirstViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,CycleScrollViewDelegate>
 
 @end

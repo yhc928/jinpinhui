@@ -10,8 +10,6 @@
 	<string>jinpinhui</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>995526f7-eb07-4341-b49d-51d3d9d55990++4251</key>
-		<string>http://nam%5cscao021@172.27.69.200:81/SVN/PWCMobile/Trunk/000%2520Source%2520Code/WinField/000%2520Source%2520Code/WinField/WinField/External/PWSCalendar</string>
 		<key>B155EC1CA0F4C237A527D8922CBC35B2D83BCA47</key>
 		<string>https://github.com/yhc928/jinpinhui.git</string>
 	</dict>
@@ -19,15 +17,8 @@
 	<string>jinpinhui.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>995526f7-eb07-4341-b49d-51d3d9d55990++4251</key>
-		<string>../../jinpinhui/ThirdPart/PWSCalendar/</string>
 		<key>B155EC1CA0F4C237A527D8922CBC35B2D83BCA47</key>
 		<string>../..</string>
-	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>995526f7-eb07-4341-b49d-51d3d9d55990++4251</key>
-		<string>http://nam%5cscao021@172.27.69.200:81/SVN/PWCMobile</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/yhc928/jinpinhui.git</string>
@@ -44,14 +35,6 @@
 			<string>B155EC1CA0F4C237A527D8922CBC35B2D83BCA47</string>
 			<key>IDESourceControlWCCName</key>
 			<string>jinpinhui</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>995526f7-eb07-4341-b49d-51d3d9d55990++4251</string>
-			<key>IDESourceControlWCCName</key>
-			<string>PWSCalendar</string>
 		</dict>
 	</array>
 </dict>

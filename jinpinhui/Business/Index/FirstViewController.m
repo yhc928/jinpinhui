@@ -7,10 +7,13 @@
 //
 
 #import "FirstViewController.h"
+#import "CycleScrollView.h"
+#import "IndexCell.h"
 
 @interface FirstViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;   //城市列表
+@property (nonatomic, strong) CycleScrollView *cycleScrollView;
 @property (nonatomic, strong) NSArray     *dataArray;   //数据
 
 @end
@@ -29,6 +32,11 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    
+    self.cycleScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*3/8)];
+    self.cycleScrollView.delegate = self;
+    self.cycleScrollView.imageArray = @[@"1",@"2",@"3"];
+    self.tableView.tableHeaderView = self.cycleScrollView;
     
 //*************************************************************************************************************
     NSString *leftSidePath = [[NSBundle mainBundle] pathForResource:@"leftSide" ofType:@"plist"];
@@ -86,6 +94,12 @@
 {
     //取消选中效果
     //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - CycleScrollViewDelegate
+- (void)cycleScrollView:(CycleScrollView *)cycleScrollView didSelectImageView:(NSInteger)index
+{
+    
 }
 
 @end
