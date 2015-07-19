@@ -13,12 +13,11 @@
 #import "RegExp.h"                       //正则验证
 #import "LoginViewController.h"
 #import "IndexViewController.h"
+
 @interface BaseViewController ()
 
 @property (nonatomic, strong) MBProgressHUD           *progressHUD;        //HUD
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;      //指示器
-@property (nonatomic, strong) UIImageView             *loadImageView;      //加载图片view
-
 @property (nonatomic, strong) UIAlertView             *noNetworkAlertView; //无网络提示view
 @end
 
@@ -40,6 +39,14 @@
     //设置所有页面的背景色
     self.view.backgroundColor = BACKGROUND_COLOR;
     
+    //返回按钮
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.frame = ITEM_FRAME;
+    [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateNormal];
+    backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [backButton addTarget:self action:@selector(didBack) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
     //导航栏右侧按钮
     self.rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.rightButton.frame = ITEM_FRAME;
@@ -49,8 +56,10 @@
         //设置滑动返回手势
         self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
         
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
         self.rightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     }
+    
     //点击背景键盘回收
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -58,22 +67,7 @@
     tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
 }
--(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if (![viewController isKindOfClass:[IndexViewController class]] && ![viewController isKindOfClass:[LoginViewController class]]) {
-        //返回按钮
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = ITEM_FRAME;
-        [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateNormal];
-        [backButton setImage:[UIImage imageNamed:@"navback"] forState:UIControlStateHighlighted];
-        backButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [backButton addTarget:self action:@selector(didBack) forControlEvents:UIControlEventTouchUpInside];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-        if (IS_IOS_7) {
-            backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
-        }
-    }
 
-}
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
@@ -163,49 +157,45 @@
     }
 }
 
+#pragma mark - HUD
+
 //显示HUD
-- (MBProgressHUD *)showProgressHUD
+- (void)showProgressHUD
 {
-    return [self showProgressHUDWithText:nil];
+    [self showProgressHUDWithText:nil];
 }
 
 //显示有文字HUD
-- (MBProgressHUD *)showProgressHUDWithText:(NSString *)text
+- (void)showProgressHUDWithText:(NSString *)text
 {
-    if (self.progressHUD != nil) {
-        [self hideProgressHUD];
+    if (self.progressHUD) {
+        self.progressHUD = nil;
     }
     
     self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-    
+    self.progressHUD.removeFromSuperViewOnHide = YES;
     if (text) {
         self.progressHUD.labelText = text;
     }
-    
     [self.view addSubview:self.progressHUD];
-    [self.progressHUD show:YES];
     
-    return self.progressHUD;
+    [self.progressHUD show:YES];
 }
 
 //显示自定义HUD
-- (MBProgressHUD *)showCustomProgressHUD:(NSString *)text
+- (void)showCustomProgressHUDWithText:(NSString *)text
 {
     if (!NULL_STR(text)) {
-        if (self.progressHUD != nil) {
-            [self hideProgressHUD];
-        }
+        MBProgressHUD *progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+        progressHUD.removeFromSuperViewOnHide = YES;
+        progressHUD.mode = MBProgressHUDModeText;
+        progressHUD.labelText = text;
+        progressHUD.userInteractionEnabled = NO;
+        [myAppDelegate.window addSubview:progressHUD];
         
-        self.progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
-        self.progressHUD.mode = MBProgressHUDModeText;
-        
-        self.progressHUD.labelText = text;
-        [self.view addSubview:self.progressHUD];
-        [self.progressHUD show:YES];
-        [self.progressHUD hide:YES afterDelay:1];
+        [progressHUD show:YES];
+        [progressHUD hide:YES afterDelay:1];
     }
-    
-    return self.progressHUD;
 }
 
 //隐藏HUD
@@ -213,8 +203,6 @@
 {
     if (self.progressHUD) {
         [self.progressHUD hide:YES];
-        [self.progressHUD removeFromSuperview];
-        self.progressHUD = nil;
     }
 }
 
@@ -315,6 +303,7 @@
    
     return _Parameters;
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

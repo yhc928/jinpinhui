@@ -10,12 +10,14 @@
 #import "AFNetworkActivityIndicatorManager.h" //AFNetworking状态栏指示器
 #import "AFNetworkReachabilityManager.h"      //AFNetworking网络检测
 
-#import "MMDrawerController.h"
+#import "MyDrawerViewController.h"
+
 #import "IndexViewController.h"
 #import "LeftSideViewController.h"
 #import "RightSideViewController.h"
 #import "LoginViewController.h"
 #import "AuthenticationViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -54,9 +56,6 @@
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
-    
-//    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
-    
     //首页
     IndexViewController *indexVC = [[IndexViewController alloc] init];
     UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
@@ -66,24 +65,23 @@
     
     //右侧边栏
     RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
-//    UINavigationController *rightSideNav = [[UINavigationController alloc] initWithRootViewController:rightSideVC];
-    MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
-                                                                           leftDrawerViewController:leftSideVC
-                                                                          rightDrawerViewController:rightSideVC];
+    self.drawerController = [[MyDrawerViewController alloc] initWithCenterViewController:indexNav
+                                                                leftDrawerViewController:leftSideVC
+                                                               rightDrawerViewController:rightSideVC];
     
-    drawerController.showsShadow = YES;
-    drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
-    drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
-    drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-    drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    self.drawerController.showsShadow = YES;
+    self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
+    self.drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
+    self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     
     //直接进入首页、还是主页
     NSString *loginStatus = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:LOGINSTATUS]];
     if (!NULL_STR(loginStatus) && [loginStatus isEqualToString:@"2"]) {
-         self.window.rootViewController =  drawerController;
-    }else
-    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[LoginViewController new]];
-
+        self.window.rootViewController =  [[UINavigationController alloc] initWithRootViewController:self.drawerController];
+    } else {
+        self.window.rootViewController =  [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+    }
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

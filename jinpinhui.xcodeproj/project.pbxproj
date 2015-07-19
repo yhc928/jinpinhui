@@ -89,6 +89,7 @@
 		D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A741B58A92400F95295 /* TitleCollectionCell.m */; };
 		D0946A7E1B58E9F600F95295 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A7D1B58E9F600F95295 /* FirstViewController.m */; };
 		D0946A811B58EA0B00F95295 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A801B58EA0B00F95295 /* SecondViewController.m */; };
+		D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -272,6 +273,8 @@
 		D0946A7D1B58E9F600F95295 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		D0946A7F1B58EA0B00F95295 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		D0946A801B58EA0B00F95295 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		D0B81BA91B5B7B63003D80A2 /* MyDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerViewController.h; sourceTree = "<group>"; };
+		D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -624,6 +627,8 @@
 			isa = PBXGroup;
 			children = (
 				D0946A6C1B58A7D200F95295 /* TitleCollectionView */,
+				D0B81BA91B5B7B63003D80A2 /* MyDrawerViewController.h */,
+				D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */,
 				D078C4D71B4AA0B6002C65CA /* IndexViewController.h */,
 				D078C4D81B4AA0B6002C65CA /* IndexViewController.m */,
 				D0946A7C1B58E9F600F95295 /* FirstViewController.h */,
@@ -823,6 +828,7 @@
 				CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */,
 				D078C4B91B4A9C8D002C65CA /* UIScrollView+MJRefresh.m in Sources */,
 				D078C4BC1B4A9C8D002C65CA /* MMDrawerController.m in Sources */,
+				D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */,
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
 				D078C4D91B4AA0B6002C65CA /* IndexViewController.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "RightSideViewController.h"
 #import "PersonalCenterViewController.h"
+#import "MyDrawerViewController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
@@ -148,7 +149,7 @@
     //centerViewController
     if (indexPath.row == 0) {
         PersonalCenterViewController *personalcenter = [[PersonalCenterViewController alloc]init];
-        [self.navigationController pushViewController:personalcenter animated:YES];
+        [myAppDelegate.drawerController.navigationController pushViewController:personalcenter animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {

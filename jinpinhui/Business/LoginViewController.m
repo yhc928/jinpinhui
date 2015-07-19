@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisteredViewController.h"
-#import "MMDrawerController.h"
+#import "MyDrawerViewController.h"
 #import "IndexViewController.h"
 #import "LeftSideViewController.h"
 #import "RightSideViewController.h"
@@ -124,7 +124,7 @@
         [userdefaules setValue:[NSString stringWithFormat:@"%zi",_loginStatus] forKey:LOGINSTATUS];
         [userdefaules synchronize];
         
-        //首页
+        /*//首页
         IndexViewController *indexVC = [[IndexViewController alloc] init];
         UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
         
@@ -143,11 +143,11 @@
         drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
         drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-        window.rootViewController = drawerController;
+        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
+        
+        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];;
     }else {
-        [self showCustomProgressHUD:[resultDic objectForKey:@"error"]];
+        [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
     }
     
 }

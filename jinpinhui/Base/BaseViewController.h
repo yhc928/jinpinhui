@@ -10,17 +10,18 @@
  * 页面的基类
  */
 #import <UIKit/UIKit.h>
-#import "CZRequest.h"         //在AFNetworking下二次封装网络请求
-#import "MJRefresh.h"         //下拉刷新
+#import "CZRequest.h" //在AFNetworking下二次封装网络请求
+#import "MJRefresh.h" //下拉刷新
 
 @class MBProgressHUD;
 
-@interface BaseViewController : UIViewController<UIScrollViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate,UINavigationControllerDelegate>
+@interface BaseViewController : UIViewController<UIActionSheetDelegate,UIAlertViewDelegate,CZRequestHelperDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic, strong) UIButton *rightButton; //导航栏右侧按钮
-@property (nonatomic, strong) NSMutableDictionary *Parameters; //post 请求参数
-@property (nonatomic, strong) NSString *encryption;//md5 加密参数
-@property (nonatomic, strong) NSString *getCurrentTime;
+@property (nonatomic, strong) UIButton            *rightButton;//导航栏右侧按钮
+@property (nonatomic, strong) NSMutableDictionary *Parameters;//post 请求参数
+@property (nonatomic, strong) NSString            *encryption;//md5 加密参数
+@property (nonatomic, strong) NSString            *getCurrentTime;
+
 /**
  *  发送网路请求
  *
@@ -63,28 +64,26 @@
  */
 - (void)showActionSheetWithTitle:(NSString *)title;
 
+#pragma mark - HUD
+
 /**
  * 显示HUD
  */
-- (MBProgressHUD *)showProgressHUD;
+- (void)showProgressHUD;
 
 /**
  *  显示有文字HUD
  *
  *  @param text 提示文字
- *
- *  @return HUD
  */
-- (MBProgressHUD *)showProgressHUDWithText:(NSString *)text;
+- (void)showProgressHUDWithText:(NSString *)text;
 
 /**
  *  显示自定义HUD
  *
  *  @param text 提示文字
- *
- *  @return HUD
  */
-- (MBProgressHUD *)showCustomProgressHUD:(NSString *)text;
+- (void)showCustomProgressHUDWithText:(NSString *)text;
 
 /**
  * 隐藏HUD
