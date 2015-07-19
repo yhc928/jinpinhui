@@ -14,6 +14,8 @@
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
 		CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */; };
 		CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */; };
+		CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5425B1B5B708800C6180B /* CommissionViewController.m */; };
+		CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5425C1B5B708800C6180B /* CommissionViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
@@ -110,6 +112,9 @@
 		CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = rigthSide.plist; sourceTree = "<group>"; };
 		CDD38AD01B5A94C60086B5CB /* PersonalCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterTableViewCell.h; sourceTree = "<group>"; };
 		CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterTableViewCell.m; sourceTree = "<group>"; };
+		CDD5425A1B5B708800C6180B /* CommissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionViewController.h; sourceTree = "<group>"; };
+		CDD5425B1B5B708800C6180B /* CommissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionViewController.m; sourceTree = "<group>"; };
+		CDD5425C1B5B708800C6180B /* CommissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommissionViewController.xib; sourceTree = "<group>"; };
 		CDD69DE41B5556350062FD86 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
@@ -302,6 +307,16 @@
 			name = Login;
 			sourceTree = "<group>";
 		};
+		CDD542591B5B703500C6180B /* Commission */ = {
+			isa = PBXGroup;
+			children = (
+				CDD5425A1B5B708800C6180B /* CommissionViewController.h */,
+				CDD5425B1B5B708800C6180B /* CommissionViewController.m */,
+				CDD5425C1B5B708800C6180B /* CommissionViewController.xib */,
+			);
+			name = Commission;
+			sourceTree = "<group>";
+		};
 		CDD69DE31B5548880062FD86 /* Personalcenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +409,7 @@
 				D08F823A1B52767B00F6E7C9 /* LeftSide */,
 				D08F823B1B52767B00F6E7C9 /* RightSide */,
 				CDD69DE31B5548880062FD86 /* Personalcenter */,
+				CDD542591B5B703500C6180B /* Commission */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -763,6 +779,7 @@
 				D08F82471B527E5C00F6E7C9 /* aboutUs.txt in Resources */,
 				CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */,
 				CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */,
+				CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
@@ -803,6 +820,7 @@
 				D078C4A61B4A9C8D002C65CA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D078C4B01B4A9C8D002C65CA /* MJRefreshComponent.m in Sources */,
 				CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */,
+				CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */,
 				D078C4B91B4A9C8D002C65CA /* UIScrollView+MJRefresh.m in Sources */,
 				D078C4BC1B4A9C8D002C65CA /* MMDrawerController.m in Sources */,
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
