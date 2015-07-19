@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"个人中心";
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
@@ -58,7 +59,7 @@
     _nicknameBtn.frame = CGRectMake((SCREEN_WIDTH - 70) / 2, CGRectGetMaxY(headbtn_bg.frame) + 10, 70, 70);
     _nicknameBtn.adjustsImageWhenHighlighted = NO;
     _nicknameBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [_nicknameBtn setTitle:@"13212345678" forState:UIControlStateNormal];
+    [_nicknameBtn setTitle:@"输入昵称" forState:UIControlStateNormal];
     [_nicknameBtn setTitleColor:UIColorFromRGB(65, 65, 61) forState:UIControlStateNormal];
     [_nicknameBtn addTarget:self action:@selector(updateNickAction) forControlEvents:UIControlEventTouchUpInside];
     [head_bg addSubview:_nicknameBtn];

@@ -1,23 +1,24 @@
 //
-//  CommissionViewController.m
+//  InvitationViewController.m
 //  jinpinhui
 //
 //  Created by 于海超 on 15/7/19.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
-#import "CommissionViewController.h"
+#import "InvitationViewController.h"
 
-@interface CommissionViewController ()
+@interface InvitationViewController ()
 
 @end
 
-@implementation CommissionViewController
+@implementation InvitationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"我的佣金";
+    self.title = @"邀请好友赚金币";
+     [_invitationBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
 }
 
 - (void)didReceiveMemoryWarning {

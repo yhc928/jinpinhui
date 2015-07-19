@@ -16,6 +16,16 @@
 		CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */; };
 		CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5425B1B5B708800C6180B /* CommissionViewController.m */; };
 		CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5425C1B5B708800C6180B /* CommissionViewController.xib */; };
+		CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD542631B5BB37500C6180B /* SigninViewController.m */; };
+		CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5426E1B5BB4F900C6180B /* PWSCalendarDayCell.m */; };
+		CDD542751B5BB4F900C6180B /* PWSCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD542701B5BB4F900C6180B /* PWSCalendarView.m */; };
+		CDD542761B5BB4F900C6180B /* PWSCalendarViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD542721B5BB4F900C6180B /* PWSCalendarViewCell.m */; };
+		CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD542781B5BB53900C6180B /* PWSCalendarSegmentView.m */; };
+		CDD5427E1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5427A1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m */; };
+		CDD5427F1B5BB53900C6180B /* PWSHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5427C1B5BB53900C6180B /* PWSHelper.m */; };
+		CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */ = {isa = PBXBuildFile; fileRef = CDD542801B5BE1C000C6180B /* qiandao.txt */; };
+		CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD542841B5BE7D000C6180B /* InvitationViewController.m */; };
+		CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD542851B5BE7D000C6180B /* InvitationViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
@@ -116,6 +126,24 @@
 		CDD5425A1B5B708800C6180B /* CommissionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommissionViewController.h; sourceTree = "<group>"; };
 		CDD5425B1B5B708800C6180B /* CommissionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommissionViewController.m; sourceTree = "<group>"; };
 		CDD5425C1B5B708800C6180B /* CommissionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommissionViewController.xib; sourceTree = "<group>"; };
+		CDD542621B5BB37500C6180B /* SigninViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SigninViewController.h; sourceTree = "<group>"; };
+		CDD542631B5BB37500C6180B /* SigninViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SigninViewController.m; sourceTree = "<group>"; };
+		CDD5426D1B5BB4F900C6180B /* PWSCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSCalendarDayCell.h; sourceTree = "<group>"; };
+		CDD5426E1B5BB4F900C6180B /* PWSCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSCalendarDayCell.m; sourceTree = "<group>"; };
+		CDD5426F1B5BB4F900C6180B /* PWSCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSCalendarView.h; sourceTree = "<group>"; };
+		CDD542701B5BB4F900C6180B /* PWSCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSCalendarView.m; sourceTree = "<group>"; };
+		CDD542711B5BB4F900C6180B /* PWSCalendarViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSCalendarViewCell.h; sourceTree = "<group>"; };
+		CDD542721B5BB4F900C6180B /* PWSCalendarViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSCalendarViewCell.m; sourceTree = "<group>"; };
+		CDD542771B5BB53900C6180B /* PWSCalendarSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSCalendarSegmentView.h; sourceTree = "<group>"; };
+		CDD542781B5BB53900C6180B /* PWSCalendarSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSCalendarSegmentView.m; sourceTree = "<group>"; };
+		CDD542791B5BB53900C6180B /* PWSCalendarViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSCalendarViewFlowLayout.h; sourceTree = "<group>"; };
+		CDD5427A1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSCalendarViewFlowLayout.m; sourceTree = "<group>"; };
+		CDD5427B1B5BB53900C6180B /* PWSHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PWSHelper.h; sourceTree = "<group>"; };
+		CDD5427C1B5BB53900C6180B /* PWSHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PWSHelper.m; sourceTree = "<group>"; };
+		CDD542801B5BE1C000C6180B /* qiandao.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = qiandao.txt; sourceTree = "<group>"; };
+		CDD542831B5BE7D000C6180B /* InvitationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvitationViewController.h; sourceTree = "<group>"; };
+		CDD542841B5BE7D000C6180B /* InvitationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvitationViewController.m; sourceTree = "<group>"; };
+		CDD542851B5BE7D000C6180B /* InvitationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InvitationViewController.xib; sourceTree = "<group>"; };
 		CDD69DE41B5556350062FD86 /* PersonalCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterViewController.h; sourceTree = "<group>"; };
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
@@ -320,6 +348,44 @@
 			name = Commission;
 			sourceTree = "<group>";
 		};
+		CDD542611B5BB35D00C6180B /* Signin */ = {
+			isa = PBXGroup;
+			children = (
+				CDD542621B5BB37500C6180B /* SigninViewController.h */,
+				CDD542631B5BB37500C6180B /* SigninViewController.m */,
+			);
+			name = Signin;
+			sourceTree = "<group>";
+		};
+		CDD5426B1B5BB4C700C6180B /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				CDD542771B5BB53900C6180B /* PWSCalendarSegmentView.h */,
+				CDD542781B5BB53900C6180B /* PWSCalendarSegmentView.m */,
+				CDD542791B5BB53900C6180B /* PWSCalendarViewFlowLayout.h */,
+				CDD5427A1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m */,
+				CDD5427B1B5BB53900C6180B /* PWSHelper.h */,
+				CDD5427C1B5BB53900C6180B /* PWSHelper.m */,
+				CDD5426D1B5BB4F900C6180B /* PWSCalendarDayCell.h */,
+				CDD5426E1B5BB4F900C6180B /* PWSCalendarDayCell.m */,
+				CDD5426F1B5BB4F900C6180B /* PWSCalendarView.h */,
+				CDD542701B5BB4F900C6180B /* PWSCalendarView.m */,
+				CDD542711B5BB4F900C6180B /* PWSCalendarViewCell.h */,
+				CDD542721B5BB4F900C6180B /* PWSCalendarViewCell.m */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		CDD542821B5BE7A300C6180B /* invitation */ = {
+			isa = PBXGroup;
+			children = (
+				CDD542831B5BE7D000C6180B /* InvitationViewController.h */,
+				CDD542841B5BE7D000C6180B /* InvitationViewController.m */,
+				CDD542851B5BE7D000C6180B /* InvitationViewController.xib */,
+			);
+			name = invitation;
+			sourceTree = "<group>";
+		};
 		CDD69DE31B5548880062FD86 /* Personalcenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +479,8 @@
 				D08F823B1B52767B00F6E7C9 /* RightSide */,
 				CDD69DE31B5548880062FD86 /* Personalcenter */,
 				CDD542591B5B703500C6180B /* Commission */,
+				CDD542611B5BB35D00C6180B /* Signin */,
+				CDD542821B5BE7A300C6180B /* invitation */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -450,6 +518,7 @@
 		D078C41D1B4A9C8D002C65CA /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				CDD5426B1B5BB4C700C6180B /* Calendar */,
 				D078C41E1B4A9C8D002C65CA /* AFNetworking */,
 				D078C4451B4A9C8D002C65CA /* MBProgressHUD */,
 				D078C4481B4A9C8D002C65CA /* MJRefresh */,
@@ -681,6 +750,7 @@
 		D08F82431B527E5C00F6E7C9 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				CDD542801B5BE1C000C6180B /* qiandao.txt */,
 				CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */,
 				CD2A58641B580AB90007B8EE /* yaoqing.txt */,
 				D08F82441B527E5C00F6E7C9 /* aboutUs.txt */,
@@ -788,7 +858,9 @@
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
+				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
 				D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */,
+				CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */,
 				CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */,
 				CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */,
 			);
@@ -819,6 +891,7 @@
 				D078C4B21B4A9C8D002C65CA /* MJRefreshFooter.m in Sources */,
 				D078C4BE1B4A9C8D002C65CA /* UIViewController+MMDrawerController.m in Sources */,
 				D078C4BD1B4A9C8D002C65CA /* MMDrawerVisualState.m in Sources */,
+				CDD542761B5BB4F900C6180B /* PWSCalendarViewCell.m in Sources */,
 				D078C4CB1B4A9C8D002C65CA /* UIImage+WebP.m in Sources */,
 				D078C4AB1B4A9C8D002C65CA /* UIProgressView+AFNetworking.m in Sources */,
 				D078C4A81B4A9C8D002C65CA /* UIAlertView+AFNetworking.m in Sources */,
@@ -832,6 +905,7 @@
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
 				D078C4D91B4AA0B6002C65CA /* IndexViewController.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
+				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -851,29 +925,35 @@
 				D0946A7E1B58E9F600F95295 /* FirstViewController.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
 				D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */,
+				CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */,
 				D078C4CA1B4A9C8D002C65CA /* UIImage+MultiFormat.m in Sources */,
 				D078C4C31B4A9C8D002C65CA /* SDWebImageDecoder.m in Sources */,
 				D078C49A1B4A9C8D002C65CA /* CZRequestModel.m in Sources */,
 				D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */,
 				D078C4BA1B4A9C8D002C65CA /* UIView+MJExtension.m in Sources */,
+				CDD5427E1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m in Sources */,
 				D078C4971B4A9C8D002C65CA /* BaseViewController.m in Sources */,
 				D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */,
 				D078C4CC1B4A9C8D002C65CA /* UIImageView+HighlightedWebCache.m in Sources */,
 				D078C4A51B4A9C8D002C65CA /* AFURLSessionManager.m in Sources */,
 				D078C4A41B4A9C8D002C65CA /* AFURLResponseSerialization.m in Sources */,
+				CDD5427F1B5BB53900C6180B /* PWSHelper.m in Sources */,
 				CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */,
 				D078C4B41B4A9C8D002C65CA /* MJRefreshGifHeader.m in Sources */,
+				CDD542751B5BB4F900C6180B /* PWSCalendarView.m in Sources */,
 				D078C4981B4A9C8D002C65CA /* CZRequestHelper.m in Sources */,
 				CD852EA31B522560009944C8 /* LoginViewController.m in Sources */,
 				D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */,
 				D078C4A31B4A9C8D002C65CA /* AFURLRequestSerialization.m in Sources */,
 				D078C4AC1B4A9C8D002C65CA /* UIRefreshControl+AFNetworking.m in Sources */,
+				CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */,
 				D0946A811B58EA0B00F95295 /* SecondViewController.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
+				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
 				D078C4C51B4A9C8D002C65CA /* SDWebImageDownloaderOperation.m in Sources */,

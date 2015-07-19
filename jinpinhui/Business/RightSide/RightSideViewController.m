@@ -9,6 +9,9 @@
 #import "RightSideViewController.h"
 #import "PersonalCenterViewController.h"
 #import "MyDrawerViewController.h"
+#import "CommissionViewController.h"
+#import "SigninViewController.h"
+#import "InvitationViewController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
@@ -150,6 +153,17 @@
     if (indexPath.row == 0) {
         PersonalCenterViewController *personalcenter = [[PersonalCenterViewController alloc]init];
         [myAppDelegate.drawerController.navigationController pushViewController:personalcenter animated:YES];
+    }else if (indexPath.row == 1){
+    
+    }else if (indexPath.row == 2){
+        CommissionViewController *commission =  [[CommissionViewController alloc]init];
+        [myAppDelegate.drawerController.navigationController pushViewController:commission animated:YES];
+    }else if (indexPath.row == 3){
+        SigninViewController *signin = [[SigninViewController alloc]init];
+        [myAppDelegate.drawerController.navigationController pushViewController:signin animated:YES];
+    }else if (indexPath.row == 4){
+        InvitationViewController *invitation = [[InvitationViewController alloc]init];
+        [myAppDelegate.drawerController.navigationController pushViewController:invitation animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {
