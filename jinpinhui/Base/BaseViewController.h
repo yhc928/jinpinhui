@@ -10,8 +10,8 @@
  * 页面的基类
  */
 #import <UIKit/UIKit.h>
-#import "CZRequest.h"         //在AFNetworking下二次封装网络请求
-#import "MJRefresh.h"         //下拉刷新
+#import "CZRequest.h" //在AFNetworking下二次封装网络请求
+#import "MJRefresh.h" //下拉刷新
 
 @class MBProgressHUD;
 
@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSMutableDictionary *Parameters;//post 请求参数
 @property (nonatomic, strong) NSString            *encryption;//md5 加密参数
 @property (nonatomic, strong) NSString            *getCurrentTime;
+
 /**
  *  发送网路请求
  *
