@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MyDrawerViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) UIWindow               *window;
+@property (strong, nonatomic) MyDrawerViewController *drawerController;
 
 @end
 

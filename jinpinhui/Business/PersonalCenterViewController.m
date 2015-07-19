@@ -31,7 +31,7 @@
     self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [self FooterView];
     [self.view addSubview:self.tableView];
-    [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(64, 0, 0, 0)]; //设置autoLayout
+    [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
 
 }
 - (UIView *)HeadView{

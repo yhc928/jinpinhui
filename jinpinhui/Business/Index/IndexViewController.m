@@ -9,6 +9,7 @@
 #import "IndexViewController.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
+#import "MyDrawerViewController.h"
 
 @interface IndexViewController ()
 
@@ -92,6 +93,9 @@
 
 }
 - (void)SideAction{
+    [myAppDelegate.drawerController openDrawerSide:MMDrawerSideRight animated:YES completion:^(BOOL finished) {
+        
+    }];
     
 }
 #pragma mark - CZRequestHelperDelegate
