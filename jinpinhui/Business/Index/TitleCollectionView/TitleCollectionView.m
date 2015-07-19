@@ -63,6 +63,12 @@
     //设置数据
     cell.titleLabel.text = self.dataArray[indexPath.row];
     
+    if (indexPath.row == _currentMultiple) {
+        cell.titleLabel.textColor = UIColorFromRGB(252, 102, 34);
+    } else {
+        cell.titleLabel.textColor = [UIColor blackColor];
+    }
+    
     return cell;
 }
 
@@ -85,22 +91,59 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat content_x = item_width+(indexPath.row-2)*total_width;
+    //设置当前页为点击页
+    _currentMultiple = indexPath.row;
     
-    if (content_x < 0) {
-        content_x = 0;
-    } else if (content_x > collectionView.contentSize.width-SCREEN_WIDTH-total_width) {
-        content_x = collectionView.contentSize.width-SCREEN_WIDTH;
+    if (_currentMultiple != _lastMultiple) {
+        //代理
+        if ([_myDelegate respondsToSelector:@selector(titleCollectionView:didSelectedIndex:)]) {
+            [_myDelegate titleCollectionView:self didSelectedIndex:indexPath.row];
+        }
+    }
+}
+
+- (void)bgScrollViewDidScroll:(CGFloat)content_x
+{
+    //设置底部选中条的frame
+    CGRect frame = _selectedView.frame;
+    frame.origin.x = margin + content_x*total_width/SCREEN_WIDTH;
+    _selectedView.frame = frame;
+    
+    /**
+     *  取出当前页面的页数
+     *  如果是点击则不获取当前页，在点击的回调方法里设置
+     *  原因是点击之后，在这个方法里当前页会获取多次
+     */
+    if (self.isScroll == YES) {
+        _currentMultiple = (content_x+(SCREEN_WIDTH/2))/SCREEN_WIDTH;
     }
     
-    [self setContentOffset:CGPointMake(content_x, 0) animated:YES];
-    
-    //设置选中条
-    [UIView animateWithDuration:0.5 animations:^{
-        CGRect frame = _selectedView.frame;
-        frame.origin.x = margin+indexPath.row*total_width;
-        _selectedView.frame = frame;
-    }];
+    //如果当前页和上一页不相同，则设置CollectionView的偏移量和选中当前页
+    if (_lastMultiple != _currentMultiple) {
+        //取出CollectionView的偏移量
+        CGFloat content_x = margin + total_width*(_currentMultiple-2);
+        
+        //开头和末尾需要处理
+        if (content_x < 0) {
+            content_x = 0;
+        } else if (content_x > self.contentSize.width-SCREEN_WIDTH) {
+            content_x = self.contentSize.width-SCREEN_WIDTH;
+        }
+        
+        //设置偏移量
+        [self setContentOffset:CGPointMake(content_x, 0) animated:YES];
+        
+        //取出上次选中cell
+        TitleCollectionCell *lastCell = (TitleCollectionCell *)[self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_lastMultiple inSection:0]];
+        lastCell.titleLabel.textColor = [UIColor blackColor];
+        
+        //取出当前选中cell
+        TitleCollectionCell *currentCell = (TitleCollectionCell *)[self cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_currentMultiple inSection:0]];
+        currentCell.titleLabel.textColor = UIColorFromRGB(252, 102, 34);
+        
+        //设置上一页等于当前页
+        _lastMultiple = _currentMultiple;
+    }
 }
 
 @end

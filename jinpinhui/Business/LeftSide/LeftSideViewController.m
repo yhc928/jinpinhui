@@ -74,7 +74,7 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_side_selected"]];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = FONT_26PX;
+        cell.textLabel.font = FONT_30PX;
     }
     
     NSDictionary *dict = self.dataArray[indexPath.row];

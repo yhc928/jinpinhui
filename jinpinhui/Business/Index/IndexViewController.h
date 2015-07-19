@@ -12,6 +12,6 @@
 #import "BaseViewController.h"
 #import "TitleCollectionView.h"
 
-@interface IndexViewController : BaseViewController
+@interface IndexViewController : BaseViewController<UIScrollViewDelegate,UIGestureRecognizerDelegate,TitleCollectionViewDelegate>
 
 @end

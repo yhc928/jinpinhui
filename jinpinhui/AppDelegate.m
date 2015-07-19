@@ -70,6 +70,7 @@
                                                                rightDrawerViewController:rightSideVC];
     
     self.drawerController.showsShadow = YES;
+    self.drawerController.shouldStretchDrawer = NO;
     self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
     self.drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;

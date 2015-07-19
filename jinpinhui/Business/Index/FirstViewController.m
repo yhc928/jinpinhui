@@ -10,29 +10,82 @@
 
 @interface FirstViewController ()
 
+@property (nonatomic, strong) UITableView *tableView;   //城市列表
+@property (nonatomic, strong) NSArray     *dataArray;   //数据
+
 @end
 
 @implementation FirstViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor brownColor];
+    
+    //城市表格
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorColor = [UIColor whiteColor];
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    [self.view addSubview:self.tableView];
+    [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    
+//*************************************************************************************************************
+    NSString *leftSidePath = [[NSBundle mainBundle] pathForResource:@"leftSide" ofType:@"plist"];
+    self.dataArray = [NSArray arrayWithContentsOfFile:leftSidePath];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    //    if (code == CITY_LIST_CODE) {
+    //        if (resultDic) {
+    //            //            NSLog(@"resultDic = %@",resultDic);
+    //            NSArray *result = [resultDic objectForKey:@"result"];
+    //            if ([[resultDic objectForKey:@"resp_code"] integerValue] == 200 && result.count > 0) {
+    //                self.dataArray = [CityModel objectArrayWithKeyValuesArray:result];
+    //
+    //                //刷新UI
+    //                [self.tableView reloadData];
+    //            }
+    //        }
+    //    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDataSource and UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataArray.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_side_selected"]];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = FONT_30PX;
+    }
+    
+    NSDictionary *dict = self.dataArray[indexPath.row];
+    NSString *iconNameStr = [dict objectForKey:@"icon"];
+    cell.imageView.image = [UIImage imageNamed:iconNameStr];
+    cell.textLabel.text = [dict objectForKey:@"title"];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //取消选中效果
+    //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end
