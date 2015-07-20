@@ -37,7 +37,7 @@
 }
 - (void)ControllerView{
     //头像
-    _headimageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 50 - 70) / 2 , 44, 70, 70)];
+    _headimageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 50 - 70) / 2 , 34, 70, 70)];
     _headimageView.image = [UIImage imageNamed:@"testhead"];
     _headimageView.layer.cornerRadius = 35;
     _headimageView.layer.masksToBounds = YES;
