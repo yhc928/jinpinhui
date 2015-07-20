@@ -9,8 +9,9 @@
 #import "CycleScrollView.h"
 #import "UIImageView+WebCache.h"
 
+// 320 174
 #define c_width  (SCREEN_WIDTH+10)
-#define c_height (SCREEN_WIDTH*3/8)
+#define c_height (SCREEN_WIDTH*174/320)
 
 @implementation CycleScrollView
 {

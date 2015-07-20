@@ -1,14 +1,14 @@
 //
-//  IndexCell.m
+//  HotActivityCell.m
 //  jinpinhui
 //
-//  Created by xiao7 on 15/7/19.
+//  Created by xiao7 on 15/7/20.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
-#import "IndexCell.h"
+#import "HotActivityCell.h"
 
-@implementation IndexCell
+@implementation HotActivityCell
 
 - (void)awakeFromNib {
     // Initialization code

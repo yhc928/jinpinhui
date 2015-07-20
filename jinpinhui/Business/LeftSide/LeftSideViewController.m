@@ -7,11 +7,20 @@
 //
 
 #import "LeftSideViewController.h"
+#import "MyDrawerViewController.h"
+#import "IndexViewController.h"
+#import "HotActivityViewController.h"
+#import "GoldStoreViewController.h"
+#import "MoreViewController.h"
 
 @interface LeftSideViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;   //城市列表
 @property (nonatomic, strong) NSArray     *dataArray;   //数据
+
+@property (nonatomic, strong) UINavigationController *hotActivityNav;
+@property (nonatomic, strong) UINavigationController *goldStoreNav;
+@property (nonatomic, strong) UINavigationController *moreNav;
 
 @end
 
@@ -92,8 +101,43 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //取消选中效果
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [myAppDelegate.drawerController closeDrawerAnimated:YES completion:^(BOOL finished) {
+        
+    }];
+    
+    switch (indexPath.row) {
+        case 0: {
+            myAppDelegate.drawerController.centerViewController = self.indexNav;
+            break;
+        }
+            
+        case 1: {
+            if (self.hotActivityNav == nil) {
+                HotActivityViewController *hotActivityVC = [[HotActivityViewController alloc] init];
+                self.hotActivityNav = [[UINavigationController alloc] initWithRootViewController:hotActivityVC];
+            }
+            myAppDelegate.drawerController.centerViewController = self.hotActivityNav;
+            break;
+        }
+            
+        case 2: {
+            if (self.goldStoreNav == nil) {
+                GoldStoreViewController *goldStoreVC = [[GoldStoreViewController alloc] init];
+                self.goldStoreNav = [[UINavigationController alloc] initWithRootViewController:goldStoreVC];
+            }
+            myAppDelegate.drawerController.centerViewController = self.goldStoreNav;
+            break;
+        }
+            
+        case 3: {
+            if (self.moreNav == nil) {
+                MoreViewController *moreVC = [[MoreViewController alloc] init];
+                self.moreNav = [[UINavigationController alloc] initWithRootViewController:moreVC];
+            }
+            myAppDelegate.drawerController.centerViewController = self.moreNav;
+            break;
+        }
+    }
 }
 
 @end

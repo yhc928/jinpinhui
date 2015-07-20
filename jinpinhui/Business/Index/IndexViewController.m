@@ -7,8 +7,8 @@
 //
 
 #import "IndexViewController.h"
-#import "FirstViewController.h"
-#import "SecondViewController.h"
+#import "FirstIndexViewController.h"
+#import "SecondIndexViewController.h"
 #import "MyDrawerViewController.h"
 
 @interface IndexViewController ()
@@ -58,7 +58,7 @@
     [self.view addSubview:self.titleCollectionView];
     
     //数据
-    self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"精选推荐",@"阳光私募",@"信托产品"];
+    self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划"];
     
     [self.titleCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                                       animated:YES
@@ -76,21 +76,15 @@
     for (int i = 0; i < self.titleCollectionView.dataArray.count; i++) {
         frame.origin.x = i*SCREEN_WIDTH;
         if (i == 0) {
-            FirstViewController *firstVC = [[FirstViewController alloc] init];
-            [self addChildViewController:firstVC];
-            firstVC.view.frame = frame;
-            [self.bgScrollView addSubview:firstVC.view];
+            FirstIndexViewController *firstIndexVC = [[FirstIndexViewController alloc] init];
+            [self addChildViewController:firstIndexVC];
+            firstIndexVC.view.frame = frame;
+            [self.bgScrollView addSubview:firstIndexVC.view];
         } else {
-            SecondViewController *secondVC = [[SecondViewController alloc] init];
-            [self addChildViewController:secondVC];
-            secondVC.view.frame = frame;
-            [self.bgScrollView addSubview:secondVC.view];
-            
-            if (i % 2 == 0) {
-                secondVC.view.backgroundColor = [UIColor redColor];
-            } else {
-                secondVC.view.backgroundColor = [UIColor greenColor];
-            }
+            SecondIndexViewController *secondIndexVC = [[SecondIndexViewController alloc] init];
+            [self addChildViewController:secondIndexVC];
+            secondIndexVC.view.frame = frame;
+            [self.bgScrollView addSubview:secondIndexVC.view];
         }
     }
 }
