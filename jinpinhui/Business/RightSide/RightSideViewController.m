@@ -37,7 +37,7 @@
 }
 - (void)ControllerView{
     //头像
-    _headimageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 50 - 70) / 2 , 64, 70, 70)];
+    _headimageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 50 - 70) / 2 , 44, 70, 70)];
     _headimageView.image = [UIImage imageNamed:@"testhead"];
     _headimageView.layer.cornerRadius = 35;
     _headimageView.layer.masksToBounds = YES;
@@ -149,6 +149,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //centerViewController
     if (indexPath.row == 0) {
         PersonalCenterViewController *personalcenter = [[PersonalCenterViewController alloc]init];
