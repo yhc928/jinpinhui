@@ -28,6 +28,17 @@
 		CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD542851B5BE7D000C6180B /* InvitationViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
+		D0363F3D1B5CD48B00457333 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F311B5CD48B00457333 /* CycleScrollView.m */; };
+		D0363F3E1B5CD48B00457333 /* FirstIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F331B5CD48B00457333 /* FirstIndexCell.m */; };
+		D0363F3F1B5CD48B00457333 /* FirstIndexMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */; };
+		D0363F401B5CD48B00457333 /* FirstIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F371B5CD48B00457333 /* FirstIndexViewController.m */; };
+		D0363F411B5CD48B00457333 /* SecondIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */; };
+		D0363F421B5CD48B00457333 /* SecondIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */; };
+		D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F441B5CD4AE00457333 /* HotActivityViewController.m */; };
+		D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F471B5CD4B900457333 /* GoldStoreViewController.m */; };
+		D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4A1B5CD4C600457333 /* MoreViewController.m */; };
+		D0363F4D1B5CDAE900457333 /* more.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0363F4C1B5CDAE900457333 /* more.plist */; };
+		D0363F501B5CE2BA00457333 /* HotActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
 		D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3E21B4A970E002C65CA /* AppDelegate.m */; };
 		D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D078C3EA1B4A970E002C65CA /* Images.xcassets */; };
@@ -97,8 +108,6 @@
 		D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = D08F82461B527E5C00F6E7C9 /* registerProtocol.txt */; };
 		D0946A6F1B58A84500F95295 /* TitleCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A6E1B58A84500F95295 /* TitleCollectionView.m */; };
 		D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A741B58A92400F95295 /* TitleCollectionCell.m */; };
-		D0946A7E1B58E9F600F95295 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A7D1B58E9F600F95295 /* FirstViewController.m */; };
-		D0946A811B58EA0B00F95295 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A801B58EA0B00F95295 /* SecondViewController.m */; };
 		D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +157,27 @@
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		D0363F301B5CD48B00457333 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
+		D0363F311B5CD48B00457333 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
+		D0363F321B5CD48B00457333 /* FirstIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexCell.h; sourceTree = "<group>"; };
+		D0363F331B5CD48B00457333 /* FirstIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexCell.m; sourceTree = "<group>"; };
+		D0363F341B5CD48B00457333 /* FirstIndexMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexMoreCell.h; sourceTree = "<group>"; };
+		D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexMoreCell.m; sourceTree = "<group>"; };
+		D0363F361B5CD48B00457333 /* FirstIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexViewController.h; sourceTree = "<group>"; };
+		D0363F371B5CD48B00457333 /* FirstIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexViewController.m; sourceTree = "<group>"; };
+		D0363F391B5CD48B00457333 /* SecondIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexCell.h; sourceTree = "<group>"; };
+		D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexCell.m; sourceTree = "<group>"; };
+		D0363F3B1B5CD48B00457333 /* SecondIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexViewController.h; sourceTree = "<group>"; };
+		D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexViewController.m; sourceTree = "<group>"; };
+		D0363F431B5CD4AE00457333 /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
+		D0363F441B5CD4AE00457333 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
+		D0363F461B5CD4B900457333 /* GoldStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreViewController.h; sourceTree = "<group>"; };
+		D0363F471B5CD4B900457333 /* GoldStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldStoreViewController.m; sourceTree = "<group>"; };
+		D0363F491B5CD4C600457333 /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		D0363F4A1B5CD4C600457333 /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		D0363F4C1B5CDAE900457333 /* more.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = more.plist; sourceTree = "<group>"; };
+		D0363F4E1B5CE2BA00457333 /* HotActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityCell.h; sourceTree = "<group>"; };
+		D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityCell.m; sourceTree = "<group>"; };
 		D078C3DA1B4A970E002C65CA /* jinpinhui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jinpinhui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D078C3DE1B4A970E002C65CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D078C3DF1B4A970E002C65CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -297,10 +327,6 @@
 		D0946A6E1B58A84500F95295 /* TitleCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionView.m; sourceTree = "<group>"; };
 		D0946A731B58A92400F95295 /* TitleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionCell.h; sourceTree = "<group>"; };
 		D0946A741B58A92400F95295 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
-		D0946A7C1B58E9F600F95295 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		D0946A7D1B58E9F600F95295 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		D0946A7F1B58EA0B00F95295 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		D0946A801B58EA0B00F95295 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		D0B81BA91B5B7B63003D80A2 /* MyDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerViewController.h; sourceTree = "<group>"; };
 		D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +421,70 @@
 				CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */,
 			);
 			name = Personalcenter;
+			sourceTree = "<group>";
+		};
+		D0363F2B1B5CD43800457333 /* GoldStore */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F461B5CD4B900457333 /* GoldStoreViewController.h */,
+				D0363F471B5CD4B900457333 /* GoldStoreViewController.m */,
+			);
+			path = GoldStore;
+			sourceTree = "<group>";
+		};
+		D0363F2C1B5CD43800457333 /* HotActivity */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F4E1B5CE2BA00457333 /* HotActivityCell.h */,
+				D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */,
+				D0363F431B5CD4AE00457333 /* HotActivityViewController.h */,
+				D0363F441B5CD4AE00457333 /* HotActivityViewController.m */,
+			);
+			path = HotActivity;
+			sourceTree = "<group>";
+		};
+		D0363F2D1B5CD43800457333 /* MoneySelection */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F2F1B5CD48B00457333 /* FirstIndex */,
+				D0363F381B5CD48B00457333 /* SecondIndex */,
+			);
+			path = MoneySelection;
+			sourceTree = "<group>";
+		};
+		D0363F2E1B5CD43800457333 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F491B5CD4C600457333 /* MoreViewController.h */,
+				D0363F4A1B5CD4C600457333 /* MoreViewController.m */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		D0363F2F1B5CD48B00457333 /* FirstIndex */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F301B5CD48B00457333 /* CycleScrollView.h */,
+				D0363F311B5CD48B00457333 /* CycleScrollView.m */,
+				D0363F321B5CD48B00457333 /* FirstIndexCell.h */,
+				D0363F331B5CD48B00457333 /* FirstIndexCell.m */,
+				D0363F341B5CD48B00457333 /* FirstIndexMoreCell.h */,
+				D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */,
+				D0363F361B5CD48B00457333 /* FirstIndexViewController.h */,
+				D0363F371B5CD48B00457333 /* FirstIndexViewController.m */,
+			);
+			path = FirstIndex;
+			sourceTree = "<group>";
+		};
+		D0363F381B5CD48B00457333 /* SecondIndex */ = {
+			isa = PBXGroup;
+			children = (
+				D0363F391B5CD48B00457333 /* SecondIndexCell.h */,
+				D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */,
+				D0363F3B1B5CD48B00457333 /* SecondIndexViewController.h */,
+				D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */,
+			);
+			path = SecondIndex;
 			sourceTree = "<group>";
 		};
 		D078C3D11B4A970E002C65CA = {
@@ -700,10 +790,6 @@
 				D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */,
 				D078C4D71B4AA0B6002C65CA /* IndexViewController.h */,
 				D078C4D81B4AA0B6002C65CA /* IndexViewController.m */,
-				D0946A7C1B58E9F600F95295 /* FirstViewController.h */,
-				D0946A7D1B58E9F600F95295 /* FirstViewController.m */,
-				D0946A7F1B58EA0B00F95295 /* SecondViewController.h */,
-				D0946A801B58EA0B00F95295 /* SecondViewController.m */,
 			);
 			path = Index;
 			sourceTree = "<group>";
@@ -723,6 +809,10 @@
 			children = (
 				D08F823C1B5276D200F6E7C9 /* LeftSideViewController.h */,
 				D08F823D1B5276D200F6E7C9 /* LeftSideViewController.m */,
+				D0363F2D1B5CD43800457333 /* MoneySelection */,
+				D0363F2C1B5CD43800457333 /* HotActivity */,
+				D0363F2B1B5CD43800457333 /* GoldStore */,
+				D0363F2E1B5CD43800457333 /* More */,
 			);
 			name = LeftSide;
 			path = jinpinhui/Business/LeftSide;
@@ -755,6 +845,7 @@
 				CD2A58641B580AB90007B8EE /* yaoqing.txt */,
 				D08F82441B527E5C00F6E7C9 /* aboutUs.txt */,
 				D08F82451B527E5C00F6E7C9 /* leftSide.plist */,
+				D0363F4C1B5CDAE900457333 /* more.plist */,
 				D08F82461B527E5C00F6E7C9 /* registerProtocol.txt */,
 			);
 			path = Plist;
@@ -856,6 +947,7 @@
 				CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */,
 				CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
+				D0363F4D1B5CDAE900457333 /* more.plist in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
@@ -882,6 +974,7 @@
 			files = (
 				CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */,
 				D078C4C91B4A9C8D002C65CA /* UIImage+GIF.m in Sources */,
+				D0363F411B5CD48B00457333 /* SecondIndexCell.m in Sources */,
 				D078C4A21B4A9C8D002C65CA /* AFURLConnectionOperation.m in Sources */,
 				D078C4BF1B4A9C8D002C65CA /* MKAnnotationView+WebCache.m in Sources */,
 				D078C4B81B4A9C8D002C65CA /* UIScrollView+MJExtension.m in Sources */,
@@ -904,8 +997,10 @@
 				D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */,
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
 				D078C4D91B4AA0B6002C65CA /* IndexViewController.m in Sources */,
+				D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
 				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
+				D0363F3F1B5CD48B00457333 /* FirstIndexMoreCell.m in Sources */,
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -916,13 +1011,13 @@
 				D078C4AD1B4A9C8D002C65CA /* UIWebView+AFNetworking.m in Sources */,
 				D0946A6F1B58A84500F95295 /* TitleCollectionView.m in Sources */,
 				D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */,
+				D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */,
 				CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
 				D078C4B11B4A9C8D002C65CA /* MJRefreshConst.m in Sources */,
-				D0946A7E1B58E9F600F95295 /* FirstViewController.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
 				D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */,
 				CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */,
@@ -932,6 +1027,7 @@
 				D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */,
 				D078C4BA1B4A9C8D002C65CA /* UIView+MJExtension.m in Sources */,
 				CDD5427E1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m in Sources */,
+				D0363F401B5CD48B00457333 /* FirstIndexViewController.m in Sources */,
 				D078C4971B4A9C8D002C65CA /* BaseViewController.m in Sources */,
 				D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */,
 				D078C4CC1B4A9C8D002C65CA /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -944,10 +1040,11 @@
 				D078C4981B4A9C8D002C65CA /* CZRequestHelper.m in Sources */,
 				CD852EA31B522560009944C8 /* LoginViewController.m in Sources */,
 				D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */,
+				D0363F3D1B5CD48B00457333 /* CycleScrollView.m in Sources */,
+				D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */,
 				D078C4A31B4A9C8D002C65CA /* AFURLRequestSerialization.m in Sources */,
 				D078C4AC1B4A9C8D002C65CA /* UIRefreshControl+AFNetworking.m in Sources */,
 				CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */,
-				D0946A811B58EA0B00F95295 /* SecondViewController.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
@@ -956,8 +1053,11 @@
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
+				D0363F3E1B5CD48B00457333 /* FirstIndexCell.m in Sources */,
 				D078C4C51B4A9C8D002C65CA /* SDWebImageDownloaderOperation.m in Sources */,
 				D078C49F1B4A9C8D002C65CA /* AFHTTPSessionManager.m in Sources */,
+				D0363F501B5CE2BA00457333 /* HotActivityCell.m in Sources */,
+				D0363F421B5CD48B00457333 /* SecondIndexViewController.m in Sources */,
 				D078C4C41B4A9C8D002C65CA /* SDWebImageDownloader.m in Sources */,
 				D078C4AE1B4A9C8D002C65CA /* MBProgressHUD.m in Sources */,
 			);

@@ -62,6 +62,7 @@
     
     //左侧边栏
     LeftSideViewController *leftSideVC = [[LeftSideViewController alloc] init];
+    leftSideVC.indexNav = indexNav;
     
     //右侧边栏
     RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
@@ -70,6 +71,7 @@
                                                                rightDrawerViewController:rightSideVC];
     
     self.drawerController.showsShadow = YES;
+    self.drawerController.shouldStretchDrawer = NO;
     self.drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
     self.drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;

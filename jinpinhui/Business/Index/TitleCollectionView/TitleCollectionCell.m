@@ -17,7 +17,7 @@
         //标题标签
         self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
-        self.titleLabel.highlightedTextColor = UIColorFromRGB(252, 102, 34);
+//        self.titleLabel.highlightedTextColor = UIColorFromRGB(252, 102, 34);
         self.titleLabel.font = FONT_30PX;
         [self.contentView addSubview:self.titleLabel];
         [self.titleLabel constrainSubviewToMatchSuperview]; //设置autolayout

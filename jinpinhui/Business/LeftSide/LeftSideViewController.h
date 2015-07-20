@@ -13,4 +13,6 @@
 
 @interface LeftSideViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic, strong) UINavigationController *indexNav;
+
 @end
