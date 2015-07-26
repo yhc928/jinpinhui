@@ -57,7 +57,7 @@
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     
     //首页
-    IndexViewController *indexVC = [[IndexViewController alloc] init];
+    IndexViewController *indexVC = [IndexViewController sharedClient];
     UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
     
     //左侧边栏
