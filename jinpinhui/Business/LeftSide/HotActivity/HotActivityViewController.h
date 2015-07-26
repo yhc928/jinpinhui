@@ -11,6 +11,8 @@
  */
 #import "BaseViewController.h"
 
-@interface HotActivityViewController : BaseViewController
+@interface HotActivityViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

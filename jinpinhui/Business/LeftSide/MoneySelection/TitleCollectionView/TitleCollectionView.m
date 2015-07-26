@@ -121,7 +121,7 @@
     //如果当前页和上一页不相同，则设置CollectionView的偏移量和选中当前页
     if (_lastMultiple != _currentMultiple) {
         //取出CollectionView的偏移量
-        CGFloat content_x = margin + total_width*(_currentMultiple-2);
+        CGFloat content_x = margin/2+total_width*(_currentMultiple+2)-SCREEN_WIDTH;
         
         //开头和末尾需要处理
         if (content_x < 0) {

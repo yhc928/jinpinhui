@@ -8,8 +8,11 @@
 
 #import "HotActivityViewController.h"
 #import "MyDrawerViewController.h"
+#import "HotActivityCell.h"
 
 @interface HotActivityViewController ()
+
+@property (nonatomic, strong) NSArray     *dataArray; //数据
 
 @end
 
@@ -35,6 +38,55 @@
     righButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [righButton addTarget:self action:@selector(didOpenRightSide) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
+    
+    //表格
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    //添加下拉刷新
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    //马上进入刷新状态
+    [self.tableView.legendHeader beginRefreshing];
+}
+
+#pragma mark - UITableViewDataSource and UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HotActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (!cell) {
+        cell = [[HotActivityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    }
+    
+    cell.titleLabel.text = @"礼包天天送活动"; //标题
+    cell.dateLabel.text = @"结束时间9月23日"; //结束时间
+   
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 30+(SCREEN_WIDTH-30)*3/8+50;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+/**
+ *  下拉刷新
+ */
+- (void)loadNewData
+{
+    [self.tableView.legendHeader endRefreshing];
 }
 
 /**
@@ -56,20 +108,5 @@
         
     }];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

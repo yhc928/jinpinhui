@@ -28,12 +28,6 @@
 		CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD542851B5BE7D000C6180B /* InvitationViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
-		D0363F3D1B5CD48B00457333 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F311B5CD48B00457333 /* CycleScrollView.m */; };
-		D0363F3E1B5CD48B00457333 /* FirstIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F331B5CD48B00457333 /* FirstIndexCell.m */; };
-		D0363F3F1B5CD48B00457333 /* FirstIndexMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */; };
-		D0363F401B5CD48B00457333 /* FirstIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F371B5CD48B00457333 /* FirstIndexViewController.m */; };
-		D0363F411B5CD48B00457333 /* SecondIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */; };
-		D0363F421B5CD48B00457333 /* SecondIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */; };
 		D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F441B5CD4AE00457333 /* HotActivityViewController.m */; };
 		D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F471B5CD4B900457333 /* GoldStoreViewController.m */; };
 		D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4A1B5CD4C600457333 /* MoreViewController.m */; };
@@ -99,16 +93,21 @@
 		D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48A1B4A9C8D002C65CA /* UIImageView+WebCache.m */; };
 		D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */; };
 		D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C4931B4A9C8D002C65CA /* RegExp.m */; };
-		D078C4D91B4AA0B6002C65CA /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C4D81B4AA0B6002C65CA /* IndexViewController.m */; };
 		D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */; };
 		D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F823D1B5276D200F6E7C9 /* LeftSideViewController.m */; };
 		D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F82401B5276E400F6E7C9 /* RightSideViewController.m */; };
 		D08F82471B527E5C00F6E7C9 /* aboutUs.txt in Resources */ = {isa = PBXBuildFile; fileRef = D08F82441B527E5C00F6E7C9 /* aboutUs.txt */; };
 		D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08F82451B527E5C00F6E7C9 /* leftSide.plist */; };
 		D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = D08F82461B527E5C00F6E7C9 /* registerProtocol.txt */; };
-		D0946A6F1B58A84500F95295 /* TitleCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A6E1B58A84500F95295 /* TitleCollectionView.m */; };
-		D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0946A741B58A92400F95295 /* TitleCollectionCell.m */; };
-		D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */; };
+		D0E5637B1B64DBEF0042CD42 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */; };
+		D0E5637F1B64DBEF0042CD42 /* TitleCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563741B64DBEF0042CD42 /* TitleCollectionCell.m */; };
+		D0E563801B64DBEF0042CD42 /* TitleCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563761B64DBEF0042CD42 /* TitleCollectionView.m */; };
+		D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5638C1B64DCE50042CD42 /* MyDrawerViewController.m */; };
+		D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563901B64DD450042CD42 /* CycleScrollView.m */; };
+		D0E563961B64DD450042CD42 /* FirstIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563921B64DD450042CD42 /* FirstIndexCell.m */; };
+		D0E563971B64DD450042CD42 /* SecondIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563941B64DD450042CD42 /* SecondIndexCell.m */; };
+		D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563991B64E2600042CD42 /* FirstCollectionCell.m */; };
+		D0E5639D1B64E2DE0042CD42 /* SecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,18 +156,6 @@
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
-		D0363F301B5CD48B00457333 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
-		D0363F311B5CD48B00457333 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
-		D0363F321B5CD48B00457333 /* FirstIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexCell.h; sourceTree = "<group>"; };
-		D0363F331B5CD48B00457333 /* FirstIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexCell.m; sourceTree = "<group>"; };
-		D0363F341B5CD48B00457333 /* FirstIndexMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexMoreCell.h; sourceTree = "<group>"; };
-		D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexMoreCell.m; sourceTree = "<group>"; };
-		D0363F361B5CD48B00457333 /* FirstIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexViewController.h; sourceTree = "<group>"; };
-		D0363F371B5CD48B00457333 /* FirstIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexViewController.m; sourceTree = "<group>"; };
-		D0363F391B5CD48B00457333 /* SecondIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexCell.h; sourceTree = "<group>"; };
-		D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexCell.m; sourceTree = "<group>"; };
-		D0363F3B1B5CD48B00457333 /* SecondIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexViewController.h; sourceTree = "<group>"; };
-		D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexViewController.m; sourceTree = "<group>"; };
 		D0363F431B5CD4AE00457333 /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
 		D0363F441B5CD4AE00457333 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
 		D0363F461B5CD4B900457333 /* GoldStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreViewController.h; sourceTree = "<group>"; };
@@ -311,8 +298,6 @@
 		D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D078C4921B4A9C8D002C65CA /* RegExp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExp.h; sourceTree = "<group>"; };
 		D078C4931B4A9C8D002C65CA /* RegExp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExp.m; sourceTree = "<group>"; };
-		D078C4D71B4AA0B6002C65CA /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
-		D078C4D81B4AA0B6002C65CA /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
 		D08F82361B52743300F6E7C9 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		D08F82391B5275C700F6E7C9 /* jinpinhui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jinpinhui-Prefix.pch"; sourceTree = "<group>"; };
@@ -323,12 +308,24 @@
 		D08F82441B527E5C00F6E7C9 /* aboutUs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aboutUs.txt; sourceTree = "<group>"; };
 		D08F82451B527E5C00F6E7C9 /* leftSide.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = leftSide.plist; sourceTree = "<group>"; };
 		D08F82461B527E5C00F6E7C9 /* registerProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = registerProtocol.txt; sourceTree = "<group>"; };
-		D0946A6D1B58A84500F95295 /* TitleCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionView.h; sourceTree = "<group>"; };
-		D0946A6E1B58A84500F95295 /* TitleCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionView.m; sourceTree = "<group>"; };
-		D0946A731B58A92400F95295 /* TitleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionCell.h; sourceTree = "<group>"; };
-		D0946A741B58A92400F95295 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
-		D0B81BA91B5B7B63003D80A2 /* MyDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerViewController.h; sourceTree = "<group>"; };
-		D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerViewController.m; sourceTree = "<group>"; };
+		D0E563691B64DBEF0042CD42 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexViewController.h; sourceTree = "<group>"; };
+		D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexViewController.m; sourceTree = "<group>"; };
+		D0E563731B64DBEF0042CD42 /* TitleCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionCell.h; sourceTree = "<group>"; };
+		D0E563741B64DBEF0042CD42 /* TitleCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionCell.m; sourceTree = "<group>"; };
+		D0E563751B64DBEF0042CD42 /* TitleCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCollectionView.h; sourceTree = "<group>"; };
+		D0E563761B64DBEF0042CD42 /* TitleCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCollectionView.m; sourceTree = "<group>"; };
+		D0E5638B1B64DCE50042CD42 /* MyDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerViewController.h; sourceTree = "<group>"; };
+		D0E5638C1B64DCE50042CD42 /* MyDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerViewController.m; sourceTree = "<group>"; };
+		D0E5638F1B64DD450042CD42 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
+		D0E563901B64DD450042CD42 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
+		D0E563911B64DD450042CD42 /* FirstIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstIndexCell.h; sourceTree = "<group>"; };
+		D0E563921B64DD450042CD42 /* FirstIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexCell.m; sourceTree = "<group>"; };
+		D0E563931B64DD450042CD42 /* SecondIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexCell.h; sourceTree = "<group>"; };
+		D0E563941B64DD450042CD42 /* SecondIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexCell.m; sourceTree = "<group>"; };
+		D0E563981B64E2600042CD42 /* FirstCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCollectionCell.h; sourceTree = "<group>"; };
+		D0E563991B64E2600042CD42 /* FirstCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionCell.m; sourceTree = "<group>"; };
+		D0E5639B1B64E2DE0042CD42 /* SecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionCell.h; sourceTree = "<group>"; };
+		D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,15 +440,6 @@
 			path = HotActivity;
 			sourceTree = "<group>";
 		};
-		D0363F2D1B5CD43800457333 /* MoneySelection */ = {
-			isa = PBXGroup;
-			children = (
-				D0363F2F1B5CD48B00457333 /* FirstIndex */,
-				D0363F381B5CD48B00457333 /* SecondIndex */,
-			);
-			path = MoneySelection;
-			sourceTree = "<group>";
-		};
 		D0363F2E1B5CD43800457333 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,32 +447,6 @@
 				D0363F4A1B5CD4C600457333 /* MoreViewController.m */,
 			);
 			path = More;
-			sourceTree = "<group>";
-		};
-		D0363F2F1B5CD48B00457333 /* FirstIndex */ = {
-			isa = PBXGroup;
-			children = (
-				D0363F301B5CD48B00457333 /* CycleScrollView.h */,
-				D0363F311B5CD48B00457333 /* CycleScrollView.m */,
-				D0363F321B5CD48B00457333 /* FirstIndexCell.h */,
-				D0363F331B5CD48B00457333 /* FirstIndexCell.m */,
-				D0363F341B5CD48B00457333 /* FirstIndexMoreCell.h */,
-				D0363F351B5CD48B00457333 /* FirstIndexMoreCell.m */,
-				D0363F361B5CD48B00457333 /* FirstIndexViewController.h */,
-				D0363F371B5CD48B00457333 /* FirstIndexViewController.m */,
-			);
-			path = FirstIndex;
-			sourceTree = "<group>";
-		};
-		D0363F381B5CD48B00457333 /* SecondIndex */ = {
-			isa = PBXGroup;
-			children = (
-				D0363F391B5CD48B00457333 /* SecondIndexCell.h */,
-				D0363F3A1B5CD48B00457333 /* SecondIndexCell.m */,
-				D0363F3B1B5CD48B00457333 /* SecondIndexViewController.h */,
-				D0363F3C1B5CD48B00457333 /* SecondIndexViewController.m */,
-			);
-			path = SecondIndex;
 			sourceTree = "<group>";
 		};
 		D078C3D11B4A970E002C65CA = {
@@ -563,8 +525,8 @@
 		D078C4081B4A9C8D002C65CA /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				D0E5638A1B64DCE50042CD42 /* MyDrawer */,
 				CD852E9F1B52250B009944C8 /* Login */,
-				D078C4D61B4AA0B6002C65CA /* Index */,
 				D08F823A1B52767B00F6E7C9 /* LeftSide */,
 				D08F823B1B52767B00F6E7C9 /* RightSide */,
 				CDD69DE31B5548880062FD86 /* Personalcenter */,
@@ -782,18 +744,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		D078C4D61B4AA0B6002C65CA /* Index */ = {
-			isa = PBXGroup;
-			children = (
-				D0946A6C1B58A7D200F95295 /* TitleCollectionView */,
-				D0B81BA91B5B7B63003D80A2 /* MyDrawerViewController.h */,
-				D0B81BAA1B5B7B63003D80A2 /* MyDrawerViewController.m */,
-				D078C4D71B4AA0B6002C65CA /* IndexViewController.h */,
-				D078C4D81B4AA0B6002C65CA /* IndexViewController.m */,
-			);
-			path = Index;
-			sourceTree = "<group>";
-		};
 		D08F82351B52743300F6E7C9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,7 +759,7 @@
 			children = (
 				D08F823C1B5276D200F6E7C9 /* LeftSideViewController.h */,
 				D08F823D1B5276D200F6E7C9 /* LeftSideViewController.m */,
-				D0363F2D1B5CD43800457333 /* MoneySelection */,
+				D0E5635F1B64DBEF0042CD42 /* MoneySelection */,
 				D0363F2C1B5CD43800457333 /* HotActivity */,
 				D0363F2B1B5CD43800457333 /* GoldStore */,
 				D0363F2E1B5CD43800457333 /* More */,
@@ -851,15 +801,52 @@
 			path = Plist;
 			sourceTree = "<group>";
 		};
-		D0946A6C1B58A7D200F95295 /* TitleCollectionView */ = {
+		D0E5635F1B64DBEF0042CD42 /* MoneySelection */ = {
 			isa = PBXGroup;
 			children = (
-				D0946A6D1B58A84500F95295 /* TitleCollectionView.h */,
-				D0946A6E1B58A84500F95295 /* TitleCollectionView.m */,
-				D0946A731B58A92400F95295 /* TitleCollectionCell.h */,
-				D0946A741B58A92400F95295 /* TitleCollectionCell.m */,
+				D0E563721B64DBEF0042CD42 /* TitleCollectionView */,
+				D0E5638E1B64DD450042CD42 /* TableView */,
+				D0E563981B64E2600042CD42 /* FirstCollectionCell.h */,
+				D0E563991B64E2600042CD42 /* FirstCollectionCell.m */,
+				D0E5639B1B64E2DE0042CD42 /* SecondCollectionCell.h */,
+				D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */,
+				D0E563691B64DBEF0042CD42 /* IndexViewController.h */,
+				D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */,
+			);
+			path = MoneySelection;
+			sourceTree = "<group>";
+		};
+		D0E563721B64DBEF0042CD42 /* TitleCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D0E563731B64DBEF0042CD42 /* TitleCollectionCell.h */,
+				D0E563741B64DBEF0042CD42 /* TitleCollectionCell.m */,
+				D0E563751B64DBEF0042CD42 /* TitleCollectionView.h */,
+				D0E563761B64DBEF0042CD42 /* TitleCollectionView.m */,
 			);
 			path = TitleCollectionView;
+			sourceTree = "<group>";
+		};
+		D0E5638A1B64DCE50042CD42 /* MyDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				D0E5638B1B64DCE50042CD42 /* MyDrawerViewController.h */,
+				D0E5638C1B64DCE50042CD42 /* MyDrawerViewController.m */,
+			);
+			path = MyDrawer;
+			sourceTree = "<group>";
+		};
+		D0E5638E1B64DD450042CD42 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				D0E5638F1B64DD450042CD42 /* CycleScrollView.h */,
+				D0E563901B64DD450042CD42 /* CycleScrollView.m */,
+				D0E563911B64DD450042CD42 /* FirstIndexCell.h */,
+				D0E563921B64DD450042CD42 /* FirstIndexCell.m */,
+				D0E563931B64DD450042CD42 /* SecondIndexCell.h */,
+				D0E563941B64DD450042CD42 /* SecondIndexCell.m */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -972,9 +959,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0E563961B64DD450042CD42 /* FirstIndexCell.m in Sources */,
 				CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */,
 				D078C4C91B4A9C8D002C65CA /* UIImage+GIF.m in Sources */,
-				D0363F411B5CD48B00457333 /* SecondIndexCell.m in Sources */,
 				D078C4A21B4A9C8D002C65CA /* AFURLConnectionOperation.m in Sources */,
 				D078C4BF1B4A9C8D002C65CA /* MKAnnotationView+WebCache.m in Sources */,
 				D078C4B81B4A9C8D002C65CA /* UIScrollView+MJExtension.m in Sources */,
@@ -994,22 +981,22 @@
 				CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */,
 				D078C4B91B4A9C8D002C65CA /* UIScrollView+MJRefresh.m in Sources */,
 				D078C4BC1B4A9C8D002C65CA /* MMDrawerController.m in Sources */,
-				D0B81BAB1B5B7B63003D80A2 /* MyDrawerViewController.m in Sources */,
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
-				D078C4D91B4AA0B6002C65CA /* IndexViewController.m in Sources */,
 				D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
 				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
-				D0363F3F1B5CD48B00457333 /* FirstIndexMoreCell.m in Sources */,
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
+				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
 				D078C4BB1B4A9C8D002C65CA /* MMDrawerBarButtonItem.m in Sources */,
 				D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */,
+				D0E5639D1B64E2DE0042CD42 /* SecondCollectionCell.m in Sources */,
 				D078C4AD1B4A9C8D002C65CA /* UIWebView+AFNetworking.m in Sources */,
-				D0946A6F1B58A84500F95295 /* TitleCollectionView.m in Sources */,
+				D0E5637B1B64DBEF0042CD42 /* IndexViewController.m in Sources */,
+				D0E5637F1B64DBEF0042CD42 /* TitleCollectionCell.m in Sources */,
 				D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */,
 				D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */,
 				CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */,
@@ -1024,10 +1011,10 @@
 				D078C4CA1B4A9C8D002C65CA /* UIImage+MultiFormat.m in Sources */,
 				D078C4C31B4A9C8D002C65CA /* SDWebImageDecoder.m in Sources */,
 				D078C49A1B4A9C8D002C65CA /* CZRequestModel.m in Sources */,
+				D0E563971B64DD450042CD42 /* SecondIndexCell.m in Sources */,
 				D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */,
 				D078C4BA1B4A9C8D002C65CA /* UIView+MJExtension.m in Sources */,
 				CDD5427E1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m in Sources */,
-				D0363F401B5CD48B00457333 /* FirstIndexViewController.m in Sources */,
 				D078C4971B4A9C8D002C65CA /* BaseViewController.m in Sources */,
 				D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */,
 				D078C4CC1B4A9C8D002C65CA /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1039,25 +1026,24 @@
 				CDD542751B5BB4F900C6180B /* PWSCalendarView.m in Sources */,
 				D078C4981B4A9C8D002C65CA /* CZRequestHelper.m in Sources */,
 				CD852EA31B522560009944C8 /* LoginViewController.m in Sources */,
-				D0946A751B58A92400F95295 /* TitleCollectionCell.m in Sources */,
-				D0363F3D1B5CD48B00457333 /* CycleScrollView.m in Sources */,
 				D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */,
 				D078C4A31B4A9C8D002C65CA /* AFURLRequestSerialization.m in Sources */,
 				D078C4AC1B4A9C8D002C65CA /* UIRefreshControl+AFNetworking.m in Sources */,
 				CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */,
+				D0E563801B64DBEF0042CD42 /* TitleCollectionView.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
+				D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */,
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
-				D0363F3E1B5CD48B00457333 /* FirstIndexCell.m in Sources */,
+				D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */,
 				D078C4C51B4A9C8D002C65CA /* SDWebImageDownloaderOperation.m in Sources */,
 				D078C49F1B4A9C8D002C65CA /* AFHTTPSessionManager.m in Sources */,
 				D0363F501B5CE2BA00457333 /* HotActivityCell.m in Sources */,
-				D0363F421B5CD48B00457333 /* SecondIndexViewController.m in Sources */,
 				D078C4C41B4A9C8D002C65CA /* SDWebImageDownloader.m in Sources */,
 				D078C4AE1B4A9C8D002C65CA /* MBProgressHUD.m in Sources */,
 			);

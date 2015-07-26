@@ -17,3 +17,4 @@
 #define FONT_30PX ([UIFont systemFontOfSize:15]) //15号字体 30px
 #define FONT_32PX ([UIFont systemFontOfSize:16]) //16号字体 32px
 #define FONT_34PX ([UIFont systemFontOfSize:17]) //17号字体 34px
+#define FONT_36PX ([UIFont systemFontOfSize:18]) //18号字体 36px

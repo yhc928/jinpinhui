@@ -7,14 +7,14 @@
 //
 
 #import "IndexViewController.h"
-#import "FirstIndexViewController.h"
-#import "SecondIndexViewController.h"
 #import "MyDrawerViewController.h"
+#import "FirstCollectionCell.h"
+#import "SecondCollectionCell.h"
 
 @interface IndexViewController ()
 
-@property (nonatomic, strong) UIScrollView     *bgScrollView; //背景scrollView
 @property (nonatomic, strong) TitleCollectionView *titleCollectionView;
+@property (nonatomic, strong) NSArray *dataArray;
 
 @end
 
@@ -57,36 +57,29 @@
     self.titleCollectionView.myDelegate = self;
     [self.view addSubview:self.titleCollectionView];
     
-    //数据
+    //layout
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    //collectionView
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 33, SCREEN_WIDTH, SCREEN_HEIGHT-64-33)
+                                             collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.pagingEnabled = YES;
+    self.collectionView.bounces = NO;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    [self.view addSubview:self.collectionView];
+    
+    //注册cell
+    [self.collectionView registerClass:[FirstCollectionCell class]
+            forCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])];
+    [self.collectionView registerClass:[SecondCollectionCell class]
+            forCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])];
+    
+//**************************************************数据***********************************************
     self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划"];
-    
-    [self.titleCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
-                                      animated:YES
-                                scrollPosition:UICollectionViewScrollPositionNone];
-    
-    //背景
-    self.bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 33, SCREEN_WIDTH, SCREEN_HEIGHT-64-33)];
-    self.bgScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*self.titleCollectionView.dataArray.count, 0);
-    self.bgScrollView.pagingEnabled = YES;
-    self.bgScrollView.delegate = self;
-//    self.bgScrollView.bounces = NO;
-    [self.view addSubview:self.bgScrollView];
-    
-    CGRect frame = self.bgScrollView.bounds;
-    for (int i = 0; i < self.titleCollectionView.dataArray.count; i++) {
-        frame.origin.x = i*SCREEN_WIDTH;
-        if (i == 0) {
-            FirstIndexViewController *firstIndexVC = [[FirstIndexViewController alloc] init];
-            [self addChildViewController:firstIndexVC];
-            firstIndexVC.view.frame = frame;
-            [self.bgScrollView addSubview:firstIndexVC.view];
-        } else {
-            SecondIndexViewController *secondIndexVC = [[SecondIndexViewController alloc] init];
-            [self addChildViewController:secondIndexVC];
-            secondIndexVC.view.frame = frame;
-            [self.bgScrollView addSubview:secondIndexVC.view];
-        }
-    }
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -95,17 +88,47 @@
     NSLog(@"resultDic = %@",resultDic);
 }
 
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.titleCollectionView.dataArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
+                                                                              forIndexPath:indexPath];
+        return cell;
+    } else {
+        SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
+                                                                               forIndexPath:indexPath];
+        return cell;
+    }
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return self.collectionView.bounds.size;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0;
+}
+
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.titleCollectionView bgScrollViewDidScroll:scrollView.contentOffset.x];
     
     //滑动到边界
-    if (scrollView.contentOffset.x < 0) {
-        [self didOpenLeftSide];
-    } else if (scrollView.contentOffset.x > scrollView.contentSize.width-SCREEN_WIDTH) {
-        [self didOpenRightSide];
-    }
+//    if (scrollView.contentOffset.x < 0) {
+//        [self didOpenLeftSide];
+//    } else if (scrollView.contentOffset.x > scrollView.contentSize.width-SCREEN_WIDTH) {
+//        [self didOpenRightSide];
+//    }
 }
 
 //开始滚动
@@ -131,8 +154,14 @@
 #pragma mark - TitleCollectionViewDelegate
 - (void)titleCollectionView:(TitleCollectionView *)titleCollectionView didSelectedIndex:(NSInteger)index
 {
-    [self.bgScrollView setContentOffset:CGPointMake(SCREEN_WIDTH*index, 0) animated:YES];
+    [self.collectionView setContentOffset:CGPointMake(SCREEN_WIDTH*index, 0) animated:YES];
     myAppDelegate.drawerController.view.userInteractionEnabled = NO;
+}
+
+#pragma mark - CycleScrollViewDelegate
+- (void)cycleScrollView:(CycleScrollView *)cycleScrollView didSelectImageView:(NSInteger)index
+{
+    
 }
 
 /**

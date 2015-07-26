@@ -13,4 +13,6 @@
 
 @interface GoldStoreViewController : BaseViewController
 
+@property (nonatomic, strong) UITableView *tableView;
+
 @end

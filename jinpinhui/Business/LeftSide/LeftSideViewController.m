@@ -18,9 +18,13 @@
 @property (nonatomic, strong) UITableView *tableView;   //城市列表
 @property (nonatomic, strong) NSArray     *dataArray;   //数据
 
-@property (nonatomic, strong) UINavigationController *hotActivityNav;
-@property (nonatomic, strong) UINavigationController *goldStoreNav;
-@property (nonatomic, strong) UINavigationController *moreNav;
+@property (nonatomic, strong) HotActivityViewController *hotActivityVC;  //热销活动
+@property (nonatomic, strong) UINavigationController    *hotActivityNav;
+
+@property (nonatomic, strong) GoldStoreViewController   *goldStoreVC;  //金币商城
+@property (nonatomic, strong) UINavigationController    *goldStoreNav;
+
+@property (nonatomic, strong) UINavigationController    *moreNav; //更多
 
 @end
 
@@ -113,19 +117,21 @@
             
         case 1: {
             if (self.hotActivityNav == nil) {
-                HotActivityViewController *hotActivityVC = [[HotActivityViewController alloc] init];
-                self.hotActivityNav = [[UINavigationController alloc] initWithRootViewController:hotActivityVC];
+                self.hotActivityVC = [[HotActivityViewController alloc] init];
+                self.hotActivityNav = [[UINavigationController alloc] initWithRootViewController:self.hotActivityVC];
             }
             myAppDelegate.drawerController.centerViewController = self.hotActivityNav;
+            [self.hotActivityVC.tableView.legendHeader beginRefreshing];
             break;
         }
             
         case 2: {
             if (self.goldStoreNav == nil) {
-                GoldStoreViewController *goldStoreVC = [[GoldStoreViewController alloc] init];
-                self.goldStoreNav = [[UINavigationController alloc] initWithRootViewController:goldStoreVC];
+                self.goldStoreVC = [[GoldStoreViewController alloc] init];
+                self.goldStoreNav = [[UINavigationController alloc] initWithRootViewController:self.goldStoreVC];
             }
             myAppDelegate.drawerController.centerViewController = self.goldStoreNav;
+            [self.goldStoreVC.tableView.legendHeader beginRefreshing];
             break;
         }
             
