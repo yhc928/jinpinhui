@@ -36,7 +36,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="gah-Tg-hQI" secondAttribute="height" multiplier="71:4" id="Pg1-Ct-IAA"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -61,7 +61,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="F8a-um-7vV" secondAttribute="height" multiplier="71:4" id="QhT-kK-MMb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -129,6 +129,7 @@
                 <constraint firstItem="vvf-S6-09l" firstAttribute="top" secondItem="gah-Tg-hQI" secondAttribute="bottom" constant="8" id="yuq-tb-se7"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="4.5" y="76.5"/>
         </view>
     </objects>
     <resources>
