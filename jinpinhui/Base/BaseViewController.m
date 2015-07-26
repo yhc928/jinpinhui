@@ -12,7 +12,7 @@
 #import "MBProgressHUD.h"                //HUD指示器
 #import "RegExp.h"                       //正则验证
 #import "LoginViewController.h"
-#import "IndexViewController.h"
+//#import "IndexViewController.h"
 
 @interface BaseViewController ()
 
