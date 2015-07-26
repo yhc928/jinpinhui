@@ -10,7 +10,12 @@
 #import "MyDrawerViewController.h"
 #import "GoldStoreCell.h"
 
+#define image_width  ((SCREEN_WIDTH-30-5*4)/2)
+#define image_height image_width
+
 @interface GoldStoreViewController ()
+
+@property (nonatomic, strong) NSArray *dataArray; //数据源
 
 @end
 
@@ -37,25 +42,60 @@
     [righButton addTarget:self action:@selector(didOpenRightSide) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
     
-    //layout
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
     //collectionView
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 33, SCREEN_WIDTH, SCREEN_HEIGHT-64-33)
-                                             collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
+                                             collectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.collectionView.pagingEnabled = YES;
-    self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.collectionView];
+    [self.collectionView constrainSubviewToMatchSuperview]; //设置autoLayout
     
     //注册cell
-    [self.collectionView registerClass:[FirstCollectionCell class]
-            forCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])];
-    [self.collectionView registerClass:[SecondCollectionCell class]
-            forCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])];
+    [self.collectionView registerClass:[GoldStoreCell class] forCellWithReuseIdentifier:NSStringFromClass([GoldStoreCell class])];
+}
+
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+//    return self.dataArray.count;
+    return 13;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GoldStoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([GoldStoreCell class])
+                                                                    forIndexPath:indexPath];
+    
+    //设置数据
+    cell.goodsImageView.backgroundColor = [UIColor brownColor];
+    cell.dateLabel.text = @"还剩4天";
+    cell.titleLabel.text = @"幽幽清茶香满屋";
+    cell.priceLabel.text = @"750";
+    
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(image_width+10, 5+image_height+50);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+#pragma mark --UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
 }
 
 /**
@@ -77,20 +117,5 @@
         
     }];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

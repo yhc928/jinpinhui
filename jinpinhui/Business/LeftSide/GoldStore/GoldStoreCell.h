@@ -10,4 +10,9 @@
 
 @interface GoldStoreCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIImageView *goodsImageView; //图片
+@property (nonatomic, strong) UILabel *dateLabel; //剩余时间
+@property (nonatomic, strong) UILabel *titleLabel; //标题
+@property (nonatomic, strong) UILabel *priceLabel; //价格
+
 @end
