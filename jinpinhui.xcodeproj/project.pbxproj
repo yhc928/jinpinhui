@@ -108,6 +108,7 @@
 		D0E563971B64DD450042CD42 /* SecondIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563941B64DD450042CD42 /* SecondIndexCell.m */; };
 		D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563991B64E2600042CD42 /* FirstCollectionCell.m */; };
 		D0E5639D1B64E2DE0042CD42 /* SecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */; };
+		D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -326,6 +327,8 @@
 		D0E563991B64E2600042CD42 /* FirstCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionCell.m; sourceTree = "<group>"; };
 		D0E5639B1B64E2DE0042CD42 /* SecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionCell.h; sourceTree = "<group>"; };
 		D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionCell.m; sourceTree = "<group>"; };
+		D0E5639E1B650AA30042CD42 /* GoldStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreCell.h; sourceTree = "<group>"; };
+		D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldStoreCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +426,8 @@
 		D0363F2B1B5CD43800457333 /* GoldStore */ = {
 			isa = PBXGroup;
 			children = (
+				D0E5639E1B650AA30042CD42 /* GoldStoreCell.h */,
+				D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */,
 				D0363F461B5CD4B900457333 /* GoldStoreViewController.h */,
 				D0363F471B5CD4B900457333 /* GoldStoreViewController.m */,
 			);
@@ -988,6 +993,7 @@
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,

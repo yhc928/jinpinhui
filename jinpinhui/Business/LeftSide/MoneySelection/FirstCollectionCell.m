@@ -7,8 +7,9 @@
 //
 
 #import "FirstCollectionCell.h"
-#import "CycleScrollView.h"
+#import "IndexViewController.h"
 #import "FirstIndexCell.h"
+#import "MJRefresh.h"
 
 @implementation FirstCollectionCell
 
@@ -24,11 +25,15 @@
         self.tableView.tableFooterView = [[UIView alloc] init];
         [self.contentView addSubview:self.tableView];
         
+        //添加下拉刷新
+        [self.tableView addLegendHeaderWithRefreshingTarget:[IndexViewController sharedClient]
+                                           refreshingAction:@selector(loadNewData)];
+        [self.tableView.legendHeader beginRefreshing];
+        
         //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
             [self.tableView setSeparatorInset:UIEdgeInsetsZero];
         }
-        
         if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
             [self.tableView setLayoutMargins:UIEdgeInsetsZero];
         }
@@ -44,7 +49,7 @@
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    return self.dataArray.count;
+//    return self.dataArray.count;
     return 10;
 }
 
@@ -164,16 +169,15 @@
     
 }
 
-//解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
-- (void)viewDidLayoutSubviews
+#pragma mark - CycleScrollViewDelegate
+- (void)cycleScrollView:(CycleScrollView *)cycleScrollView didSelectImageView:(NSInteger)index
 {
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
-    }
     
-    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
 }
+
+//- (void)setDataArray:(NSArray *)dataArray
+//{
+//    [self.tableView reloadData];
+//}
 
 @end

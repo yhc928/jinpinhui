@@ -11,10 +11,24 @@
  */
 #import "BaseViewController.h"
 #import "TitleCollectionView.h"
-#import "CycleScrollView.h"
 
-@interface IndexViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,TitleCollectionViewDelegate,CycleScrollViewDelegate>
+@interface IndexViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,TitleCollectionViewDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+/**
+ *  单例
+ *
+ *  @return IndexViewController
+ */
++ (instancetype)sharedClient;
+
+/**
+ *  下拉刷新回调方法
+ */
+- (void)loadNewData;
+
+/**
+ *  立即进入刷新
+ */
+- (void)beginRefreshing;
 
 @end

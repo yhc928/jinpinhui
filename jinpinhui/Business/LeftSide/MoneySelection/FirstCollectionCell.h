@@ -10,12 +10,13 @@
  *  首页CollectionViewCell
  */
 #import <UIKit/UIKit.h>
-@class CycleScrollView;
+#import "CycleScrollView.h"
 
-@interface FirstCollectionCell : UICollectionViewCell<UITableViewDelegate,UITableViewDataSource>
+@interface FirstCollectionCell : UICollectionViewCell<UITableViewDelegate,UITableViewDataSource,CycleScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView     *tableView;       //产品tableView
 @property (nonatomic, strong) CycleScrollView *cycleScrollView; //轮播图
+
 @property (nonatomic, strong) NSArray         *dataArray;       //数据源
 @property (nonatomic, strong) NSArray         *imageArray;      //轮播图数据源
 

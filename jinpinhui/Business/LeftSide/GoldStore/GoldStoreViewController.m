@@ -8,6 +8,7 @@
 
 #import "GoldStoreViewController.h"
 #import "MyDrawerViewController.h"
+#import "GoldStoreCell.h"
 
 @interface GoldStoreViewController ()
 
@@ -35,6 +36,26 @@
     righButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [righButton addTarget:self action:@selector(didOpenRightSide) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
+    
+    //layout
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    
+    //collectionView
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 33, SCREEN_WIDTH, SCREEN_HEIGHT-64-33)
+                                             collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    self.collectionView.pagingEnabled = YES;
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    [self.view addSubview:self.collectionView];
+    
+    //注册cell
+    [self.collectionView registerClass:[FirstCollectionCell class]
+            forCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])];
+    [self.collectionView registerClass:[SecondCollectionCell class]
+            forCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])];
 }
 
 /**

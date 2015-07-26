@@ -11,8 +11,8 @@
  */
 #import "BaseViewController.h"
 
-@interface GoldStoreViewController : BaseViewController
+@interface GoldStoreViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end

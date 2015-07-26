@@ -14,11 +14,24 @@
 @interface IndexViewController ()
 
 @property (nonatomic, strong) TitleCollectionView *titleCollectionView;
-@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UICollectionView    *collectionView;//表格
+@property (nonatomic, strong) UITableView         *tableView;
+
+@property (nonatomic, strong) NSArray             *dataArray;
 
 @end
 
 @implementation IndexViewController
+
++ (instancetype)sharedClient {
+    static IndexViewController *_sharedClient = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _sharedClient = [[IndexViewController alloc] init];
+    });
+    
+    return _sharedClient;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -68,7 +81,6 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.collectionView.pagingEnabled = YES;
-    self.collectionView.bounces = NO;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.collectionView];
     
@@ -99,10 +111,13 @@
     if (indexPath.row == 0) {
         FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
                                                                               forIndexPath:indexPath];
+        cell.dataArray = @[@"1"];
         return cell;
     } else {
         SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
                                                                                forIndexPath:indexPath];
+//        self.tableView = cell.tableView;
+        cell.dataArray = @[@"1"];
         return cell;
     }
 }
@@ -158,10 +173,29 @@
     myAppDelegate.drawerController.view.userInteractionEnabled = NO;
 }
 
-#pragma mark - CycleScrollViewDelegate
-- (void)cycleScrollView:(CycleScrollView *)cycleScrollView didSelectImageView:(NSInteger)index
+//下拉刷新回调方法
+- (void)loadNewData
 {
+    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
     
+    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
+    self.tableView = cell.tableView;
+    
+    [self.tableView.legendHeader endRefreshing];
+    
+    [self.collectionView reloadData];
+   
+}
+
+//立即进入刷新
+- (void)beginRefreshing
+{
+    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
+    
+    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
+    self.tableView = cell.tableView;
+    
+     [self.tableView.legendHeader beginRefreshing];
 }
 
 /**

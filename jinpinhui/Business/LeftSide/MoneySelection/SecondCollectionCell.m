@@ -7,7 +7,9 @@
 //
 
 #import "SecondCollectionCell.h"
+#import "IndexViewController.h"
 #import "SecondIndexCell.h"
+#import "MJRefresh.h"
 
 @implementation SecondCollectionCell
 
@@ -22,6 +24,10 @@
         self.tableView.dataSource = self;
         self.tableView.tableFooterView = [[UIView alloc] init];
         [self.contentView addSubview:self.tableView];
+        
+        //添加下拉刷新
+        [self.tableView addLegendHeaderWithRefreshingTarget:[IndexViewController sharedClient]
+                                           refreshingAction:@selector(loadNewData)];
         
         //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -38,7 +44,7 @@
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //    return self.dataArray.count;
+//    return self.dataArray.count;
     return 10;
 }
 
@@ -82,5 +88,10 @@
 {
     
 }
+
+//- (void)setDataArray:(NSArray *)dataArray
+//{
+//    [self.tableView reloadData];
+//}
 
 @end

@@ -19,6 +19,7 @@
     NSInteger _currentMultiple;
 }
 
+@property (nonatomic, assign) NSInteger                   currentMultiple; //当前页
 @property (nonatomic, assign) BOOL                        isScroll;
 @property (nonatomic, strong) NSArray                     *dataArray; //数据源
 @property (nonatomic, weak  ) id<TitleCollectionViewDelegate> myDelegate;

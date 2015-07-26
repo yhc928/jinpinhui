@@ -23,6 +23,7 @@
         //背景
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(15, 15, image_width, image_height+50)];
         bgView.layer.shadowOffset = CGSizeMake(3, 3);
+        bgView.layer.shadowOpacity = 0.3;
         bgView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:bgView];
         
