@@ -132,7 +132,7 @@
                 self.goldStoreNav = [[UINavigationController alloc] initWithRootViewController:self.goldStoreVC];
             }
             myAppDelegate.drawerController.centerViewController = self.goldStoreNav;
-            [self.goldStoreVC.tableView.legendHeader beginRefreshing];
+            [self.goldStoreVC.collectionView.legendHeader beginRefreshing];
             break;
         }
             
