@@ -23,6 +23,7 @@
 
 @implementation IndexViewController
 
+//单例
 + (instancetype)sharedClient {
     static IndexViewController *_sharedClient = nil;
     static dispatch_once_t onceToken;
@@ -35,7 +36,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.title = @"金品汇";
     
     //左侧按钮
@@ -116,7 +116,6 @@
     } else {
         SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
                                                                                forIndexPath:indexPath];
-//        self.tableView = cell.tableView;
         cell.dataArray = @[@"1"];
         return cell;
     }
@@ -139,11 +138,11 @@
     [self.titleCollectionView bgScrollViewDidScroll:scrollView.contentOffset.x];
     
     //滑动到边界
-//    if (scrollView.contentOffset.x < 0) {
-//        [self didOpenLeftSide];
-//    } else if (scrollView.contentOffset.x > scrollView.contentSize.width-SCREEN_WIDTH) {
-//        [self didOpenRightSide];
-//    }
+    if (scrollView.contentOffset.x < 0) {
+        [self didOpenLeftSide];
+    } else if (scrollView.contentOffset.x > scrollView.contentSize.width-SCREEN_WIDTH) {
+        [self didOpenRightSide];
+    }
 }
 
 //开始滚动
