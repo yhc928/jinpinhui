@@ -21,48 +21,6 @@
  */
 + (instancetype)sharedClient;
 
-
 - (CZRequestModel *)getBin_cmdWithParameters:(NSDictionary *)parameters;
-
-- (CZRequestModel *)getUserActionWithParameters:(NSDictionary *)parameters;
-
-/**
- *  获取城市社区商圈列表
- *
- *  @return CZRequestModel
- */
-//- (CZRequestModel *)getBusinessCircleList;
-
-/**
- *  轮播图列表
- *
- *  @param market_type 超市类型 -1 表示首页
- *
- *  @return CZRequestModel
- */
-//- (CZRequestModel *)getBannerListWithMarket_type:(NSString *)market_type;
-
-/**
- *  ⾸⻚页超市商品信息
- *
- *  @return CZRequestModel
- */
-//- (CZRequestModel *)getHomeMarketGoods;
-
-/**
- *  推荐商户
- *
- *  @return CZRequestModel
- */
-//- (CZRequestModel *)getRecomdBusinessList;
-
-/**
- *  特价商品
- *
- *  @param market_type 超市类型 -1 表示首页
- *
- *  @return CZRequestModel
- */
-//- (CZRequestModel *)getBargainGoodsWithMarket_type:(NSString *)market_type;
 
 @end
