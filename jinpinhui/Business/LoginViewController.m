@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"登录";
+    self.navigationItem.leftBarButtonItem = nil;
     [self setLeftTextView];
     //设置记住密码、自动登录按钮
     _rememberBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
@@ -144,7 +145,7 @@
         drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
         drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
         myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];;
     }else {
         [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];

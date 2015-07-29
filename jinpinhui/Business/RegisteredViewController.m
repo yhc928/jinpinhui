@@ -8,6 +8,7 @@
 
 #import "RegisteredViewController.h"
 #import "RegExp.h"
+#import "AuthenticationViewController.h"
 @interface RegisteredViewController ()
 {
     NSInteger noteM;
@@ -131,6 +132,7 @@
     
 }
 - (IBAction)regClick:(id)sender {
+      [self.view endEditing:YES];
     if (_accountText.text.length == 0)
         [self showAlertViewWithMessage:@"请输入手机号！"];
     else if (_passwordText.text.length == 0)
@@ -163,10 +165,30 @@
         [userdefaules setValue:_accountText.text forKey:@"username"];
         [userdefaules setValue:_passwordText.text forKey:@"password"];
         [userdefaules synchronize];
-        [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
+//        [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:[resultDic objectForKey:@"info"]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+        alertView.tag = 100;
+        [alertView show];
     }else {
-        [self showAlertViewWithMessage:[resultDic objectForKey:@"error"]];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                            message:[resultDic objectForKey:@"error"]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"确定"
+                                                  otherButtonTitles:nil, nil];
+        alertView.tag = 101;
+        [alertView show];
     }
 
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 101) {
+        //注册成功
+        AuthenticationViewController *authentication = [[AuthenticationViewController alloc]init];
+        [self.navigationController pushViewController:authentication animated:YES];
+    }
 }
 @end

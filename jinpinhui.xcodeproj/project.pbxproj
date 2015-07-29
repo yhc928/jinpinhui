@@ -28,6 +28,8 @@
 		CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD542851B5BE7D000C6180B /* InvitationViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
+		CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF079441B6910D1009A9EEF /* JPHpickView.m */; };
+		CDF079471B691353009A9EEF /* hangye.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF079461B691353009A9EEF /* hangye.plist */; };
 		D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F441B5CD4AE00457333 /* HotActivityViewController.m */; };
 		D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F471B5CD4B900457333 /* GoldStoreViewController.m */; };
 		D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4A1B5CD4C600457333 /* MoreViewController.m */; };
@@ -157,6 +159,9 @@
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		CDF079431B6910D1009A9EEF /* JPHpickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHpickView.h; sourceTree = "<group>"; };
+		CDF079441B6910D1009A9EEF /* JPHpickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHpickView.m; sourceTree = "<group>"; };
+		CDF079461B691353009A9EEF /* hangye.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hangye.plist; sourceTree = "<group>"; };
 		D0363F431B5CD4AE00457333 /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
 		D0363F441B5CD4AE00457333 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
 		D0363F461B5CD4B900457333 /* GoldStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreViewController.h; sourceTree = "<group>"; };
@@ -754,6 +759,8 @@
 			children = (
 				D08F82361B52743300F6E7C9 /* UIView+AutoLayout.h */,
 				D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */,
+				CDF079431B6910D1009A9EEF /* JPHpickView.h */,
+				CDF079441B6910D1009A9EEF /* JPHpickView.m */,
 			);
 			name = Categories;
 			path = jinpinhui/Categories;
@@ -795,6 +802,7 @@
 		D08F82431B527E5C00F6E7C9 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				CDF079461B691353009A9EEF /* hangye.plist */,
 				CDD542801B5BE1C000C6180B /* qiandao.txt */,
 				CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */,
 				CD2A58641B580AB90007B8EE /* yaoqing.txt */,
@@ -940,6 +948,7 @@
 				CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
 				D0363F4D1B5CDAE900457333 /* more.plist in Resources */,
+				CDF079471B691353009A9EEF /* hangye.plist in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
@@ -1008,6 +1017,7 @@
 				CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
+				CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
 				D078C4B11B4A9C8D002C65CA /* MJRefreshConst.m in Sources */,

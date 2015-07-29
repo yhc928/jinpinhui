@@ -27,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //登录成功 请求个人信息
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(LoginStatusSuccessfulDone:) name:@"LoginStatusSuccessful" object:nil];
     //背景图片
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_side_bg"]];
     [self.view addSubview:bgImageView];
@@ -96,6 +98,9 @@
     [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(CGRectGetMaxY(bottom_h_line.frame) + 10, 0, 0, 0)]; //设置autoLayout
     NSString *leftSidePath = [[NSBundle mainBundle] pathForResource:@"rigthSide" ofType:@"plist"];
     self.dataList = [NSArray arrayWithContentsOfFile:leftSidePath];
+}
+- (void)LoginStatusSuccessfulDone:(NSNotification *)notifi{
+    [self requestUserInfo];
 }
 /**
  *  获取用户信息

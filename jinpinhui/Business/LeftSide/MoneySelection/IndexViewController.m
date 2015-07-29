@@ -92,12 +92,32 @@
     
 //**************************************************数据***********************************************
     self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划"];
+    [self requestProduct];
 }
-
+/**
+ *  获取产品
+ *
+ *  @param NSInteger
+ *
+ *  @return
+ */
+- (void)requestProduct{
+    
+    [self.Parameters setValue:@"GETA" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    NSLog(@"%@",self.Parameters);
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:112 object:nil];
+    
+}
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
     NSLog(@"resultDic = %@",resultDic);
+    NSLog(@"%@",[resultDic objectForKey:@"error"]);
 }
 
 #pragma mark - UICollectionViewDataSource

@@ -7,12 +7,14 @@
 //
 
 #import "AuthenticationViewController.h"
-
-@interface AuthenticationViewController ()<UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate , UINavigationControllerDelegate>
+#import "JPHpickView.h"
+@interface AuthenticationViewController ()<UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate , UINavigationControllerDelegate,JPHpickViewDelegate>
 @property (nonatomic ,strong)UITableView *tableView;
 @property (nonatomic ,strong)UILabel *industryLab;
 @property (nonatomic ,strong)UIButton *CardBtn;
-@property (nonatomic ,strong)UITextField *InvitecodeText;
+//@property (nonatomic ,strong)UITextField *InvitecodeText;
+@property (nonatomic ,strong)JPHpickView *pickview;
+@property (nonatomic ,strong)NSString *hangye;
 @end
 
 @implementation AuthenticationViewController
@@ -42,33 +44,34 @@
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(CGRectGetMaxY(topView.frame), 0, 0, 0)]; //设置autoLayout
     //使用NSNotificationCenter 鍵盤出現時
-    [[NSNotificationCenter defaultCenter] addObserver:self
-     
-                                             selector:@selector(keyboardWasShown:)
-     
-                                                 name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//     
+//                                             selector:@selector(keyboardWasShown:)
+//     
+//                                                 name:UIKeyboardWillShowNotification object:nil];
     //使用NSNotificationCenter 鍵盤隐藏時
-    [[NSNotificationCenter defaultCenter] addObserver:self
-     
-                                             selector:@selector(keyboardWillBeHidden:)
-     
-                                                 name:UIKeyboardWillHideNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//     
+//                                             selector:@selector(keyboardWillBeHidden:)
+//     
+//                                                 name:UIKeyboardWillHideNotification object:nil];
+    self.hangye = @"请选择";
 }
 //实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    CGRect keyboardBounds = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, keyboardBounds.size.height, 0);
-}
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
+//- (void)keyboardWasShown:(NSNotification*)aNotification
+//{
+//    CGRect keyboardBounds = [[[aNotification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, keyboardBounds.size.height, 0);
+//}
+//- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+//{
+//
+//    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, 0, 0);
+//
+//}
 
-    _tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, 0, 0);
-
-}
-    
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 3;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -81,7 +84,6 @@
             _industryLab = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 140, 12, 100, 20)];
             _industryLab.textAlignment = NSTextAlignmentRight;
             _industryLab.font = [UIFont boldSystemFontOfSize:14];
-            _industryLab.text = @"请选择";
             [cell.contentView addSubview:_industryLab];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }else if (indexPath.row == 1){
@@ -93,14 +95,16 @@
             [_CardBtn setBackgroundImage:[UIImage imageNamed:@"shenfen_bg"] forState:UIControlStateHighlighted];
             [_CardBtn addTarget:self action:@selector(CardAction) forControlEvents:UIControlEventTouchUpInside];
             [cell.contentView addSubview:_CardBtn];
-        }else if (indexPath.row == 2){
-            cell.textLabel.text = @"邀请码:";
-            cell.textLabel.font = [UIFont systemFontOfSize:15];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            _InvitecodeText = [[UITextField alloc]initWithFrame:CGRectMake(80, 0, SCREEN_WIDTH - 80, 44)];
-            _InvitecodeText.placeholder = @"填写邀请码有奖 （选填）";
-            [cell.contentView addSubview:_InvitecodeText];
-        }else if (indexPath.row == 3){
+        }
+//        else if (indexPath.row == 2){
+//            cell.textLabel.text = @"邀请码:";
+//            cell.textLabel.font = [UIFont systemFontOfSize:15];
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            _InvitecodeText = [[UITextField alloc]initWithFrame:CGRectMake(80, 0, SCREEN_WIDTH - 80, 44)];
+//            _InvitecodeText.placeholder = @"填写邀请码有奖 （选填）";
+//            [cell.contentView addSubview:_InvitecodeText];
+//        }
+        else if (indexPath.row == 2){
              cell.backgroundColor = [UIColor clearColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone; 
             UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 150)];
@@ -124,11 +128,20 @@
             lable2.lineBreakMode = NSLineBreakByWordWrapping;
             [backView addSubview:lable2];
         }
+        
     }
+     _industryLab.text = self.hangye;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [_pickview remove];
+    if (indexPath.row == 0) {
+        _pickview=[[JPHpickView alloc] initPickviewWithPlistName:@"hangye" isHaveNavControler:NO];
+        _pickview.delegate=self;
+        
+        [_pickview show];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
@@ -137,6 +150,13 @@
         return 170;
     }else
         return 44;
+}
+#pragma mark JPHpickVIewDelegate
+
+-(void)toobarDonBtnHaveClick:(JPHpickView *)pickView resultString:(NSString *)resultString{
+    
+    self.hangye = resultString;
+    [_tableView reloadData];
 }
 //身份证上传
 -(void)CardAction{
