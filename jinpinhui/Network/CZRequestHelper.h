@@ -23,10 +23,10 @@
  *  @param code     网络请求状态码
  *  @param obj      object
  */
-- (void)czGETWithRequest:(CZRequestModel *)request
-                delegate:(id<CZRequestHelperDelegate>)delegate
-                    code:(NSInteger)code
-                  object:(id)obj;
+//- (void)czGETWithRequest:(CZRequestModel *)request
+//                delegate:(id<CZRequestHelperDelegate>)delegate
+//                    code:(NSInteger)code
+//                  object:(id)obj;
 
 /**
  *  网络请求POST方法
@@ -40,6 +40,19 @@
                  delegate:(id<CZRequestHelperDelegate>)delegate
                      code:(NSInteger)code
                    object:(id)obj;
+
+/**
+ *  网络请求POST图片方法
+ *
+ *  @param request  请求model
+ *  @param delegate 代理
+ *  @param code     网络请求状态码
+ *  @param obj      object
+ */
+- (void)czMultipartPOSTWithRequest:(CZRequestModel *)request
+                          delegate:(id<CZRequestHelperDelegate>)delegate
+                              code:(NSInteger)code
+                            object:(id)obj;
 
 @end
 

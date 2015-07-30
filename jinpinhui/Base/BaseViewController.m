@@ -99,10 +99,10 @@
     } else {
         //发送网络请求
         CZRequestHelper *helper = [[CZRequestHelper alloc] init];
-        if (request.parameters == nil) {
-            [helper czGETWithRequest:request delegate:delegate code:code object:obj];
-        } else {
+        if (request.uploadImage == nil) {
             [helper czPOSTWithRequest:request delegate:delegate code:code object:obj];
+        } else {
+            [helper czMultipartPOSTWithRequest:request delegate:delegate code:code object:obj];
         }
     }
 }

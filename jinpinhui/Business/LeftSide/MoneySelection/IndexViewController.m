@@ -15,7 +15,6 @@
 
 @property (nonatomic, strong) TitleCollectionView *titleCollectionView;
 @property (nonatomic, strong) UICollectionView    *collectionView;//表格
-@property (nonatomic, strong) UITableView         *tableView;
 
 @property (nonatomic, strong) NSArray             *dataArray;
 
@@ -91,22 +90,36 @@
             forCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])];
     
 //**************************************************数据***********************************************
-    self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划"];
+    //产品网络请求
+//    [self loadNewData];
+    
+    [self requestProduct1];
 }
 
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
-    [self.tableView.legendHeader endRefreshing];
+    [self.currentTableView.legendHeader endRefreshing];
+    
+//    NSArray *ttypes = [resultDic objectForKey:@"Ttype"];
+//    if (ttypes.count > 0) {
+//        self.dataArray = ttypes;
+//        [self.collectionView reloadData];
+//        
+//        //产品标题
+//        self.titleCollectionView.dataArray = ttypes;
+//        [self.titleCollectionView reloadData];
+//    }
+    
     
     NSLog(@"resultDic = %@",resultDic);
-    NSLog(@"%@",[resultDic objectForKey:@"error"]);
+    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.titleCollectionView.dataArray.count;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -114,12 +127,15 @@
     if (indexPath.row == 0) {
         FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
                                                                               forIndexPath:indexPath];
-        cell.dataArray = @[@"1"];
+        NSDictionary *ttype = self.dataArray[indexPath.row];
+        cell.dataArray = [ttype objectForKey:@"Tsub"];
+        [cell.tableView reloadData];
         return cell;
     } else {
         SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
                                                                                forIndexPath:indexPath];
-        cell.dataArray = @[@"1"];
+        NSDictionary *ttype = self.dataArray[indexPath.row];
+        cell.dataArray = [ttype objectForKey:@"Tsub"];
         return cell;
     }
 }
@@ -175,31 +191,23 @@
     myAppDelegate.drawerController.view.userInteractionEnabled = NO;
 }
 
+/**
+ *  重写currentTableView的get方法
+ */
+- (UITableView *)currentTableView
+{
+    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
+    
+    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
+    
+    return cell.tableView;
+}
+
 //下拉刷新回调方法
 - (void)loadNewData
 {
     //网络请求
     [self requestProduct];
-//    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
-//    
-//    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
-//    self.tableView = cell.tableView;
-//    
-//    [self.tableView.legendHeader endRefreshing];
-//    
-//    [self.collectionView reloadData];
-   
-}
-
-//立即进入刷新
-- (void)beginRefreshing
-{
-//    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
-//    
-//    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
-//    self.tableView = cell.tableView;
-//    
-//     [self.tableView.legendHeader beginRefreshing];
 }
 
 /**
@@ -240,8 +248,19 @@
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
     
-    NSLog(@"%@",self.Parameters);
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:112 object:nil];
+}
+
+- (void)requestProduct1
+{
+    [self.Parameters setValue:@"GETA" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    NSString *str =@"于海超";
+    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:@{@"connector" : @"publishShare", @"userId" : @"199681", @"userName" : [NSString stringWithString:[str stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]], @"content" : @""}
+                                                                         uploadImage:[UIImage imageNamed:@"exit_bg"]];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
 }
 
