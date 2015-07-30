@@ -14,6 +14,8 @@
 
 @interface IndexViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,TitleCollectionViewDelegate>
 
+@property (nonatomic, strong, readonly) UITableView *currentTableView; //当前页面的tableView
+
 /**
  *  单例
  *
@@ -22,13 +24,8 @@
 + (instancetype)sharedClient;
 
 /**
- *  下拉刷新回调方法
+ *  下拉刷新回调方法，在cell中使用
  */
 - (void)loadNewData;
-
-/**
- *  立即进入刷新
- */
-- (void)beginRefreshing;
 
 @end

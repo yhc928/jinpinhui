@@ -61,7 +61,8 @@
     TitleCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     //设置数据
-    cell.titleLabel.text = self.dataArray[indexPath.row];
+    NSDictionary *ttype = self.dataArray[indexPath.row];
+    cell.titleLabel.text = [ttype objectForKey:@"Tname"];
     
     if (indexPath.row == _currentMultiple) {
         cell.titleLabel.textColor = UIColorFromRGB(252, 102, 34);

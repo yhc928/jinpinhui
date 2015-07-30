@@ -112,7 +112,7 @@
     switch (indexPath.row) {
         case 0: {
             myAppDelegate.drawerController.centerViewController = self.indexNav;
-            [[IndexViewController sharedClient] beginRefreshing];
+            [[IndexViewController sharedClient].currentTableView.legendHeader beginRefreshing];
             break;
         }
             

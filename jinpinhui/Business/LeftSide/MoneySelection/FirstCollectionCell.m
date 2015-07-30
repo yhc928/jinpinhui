@@ -28,7 +28,6 @@
         //添加下拉刷新
         [self.tableView addLegendHeaderWithRefreshingTarget:[IndexViewController sharedClient]
                                            refreshingAction:@selector(loadNewData)];
-        [self.tableView.legendHeader beginRefreshing];
         
         //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -49,8 +48,7 @@
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,90 +58,28 @@
         cell = [[FirstIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
     }
     
-    cell.titleLabel.text = @"中泰信托-金泰3号淮安安置"; //标题
-    cell.statusLabel.text = @"在售"; //状态
+    NSDictionary *tsub = self.dataArray[indexPath.row];
+    
+    cell.titleLabel.text = [tsub objectForKey:@"Iname"]; //标题
+    cell.statusLabel.text = [tsub objectForKey:@"Istate"]; //状态
     cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
     
-    cell.originLabel.text = @"100万";   //投资起点
-    cell.deadlineLabel.text = @"24个月"; //投资期限
-    cell.expectedLabel.text = @"10.00%"; //预期收益
-    cell.rebateLabel.text = @"认证可见"; //最高返佣
-    cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.6, 6); //进度条
-    cell.raiseLabel.text = @"已募集60%"; //已募集
+    cell.originLabel.text = [tsub objectForKey:@"Iup"];   //投资起点
+    cell.deadlineLabel.text = [tsub objectForKey:@"Imon"]; //投资期限
+    cell.expectedLabel.text = [tsub objectForKey:@"Iear"]; //预期收益
+    cell.rebateLabel.text = [tsub objectForKey:@"Tmax"]; //最高返佣
+
     
-    switch (indexPath.row % 8) {
-        case 0: {
-            cell.titleLabel.text = @"中泰信托-金泰3号淮安安置"; //标题
-            cell.statusLabel.text = @"在售"; //状态
-            cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
-            
-            cell.originLabel.text = @"100万";   //投资起点
-            cell.deadlineLabel.text = @"24个月"; //投资期限
-            cell.expectedLabel.text = @"10.00%"; //预期收益
-            cell.rebateLabel.text = @"认证可见"; //最高返佣
-            cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.6, 6); //进度条
-            cell.raiseLabel.text = @"已募集60%"; //已募集
-            
-            cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.2, 6); //进度条
-            }];
-            
-            cell.raiseLabel.text = @"已募集20%"; //已募集
-            
-            break;
-        }
-        case 1: {
-            
-            cell.titleLabel.text = @"中泰信托景泰9号毕节市虎"; //标题
-            cell.statusLabel.text = @"新品"; //状态
-            cell.statusLabel.backgroundColor = UIColorFromRGB(81, 208, 113);
-            
-            cell.originLabel.text = @"100万";   //投资起点
-            cell.deadlineLabel.text = @"24个月"; //投资期限
-            cell.expectedLabel.text = @"10.00%"; //预期收益
-            cell.rebateLabel.text = @"认证可见"; //最高返佣
-            
-            cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.6, 6); //进度条
-            }];
-            
-            cell.raiseLabel.text = @"已募集60%"; //已募集
-            
-            break;
-        }
-        case 2: {
-            cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.4, 6); //进度条
-            }];
-            
-            cell.raiseLabel.text = @"已募集40%"; //已募集
-            
-            break;
-        }
-        case 3: {
-            cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.8, 6); //进度条
-            }];
-            
-            cell.raiseLabel.text = @"已募集80%"; //已募集
-            
-            break;
-        }
-        case 4: {
-            cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-            [UIView animateWithDuration:0.5 animations:^{
-                cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*1, 6); //进度条
-            }];
-            
-            cell.raiseLabel.text = @"已募集100%"; //已募集
-            
-            break;
-        }
-    }
+    
+    
+    cell.raiseLabel.text = [tsub objectForKey:@"Ipro"]; //已募集
+    
+    
+    cell.progressView.frame = CGRectMake(0, 0, 0, 6);
+    [UIView animateWithDuration:0.5 animations:^{
+        cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.2, 6); //进度条
+    }];
+    
     return cell;
 }
 

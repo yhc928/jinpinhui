@@ -23,4 +23,15 @@
 
 - (CZRequestModel *)getBin_cmdWithParameters:(NSDictionary *)parameters;
 
+/**
+ *  上传图片
+ *
+ *  @param parameters  参数
+ *  @param uploadImage 图片
+ *
+ *  @return CZRequestModel
+ */
+- (CZRequestModel *)publishActionParameters:(NSDictionary *)parameters
+                                uploadImage:(UIImage *)uploadImage;
+
 @end
