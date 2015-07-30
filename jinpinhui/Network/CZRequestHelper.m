@@ -100,6 +100,7 @@
         NSData *imageData = UIImageJPEGRepresentation(request.uploadImage, 1);
         [formData appendPartWithFileData:imageData name:@"picture1" fileName:@"test.jpg" mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
         //请求成功设置代理
         if ([delegate respondsToSelector:@selector(czRequestForResultDic:code:object:)]) {
             [delegate czRequestForResultDic:responseObject code:code object:obj];

@@ -68,6 +68,7 @@ single_implementation(LoginUser)
 {
     [password saveToNSDefaultsWithKey:PasswordKey];
 }
+//状态
 - (NSString *)loginStatus
 {
     return [self loadStringFromDefaultsWithKey:LOGINSTATUS];
@@ -77,7 +78,59 @@ single_implementation(LoginUser)
 {
     [loginStatus saveToNSDefaultsWithKey:LOGINSTATUS];
 }
+//地址
+-(NSString *)address{
+    
+  return  [self loadStringFromDefaultsWithKey:AddressKey];
+}
 
+-(void)setAddress:(NSString *)address{
+    
+  [address saveToNSDefaultsWithKey:AddressKey];
+    
+}
+//认证
+-(NSString *)checks{
+     return  [self loadStringFromDefaultsWithKey:ChecksKey];
+}
 
+-(void)setChecks:(NSString *)checks{
+    
+    [checks saveToNSDefaultsWithKey:ChecksKey];
+    
+}
+//金币
+-(NSString *)ugold{
+    
+    return [self loadStringFromDefaultsWithKey:UgoldKey];
+}
+
+-(void)setUgold:(NSString *)ugold{
+    
+    [ugold saveToNSDefaultsWithKey:UgoldKey];
+    
+}
+
+-(NSString *)usertrade{
+    
+    return [self loadStringFromDefaultsWithKey:UsertradeKey];
+}
+
+-(void)setUsertrade:(NSString *)usertrade{
+    
+    [usertrade saveToNSDefaultsWithKey:UsertradeKey];
+    
+}
+
+-(NSString *)uservcard{
+    
+    return [self loadStringFromDefaultsWithKey:UservcardKey];
+}
+
+-(void)setUservcard:(NSString *)uservcard{
+    
+    [uservcard saveToNSDefaultsWithKey:UservcardKey];
+    
+}
 
 @end

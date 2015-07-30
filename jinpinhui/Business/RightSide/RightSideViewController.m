@@ -12,7 +12,7 @@
 #import "CommissionViewController.h"
 #import "SigninViewController.h"
 #import "InvitationViewController.h"
-
+#import "LoginUser.h"
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
 @property(nonatomic ,strong) UILabel *nicknameLab;
@@ -123,7 +123,13 @@
     NSLog(@"%@",resultDic);
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         _currencyLab.text = [NSString stringWithFormat:@"%@金币",[resultDic objectForKey:@"ugold"]];
-        
+        [[LoginUser sharedLoginUser] setAddress:[resultDic objectForKey:@"addr"]];
+        [[LoginUser sharedLoginUser] setChecks:[resultDic objectForKey:@"checks"]];
+        [[LoginUser sharedLoginUser] setUgold:[resultDic objectForKey:@"ugold"]];
+        [[LoginUser sharedLoginUser] setRealName:[resultDic objectForKey:@"uname"]];
+        [[LoginUser sharedLoginUser] setUserimage:[resultDic objectForKey:@"userimage"]];
+        [[LoginUser sharedLoginUser] setUsertrade:[resultDic objectForKey:@"usertrade"]];
+        [[LoginUser sharedLoginUser] setUservcard:[resultDic objectForKey:@"uservcard"]];
     }
 }
 #pragma mark - UITableViewDataSource and UITableViewDelegate

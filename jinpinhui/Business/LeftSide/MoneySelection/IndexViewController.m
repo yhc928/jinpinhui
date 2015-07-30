@@ -254,13 +254,14 @@
 
 - (void)requestProduct1
 {
-    [self.Parameters setValue:@"GETA" forKey:@"cmd"];
-    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:@"SETC" forKey:@"cmd"];
+    [self.Parameters setValue:@"金融投资" forKey:@"para"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
-    NSString *str =@"于海超";
-    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:@{@"connector" : @"publishShare", @"userId" : @"199681", @"userName" : [NSString stringWithString:[str stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]], @"content" : @""}
+    NSLog(@"%@",self.Parameters);
+    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:nil
                                                                          uploadImage:[UIImage imageNamed:@"exit_bg"]];
+//      CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
 }
 

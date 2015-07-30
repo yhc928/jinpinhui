@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"                //HUD指示器
 #import "RegExp.h"                       //正则验证
 #import "LoginViewController.h"
+#import "LoginUser.h"
 //#import "IndexViewController.h"
 
 @interface BaseViewController ()
@@ -293,9 +294,9 @@
 -(NSMutableDictionary *)Parameters{
     if (!_Parameters) {
         _Parameters = [[NSMutableDictionary alloc]init];
-        NSUserDefaults *userdefaults =[NSUserDefaults standardUserDefaults];
-        [_Parameters setValue:[userdefaults objectForKey:@"username"] forKey:@"username"];
-        [_Parameters setValue:[userdefaults objectForKey:@"password"] forKey:@"password"];
+      
+        [_Parameters setValue:[[LoginUser sharedLoginUser] userName] forKey:@"username"];
+        [_Parameters setValue:[[LoginUser sharedLoginUser] password] forKey:@"password"];
         [_Parameters setValue:@"" forKey:@"cmd"];
         [_Parameters setValue:@"" forKey:@"date"];
         [_Parameters setValue:@"" forKey:@"md5"];
