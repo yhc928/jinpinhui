@@ -35,6 +35,7 @@
 		D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4A1B5CD4C600457333 /* MoreViewController.m */; };
 		D0363F4D1B5CDAE900457333 /* more.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0363F4C1B5CDAE900457333 /* more.plist */; };
 		D0363F501B5CE2BA00457333 /* HotActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */; };
+		D077A70C1B6A7047001BE852 /* ThirdIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D077A70B1B6A7047001BE852 /* ThirdIndexCell.m */; };
 		D078C3E01B4A970E002C65CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3DF1B4A970E002C65CA /* main.m */; };
 		D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C3E21B4A970E002C65CA /* AppDelegate.m */; };
 		D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D078C3EA1B4A970E002C65CA /* Images.xcassets */; };
@@ -171,6 +172,8 @@
 		D0363F4C1B5CDAE900457333 /* more.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = more.plist; sourceTree = "<group>"; };
 		D0363F4E1B5CE2BA00457333 /* HotActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityCell.h; sourceTree = "<group>"; };
 		D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityCell.m; sourceTree = "<group>"; };
+		D077A70A1B6A7047001BE852 /* ThirdIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdIndexCell.h; sourceTree = "<group>"; };
+		D077A70B1B6A7047001BE852 /* ThirdIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdIndexCell.m; sourceTree = "<group>"; };
 		D078C3DA1B4A970E002C65CA /* jinpinhui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jinpinhui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D078C3DE1B4A970E002C65CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D078C3DF1B4A970E002C65CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -858,6 +861,8 @@
 				D0E563921B64DD450042CD42 /* FirstIndexCell.m */,
 				D0E563931B64DD450042CD42 /* SecondIndexCell.h */,
 				D0E563941B64DD450042CD42 /* SecondIndexCell.m */,
+				D077A70A1B6A7047001BE852 /* ThirdIndexCell.h */,
+				D077A70B1B6A7047001BE852 /* ThirdIndexCell.m */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -1033,6 +1038,7 @@
 				CDD5427E1B5BB53900C6180B /* PWSCalendarViewFlowLayout.m in Sources */,
 				D078C4971B4A9C8D002C65CA /* BaseViewController.m in Sources */,
 				D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */,
+				D077A70C1B6A7047001BE852 /* ThirdIndexCell.m in Sources */,
 				D078C4CC1B4A9C8D002C65CA /* UIImageView+HighlightedWebCache.m in Sources */,
 				D078C4A51B4A9C8D002C65CA /* AFURLSessionManager.m in Sources */,
 				D078C4A41B4A9C8D002C65CA /* AFURLResponseSerialization.m in Sources */,

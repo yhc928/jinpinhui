@@ -8,7 +8,9 @@
 
 #import "SecondCollectionCell.h"
 #import "IndexViewController.h"
+#import "FirstIndexCell.h"
 #import "SecondIndexCell.h"
+#import "ThirdIndexCell.h"
 #import "MJRefresh.h"
 
 @implementation SecondCollectionCell
@@ -44,32 +46,115 @@
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SecondIndexCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SecondIndexCell"];
-    if (!cell) {
-        cell = [[SecondIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SecondIndexCell"];
+    if ([self.ttp isEqualToString:@"0"]) {
+        FirstIndexCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstIndexCell"];
+        if (!cell) {
+            cell = [[FirstIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
+        }
+        
+        NSDictionary *tsub = self.dataArray[indexPath.row];
+        
+        //项目名称
+        cell.titleLabel.text = [tsub objectForKey:@"Iname"];
+        
+        //投资起点
+        cell.originLabel.text = [tsub objectForKey:@"Iup"];
+        
+        //投资期限
+        cell.deadlineLabel.text = [tsub objectForKey:@"Imon"];
+        
+        //预期收益
+        NSString *iear = [tsub objectForKey:@"Iear"];
+        cell.expectedLabel.text = [NSString stringWithFormat:@"%.2f%%",[iear floatValue]];
+        
+        //最高返佣
+        cell.rebateLabel.text = [tsub objectForKey:@"Tmax"];
+        
+        //已募集
+        NSString *ipro = [tsub objectForKey:@"Ipro"];
+        cell.raiseLabel.text = [NSString stringWithFormat:@"已募集%@%%",ipro];
+        
+        //进度条
+        cell.progressView.frame = CGRectMake(0, 0, 0, 6);
+        [UIView animateWithDuration:0.5 animations:^{
+            cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*[ipro floatValue]*0.01, 6);
+        }];
+        
+        //状态
+        [self statusLabelColorWithIstate:[tsub objectForKey:@"Istate"] statusLabel:cell.statusLabel];
+        
+        return cell;
+        
+    } else if ([self.ttp isEqualToString:@"1"]) {
+        SecondIndexCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SecondIndexCell"];
+        if (!cell) {
+            cell = [[SecondIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SecondIndexCell"];
+        }
+        
+        NSDictionary *tsub = self.dataArray[indexPath.row];
+        
+        //项目名称
+        cell.titleLabel.text = [tsub objectForKey:@"Iname"];
+        
+        //投资起点
+        cell.originLabel.text = [tsub objectForKey:@"Iup"];
+        
+        //累计净值
+        cell.deadlineLabel.text = [tsub objectForKey:@"ICn"];
+        
+        //累计收益
+        NSString *iCg = [tsub objectForKey:@"ICg"];
+        cell.expectedLabel.text = [NSString stringWithFormat:@"%.2f%%",[iCg floatValue]];
+        
+        //最高返佣
+        cell.rebateLabel.text = [tsub objectForKey:@"Tmax"];
+        
+        //状态
+        [self statusLabelColorWithIstate:[tsub objectForKey:@"Istate"] statusLabel:cell.statusLabel];
+        
+        return cell;
+        
+    } else {
+        ThirdIndexCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ThirdIndexCell"];
+        if (!cell) {
+            cell = [[ThirdIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ThirdIndexCell"];
+        }
+        NSDictionary *tsub = self.dataArray[indexPath.row];
+        
+        //项目名称
+        cell.titleLabel.text = [tsub objectForKey:@"Iname"];
+        
+        //投资起点
+        cell.originLabel.text = [tsub objectForKey:@"Iup"];
+        
+        //投资期限
+        cell.deadlineLabel.text = [tsub objectForKey:@"Imon"];
+        
+        //募集状态
+        cell.expectedLabel.text = [tsub objectForKey:@"IST"];
+        
+        //最高返佣
+        cell.rebateLabel.text = [tsub objectForKey:@"Tmax"];
+        
+        //状态
+        [self statusLabelColorWithIstate:[tsub objectForKey:@"Istate"] statusLabel:cell.statusLabel];
+        
+        return cell;
     }
-    
-    cell.titleLabel.text = @"中泰信托-金泰3号淮安安置"; //标题
-    cell.statusLabel.text = @"在售"; //状态
-    cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
-    
-    cell.originLabel.text = @"100万";   //投资起点
-    cell.deadlineLabel.text = @"24个月"; //投资期限
-    cell.expectedLabel.text = @"10.00%"; //预期收益
-    cell.rebateLabel.text = @"认证可见"; //最高返佣
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 96;
+    if ([self.ttp isEqualToString:@"0"]) {
+        return 121;
+    } else {
+        return 96;
+    }
 }
 
 //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
@@ -89,9 +174,21 @@
     
 }
 
-//- (void)setDataArray:(NSArray *)dataArray
-//{
-//    [self.tableView reloadData];
-//}
+- (void)statusLabelColorWithIstate:(NSString *)istate statusLabel:(UILabel *)statusLabel
+{
+    if ([istate isEqualToString:@"0"]) {
+        statusLabel.text = @"在售";
+        statusLabel.backgroundColor = UIColorFromRGB(253, 131, 50);
+    } else if ([istate isEqualToString:@"1"]) {
+        statusLabel.text = @"新品";
+        statusLabel.backgroundColor = UIColorFromRGB(82, 208, 112);
+    } else if ([istate isEqualToString:@"2"]) {
+        statusLabel.text = @"售馨";
+        statusLabel.backgroundColor = UIColorFromRGB(82, 208, 112);
+    } else if ([istate isEqualToString:@"3"]) {
+        statusLabel.text = @"爆款";
+        statusLabel.backgroundColor = UIColorFromRGB(82, 208, 112);
+    }
+}
 
 @end

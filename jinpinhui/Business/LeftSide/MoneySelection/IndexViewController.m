@@ -16,7 +16,8 @@
 @property (nonatomic, strong) TitleCollectionView *titleCollectionView;
 @property (nonatomic, strong) UICollectionView    *collectionView;//表格
 
-@property (nonatomic, strong) NSArray             *dataArray;
+@property (nonatomic, strong) NSArray             *dataArray; //数据
+@property (nonatomic, strong) NSArray             *imageArray; //轮播图
 
 @end
 
@@ -91,9 +92,7 @@
     
 //**************************************************数据***********************************************
     //产品网络请求
-//    [self loadNewData];
-    
-    [self requestProduct1];
+    [self loadNewData];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -101,16 +100,23 @@
 {
     [self.currentTableView.legendHeader endRefreshing];
     
-//    NSArray *ttypes = [resultDic objectForKey:@"Ttype"];
-//    if (ttypes.count > 0) {
-//        self.dataArray = ttypes;
-//        [self.collectionView reloadData];
-//        
-//        //产品标题
-//        self.titleCollectionView.dataArray = ttypes;
-//        [self.titleCollectionView reloadData];
-//    }
+    NSArray *thots = [resultDic objectForKey:@"Thot"];
+    NSArray *ttypes = [resultDic objectForKey:@"Ttype"];
     
+    if (thots.count > 0) {
+        //轮播图数据
+        self.imageArray = thots;
+    }
+    
+    if (ttypes.count > 0) {
+        //产品数据
+        self.dataArray = ttypes;
+        [self.collectionView reloadData];
+        
+        //产品标题
+        self.titleCollectionView.dataArray = ttypes;
+        [self.titleCollectionView reloadData];
+    }
     
     NSLog(@"resultDic = %@",resultDic);
     NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
@@ -128,14 +134,30 @@
         FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
                                                                               forIndexPath:indexPath];
         NSDictionary *ttype = self.dataArray[indexPath.row];
-        cell.dataArray = [ttype objectForKey:@"Tsub"];
-        [cell.tableView reloadData];
+        NSArray *tsubs = [ttype objectForKey:@"Tsub"];
+        
+        if (![cell.imageArray isEqualToArray:self.imageArray]) {
+            cell.imageArray = self.imageArray;
+        }
+        
+        if (![cell.dataArray isEqualToArray:tsubs]) {
+            cell.dataArray = tsubs;
+            [cell.tableView reloadData];
+        }
+        
         return cell;
     } else {
         SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
                                                                                forIndexPath:indexPath];
         NSDictionary *ttype = self.dataArray[indexPath.row];
-        cell.dataArray = [ttype objectForKey:@"Tsub"];
+        cell.ttp = [ttype objectForKey:@"Ttp"];
+        NSArray *tsubs = [ttype objectForKey:@"Tsub"];
+        
+        if (![cell.dataArray isEqualToArray:tsubs]) {
+            cell.dataArray = tsubs;
+            [cell.tableView reloadData];
+        }
+        
         return cell;
     }
 }
