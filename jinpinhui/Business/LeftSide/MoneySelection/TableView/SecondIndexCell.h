@@ -14,8 +14,8 @@
 @property (nonatomic, strong) UILabel *statusLabel;   //状态
 
 @property (nonatomic, strong) UILabel *originLabel;   //投资起点
-@property (nonatomic, strong) UILabel *deadlineLabel; //投资期限
-@property (nonatomic, strong) UILabel *expectedLabel; //预期收益
+@property (nonatomic, strong) UILabel *deadlineLabel; //累计净值
+@property (nonatomic, strong) UILabel *expectedLabel; //累计收益
 @property (nonatomic, strong) UILabel *rebateLabel;   //最高返佣
 
 @end

@@ -60,25 +60,37 @@
     
     NSDictionary *tsub = self.dataArray[indexPath.row];
     
-    cell.titleLabel.text = [tsub objectForKey:@"Iname"]; //标题
-    cell.statusLabel.text = [tsub objectForKey:@"Istate"]; //状态
-    cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
+    //项目名称
+    cell.titleLabel.text = [tsub objectForKey:@"Iname"];
     
-    cell.originLabel.text = [tsub objectForKey:@"Iup"];   //投资起点
-    cell.deadlineLabel.text = [tsub objectForKey:@"Imon"]; //投资期限
-    cell.expectedLabel.text = [tsub objectForKey:@"Iear"]; //预期收益
-    cell.rebateLabel.text = [tsub objectForKey:@"Tmax"]; //最高返佣
-
+    //状态
+    cell.statusLabel.text = [tsub objectForKey:@"Istate"];
     
+    //投资起点
+    cell.originLabel.text = [tsub objectForKey:@"Iup"];
     
+    //投资期限
+    cell.deadlineLabel.text = [tsub objectForKey:@"Imon"];
     
-    cell.raiseLabel.text = [tsub objectForKey:@"Ipro"]; //已募集
+    //预期收益
+    NSString *iear = [tsub objectForKey:@"Iear"];
+    cell.expectedLabel.text = [NSString stringWithFormat:@"%.2f%%",[iear floatValue]];
     
+    //最高返佣
+    cell.rebateLabel.text = [tsub objectForKey:@"Tmax"];
     
+    //已募集
+    NSString *ipro = [tsub objectForKey:@"Ipro"];
+    cell.raiseLabel.text = [NSString stringWithFormat:@"已募集%@%%",ipro];
+    
+    //进度条
     cell.progressView.frame = CGRectMake(0, 0, 0, 6);
     [UIView animateWithDuration:0.5 animations:^{
-        cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*0.2, 6); //进度条
+        cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*[ipro floatValue]*0.01, 6);
     }];
+    
+    //状态背景颜色
+    cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
     
     return cell;
 }

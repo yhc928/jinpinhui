@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) UITableView *tableView; //产品tableView
 @property (nonatomic, strong) NSArray     *dataArray; //数据源
+@property (nonatomic, strong) NSString    *ttp; //项目类别类型
 
 @end

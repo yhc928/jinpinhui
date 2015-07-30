@@ -1,15 +1,15 @@
 //
-//  SecondIndexCell.m
+//  ThirdIndexCell.m
 //  jinpinhui
 //
-//  Created by xiao7 on 15/7/20.
+//  Created by xiao7 on 15/7/30.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
-#import "SecondIndexCell.h"
+#import "ThirdIndexCell.h"
 #define label_width ((SCREEN_WIDTH-30)/4)
 
-@implementation SecondIndexCell
+@implementation ThirdIndexCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -46,32 +46,32 @@
         originTitleLabel.font = FONT_24PX;
         [self.contentView addSubview:originTitleLabel];
         
-        //累计净值
+        //投资期限
         self.deadlineLabel = [[UILabel alloc] initWithFrame:CGRectMake(15+label_width, 40, label_width, 20)];
         self.deadlineLabel.textColor = [UIColor blackColor];
         self.deadlineLabel.textAlignment = NSTextAlignmentCenter;
         self.deadlineLabel.font = FONT_32PX;
         [self.contentView addSubview:self.deadlineLabel];
         
-        //累计净值标题
+        //投资期限标题
         UILabel *deadlineTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15+label_width, 60, label_width, 15)];
         deadlineTitleLabel.textColor = [UIColor grayColor];
-        deadlineTitleLabel.text = @"累计净值";
+        deadlineTitleLabel.text = @"投资期限";
         deadlineTitleLabel.textAlignment = NSTextAlignmentCenter;
         deadlineTitleLabel.font = FONT_24PX;
         [self.contentView addSubview:deadlineTitleLabel];
         
-        //累计收益
+        //募集状态
         self.expectedLabel = [[UILabel alloc] initWithFrame:CGRectMake(15+label_width*2, 40, label_width, 20)];
         self.expectedLabel.textColor = [UIColor blackColor];
         self.expectedLabel.textAlignment = NSTextAlignmentCenter;
         self.expectedLabel.font = FONT_32PX;
         [self.contentView addSubview:self.expectedLabel];
         
-        //累计收益标题
+        //募集状态标题
         UILabel *expectedTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15+label_width*2, 60, label_width, 15)];
         expectedTitleLabel.textColor = [UIColor grayColor];
-        expectedTitleLabel.text = @"累计收益";
+        expectedTitleLabel.text = @"募集状态";
         expectedTitleLabel.textAlignment = NSTextAlignmentCenter;
         expectedTitleLabel.font = FONT_24PX;
         [self.contentView addSubview:expectedTitleLabel];
