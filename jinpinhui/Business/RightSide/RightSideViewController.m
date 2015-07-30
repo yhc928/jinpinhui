@@ -114,13 +114,17 @@
     [self.Parameters setValue:@"GETZ" forKey:@"cmd"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
-    NSLog(@"%@",self.Parameters);
+//    NSLog(@"%@",self.Parameters);
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
 
 }
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
     NSLog(@"%@",resultDic);
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        _currencyLab.text = [NSString stringWithFormat:@"%@金币",[resultDic objectForKey:@"ugold"]];
+        
+    }
 }
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

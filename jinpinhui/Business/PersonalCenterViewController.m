@@ -9,6 +9,7 @@
 #import "PersonalCenterViewController.h"
 #import "PersonalCenterTableViewCell.h"
 #import "LoginViewController.h"
+#import "LoginUser.h"
 
 @interface PersonalCenterViewController ()<UITableViewDelegate ,UITableViewDataSource>
 @property(nonatomic ,strong)UITableView *tableView;
@@ -104,11 +105,9 @@
     
 }
 - (void)exitAction{
-    NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-    [user removeObjectForKey:USERNAME];
-    [user removeObjectForKey:PASSWORD];
-    [user setObject:@"1" forKey:LOGINSTATUS];
-    [user synchronize];
+    [[LoginUser sharedLoginUser] setUserName:@""];
+    [[LoginUser sharedLoginUser] setLoginStatus:@"1"];
+    [[LoginUser sharedLoginUser] setPassword:@""];
     myAppDelegate.window.rootViewController =  [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
 }
 - (void)didReceiveMemoryWarning {

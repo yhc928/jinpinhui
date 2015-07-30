@@ -12,6 +12,7 @@
 #import "IndexViewController.h"
 #import "LeftSideViewController.h"
 #import "RightSideViewController.h"
+#import "LoginUser.h"
 
 @interface LoginViewController ()
 @property (nonatomic ,assign)NSInteger loginStatus;
@@ -53,7 +54,7 @@
     _accountText.keyboardType = UIKeyboardTypeNumberPad;
     _accountText.clearButtonMode = UITextFieldViewModeWhileEditing;
     //记住账号
-    _accountText.text = [[NSUserDefaults standardUserDefaults] objectForKey:USERNAME];
+    _accountText.text =[[LoginUser sharedLoginUser] userName];
     //密码
     UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_passwordText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
@@ -119,12 +120,9 @@
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
-        NSUserDefaults *userdefaules = [NSUserDefaults standardUserDefaults];
-        [userdefaules setValue:_accountText.text forKey:USERNAME];
-        [userdefaules setValue:_passwordText.text forKey:PASSWORD];
-        [userdefaules setValue:[NSString stringWithFormat:@"%zi",_loginStatus] forKey:LOGINSTATUS];
-        [userdefaules synchronize];
-        
+        [[LoginUser sharedLoginUser] setUserName:_accountText.text];
+        [[LoginUser sharedLoginUser] setPassword:_passwordText.text];
+        [[LoginUser sharedLoginUser] setLoginStatus:[NSString stringWithFormat:@"%zi",_loginStatus]];
         /*//首页
         IndexViewController *indexVC = [[IndexViewController alloc] init];
         UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];

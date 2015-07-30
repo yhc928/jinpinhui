@@ -12,6 +12,8 @@
 		CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA21B522560009944C8 /* LoginViewController.xib */; };
 		CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */; };
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
+		CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C51B6A6508008AD01E /* LoginUser.m */; };
+		CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */; };
 		CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */; };
 		CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */; };
 		CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5425B1B5B708800C6180B /* CommissionViewController.m */; };
@@ -131,6 +133,11 @@
 		CD852EA51B52AFC4009944C8 /* RegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisteredViewController.h; sourceTree = "<group>"; };
 		CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisteredViewController.m; sourceTree = "<group>"; };
 		CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredViewController.xib; sourceTree = "<group>"; };
+		CDCEA0C41B6A6508008AD01E /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUser.h; sourceTree = "<group>"; };
+		CDCEA0C51B6A6508008AD01E /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUser.m; sourceTree = "<group>"; };
+		CDCEA0C71B6A6818008AD01E /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
+		CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		CDCEA0CA1B6A6C06008AD01E /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = rigthSide.plist; sourceTree = "<group>"; };
 		CDD38AD01B5A94C60086B5CB /* PersonalCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterTableViewCell.h; sourceTree = "<group>"; };
 		CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterTableViewCell.m; sourceTree = "<group>"; };
@@ -748,6 +755,9 @@
 		D078C48D1B4A9C8D002C65CA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CDCEA0CA1B6A6C06008AD01E /* Singleton.h */,
+				CDCEA0C41B6A6508008AD01E /* LoginUser.h */,
+				CDCEA0C51B6A6508008AD01E /* LoginUser.m */,
 				D078C4921B4A9C8D002C65CA /* RegExp.h */,
 				D078C4931B4A9C8D002C65CA /* RegExp.m */,
 			);
@@ -757,6 +767,8 @@
 		D08F82351B52743300F6E7C9 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				CDCEA0C71B6A6818008AD01E /* NSString+Helper.h */,
+				CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */,
 				D08F82361B52743300F6E7C9 /* UIView+AutoLayout.h */,
 				D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */,
 				CDF079431B6910D1009A9EEF /* JPHpickView.h */,
@@ -1003,6 +1015,7 @@
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
+				CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
@@ -1048,6 +1061,7 @@
 				CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */,
 				D0E563801B64DBEF0042CD42 /* TitleCollectionView.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
+				CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,

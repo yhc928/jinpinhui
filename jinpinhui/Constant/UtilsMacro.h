@@ -48,5 +48,13 @@
 
 //登录信息、状态
 #define LOGINSTATUS @"loginstatus"   //记住密码、自动登录
-#define USERNAME @"username" //用户名
-#define PASSWORD @"password" //密码
+#define UserImageKey @"userimage"
+#define UserNameKey @"userName"
+#define PasswordKey @"password"
+#define RealNameKey @"realName"
+#define AddressKey @"address"
+#define ChecksKey @"checks"
+#define UgoldKey @"ugold"
+#define UsertradeKey @"usertrade"
+#define UservcardKey @"uservcard"
+
