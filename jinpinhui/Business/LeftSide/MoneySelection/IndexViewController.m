@@ -92,30 +92,13 @@
     
 //**************************************************数据***********************************************
     self.titleCollectionView.dataArray = @[@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划",@"精选推荐",@"阳光私募",@"信托产品",@"资管计划"];
-    [self requestProduct];
 }
-/**
- *  获取产品
- *
- *  @param NSInteger
- *
- *  @return
- */
-- (void)requestProduct{
-    
-    [self.Parameters setValue:@"GETA" forKey:@"cmd"];
-    [self.Parameters setValue:@"" forKey:@"para"];
-    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
-    [self.Parameters setValue:[self encryption] forKey:@"md5"];
-    
-    NSLog(@"%@",self.Parameters);
-    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-    [self jsonWithRequest:request delegate:self code:112 object:nil];
-    
-}
+
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
+    [self.tableView.legendHeader endRefreshing];
+    
     NSLog(@"resultDic = %@",resultDic);
     NSLog(@"%@",[resultDic objectForKey:@"error"]);
 }
@@ -195,26 +178,28 @@
 //下拉刷新回调方法
 - (void)loadNewData
 {
-    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
-    
-    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
-    self.tableView = cell.tableView;
-    
-    [self.tableView.legendHeader endRefreshing];
-    
-    [self.collectionView reloadData];
+    //网络请求
+    [self requestProduct];
+//    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
+//    
+//    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
+//    self.tableView = cell.tableView;
+//    
+//    [self.tableView.legendHeader endRefreshing];
+//    
+//    [self.collectionView reloadData];
    
 }
 
 //立即进入刷新
 - (void)beginRefreshing
 {
-    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
-    
-    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
-    self.tableView = cell.tableView;
-    
-     [self.tableView.legendHeader beginRefreshing];
+//    NSInteger currentMultiple = self.titleCollectionView.currentMultiple;
+//    
+//    FirstCollectionCell *cell = (FirstCollectionCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentMultiple inSection:0]];
+//    self.tableView = cell.tableView;
+//    
+//     [self.tableView.legendHeader beginRefreshing];
 }
 
 /**
@@ -246,26 +231,17 @@
 }
 
 /**
- *  request
+ *  获取产品
  */
-- (void)requestBin_cmd
+- (void)requestProduct
 {
-    NSDictionary *parameters = @{@"username":@"123",
-                                 @"password":@"a234",
-                                 @"cmd":@"reg",
-                                 @"date":@"2015-06-28 16:36:20",
-                                 @"md5":@"deda6cfcf3c03080"};
+    [self.Parameters setValue:@"GETA" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
     
-    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:parameters];
-    [self jsonWithRequest:request delegate:self code:111 object:nil];
-}
-
-- (void)requestUserAction
-{
-    NSDictionary *parameters = @{@"connector":@"homeRedPort",
-                                 @"account":@"13141215988"};
-    
-    CZRequestModel *request = [[CZRequestMaker sharedClient] getUserActionWithParameters:parameters];
+    NSLog(@"%@",self.Parameters);
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
 }
 
