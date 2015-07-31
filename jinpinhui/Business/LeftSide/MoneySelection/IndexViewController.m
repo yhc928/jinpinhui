@@ -281,7 +281,7 @@
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
     NSLog(@"%@",self.Parameters);
-    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:nil
+    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:self.Parameters
                                                                          uploadImage:[UIImage imageNamed:@"exit_bg"]];
 //      CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
