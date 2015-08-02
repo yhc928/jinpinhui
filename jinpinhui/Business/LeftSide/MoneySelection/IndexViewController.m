@@ -118,7 +118,7 @@
         [self.titleCollectionView reloadData];
     }
     
-    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"resultDic = %@",resultDic);
     NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
 }
 
@@ -135,13 +135,14 @@
                                                                               forIndexPath:indexPath];
         NSDictionary *ttype = self.dataArray[indexPath.row];
         NSArray *tsubs = [ttype objectForKey:@"Tsub"];
+        cell.tpID = [ttype objectForKey:@"TpID"];
         
         if (![cell.imageArray isEqualToArray:self.imageArray]) {
             cell.imageArray = self.imageArray;
         }
         
         if (![cell.dataArray isEqualToArray:tsubs]) {
-            cell.dataArray = tsubs;
+            cell.dataArray = [[NSMutableArray alloc] initWithArray:tsubs];
             [cell.tableView reloadData];
         }
         

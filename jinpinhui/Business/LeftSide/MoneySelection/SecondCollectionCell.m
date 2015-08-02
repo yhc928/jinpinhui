@@ -28,8 +28,8 @@
         [self.contentView addSubview:self.tableView];
         
         //添加下拉刷新
-        [self.tableView addLegendHeaderWithRefreshingTarget:[IndexViewController sharedClient]
-                                           refreshingAction:@selector(loadNewData)];
+        [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
         
         //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -41,6 +41,15 @@
         }
     }
     return self;
+}
+
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    [self.tableView.legendHeader endRefreshing];
+    [self.tableView.legendFooter endRefreshing];
+    
+    NSLog(@"%@",resultDic);
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -189,6 +198,35 @@
         statusLabel.text = @"爆款";
         statusLabel.backgroundColor = UIColorFromRGB(82, 208, 112);
     }
+}
+
+//下拉刷新回调方法
+- (void)loadNewData
+{
+    //网络请求
+    [self requestProduct];
+}
+
+- (void)loadMoreData
+{
+    //网络请求
+    [self requestProduct];
+}
+
+/**
+ *  获取产品
+ */
+- (void)requestProduct
+{
+    IndexViewController *indexVC = [IndexViewController sharedClient];
+    
+    [indexVC.Parameters setValue:@"GETA" forKey:@"cmd"];
+    [indexVC.Parameters setValue:@"" forKey:@"para"];
+    [indexVC.Parameters setValue:[indexVC getCurrentTime] forKey:@"date"];
+    [indexVC.Parameters setValue:[indexVC encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:indexVC.Parameters];
+    [indexVC jsonWithRequest:request delegate:self code:11 object:nil];
 }
 
 @end
