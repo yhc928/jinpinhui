@@ -200,8 +200,14 @@
     UIImage *Cardimage = [info objectForKey:UIImagePickerControllerEditedImage];
     [_CardBtn setImage:Cardimage forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:^{
-//        NSData *data = UIImageJPEGRepresentation(Cardimage, 0.75);
+        NSData *data = UIImageJPEGRepresentation(Cardimage, 0.75);
+        
+       
+        
     }];
+}
+-(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
+    NSLog(@"%@",[resultDic objectForKey:@"error"]);
 }
 //提交
 -(void)submitAction:(id)sender{

@@ -10,27 +10,24 @@
 
 @implementation PersonalCenterTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
--(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10, (CGRectGetHeight(self.frame) - 20) / 2, 100, 20)];
+        _titleLab.font = [UIFont systemFontOfSize:14];
+        _titleLab.textColor = UIColorFromRGB(86, 87, 88);
+        _titleLab.backgroundColor = [UIColor clearColor];
         
+        _infoLab = [[UILabel alloc]initWithFrame:CGRectMake(110, (CGRectGetHeight(self.frame) - 20) / 2, SCREEN_WIDTH - 110 - 30, 20)];
+        _infoLab.textAlignment = NSTextAlignmentRight;
+        _infoLab.font = [UIFont systemFontOfSize:14];
+        [self.contentView addSubview:_titleLab];
+        [self.contentView addSubview:_infoLab];
+      
     }
     return self;
-}
--(UILabel *)titleLab{
-    _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10, (CGRectGetHeight(self.frame) - 20) / 2, 100, 20)];
-    _titleLab.font = [UIFont systemFontOfSize:14];
-    _titleLab.textColor = UIColorFromRGB(86, 87, 88);
-    return _titleLab;
-}
--(UILabel *)infoLab{
-    _infoLab = [[UILabel alloc]initWithFrame:CGRectMake(110, (CGRectGetHeight(self.frame) - 20) / 2, SCREEN_WIDTH - 110 - 50, 20)];
-    _infoLab.textAlignment = NSTextAlignmentRight;
-    _infoLab.font = [UIFont systemFontOfSize:14];
-    return _infoLab;
 }
 //-(UIImageView *)redenvelopeImg{
 //    UIImage *image = [UIImage imageNamed:@"user_info_red_packet"];
@@ -38,9 +35,9 @@
 //    _redenvelopeImg .image = image;
 //    return _redenvelopeImg;
 //}
--(void)setDataList:(NSMutableArray *)dataList{
-    
-}
+//-(void)setDataList:(NSMutableArray *)dataList{
+//    
+//}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

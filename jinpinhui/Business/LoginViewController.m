@@ -30,7 +30,7 @@
     _rememberBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     _automaticBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     [self.rightButton setTitle:@"注册" forState:UIControlStateNormal];
-    [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:16]];
+    [self.rightButton.titleLabel setFont:[UIFont systemFontOfSize:18]];
     [self.rightButton addTarget:self action:@selector(regAction:) forControlEvents:UIControlEventTouchUpInside];
     [_loginBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
     //默认
@@ -39,11 +39,11 @@
 //设置text左侧标题
 -(void) setLeftTextView{
     //手机号码
-    UIView *accountView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_accountText.frame))];
+    UIView *accountView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_accountText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *accountLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_accountText.frame))];
+    UILabel *accountLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_accountText.frame))];
     accountLab.backgroundColor = [UIColor clearColor];
-    accountLab.font = [UIFont systemFontOfSize:12.0];
+    accountLab.font = [UIFont systemFontOfSize:14.0];
     accountLab.text = @"手机号码";
     [accountView addSubview:accountLab];
     _accountText.backgroundColor = UIColorFromRGB(240, 241, 242);
@@ -56,11 +56,11 @@
     //记住账号
     _accountText.text =[[LoginUser sharedLoginUser] userName];
     //密码
-    UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_passwordText.frame))];
+    UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_passwordText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *passwordLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_passwordText.frame))];
+    UILabel *passwordLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_passwordText.frame))];
     passwordLab.backgroundColor = [UIColor clearColor];
-    passwordLab.font = [UIFont systemFontOfSize:12.0];
+    passwordLab.font = [UIFont systemFontOfSize:14.0];
     passwordLab.text = @"登录密码";
     [passwordView addSubview:passwordLab];
     _passwordText.backgroundColor = UIColorFromRGB(240, 241, 242);

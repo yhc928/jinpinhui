@@ -22,4 +22,7 @@ single_interface(LoginUser)
 @property (strong, nonatomic) NSString *usertrade;
 @property (strong, nonatomic) NSString *uservcard;
 @property (strong, nonatomic) NSString *loginStatus;
+@property (strong, nonatomic) NSString *city;
+@property (strong, nonatomic) NSString *consignee;
+@property (strong, nonatomic) NSString *tel;
 @end

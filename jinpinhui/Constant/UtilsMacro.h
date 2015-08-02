@@ -57,4 +57,6 @@
 #define UgoldKey @"ugold"
 #define UsertradeKey @"usertrade"
 #define UservcardKey @"uservcard"
-
+#define CityKey @"city"
+#define ConsigneeKey @"consignee"
+#define TelKey @"tel"

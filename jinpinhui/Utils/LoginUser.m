@@ -110,7 +110,7 @@ single_implementation(LoginUser)
     [ugold saveToNSDefaultsWithKey:UgoldKey];
     
 }
-
+//行业
 -(NSString *)usertrade{
     
     return [self loadStringFromDefaultsWithKey:UsertradeKey];
@@ -121,7 +121,7 @@ single_implementation(LoginUser)
     [usertrade saveToNSDefaultsWithKey:UsertradeKey];
     
 }
-
+//名片
 -(NSString *)uservcard{
     
     return [self loadStringFromDefaultsWithKey:UservcardKey];
@@ -132,5 +132,37 @@ single_implementation(LoginUser)
     [uservcard saveToNSDefaultsWithKey:UservcardKey];
     
 }
+//城市
+-(NSString *)city{
+    
+    return [self loadStringFromDefaultsWithKey:CityKey];
+}
 
+-(void)setCity:(NSString *)city{
+    
+    [city saveToNSDefaultsWithKey:CityKey];
+    
+}
+//收货人
+-(NSString *)consignee{
+    
+    return [self loadStringFromDefaultsWithKey:ConsigneeKey];
+}
+
+-(void)setConsignee:(NSString *)consignee{
+    
+    [consignee saveToNSDefaultsWithKey:ConsigneeKey];
+    
+}
+//收货人电话
+-(NSString *)tel{
+    
+    return [self loadStringFromDefaultsWithKey:TelKey];
+}
+
+-(void)setTel:(NSString *)tel{
+    
+    [tel saveToNSDefaultsWithKey:TelKey];
+    
+}
 @end

@@ -110,13 +110,13 @@
  *  @return
  */
 - (void)requestUserInfo{
- 
+    [self.Parameters removeObjectForKey:@"para"];
     [self.Parameters setValue:@"GETZ" forKey:@"cmd"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
-//    NSLog(@"%@",self.Parameters);
+    NSLog(@"%@",self.Parameters);
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-    [self jsonWithRequest:request delegate:self code:112 object:nil];
+    [self jsonWithRequest:request delegate:self code:115 object:nil];
 
 }
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
@@ -126,10 +126,13 @@
         [[LoginUser sharedLoginUser] setAddress:[resultDic objectForKey:@"addr"]];
         [[LoginUser sharedLoginUser] setChecks:[resultDic objectForKey:@"checks"]];
         [[LoginUser sharedLoginUser] setUgold:[resultDic objectForKey:@"ugold"]];
-        [[LoginUser sharedLoginUser] setRealName:[resultDic objectForKey:@"uname"]];
+        [[LoginUser sharedLoginUser] setRealName:[resultDic objectForKey:@"nick"]];
         [[LoginUser sharedLoginUser] setUserimage:[resultDic objectForKey:@"userimage"]];
         [[LoginUser sharedLoginUser] setUsertrade:[resultDic objectForKey:@"usertrade"]];
         [[LoginUser sharedLoginUser] setUservcard:[resultDic objectForKey:@"uservcard"]];
+        [[LoginUser sharedLoginUser] setCity:[resultDic objectForKey:@"area"]];
+        [[LoginUser sharedLoginUser] setConsignee:[resultDic objectForKey:@"uname"]];
+        [[LoginUser sharedLoginUser] setTel:[resultDic objectForKey:@"tel"]];
     }
 }
 #pragma mark - UITableViewDataSource and UITableViewDelegate

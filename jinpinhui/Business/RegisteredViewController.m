@@ -9,7 +9,7 @@
 #import "RegisteredViewController.h"
 #import "RegExp.h"
 #import "AuthenticationViewController.h"
-@interface RegisteredViewController ()
+@interface RegisteredViewController ()<UITextFieldDelegate>
 {
     NSInteger noteM;
 }
@@ -25,15 +25,21 @@
     //高亮
     [_regBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
     [self setLeftTextView];
+    //注册键盘监听
+    [[NSNotificationCenter defaultCenter] addObserver:self
+     
+                                             selector:@selector(keyboardWillBeHidden:)
+     
+                                                 name:UIKeyboardWillHideNotification object:nil];
 }
 //设置text左侧标题
 -(void) setLeftTextView{
     //手机号码
-    UIView *accountView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_accountText.frame))];
+    UIView *accountView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_accountText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *accountLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_accountText.frame))];
+    UILabel *accountLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_accountText.frame))];
     accountLab.backgroundColor = [UIColor clearColor];
-    accountLab.font = [UIFont systemFontOfSize:12.0];
+    accountLab.font = [UIFont systemFontOfSize:14.0];
     accountLab.text = @"手机号码";
     [accountView addSubview:accountLab];
     _accountText.backgroundColor = UIColorFromRGB(240, 241, 242);
@@ -44,46 +50,49 @@
     _accountText.keyboardType = UIKeyboardTypeNumberPad;
     _accountText.clearButtonMode = UITextFieldViewModeWhileEditing;
     //密码
-    UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_passwordText.frame))];
+    UIView *passwordView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_passwordText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *passwordLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_passwordText.frame))];
+    UILabel *passwordLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_passwordText.frame))];
     passwordLab.backgroundColor = [UIColor clearColor];
-    passwordLab.font = [UIFont systemFontOfSize:12.0];
+    passwordLab.font = [UIFont systemFontOfSize:14.0];
     passwordLab.text = @"输入密码";
     [passwordView addSubview:passwordLab];
     _passwordText.backgroundColor = UIColorFromRGB(240, 241, 242);
     _passwordText .leftView = passwordView;
     _passwordText.leftViewMode = UITextFieldViewModeAlways;
+    _passwordText.delegate = self;
     _passwordText.layer.borderWidth = 1;
     _passwordText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _passwordText.keyboardType = UIReturnKeyDone;
     _passwordText.clearButtonMode = UITextFieldViewModeWhileEditing;
     //确认密码
-    UIView *confirmView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_confirmText.frame))];
+    UIView *confirmView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_confirmText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *confirmLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_confirmText.frame))];
+    UILabel *confirmLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_confirmText.frame))];
     confirmLab.backgroundColor = [UIColor clearColor];
-    confirmLab.font = [UIFont systemFontOfSize:12.0];
+    confirmLab.font = [UIFont systemFontOfSize:14.0];
     confirmLab.text = @"确认密码";
     [confirmView addSubview:confirmLab];
     _confirmText.backgroundColor = UIColorFromRGB(240, 241, 242);
     _confirmText .leftView = confirmView;
     _confirmText.leftViewMode = UITextFieldViewModeAlways;
+    _confirmText.delegate = self;
     _confirmText.layer.borderWidth = 1;
     _confirmText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _confirmText.keyboardType = UIReturnKeyDone;
     _confirmText.clearButtonMode = UITextFieldViewModeWhileEditing;
     //验证码
-    UIView *codeView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 70, CGRectGetHeight(_codeText.frame))];
+    UIView *codeView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, CGRectGetHeight(_codeText.frame))];
     accountView.backgroundColor = [UIColor clearColor];
-    UILabel *codeLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 50, CGRectGetHeight(_codeText.frame))];
+    UILabel *codeLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 60, CGRectGetHeight(_codeText.frame))];
     codeLab.backgroundColor = [UIColor clearColor];
-    codeLab.font = [UIFont systemFontOfSize:12.0];
+    codeLab.font = [UIFont systemFontOfSize:14.0];
     codeLab.text = @"验证码";
     [codeView addSubview:codeLab];
     _codeText.backgroundColor = UIColorFromRGB(240, 241, 242);
     _codeText .leftView = codeView;
     _codeText.leftViewMode = UITextFieldViewModeAlways;
+    _codeText.delegate = self;
     _codeText.layer.borderWidth = 1;
     _codeText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _codeText.keyboardType = UIReturnKeyDone;
@@ -190,5 +199,29 @@
         AuthenticationViewController *authentication = [[AuthenticationViewController alloc]init];
         [self.navigationController pushViewController:authentication animated:YES];
     }
+}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if ([textField isEqual:_codeText]) {
+        if (SCREEN_HEIGHT == 480 || SCREEN_HEIGHT == 568) {
+            [UIView animateWithDuration:0.33 animations:^{
+                self.view.frame = CGRectMake(0, -60, SCREEN_WIDTH, SCREEN_HEIGHT);
+            }];
+        }
+        
+    }
+    return YES;
+}
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return [textField resignFirstResponder];
+}
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    if (SCREEN_HEIGHT == 480 || SCREEN_HEIGHT == 568) {
+        [UIView animateWithDuration:0.33 animations:^{
+            self.view.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT);
+        }];
+    }
+    
+    
 }
 @end

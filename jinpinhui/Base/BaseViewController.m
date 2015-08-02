@@ -255,7 +255,7 @@
 - (NSString *)encryption
 {
     NSString *encryptionStr = [NSString stringWithFormat:@"%@%@%@%@%@",[_Parameters objectForKey:@"cmd"],[_Parameters objectForKey:@"username"],[_Parameters objectForKey:@"password"],[self getMD5Time:[_Parameters objectForKey:@"date"]],@"436x7f6dz2ah53xc"];
-    NSLog(@"%@",encryptionStr);
+//    NSLog(@"%@",encryptionStr);
     const char *cStr = [encryptionStr UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
     CC_MD5( cStr, (CC_LONG)strlen(cStr), digest );

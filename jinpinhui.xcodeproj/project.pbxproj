@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD2A58641B580AB90007B8EE /* yaoqing.txt */; };
+		CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */; };
+		CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */; };
 		CD852EA31B522560009944C8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA11B522560009944C8 /* LoginViewController.m */; };
 		CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA21B522560009944C8 /* LoginViewController.xib */; };
 		CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */; };
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
 		CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C51B6A6508008AD01E /* LoginUser.m */; };
 		CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */; };
+		CDD013461B6CB1BE00958ECD /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD013441B6CB1BE00958ECD /* NickNameViewController.m */; };
+		CDD013471B6CB1BE00958ECD /* NickNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD013451B6CB1BE00958ECD /* NickNameViewController.xib */; };
+		CDD0134A1B6CBD0E00958ECD /* MyCurrencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD013491B6CBD0E00958ECD /* MyCurrencyViewController.m */; };
+		CDD0134D1B6CC50D00958ECD /* CurrencyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD0134C1B6CC50D00958ECD /* CurrencyTableViewCell.m */; };
+		CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD0134F1B6CD1DA00958ECD /* RedEnvelopeViewController.m */; };
+		CDD013521B6CD1DA00958ECD /* RedEnvelopeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD013501B6CD1DA00958ECD /* RedEnvelopeViewController.xib */; };
+		CDD013561B6CDBEC00958ECD /* AddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD013541B6CDBEC00958ECD /* AddressViewController.m */; };
+		CDD013571B6CDBEC00958ECD /* AddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD013551B6CDBEC00958ECD /* AddressViewController.xib */; };
+		CDD0135B1B6D1C8900958ECD /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = CDD0135A1B6D1C8900958ECD /* city.json */; };
 		CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */; };
 		CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */; };
 		CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD5425B1B5B708800C6180B /* CommissionViewController.m */; };
@@ -128,6 +139,9 @@
 
 /* Begin PBXFileReference section */
 		CD2A58641B580AB90007B8EE /* yaoqing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yaoqing.txt; sourceTree = "<group>"; };
+		CD6404561B6E1603006869F9 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
+		CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPasswordViewController.xib; sourceTree = "<group>"; };
 		CD852EA01B522560009944C8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CD852EA11B522560009944C8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CD852EA21B522560009944C8 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -139,6 +153,20 @@
 		CDCEA0C71B6A6818008AD01E /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
 		CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
 		CDCEA0CA1B6A6C06008AD01E /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		CDD013431B6CB1BE00958ECD /* NickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = "<group>"; };
+		CDD013441B6CB1BE00958ECD /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = "<group>"; };
+		CDD013451B6CB1BE00958ECD /* NickNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NickNameViewController.xib; sourceTree = "<group>"; };
+		CDD013481B6CBD0E00958ECD /* MyCurrencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCurrencyViewController.h; sourceTree = "<group>"; };
+		CDD013491B6CBD0E00958ECD /* MyCurrencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCurrencyViewController.m; sourceTree = "<group>"; };
+		CDD0134B1B6CC50D00958ECD /* CurrencyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrencyTableViewCell.h; sourceTree = "<group>"; };
+		CDD0134C1B6CC50D00958ECD /* CurrencyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrencyTableViewCell.m; sourceTree = "<group>"; };
+		CDD0134E1B6CD1DA00958ECD /* RedEnvelopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedEnvelopeViewController.h; sourceTree = "<group>"; };
+		CDD0134F1B6CD1DA00958ECD /* RedEnvelopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedEnvelopeViewController.m; sourceTree = "<group>"; };
+		CDD013501B6CD1DA00958ECD /* RedEnvelopeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RedEnvelopeViewController.xib; sourceTree = "<group>"; };
+		CDD013531B6CDBEC00958ECD /* AddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressViewController.h; sourceTree = "<group>"; };
+		CDD013541B6CDBEC00958ECD /* AddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressViewController.m; sourceTree = "<group>"; };
+		CDD013551B6CDBEC00958ECD /* AddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressViewController.xib; sourceTree = "<group>"; };
+		CDD0135A1B6D1C8900958ECD /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = rigthSide.plist; sourceTree = "<group>"; };
 		CDD38AD01B5A94C60086B5CB /* PersonalCenterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalCenterTableViewCell.h; sourceTree = "<group>"; };
 		CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterTableViewCell.m; sourceTree = "<group>"; };
@@ -434,6 +462,22 @@
 				CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */,
 				CDD38AD01B5A94C60086B5CB /* PersonalCenterTableViewCell.h */,
 				CDD38AD11B5A94C60086B5CB /* PersonalCenterTableViewCell.m */,
+				CDD013431B6CB1BE00958ECD /* NickNameViewController.h */,
+				CDD013441B6CB1BE00958ECD /* NickNameViewController.m */,
+				CDD013451B6CB1BE00958ECD /* NickNameViewController.xib */,
+				CDD013481B6CBD0E00958ECD /* MyCurrencyViewController.h */,
+				CDD013491B6CBD0E00958ECD /* MyCurrencyViewController.m */,
+				CDD0134B1B6CC50D00958ECD /* CurrencyTableViewCell.h */,
+				CDD0134C1B6CC50D00958ECD /* CurrencyTableViewCell.m */,
+				CDD0134E1B6CD1DA00958ECD /* RedEnvelopeViewController.h */,
+				CDD0134F1B6CD1DA00958ECD /* RedEnvelopeViewController.m */,
+				CDD013501B6CD1DA00958ECD /* RedEnvelopeViewController.xib */,
+				CDD013531B6CDBEC00958ECD /* AddressViewController.h */,
+				CDD013541B6CDBEC00958ECD /* AddressViewController.m */,
+				CDD013551B6CDBEC00958ECD /* AddressViewController.xib */,
+				CD6404561B6E1603006869F9 /* ModifyPasswordViewController.h */,
+				CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */,
+				CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */,
 			);
 			name = Personalcenter;
 			sourceTree = "<group>";
@@ -817,6 +861,7 @@
 		D08F82431B527E5C00F6E7C9 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				CDD0135A1B6D1C8900958ECD /* city.json */,
 				CDF079461B691353009A9EEF /* hangye.plist */,
 				CDD542801B5BE1C000C6180B /* qiandao.txt */,
 				CDD38ACE1B5A48E20086B5CB /* rigthSide.plist */,
@@ -959,18 +1004,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD0135B1B6D1C8900958ECD /* city.json in Resources */,
 				D08F82471B527E5C00F6E7C9 /* aboutUs.txt in Resources */,
 				CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */,
 				CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */,
 				CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
+				CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */,
+				CDD013571B6CDBEC00958ECD /* AddressViewController.xib in Resources */,
 				D0363F4D1B5CDAE900457333 /* more.plist in Resources */,
+				CDD013521B6CD1DA00958ECD /* RedEnvelopeViewController.xib in Resources */,
 				CDF079471B691353009A9EEF /* hangye.plist in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
 				D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */,
 				CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */,
+				CDD013471B6CB1BE00958ECD /* NickNameViewController.xib in Resources */,
 				CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */,
 				CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */,
 			);
@@ -997,6 +1047,7 @@
 				D078C4BF1B4A9C8D002C65CA /* MKAnnotationView+WebCache.m in Sources */,
 				D078C4B81B4A9C8D002C65CA /* UIScrollView+MJExtension.m in Sources */,
 				D078C4C61B4A9C8D002C65CA /* SDWebImageManager.m in Sources */,
+				CDD013561B6CDBEC00958ECD /* AddressViewController.m in Sources */,
 				D078C49B1B4A9C8D002C65CA /* CZRequestOperationManager.m in Sources */,
 				D078C4A11B4A9C8D002C65CA /* AFSecurityPolicy.m in Sources */,
 				D078C4B21B4A9C8D002C65CA /* MJRefreshFooter.m in Sources */,
@@ -1019,6 +1070,7 @@
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				CDD0134A1B6CBD0E00958ECD /* MyCurrencyViewController.m in Sources */,
 				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
 				CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
@@ -1035,6 +1087,7 @@
 				CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
+				CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */,
 				CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
@@ -1052,6 +1105,7 @@
 				D078C4971B4A9C8D002C65CA /* BaseViewController.m in Sources */,
 				D078C3E31B4A970E002C65CA /* AppDelegate.m in Sources */,
 				D077A70C1B6A7047001BE852 /* ThirdIndexCell.m in Sources */,
+				CDD013461B6CB1BE00958ECD /* NickNameViewController.m in Sources */,
 				D078C4CC1B4A9C8D002C65CA /* UIImageView+HighlightedWebCache.m in Sources */,
 				D078C4A51B4A9C8D002C65CA /* AFURLSessionManager.m in Sources */,
 				D078C4A41B4A9C8D002C65CA /* AFURLResponseSerialization.m in Sources */,
@@ -1073,9 +1127,11 @@
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
 				D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */,
+				CDD0134D1B6CC50D00958ECD /* CurrencyTableViewCell.m in Sources */,
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
+				CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */,
 				D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */,
 				D078C4C51B4A9C8D002C65CA /* SDWebImageDownloaderOperation.m in Sources */,
 				D078C49F1B4A9C8D002C65CA /* AFHTTPSessionManager.m in Sources */,

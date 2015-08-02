@@ -10,11 +10,17 @@
 #import "PersonalCenterTableViewCell.h"
 #import "LoginViewController.h"
 #import "LoginUser.h"
+#import "NickNameViewController.h"
+#import "MyCurrencyViewController.h"
+#import "RedEnvelopeViewController.h"
+#import "AddressViewController.h"
+#import "ModifyPasswordViewController.h"
 
-@interface PersonalCenterViewController ()<UITableViewDelegate ,UITableViewDataSource>
+@interface PersonalCenterViewController ()<UITableViewDelegate ,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic ,strong)UITableView *tableView;
 @property(nonatomic ,strong)UIButton *headBtn;
 @property(nonatomic ,strong)UIButton *nicknameBtn;
+@property(nonatomic ,strong)NSArray *DataList;
 @end
 
 @implementation PersonalCenterViewController
@@ -22,16 +28,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.title = @"个人中心";
+    NSString *address;
+    if ([[[LoginUser sharedLoginUser] address] isEqualToString:@""]) {
+        address = @"未填写";
+    }else{
+        address = [[LoginUser sharedLoginUser] address];
+    }
+    
+    self.DataList = @[@[@{@"title":@"身份认证",@"info":[[LoginUser sharedLoginUser] checks]}],@[@{@"title":@"我的等级",@"info":@"LV0"},@{@"title":@"我的金币",@"info":[[LoginUser sharedLoginUser] ugold]},@{@"title":@"新人红包",@"info":@"未领取"},@{@"title":@"收货地址",@"info":address}],@[@{@"title":@"修改登录密码",@"info":@""}]];
+//    NSLog(@"%@",self.DataList);
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    if (IS_IOS_7) {
-        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 50);
-    }
+//    if (IS_IOS_7) {
+//        self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 50);
+//    }
     self.tableView.tableHeaderView = [self HeadView];
-    self.tableView.separatorColor = [UIColor whiteColor];
+//    self.tableView.separatorColor = [UIColor whiteColor];
     self.tableView.tableFooterView = [self FooterView];
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
@@ -42,7 +58,7 @@
     head_bg.userInteractionEnabled = YES;
     head_bg.image = [UIImage imageNamed:@"Personalcenter_bg"];
     //头像背景
-    UIImageView *headbtn_bg = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 76) / 2, 20, 76, 70)];
+    UIImageView *headbtn_bg = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 76) / 2, 20, 76, 76)];
     headbtn_bg.userInteractionEnabled = YES;
     headbtn_bg.image = [UIImage imageNamed:@"head_bg"];
     headbtn_bg.layer.cornerRadius = 76 / 2;
@@ -61,7 +77,7 @@
     _nicknameBtn.frame = CGRectMake((SCREEN_WIDTH - 70) / 2, CGRectGetMaxY(headbtn_bg.frame) + 10, 70, 70);
     _nicknameBtn.adjustsImageWhenHighlighted = NO;
     _nicknameBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [_nicknameBtn setTitle:@"输入昵称" forState:UIControlStateNormal];
+    [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
     [_nicknameBtn setTitleColor:UIColorFromRGB(65, 65, 61) forState:UIControlStateNormal];
     [_nicknameBtn addTarget:self action:@selector(updateNickAction) forControlEvents:UIControlEventTouchUpInside];
     [head_bg addSubview:_nicknameBtn];
@@ -89,19 +105,97 @@
     else return 1;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PersonalCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+     static NSString * identifier = @"Cell";
+    PersonalCenterTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[PersonalCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[PersonalCenterTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        
         }
+    if (indexPath.section == 0) {
+        [cell.infoLab setTextColor:UIColorFromRGB(62, 121, 221)];
+    }else {
+        [cell.infoLab setTextColor:[UIColor blackColor]];
+    }
+    cell.titleLab.text = [[[self.DataList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"title"];
     
+    cell.infoLab.text = [[[self.DataList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"info"];
 
     return cell;
 
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0;
+    }else  return 20;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1 && indexPath.row == 1) {
+        MyCurrencyViewController *myCurrency  = [[MyCurrencyViewController alloc]init];
+        [self.navigationController pushViewController:myCurrency animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 2){
+        RedEnvelopeViewController *redEnvelope = [[RedEnvelopeViewController alloc]init];
+        [self.navigationController pushViewController:redEnvelope animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 3){
+        AddressViewController *address = [[AddressViewController alloc]init];
+        [self.navigationController pushViewController:address animated:YES];
+    }else if (indexPath.section == 2 && indexPath.row == 0){
+        ModifyPasswordViewController *modifypassword = [[ModifyPasswordViewController alloc]init];
+        [self.navigationController pushViewController:modifypassword animated:YES];
+    }
+}
 - (void)headAction{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"取消"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"拍照",@"从手机相册中选择", nil];
+    
+    [actionSheet showInView:self.view];
 
 }
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        // 从相册中取照片/相机
+                UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+                ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                ipc.delegate = self;
+                ipc.allowsEditing = YES;
+                [self presentViewController:ipc animated:YES completion:nil];
+      
+    }
+    if (buttonIndex == 0) {
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.delegate = self;
+        ipc.allowsEditing = YES;
+    }
+}
+// 当我们选择了一个图片  会调用的方法
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // 刚刚选择的图片
+    UIImage *Touimage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+         [_headBtn setImage:Touimage forState:UIControlStateNormal];
+    }];
+}
+
 - (void)updateNickAction{
+    NickNameViewController *nickName = [[NickNameViewController alloc]init];
+    if ([[_nicknameBtn currentTitle] isEqualToString:@"设置昵称"]) {
+         nickName.nickName = @"";
+    }else{
+        nickName.nickName = [_nicknameBtn currentTitle];
+    }
+   
+    [self.navigationController pushViewController:nickName animated:YES];
     
 }
 - (void)exitAction{

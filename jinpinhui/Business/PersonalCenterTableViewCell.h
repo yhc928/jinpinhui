@@ -12,5 +12,5 @@
 @property(nonatomic ,strong)UILabel *titleLab;
 @property(nonatomic ,strong)UILabel *infoLab;
 //@property(nonatomic ,strong)UIImageView *redenvelopeImg;
-@property(nonatomic ,strong)NSMutableArray *dataList;
+//@property(nonatomic ,strong)NSMutableArray *dataList;
 @end
