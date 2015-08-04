@@ -109,6 +109,8 @@
 		D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48A1B4A9C8D002C65CA /* UIImageView+WebCache.m */; };
 		D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */; };
 		D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C4931B4A9C8D002C65CA /* RegExp.m */; };
+		D08A1F1B1B6B7D02009CBF3C /* FirstCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08A1F181B6B7D02009CBF3C /* FirstCollectionCell.m */; };
+		D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08A1F1A1B6B7D02009CBF3C /* SecondCollectionCell.m */; };
 		D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */; };
 		D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F823D1B5276D200F6E7C9 /* LeftSideViewController.m */; };
 		D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F82401B5276E400F6E7C9 /* RightSideViewController.m */; };
@@ -122,8 +124,6 @@
 		D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563901B64DD450042CD42 /* CycleScrollView.m */; };
 		D0E563961B64DD450042CD42 /* FirstIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563921B64DD450042CD42 /* FirstIndexCell.m */; };
 		D0E563971B64DD450042CD42 /* SecondIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563941B64DD450042CD42 /* SecondIndexCell.m */; };
-		D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563991B64E2600042CD42 /* FirstCollectionCell.m */; };
-		D0E5639D1B64E2DE0042CD42 /* SecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */; };
 		D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */; };
 /* End PBXBuildFile section */
 
@@ -342,6 +342,10 @@
 		D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D078C4921B4A9C8D002C65CA /* RegExp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExp.h; sourceTree = "<group>"; };
 		D078C4931B4A9C8D002C65CA /* RegExp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExp.m; sourceTree = "<group>"; };
+		D08A1F171B6B7D02009CBF3C /* FirstCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCollectionCell.h; sourceTree = "<group>"; };
+		D08A1F181B6B7D02009CBF3C /* FirstCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionCell.m; sourceTree = "<group>"; };
+		D08A1F191B6B7D02009CBF3C /* SecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionCell.h; sourceTree = "<group>"; };
+		D08A1F1A1B6B7D02009CBF3C /* SecondCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionCell.m; sourceTree = "<group>"; };
 		D08F82361B52743300F6E7C9 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		D08F82391B5275C700F6E7C9 /* jinpinhui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "jinpinhui-Prefix.pch"; sourceTree = "<group>"; };
@@ -366,10 +370,6 @@
 		D0E563921B64DD450042CD42 /* FirstIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstIndexCell.m; sourceTree = "<group>"; };
 		D0E563931B64DD450042CD42 /* SecondIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondIndexCell.h; sourceTree = "<group>"; };
 		D0E563941B64DD450042CD42 /* SecondIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondIndexCell.m; sourceTree = "<group>"; };
-		D0E563981B64E2600042CD42 /* FirstCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCollectionCell.h; sourceTree = "<group>"; };
-		D0E563991B64E2600042CD42 /* FirstCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionCell.m; sourceTree = "<group>"; };
-		D0E5639B1B64E2DE0042CD42 /* SecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionCell.h; sourceTree = "<group>"; };
-		D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCollectionCell.m; sourceTree = "<group>"; };
 		D0E5639E1B650AA30042CD42 /* GoldStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreCell.h; sourceTree = "<group>"; };
 		D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldStoreCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -538,7 +538,7 @@
 				D078C3E21B4A970E002C65CA /* AppDelegate.m */,
 				D078C4031B4A9C8D002C65CA /* Base */,
 				D078C4111B4A9C8D002C65CA /* Network */,
-				D078C4091B4A9C8D002C65CA /* Constant */,
+				D078C4091B4A9C8D002C65CA /* Macro */,
 				D078C4081B4A9C8D002C65CA /* Business */,
 				D078C41D1B4A9C8D002C65CA /* ThirdPart */,
 				D078C48D1B4A9C8D002C65CA /* Utils */,
@@ -601,7 +601,7 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
-		D078C4091B4A9C8D002C65CA /* Constant */ = {
+		D078C4091B4A9C8D002C65CA /* Macro */ = {
 			isa = PBXGroup;
 			children = (
 				D078C40A1B4A9C8D002C65CA /* AppMacro.h */,
@@ -612,6 +612,7 @@
 				D078C40E1B4A9C8D002C65CA /* NotificationMacro.h */,
 				D078C40F1B4A9C8D002C65CA /* ThirdPartMacro.h */,
 			);
+			name = Macro;
 			path = Constant;
 			sourceTree = "<group>";
 		};
@@ -879,10 +880,10 @@
 			children = (
 				D0E563721B64DBEF0042CD42 /* TitleCollectionView */,
 				D0E5638E1B64DD450042CD42 /* TableView */,
-				D0E563981B64E2600042CD42 /* FirstCollectionCell.h */,
-				D0E563991B64E2600042CD42 /* FirstCollectionCell.m */,
-				D0E5639B1B64E2DE0042CD42 /* SecondCollectionCell.h */,
-				D0E5639C1B64E2DE0042CD42 /* SecondCollectionCell.m */,
+				D08A1F171B6B7D02009CBF3C /* FirstCollectionCell.h */,
+				D08A1F181B6B7D02009CBF3C /* FirstCollectionCell.m */,
+				D08A1F191B6B7D02009CBF3C /* SecondCollectionCell.h */,
+				D08A1F1A1B6B7D02009CBF3C /* SecondCollectionCell.m */,
 				D0E563691B64DBEF0042CD42 /* IndexViewController.h */,
 				D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */,
 			);
@@ -1043,6 +1044,7 @@
 				D0E563961B64DD450042CD42 /* FirstIndexCell.m in Sources */,
 				CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */,
 				D078C4C91B4A9C8D002C65CA /* UIImage+GIF.m in Sources */,
+				D08A1F1B1B6B7D02009CBF3C /* FirstCollectionCell.m in Sources */,
 				D078C4A21B4A9C8D002C65CA /* AFURLConnectionOperation.m in Sources */,
 				D078C4BF1B4A9C8D002C65CA /* MKAnnotationView+WebCache.m in Sources */,
 				D078C4B81B4A9C8D002C65CA /* UIScrollView+MJExtension.m in Sources */,
@@ -1073,12 +1075,12 @@
 				CDD0134A1B6CBD0E00958ECD /* MyCurrencyViewController.m in Sources */,
 				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
 				CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */,
+                D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
 				D078C4BB1B4A9C8D002C65CA /* MMDrawerBarButtonItem.m in Sources */,
 				D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */,
-				D0E5639D1B64E2DE0042CD42 /* SecondCollectionCell.m in Sources */,
 				D078C4AD1B4A9C8D002C65CA /* UIWebView+AFNetworking.m in Sources */,
 				D0E5637B1B64DBEF0042CD42 /* IndexViewController.m in Sources */,
 				D0E5637F1B64DBEF0042CD42 /* TitleCollectionCell.m in Sources */,

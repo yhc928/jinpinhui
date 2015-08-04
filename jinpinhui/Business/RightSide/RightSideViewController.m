@@ -33,8 +33,10 @@
     UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_side_bg"]];
     [self.view addSubview:bgImageView];
     [bgImageView constrainSubviewToMatchSuperview];
-    [self ControllerView];
     [self requestUserInfo];
+    [self ControllerView];
+    //监听昵称修改及时更新
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NickNameNotification:) name:@"UpdateNickName" object:nil];
     
 }
 - (void)ControllerView{
@@ -49,7 +51,10 @@
     _nicknameLab.textColor = [UIColor whiteColor];
     _nicknameLab.font = [UIFont systemFontOfSize:15];
     _nicknameLab.textAlignment = NSTextAlignmentRight;
-    _nicknameLab.text = @"12345678910";
+    if ([[[LoginUser sharedLoginUser] realName] isEqualToString:@""]) {
+         _nicknameLab.text = [[LoginUser sharedLoginUser] userName];
+    }else  _nicknameLab.text = [[LoginUser sharedLoginUser] realName];
+   
     [self.view addSubview:_nicknameLab];
     //分割线
     UIView *nc_line = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_nicknameLab.frame) + 10, CGRectGetMaxY(_headimageView.frame) + 12, 1, 16)];
@@ -121,6 +126,7 @@
 }
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
     NSLog(@"%@",resultDic);
+    NSLog(@"%@",[resultDic objectForKey:@"error"]);
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         _currencyLab.text = [NSString stringWithFormat:@"%@金币",[resultDic objectForKey:@"ugold"]];
         [[LoginUser sharedLoginUser] setAddress:[resultDic objectForKey:@"addr"]];
@@ -184,6 +190,10 @@
         InvitationViewController *invitation = [[InvitationViewController alloc]init];
         [myAppDelegate.drawerController.navigationController pushViewController:invitation animated:YES];
     }
+}
+
+-(void)NickNameNotification:(NSNotification *)notifi{
+    _nicknameLab.text = [[LoginUser sharedLoginUser] realName];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

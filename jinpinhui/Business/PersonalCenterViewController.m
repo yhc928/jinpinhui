@@ -34,10 +34,17 @@
     if ([[[LoginUser sharedLoginUser] address] isEqualToString:@""]) {
         address = @"未填写";
     }else{
-        address = [[LoginUser sharedLoginUser] address];
+        address = @"已填写";
     }
-    
-    self.DataList = @[@[@{@"title":@"身份认证",@"info":[[LoginUser sharedLoginUser] checks]}],@[@{@"title":@"我的等级",@"info":@"LV0"},@{@"title":@"我的金币",@"info":[[LoginUser sharedLoginUser] ugold]},@{@"title":@"新人红包",@"info":@"未领取"},@{@"title":@"收货地址",@"info":address}],@[@{@"title":@"修改登录密码",@"info":@""}]];
+    NSString *checks;
+    if ( [[[LoginUser sharedLoginUser] checks] isEqualToString:@"0"]) {
+        checks = @"未认证";
+    }else if ([[[LoginUser sharedLoginUser] checks] isEqualToString:@"1"]){
+        checks = @"已认证";
+    }else if ([[[LoginUser sharedLoginUser] checks] isEqualToString:@"2"]){
+        checks = @"认证申请中";
+    }
+    self.DataList = @[@[@{@"title":@"身份认证",@"info":checks}],@[@{@"title":@"我的等级",@"info":@"LV0"},@{@"title":@"我的金币",@"info":[[LoginUser sharedLoginUser] ugold]},@{@"title":@"新人红包",@"info":@"未领取"},@{@"title":@"收货地址",@"info":address}],@[@{@"title":@"修改登录密码",@"info":@""}]];
 //    NSLog(@"%@",self.DataList);
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -51,6 +58,8 @@
     self.tableView.tableFooterView = [self FooterView];
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    //监听昵称修改及时更新
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NickNameNotification:) name:@"UpdateNickName" object:nil];
 
 }
 - (UIView *)HeadView{
@@ -77,7 +86,10 @@
     _nicknameBtn.frame = CGRectMake((SCREEN_WIDTH - 70) / 2, CGRectGetMaxY(headbtn_bg.frame) + 10, 70, 70);
     _nicknameBtn.adjustsImageWhenHighlighted = NO;
     _nicknameBtn.titleLabel.font = [UIFont systemFontOfSize:16];
-    [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
+    if ([[[LoginUser sharedLoginUser] realName] isEqualToString:@""]) {
+         [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
+    }else  [_nicknameBtn setTitle:[[LoginUser sharedLoginUser] realName] forState:UIControlStateNormal];
+//    [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
     [_nicknameBtn setTitleColor:UIColorFromRGB(65, 65, 61) forState:UIControlStateNormal];
     [_nicknameBtn addTarget:self action:@selector(updateNickAction) forControlEvents:UIControlEventTouchUpInside];
     [head_bg addSubview:_nicknameBtn];
@@ -202,7 +214,15 @@
     [[LoginUser sharedLoginUser] setUserName:@""];
     [[LoginUser sharedLoginUser] setLoginStatus:@"1"];
     [[LoginUser sharedLoginUser] setPassword:@""];
+    [[LoginUser sharedLoginUser] setRealName:@""];
+    [[LoginUser sharedLoginUser] setUserimage:@""];
+    [[LoginUser sharedLoginUser] setUsertrade:@""];
+    [[LoginUser sharedLoginUser] setUservcard:@""];
     myAppDelegate.window.rootViewController =  [[UINavigationController alloc] initWithRootViewController:[LoginViewController new]];
+}
+
+-(void)NickNameNotification:(NSNotification *)notifi{
+     [_nicknameBtn setTitle:[[LoginUser sharedLoginUser] realName] forState:UIControlStateNormal];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

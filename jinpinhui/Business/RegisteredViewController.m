@@ -9,6 +9,7 @@
 #import "RegisteredViewController.h"
 #import "RegExp.h"
 #import "AuthenticationViewController.h"
+#import "LoginUser.h"
 @interface RegisteredViewController ()<UITextFieldDelegate>
 {
     NSInteger noteM;
@@ -131,11 +132,20 @@
     if (_accountText.text.length>0) {
         //判断手机号是否正确
         if ([RegExp isPhoneAndTelVerify:_accountText.text]) {
+            [self.Parameters setValue:_accountText.text forKey:@"username"];
+            [self.Parameters setValue:@"GETICODE" forKey:@"cmd"];
+            [self.Parameters setValue:@"" forKey:@"para"];
+            [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+            [self.Parameters setValue:[self encryption] forKey:@"md5"];
+            NSLog(@"%@",self.Parameters);
+            CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+            [self jsonWithRequest:request delegate:self code:11 object:nil];
             [_sendcodeBtn setEnabled:NO];
             [_sendcodeBtn setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
             noteM = 60;
             NSTimer *timer=[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(note:) userInfo:nil repeats:YES];
             [timer fire];
+            
         }else [self showAlertViewWithMessage:@"请输入正确的手机号！"];
     }else [self showAlertViewWithMessage:@"请输入手机号！"];
     
@@ -152,15 +162,18 @@
          [self showAlertViewWithMessage:@"密码输入不一致！"];
     else if (_passwordText.text.length < 6||_passwordText.text.length > 20)
         [self showAlertViewWithMessage:@"密码长度不正确！"];
+    else if (_codeText.text.length == 0)
+            [self showAlertViewWithMessage:@"请输入验证码！"];
     else {
         [self.Parameters setValue:_accountText.text forKey:@"username"];
         [self.Parameters setValue:_passwordText.text forKey:@"password"];
         [self.Parameters setValue:@"REG" forKey:@"cmd"];
+        [self.Parameters setValue:_codeText.text forKey:@"para"];
         [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
         [self.Parameters setValue:[self encryption] forKey:@"md5"];
         NSLog(@"%@",self.Parameters);
         CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-        [self jsonWithRequest:request delegate:self code:111 object:nil];
+        [self jsonWithRequest:request delegate:self code:10 object:nil];
     }
 //    else if (_codeText.text.length == 0)
 //        [self showAlertViewWithMessage:@"请输入验证码！"];
@@ -169,32 +182,42 @@
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
-    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
-        NSUserDefaults *userdefaules = [NSUserDefaults standardUserDefaults];
-        [userdefaules setValue:_accountText.text forKey:@"username"];
-        [userdefaules setValue:_passwordText.text forKey:@"password"];
-        [userdefaules synchronize];
-//        [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                            message:[resultDic objectForKey:@"info"]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil, nil];
-        alertView.tag = 100;
-        [alertView show];
-    }else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                            message:[resultDic objectForKey:@"error"]
-                                                           delegate:self
-                                                  cancelButtonTitle:@"确定"
-                                                  otherButtonTitles:nil, nil];
-        alertView.tag = 101;
-        [alertView show];
+    if (code == 10) {
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+//            NSUserDefaults *userdefaules = [NSUserDefaults standardUserDefaults];
+//            [userdefaules setValue:_accountText.text forKey:@"username"];
+//            [userdefaules setValue:_passwordText.text forKey:@"password"];
+//            [userdefaules synchronize];
+            [[LoginUser sharedLoginUser] setUserName:_accountText.text];
+            [[LoginUser sharedLoginUser] setPassword:_passwordText.text];
+            //        [self showAlertViewWithMessage:[resultDic objectForKey:@"info"]];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:[resultDic objectForKey:@"info"]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"确定"
+                                                      otherButtonTitles:nil, nil];
+            alertView.tag = 100;
+            [alertView show];
+        }else {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:[resultDic objectForKey:@"error"]
+                                                               delegate:self
+                                                      cancelButtonTitle:@"确定"
+                                                      otherButtonTitles:nil, nil];
+            alertView.tag = 101;
+            [alertView show];
+        }
+    }else if (code == 11){
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+            [self showCustomProgressHUDWithText:@"验证码已发送!"];
+        }
     }
+    
 
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (alertView.tag == 101) {
+    if (alertView.tag == 100) {
+        
         //注册成功
         AuthenticationViewController *authentication = [[AuthenticationViewController alloc]init];
         [self.navigationController pushViewController:authentication animated:YES];

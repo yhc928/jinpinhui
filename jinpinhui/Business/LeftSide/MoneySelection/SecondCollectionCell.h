@@ -10,8 +10,9 @@
  *  首页第二种CollectionViewCell
  */
 #import <UIKit/UIKit.h>
+#import "CZRequest.h"
 
-@interface SecondCollectionCell : UICollectionViewCell<UITableViewDataSource,UITableViewDelegate>
+@interface SecondCollectionCell : UICollectionViewCell<UITableViewDataSource,UITableViewDelegate,CZRequestHelperDelegate>
 
 @property (nonatomic, strong) UITableView *tableView; //产品tableView
 @property (nonatomic, strong) NSArray     *dataArray; //数据源

@@ -119,6 +119,7 @@
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
+    NSLog(@"%@",resultDic);
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         [[LoginUser sharedLoginUser] setUserName:_accountText.text];
         [[LoginUser sharedLoginUser] setPassword:_passwordText.text];

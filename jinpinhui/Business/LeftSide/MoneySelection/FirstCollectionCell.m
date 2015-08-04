@@ -26,8 +26,8 @@
         [self.contentView addSubview:self.tableView];
         
         //添加下拉刷新
-        [self.tableView addLegendHeaderWithRefreshingTarget:[IndexViewController sharedClient]
-                                           refreshingAction:@selector(loadNewData)];
+        [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
         
         //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
         if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -41,8 +41,42 @@
         self.cycleScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*174/320)];
         self.cycleScrollView.imageArray = @[@"1",@"2",@"3"];
         self.tableView.tableHeaderView = self.cycleScrollView;
+        
+        //创建数组
+        self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
+}
+
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    [self.tableView.legendHeader endRefreshing];
+    [self.tableView.legendFooter endRefreshing];
+    
+    NSLog(@"resultDic = %@",resultDic);
+    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
+    
+    NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
+    
+    if (tsubs.count > 0) {
+        //下拉刷新清空数组
+        if (_nextPage == 1) {
+            [self.dataArray removeAllObjects];
+        }
+        
+        //下一页+1
+        _nextPage++;
+        
+        //产品数据
+        [self.dataArray addObjectsFromArray:tsubs];
+        
+        //刷新UI
+        [self.tableView reloadData];
+    } else {
+        //提示没有更多的数据
+        [self.tableView.legendFooter noticeNoMoreData];
+    }
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -123,9 +157,36 @@
     
 }
 
-//- (void)setDataArray:(NSArray *)dataArray
-//{
-//    [self.tableView reloadData];
-//}
+//下拉刷新回调方法
+- (void)loadNewData
+{
+    _nextPage = 1; //当前页为1
+    //网络请求
+    [self requestProduct];
+}
+
+- (void)loadMoreData
+{
+    //网络请求
+    [self requestProduct];
+}
+
+/**
+ *  获取产品
+ */
+- (void)requestProduct
+{
+    IndexViewController *indexVC = [IndexViewController sharedClient];
+    
+    [indexVC.Parameters setValue:@"GETA" forKey:@"cmd"];
+    [indexVC.Parameters setValue:[NSString stringWithFormat:@"%@|%ld",self.tpID,(long)_nextPage] forKey:@"para"];
+    [indexVC.Parameters setValue:[indexVC getCurrentTime] forKey:@"date"];
+    [indexVC.Parameters setValue:[indexVC encryption] forKey:@"md5"];
+    
+//    NSLog(@"Parameters = %@",indexVC.Parameters);
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:indexVC.Parameters];
+    [indexVC jsonWithRequest:request delegate:self code:11 object:nil];
+}
 
 @end

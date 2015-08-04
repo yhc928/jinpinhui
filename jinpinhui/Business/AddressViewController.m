@@ -143,7 +143,7 @@
     _consigneeText .leftView = consigneeView;
     _consigneeText.leftViewMode = UITextFieldViewModeAlways;
     _consigneeText.placeholder = @"请输入收货人姓名";
-    _cityText.text = [[LoginUser sharedLoginUser] consignee];
+    _consigneeText.text = [[LoginUser sharedLoginUser] consignee];
     _consigneeText.delegate = self;
     _consigneeText.layer.borderWidth = 1;
     _consigneeText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
@@ -361,9 +361,9 @@
 -(void)RequestSetAddress{
     
 //   NSString *dataGBK = [_cityText.text stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-      NSString *dataUTF8 = [_cityText.text  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"%@",dataUTF8);
-     NSString *dataGBK = [dataUTF8 stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//      NSString *dataUTF8 = [_cityText.text  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",dataUTF8);
+//     NSString *dataGBK = [dataUTF8 stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *para = [NSString stringWithFormat:@"%@|%@|%@|%@",_consigneeText.text,_cityText.text,_addressText.text,_phoneNumText.text];
     NSLog(@"%@",para);
     [self.Parameters setValue:@"SETD" forKey:@"cmd"];
@@ -376,6 +376,10 @@
 }
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        [[LoginUser sharedLoginUser] setConsignee:_consigneeText.text];
+        [[LoginUser sharedLoginUser] setTel:_phoneNumText.text];
+        [[LoginUser sharedLoginUser] setCity:_cityText.text];
+        [[LoginUser sharedLoginUser] setAddress:_addressText.text];
         [self showAlertViewWithMessage:@"保存成功！"];
     }
     NSLog(@"%@",resultDic);
