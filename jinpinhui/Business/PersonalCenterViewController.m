@@ -24,12 +24,7 @@
 @end
 
 @implementation PersonalCenterViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.title = @"个人中心";
+-(void)SetDataAry{
     NSString *address;
     if ([[[LoginUser sharedLoginUser] address] isEqualToString:@""]) {
         address = @"未填写";
@@ -44,7 +39,18 @@
     }else if ([[[LoginUser sharedLoginUser] checks] isEqualToString:@"2"]){
         checks = @"认证申请中";
     }
-    self.DataList = @[@[@{@"title":@"身份认证",@"info":checks}],@[@{@"title":@"我的等级",@"info":@"LV0"},@{@"title":@"我的金币",@"info":[[LoginUser sharedLoginUser] ugold]},@{@"title":@"新人红包",@"info":@"未领取"},@{@"title":@"收货地址",@"info":address}],@[@{@"title":@"修改登录密码",@"info":@""}]];
+    NSString *redpackets;
+    if ([[[LoginUser sharedLoginUser] redpackets] isEqualToString:@"0"]) {
+        redpackets = @"未领取";
+    }else redpackets = @"已领取";
+    self.DataList = @[@[@{@"title":@"身份认证",@"info":checks}],@[@{@"title":@"我的等级",@"info":@"LV0"},@{@"title":@"我的金币",@"info":[[LoginUser sharedLoginUser] ugold]},@{@"title":@"新人红包",@"info":redpackets},@{@"title":@"收货地址",@"info":address}],@[@{@"title":@"修改登录密码",@"info":@""}]];
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.title = @"个人中心";
+    [self SetDataAry];
 //    NSLog(@"%@",self.DataList);
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -60,6 +66,8 @@
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
     //监听昵称修改及时更新
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NickNameNotification:) name:@"UpdateNickName" object:nil];
+    //监听金币增加或减少通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CurrencyAddNotification:) name:@"CurrencyAddNotification" object:nil];
 
 }
 - (UIView *)HeadView{
@@ -223,6 +231,10 @@
 
 -(void)NickNameNotification:(NSNotification *)notifi{
      [_nicknameBtn setTitle:[[LoginUser sharedLoginUser] realName] forState:UIControlStateNormal];
+}
+-(void)CurrencyAddNotification:(NSNotification *)notifi{
+    [self SetDataAry];
+    [_tableView reloadData];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

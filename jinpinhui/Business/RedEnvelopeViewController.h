@@ -10,4 +10,8 @@
 
 @interface RedEnvelopeViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *currencyLab;
+- (IBAction)receiveClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
+
 @end

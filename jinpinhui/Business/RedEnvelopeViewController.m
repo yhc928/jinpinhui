@@ -7,7 +7,7 @@
 //
 
 #import "RedEnvelopeViewController.h"
-
+#import "LoginUser.h"
 @interface RedEnvelopeViewController ()
 
 @end
@@ -18,6 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"领取红包";
+    if (![[[LoginUser sharedLoginUser] redpackets] isEqualToString:@"0"]) {
+        _currencyLab.hidden = NO;
+        [_receiveBtn setTitle:@"邀请好友赚200" forState:UIControlStateNormal];
+    }else{
+        _currencyLab.hidden = YES;
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,4 +42,27 @@
 }
 */
 
+- (IBAction)receiveClick:(id)sender {
+    if ([[[LoginUser sharedLoginUser] redpackets] isEqualToString:@"0"]) {
+        
+        [self.Parameters setValue:@"SETF" forKey:@"cmd"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        NSLog(@"%@",self.Parameters);
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:116 object:nil];
+    }
+}
+-(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
+    NSLog(@"%@",resultDic);
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        _currencyLab.hidden = NO;
+          [_receiveBtn setTitle:@"邀请好友赚200" forState:UIControlStateNormal];
+        [[LoginUser sharedLoginUser] setRedpackets:@"1"];
+        //金币变更通知
+        NSInteger currency = [[[LoginUser sharedLoginUser] ugold] integerValue];
+        [[LoginUser sharedLoginUser] setUgold:[NSString stringWithFormat:@"%zi",currency + 500]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"CurrencyAddNotification" object:nil];
+    }
+}
 @end

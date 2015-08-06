@@ -37,7 +37,8 @@
     [self ControllerView];
     //监听昵称修改及时更新
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NickNameNotification:) name:@"UpdateNickName" object:nil];
-    
+    //监听金币增加或减少通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CurrencyAddNotification:) name:@"CurrencyAddNotification" object:nil];
 }
 - (void)ControllerView{
     //头像
@@ -139,6 +140,7 @@
         [[LoginUser sharedLoginUser] setCity:[resultDic objectForKey:@"area"]];
         [[LoginUser sharedLoginUser] setConsignee:[resultDic objectForKey:@"uname"]];
         [[LoginUser sharedLoginUser] setTel:[resultDic objectForKey:@"tel"]];
+        [[LoginUser sharedLoginUser] setRedpackets:[resultDic objectForKey:@"redpackets"]];
     }
 }
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -194,6 +196,9 @@
 
 -(void)NickNameNotification:(NSNotification *)notifi{
     _nicknameLab.text = [[LoginUser sharedLoginUser] realName];
+}
+-(void)CurrencyAddNotification:(NSNotification *)notifi{
+    _currencyLab.text = [NSString stringWithFormat:@"%@金币",[[LoginUser sharedLoginUser] ugold]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

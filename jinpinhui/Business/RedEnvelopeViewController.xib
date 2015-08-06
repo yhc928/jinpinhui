@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RedEnvelopeViewController">
             <connections>
+                <outlet property="currencyLab" destination="56w-af-u3P" id="Mje-D2-uqe"/>
+                <outlet property="receiveBtn" destination="Kov-zc-XWd" id="lNF-x9-ecp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,16 +27,18 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KpS-77-d9F">
                     <rect key="frame" x="0.0" y="323" width="320" height="157"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-zc-XWd">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-zc-XWd">
                             <rect key="frame" x="80" y="60" width="160" height="42"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Kov-zc-XWd" secondAttribute="height" multiplier="80:21" id="rVQ-60-POY"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <state key="normal" title="领取红包" backgroundImage="huobaoBtn_bg">
                                 <color key="titleColor" red="0.69803921570000005" green="0.0" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="receiveClick:" destination="-1" eventType="touchUpInside" id="Qrp-yx-9XO"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.69803921568627447" green="0.0" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,13 +48,25 @@
                         <constraint firstItem="Kov-zc-XWd" firstAttribute="top" secondItem="KpS-77-d9F" secondAttribute="top" constant="60" id="pa9-WI-7P2"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56w-af-u3P">
+                    <rect key="frame" x="0.0" y="70" width="320" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="56w-af-u3P" secondAttribute="height" multiplier="320:51" id="Mrn-ql-wOq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                    <color key="textColor" red="0.93725490196078431" green="0.49803921568627452" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="mQy-sD-xph" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1uV-GG-KwO"/>
                 <constraint firstItem="mQy-sD-xph" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TDe-Zr-Fcg"/>
+                <constraint firstItem="56w-af-u3P" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="W56-PD-zcC"/>
                 <constraint firstAttribute="trailing" secondItem="mQy-sD-xph" secondAttribute="trailing" id="XrI-d1-GP1"/>
+                <constraint firstAttribute="trailing" secondItem="56w-af-u3P" secondAttribute="trailing" id="bTt-T8-dOi"/>
                 <constraint firstAttribute="bottom" secondItem="KpS-77-d9F" secondAttribute="bottom" id="cX5-zo-L7C"/>
+                <constraint firstItem="56w-af-u3P" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fJU-vg-Gtt"/>
                 <constraint firstAttribute="trailing" secondItem="KpS-77-d9F" secondAttribute="trailing" id="iWx-28-uS8"/>
                 <constraint firstItem="KpS-77-d9F" firstAttribute="top" secondItem="mQy-sD-xph" secondAttribute="bottom" id="rxL-Wn-AYK"/>
                 <constraint firstItem="KpS-77-d9F" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="so9-cX-leX"/>

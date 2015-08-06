@@ -7,7 +7,7 @@
 //
 
 #import "ModifyPasswordViewController.h"
-
+#import "LoginUser.h"
 @interface ModifyPasswordViewController ()
 
 @end
@@ -95,6 +95,32 @@
 */
 
 - (IBAction)completeClick:(id)sender {
-    
+    if (_oldPasswordText.text.length == 0) {
+        [self showCustomProgressHUDWithText:@"请输入旧密码"];
+    }else if (_NewPasswordText.text.length == 0){
+        [self showCustomProgressHUDWithText:@"请输入新密码"];
+    }else if (![_NewPasswordText.text isEqualToString:_determineText.text]){
+        [self showCustomProgressHUDWithText:@"俩次密码输入不一致"];
+    }else{
+        
+        [self.Parameters setValue:_determineText.text forKey:@"para"];
+        [self.Parameters setValue:@"FIX" forKey:@"cmd"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        NSLog(@"%@",self.Parameters);
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:116 object:nil];
+        
+    }
+}
+-(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
+    NSLog(@"%@",resultDic);
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        [[LoginUser sharedLoginUser] setPassword:_determineText.text];
+        [self showAlertViewWithMessage:@"密码修改成功"];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

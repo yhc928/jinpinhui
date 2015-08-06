@@ -60,3 +60,4 @@
 #define CityKey @"city"
 #define ConsigneeKey @"consignee"
 #define TelKey @"tel"
+#define RedpacketsKey @"redpackets"

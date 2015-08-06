@@ -25,4 +25,5 @@ single_interface(LoginUser)
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *consignee;
 @property (strong, nonatomic) NSString *tel;
+@property (strong, nonatomic) NSString *redpackets;
 @end

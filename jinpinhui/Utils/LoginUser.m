@@ -165,4 +165,15 @@ single_implementation(LoginUser)
     [tel saveToNSDefaultsWithKey:TelKey];
     
 }
+//是否领取新人红包
+-(NSString *)redpackets{
+    
+    return [self loadStringFromDefaultsWithKey:RedpacketsKey];
+}
+
+-(void)setRedpackets:(NSString *)redpackets{
+    
+    [redpackets saveToNSDefaultsWithKey:RedpacketsKey];
+    
+}
 @end
