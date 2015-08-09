@@ -113,6 +113,10 @@
         self.dataArray = ttypes;
         [self.collectionView reloadData];
         
+//        for (<#initialization#>) {
+//            <#statements#>
+//        }
+        
         //产品标题
         self.titleCollectionView.dataArray = ttypes;
         [self.titleCollectionView reloadData];
@@ -134,17 +138,20 @@
         FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
                                                                               forIndexPath:indexPath];
         NSDictionary *ttype = self.dataArray[indexPath.row];
-        NSArray *tsubs = [ttype objectForKey:@"Tsub"];
+        NSMutableArray *tsubs = [ttype objectForKey:@"Tsub"];
         cell.tpID = [ttype objectForKey:@"TpID"];
+        
+        
         
         if (![cell.imageArray isEqualToArray:self.imageArray]) {
             cell.imageArray = self.imageArray;
         }
         
-        if (![cell.dataArray isEqualToArray:tsubs]) {
-            cell.dataArray = [[NSMutableArray alloc] initWithArray:tsubs];
-            [cell.tableView reloadData];
-        }
+        cell.dataArray = tsubs;
+        
+//        if (![cell.dataArray isEqualToArray:tsubs]) {
+//            [cell.tableView reloadData];
+//        }
         
         return cell;
     } else {

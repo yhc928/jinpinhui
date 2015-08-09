@@ -9,6 +9,8 @@
 #import "GoldStoreViewController.h"
 #import "MyDrawerViewController.h"
 #import "GoldStoreCell.h"
+#import "UIImageView+WebCache.h"
+#import "GoldDetailsViewController.h"
 
 #define image_width  ((SCREEN_WIDTH-30-5*4)/2)
 #define image_height image_width
@@ -53,13 +55,30 @@
     
     //注册cell
     [self.collectionView registerClass:[GoldStoreCell class] forCellWithReuseIdentifier:NSStringFromClass([GoldStoreCell class])];
+    
+    //添加下拉刷新
+    [self.collectionView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    [self.collectionView.legendHeader beginRefreshing];
+}
+
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    [self.collectionView.legendHeader endRefreshing];
+    
+    NSLog(@"resultDic = %@",resultDic);
+    
+    NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
+    if (tsubs.count > 0) {
+        self.dataArray = tsubs;
+        [self.collectionView reloadData];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-//    return self.dataArray.count;
-    return 13;
+    return self.dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -67,11 +86,15 @@
     GoldStoreCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([GoldStoreCell class])
                                                                     forIndexPath:indexPath];
     
+    NSDictionary *tsub = self.dataArray[indexPath.row];
+    
     //设置数据
-    cell.goodsImageView.backgroundColor = [UIColor brownColor];
+    NSString *gimg = [tsub objectForKey:@"Gimg"];
+    [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:gimg] placeholderImage:nil];
+//    cell.dateLabel.text = 
     cell.dateLabel.text = @"还剩4天";
-    cell.titleLabel.text = @"幽幽清茶香满屋";
-    cell.priceLabel.text = @"750";
+    cell.titleLabel.text = [tsub objectForKey:@"Gname"];
+    cell.priceLabel.text = [tsub objectForKey:@"gmoney"];
     
     return cell;
 }
@@ -95,7 +118,18 @@
 #pragma mark --UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *tsub = self.dataArray[indexPath.row];
     
+    GoldDetailsViewController *goldDetailsVC = [[GoldDetailsViewController alloc] init];
+    [self.navigationController pushViewController:goldDetailsVC animated:YES];
+}
+
+/**
+ *  下拉刷新
+ */
+- (void)loadNewData
+{
+    [self requestGoldStore];
 }
 
 /**
@@ -116,6 +150,20 @@
     [myAppDelegate.drawerController openDrawerSide:MMDrawerSideRight animated:YES completion:^(BOOL finished) {
         
     }];
+}
+
+/**
+ *  金币商城网络请求
+ */
+- (void)requestGoldStore
+{
+    [self.Parameters setValue:@"GETC" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:111 object:nil];
 }
 
 @end

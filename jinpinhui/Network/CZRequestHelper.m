@@ -64,13 +64,13 @@
     [manager POST:request.urlStr parameters:request.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"responseObject = %@",responseObject);
         //调用系统方法解析json字符串
-//        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:[operation.responseString dataUsingEncoding:NSUTF8StringEncoding]
-//                                                                  options:NSJSONReadingAllowFragments
-//                                                                    error:nil];
+        NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:[operation.responseString dataUsingEncoding:NSUTF8StringEncoding]
+                                                                  options:NSJSONReadingAllowFragments
+                                                                    error:nil];
         
         //请求成功设置代理
         if ([delegate respondsToSelector:@selector(czRequestForResultDic:code:object:)]) {
-            [delegate czRequestForResultDic:responseObject code:code object:obj];
+            [delegate czRequestForResultDic:resultDic code:code object:obj];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error = %@",error);

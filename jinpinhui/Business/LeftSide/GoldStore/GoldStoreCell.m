@@ -26,7 +26,6 @@
         
         //图片
         self.goodsImageView = [[UIImageView alloc] init];
-        self.goodsImageView.backgroundColor = [UIColor brownColor];
         self.goodsImageView.translatesAutoresizingMaskIntoConstraints = NO;
         [bgView addSubview:self.goodsImageView];
         

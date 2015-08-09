@@ -9,10 +9,11 @@
 #import "HotActivityViewController.h"
 #import "MyDrawerViewController.h"
 #import "HotActivityCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface HotActivityViewController ()
 
-@property (nonatomic, strong) NSArray     *dataArray; //数据
+@property (nonatomic, strong) NSArray *dataArray; //数据
 
 @end
 
@@ -44,18 +45,36 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    
     //添加下拉刷新
     [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     //马上进入刷新状态
     [self.tableView.legendHeader beginRefreshing];
 }
 
+#pragma mark - CZRequestHelperDelegate
+- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
+{
+    [self.tableView.legendHeader endRefreshing];
+    
+    NSLog(@"resultDic = %@",resultDic);
+    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
+    
+    NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
+    if (tsubs.count > 0) {
+        self.dataArray = tsubs;
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - UITableViewDataSource and UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,15 +84,25 @@
         cell = [[HotActivityCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
     }
     
-    cell.titleLabel.text = @"礼包天天送活动"; //标题
-    cell.dateLabel.text = @"结束时间9月23日"; //结束时间
+    NSDictionary *tsub = self.dataArray[indexPath.row];
+    
+    //图片
+    NSString *simg = [tsub objectForKey:@"simg"];
+    [cell.hotImageView sd_setImageWithURL:[NSURL URLWithString:simg] placeholderImage:nil];
+    
+    //标题
+    cell.titleLabel.text = [tsub objectForKey:@"title"];
+    
+    //结束时间
+    NSString *ddate = [tsub objectForKey:@"ddate"];
+    cell.dateLabel.text = [NSString stringWithFormat:@"结束时间%@",ddate];
    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30+(SCREEN_WIDTH-30)*3/8+50;
+    return 30+(SCREEN_WIDTH-30)*4/8+50;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +115,7 @@
  */
 - (void)loadNewData
 {
-    [self.tableView.legendHeader endRefreshing];
+    [self requestProduct];
 }
 
 /**
@@ -107,6 +136,20 @@
     [myAppDelegate.drawerController openDrawerSide:MMDrawerSideRight animated:YES completion:^(BOOL finished) {
         
     }];
+}
+
+/**
+ *  获取产品
+ */
+- (void)requestProduct
+{
+    [self.Parameters setValue:@"GETB" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:112 object:nil];
 }
 
 @end
