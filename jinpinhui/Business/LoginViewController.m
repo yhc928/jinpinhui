@@ -12,6 +12,7 @@
 #import "IndexViewController.h"
 #import "LeftSideViewController.h"
 #import "RightSideViewController.h"
+#import "ForgetPasswordViewController.h"
 #import "LoginUser.h"
 
 @interface LoginViewController ()
@@ -116,6 +117,11 @@
         
     }
 }
+
+- (IBAction)forgetPasswordClick:(id)sender {
+    ForgetPasswordViewController *forgetView = [[ForgetPasswordViewController alloc]init];
+    [self.navigationController pushViewController:forgetView animated:YES];
+}
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
@@ -145,7 +151,7 @@
         drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
         drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
         [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
-        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];;
+        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
     }else {
         [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
     }

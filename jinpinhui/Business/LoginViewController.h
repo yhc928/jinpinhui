@@ -17,5 +17,6 @@
 - (IBAction)automaticClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 - (IBAction)loginClick:(id)sender;
+- (IBAction)forgetPasswordClick:(id)sender;
 
 @end

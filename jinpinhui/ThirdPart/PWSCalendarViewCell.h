@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSDate*  currentDate;
 @property (nonatomic, assign) BOOL     firstShow;     // first or second -> callback delegate
 @property (nonatomic, assign, getter = getCalendarHeight) CGFloat  calendarHeight;
-
+@property (nonatomic, strong) NSMutableArray *SigninList;
 
 - (void) SetWithDate:(NSDate*)pDate ShowType:(enCalendarViewType)pCalendarType;
 

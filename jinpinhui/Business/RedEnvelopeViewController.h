@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currencyLab;
 - (IBAction)receiveClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *receiveBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *currencyImage;
 
 @end

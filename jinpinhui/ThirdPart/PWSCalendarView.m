@@ -249,15 +249,27 @@ UICollectionViewDelegate>
 
 - (void) SetLabelDate:(NSDate*)_date
 {
+    
     NSDateFormatter* ff = [[NSDateFormatter alloc] init];
     [ff setDateFormat:@"yyyy-MM-dd"];
     NSString* date = [ff stringFromDate:_date];
+    if (![[m_label_time.text substringWithRange:NSMakeRange(0, m_label_time.text.length - 3)] isEqualToString:[date substringWithRange:NSMakeRange(0, date.length - 3)]]) {
+        if ([self.delegate respondsToSelector:@selector(PWSCalendar:monthDate:)])
+        {
+            [self.delegate PWSCalendar:self monthDate:date];
+        }
+    }
     if (m_label_time)
     {
         [m_label_time setText:date];
     }
+    
+    
 }
-
+-(void)setDateList:(NSMutableArray *)DateList{
+    _DateList = DateList;
+    [m_view_calendar reloadData];
+}
 - (PWSCalendarSegmentItem*) GetSegmentItemWithTitle:(NSString*)pTitle
 {
     UILabel* label = [[UILabel alloc] init];
@@ -333,6 +345,10 @@ UICollectionViewDelegate>
     }
     [cell setDelegate:self];
     [cell SetWithDate:cell_date ShowType:self.type];
+    if (self.DateList.count > 0) {
+        cell.SigninList =self.DateList;
+    }
+    
     return cell;
 }
 

@@ -15,6 +15,8 @@
 #import "RedEnvelopeViewController.h"
 #import "AddressViewController.h"
 #import "ModifyPasswordViewController.h"
+#import "AuthenticationViewController.h"
+#import "UIButton+WebCache.h"
 
 @interface PersonalCenterViewController ()<UITableViewDelegate ,UITableViewDataSource,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property(nonatomic ,strong)UITableView *tableView;
@@ -84,7 +86,9 @@
     //头像按钮
     _headBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _headBtn.frame = CGRectMake(3, 3, 70, 70);
-    [_headBtn setImage:[UIImage imageNamed:@"testhead"] forState:UIControlStateNormal];
+//    [_headBtn setImage:[UIImage imageNamed:@"testhead"] forState:UIControlStateNormal];
+    
+    [_headBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] userimage]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"testhead"]];
     [_headBtn addTarget:self action:@selector(headAction) forControlEvents:UIControlEventTouchUpInside];
     _headBtn.layer.cornerRadius = 35;
     _headBtn.layer.masksToBounds = YES;
@@ -167,6 +171,11 @@
     }else if (indexPath.section == 2 && indexPath.row == 0){
         ModifyPasswordViewController *modifypassword = [[ModifyPasswordViewController alloc]init];
         [self.navigationController pushViewController:modifypassword animated:YES];
+    }else if (indexPath.section == 0 && indexPath.row == 0){
+        AuthenticationViewController *authentication = [[AuthenticationViewController alloc]init];
+        authentication.IsRegistered = NO;
+        [self.navigationController pushViewController:authentication animated:YES];
+
     }
 }
 - (void)headAction{
@@ -204,9 +213,33 @@
     
     [picker dismissViewControllerAnimated:YES completion:^{
          [_headBtn setImage:Touimage forState:UIControlStateNormal];
+        [self.Parameters setValue:@"SETB" forKey:@"cmd"];
+        [self.Parameters setValue:@"" forKey:@"para"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:666 object:nil];
     }];
 }
-
+-(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
+    NSLog(@"%@",resultDic);
+    if (code == 666) {
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+            
+            NSString *imgurl = [NSString stringWithFormat:@"http://yupala.com/bin_cmd/uptest2.asp?id=%@",[resultDic objectForKey:@"info"]];
+            CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:nil uploadImage:[_headBtn currentImage] URL:imgurl];
+            [self jsonWithRequest:request delegate:self code:777 object:nil];
+        }
+    }else if (code == 777){
+        //图片上传成功
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+            NSLog(@"头像上传成功");
+            [[LoginUser sharedLoginUser] setUserimage:[resultDic objectForKey:@"info"]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdateHeadImage" object:nil];
+        }
+    }
+}
 - (void)updateNickAction{
     NickNameViewController *nickName = [[NickNameViewController alloc]init];
     if ([[_nicknameBtn currentTitle] isEqualToString:@"设置昵称"]) {

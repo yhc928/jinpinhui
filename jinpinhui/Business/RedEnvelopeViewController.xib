@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RedEnvelopeViewController">
             <connections>
+                <outlet property="currencyImage" destination="mQy-sD-xph" id="5Hy-gC-ORc"/>
                 <outlet property="currencyLab" destination="56w-af-u3P" id="Mje-D2-uqe"/>
                 <outlet property="receiveBtn" destination="Kov-zc-XWd" id="lNF-x9-ecp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface AuthenticationViewController : BaseViewController
-
+@property(nonatomic, assign)BOOL IsRegistered;
 @end

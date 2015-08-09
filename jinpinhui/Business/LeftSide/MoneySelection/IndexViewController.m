@@ -274,17 +274,6 @@
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
     
-//    UIImage *image = [UIImage imageNamed:@"invitation_bg"];
-//    NSData *data = UIImagePNGRepresentation(image);
-//     NSData *reply = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"yaoqing" ofType:@"txt"]];
-//    [self.Parameters setValue:@"SETC" forKey:@"cmd"];
-//    [self.Parameters setValue:@"金融投资" forKey:@"para"];
-//    [self.Parameters setValue:[reply base64Encoding] forKey:@"image"];
-//    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
-//    [self.Parameters setValue:[self encryption] forKey:@"md5"];
-////    NSLog(@"%@",self.Parameters);
-//    CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:nil uploadImage:nil];
-//    [self jsonWithRequest:request delegate:self code:111 object:nil];
 }
 
 @end

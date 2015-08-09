@@ -17,6 +17,7 @@
 
 - (void) PWSCalendar:(PWSCalendarView*)_calendar didChangeViewHeight:(CGFloat)_height;
 
+- (void) PWSCalendar:(PWSCalendarView*)_calendar monthDate:(NSString*)_date;
 @end
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -27,7 +28,8 @@
 @property (nonatomic, assign) enCalendarViewHeaderViewType headType;
 @property (nonatomic, strong) UIView*                 customTimeView;
 @property (nonatomic, strong) UIView*                 customDataView;
-
+@property (nonatomic, strong) NSMutableArray *DateList;
+@property (nonatomic, strong) NSString *currDate;
 - (id) initWithFrame:(CGRect)frame CalendarType:(enCalendarViewType)pType;
 
 - (float) GetCalendarViewHeight __deprecated;

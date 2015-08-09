@@ -8,6 +8,10 @@
 
 #import "AuthenticationViewController.h"
 #import "JPHpickView.h"
+#import "MyDrawerViewController.h"
+#import "LoginUser.h"
+#import "UIButton+WebCache.h"
+
 @interface AuthenticationViewController ()<UITableViewDelegate,UITableViewDataSource ,UIImagePickerControllerDelegate , UINavigationControllerDelegate,JPHpickViewDelegate>
 @property (nonatomic ,strong)UITableView *tableView;
 @property (nonatomic ,strong)UILabel *industryLab;
@@ -55,7 +59,10 @@
 //                                             selector:@selector(keyboardWillBeHidden:)
 //     
 //                                                 name:UIKeyboardWillHideNotification object:nil];
-    self.hangye = @"请选择";
+    if ([[[LoginUser sharedLoginUser] usertrade] isEqualToString:@""]) {
+         self.hangye = @"请选择";
+    }else self.hangye = [[LoginUser sharedLoginUser] usertrade];
+   
 }
 //实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
 //- (void)keyboardWasShown:(NSNotification*)aNotification
@@ -91,8 +98,8 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             _CardBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             _CardBtn.frame = CGRectMake(10, 20, SCREEN_WIDTH - 20, 144);
-            [_CardBtn setBackgroundImage:[UIImage imageNamed:@"shenfen_bg"] forState:UIControlStateNormal];
-            [_CardBtn setBackgroundImage:[UIImage imageNamed:@"shenfen_bg"] forState:UIControlStateHighlighted];
+           
+            [_CardBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] uservcard]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"shenfen_bg"]];
             [_CardBtn addTarget:self action:@selector(CardAction) forControlEvents:UIControlEventTouchUpInside];
             [cell.contentView addSubview:_CardBtn];
         }
@@ -200,18 +207,73 @@
     UIImage *Cardimage = [info objectForKey:UIImagePickerControllerEditedImage];
     [_CardBtn setImage:Cardimage forState:UIControlStateNormal];
     [picker dismissViewControllerAnimated:YES completion:^{
-        NSData *data = UIImageJPEGRepresentation(Cardimage, 0.75);
-        
-       
         
     }];
 }
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
-    NSLog(@"%@",[resultDic objectForKey:@"error"]);
+    NSLog(@"%@",resultDic);
+    if (code == 333) {
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+            
+            NSString *imgurl = [NSString stringWithFormat:@"http://yupala.com/bin_cmd/uptest2.asp?id=%@",[resultDic objectForKey:@"info"]];
+            CZRequestModel *request = [[CZRequestMaker sharedClient] publishActionParameters:nil uploadImage:[_CardBtn currentImage] URL:imgurl];
+            [self jsonWithRequest:request delegate:self code:444 object:nil];
+        }
+    }else if (code == 444){
+        //图片上传成功
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+             if (self.IsRegistered) {
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+                 myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
+             }else{
+                 [self showCustomProgressHUDWithText:@"您的信息已提交,请等待审核！"];
+             }
+        }
+    }
 }
 //提交
 -(void)submitAction:(id)sender{
-    
+    if (self.IsRegistered) {
+        
+        if ([self.hangye isEqualToString:@"请选择"]||[[_CardBtn currentImage] isEqual:[UIImage imageNamed:@"shenfen_bg"]]) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                                message:@"你确定要跳过？"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"确定"
+                                                      otherButtonTitles:@"取消", nil];
+            alertView.tag = 120;
+            [alertView show];
+
+        }else{
+            
+                [self.Parameters setValue:@"SETC" forKey:@"cmd"];
+                [self.Parameters setValue:self.hangye forKey:@"para"];
+                [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+                [self.Parameters setValue:[self encryption] forKey:@"md5"];
+                NSLog(@"%@",self.Parameters);
+
+            
+            CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+                [self jsonWithRequest:request delegate:self code:333 object:nil];
+        }
+    }else{
+        [self.Parameters setValue:@"SETC" forKey:@"cmd"];
+        [self.Parameters setValue:self.hangye forKey:@"para"];
+        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+        [self.Parameters setValue:[self encryption] forKey:@"md5"];
+        NSLog(@"%@",self.Parameters);
+        
+        
+        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+        [self jsonWithRequest:request delegate:self code:333 object:nil];
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
+
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

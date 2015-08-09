@@ -33,10 +33,10 @@
 }
 
 - (CZRequestModel *)publishActionParameters:(NSDictionary *)parameters
-                                uploadImage:(UIImage *)uploadImage
+                                uploadImage:(UIImage *)uploadImage URL:(NSString *)url
 {
-    NSString *urlStr = [NSString stringWithFormat:@"http://yupala.com/bin_cmd/uptest2.asp?id=123123"];
-    CZRequestModel *request = [[CZRequestModel alloc] initWithUrlStr:urlStr parameters:parameters uploadImage:uploadImage];
+//    NSString *urlStr = [NSString stringWithFormat:@"http://yupala.com/bin_cmd/uptest2.asp?id=123123"];
+    CZRequestModel *request = [[CZRequestModel alloc] initWithUrlStr:url parameters:parameters uploadImage:uploadImage];
     
     return request;
 }

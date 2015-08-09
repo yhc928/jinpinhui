@@ -14,6 +14,7 @@ const NSString* PWSCalendarDayCellId = @"PWSCalendarDayCellId";
 @interface PWSCalendarDayCell()
 {
     UILabel* m_date;
+    UIImageView *imageView;
 }
 @property (nonatomic, strong) NSDate* p_date;
 @end
@@ -32,11 +33,13 @@ const NSString* PWSCalendarDayCellId = @"PWSCalendarDayCellId";
 
 - (void) SetInitialValue
 {
-    m_date = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, SCREEN_WIDTH/7 -20, SCREEN_WIDTH/7 -20)];
+    m_date = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, SCREEN_WIDTH/7 - 4, SCREEN_WIDTH/7 - 4)];
+    
 //    [m_date setFrame:self.bounds];
     [m_date setText:@""];
     [m_date setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:m_date];
+    
 }
 
 - (void) setSelected:(BOOL)selected
@@ -66,6 +69,7 @@ const NSString* PWSCalendarDayCellId = @"PWSCalendarDayCellId";
             m_date.layer.masksToBounds = YES;
             m_date.layer.borderWidth = 1;
             m_date.layer.borderColor = kPWSDefaultColor.CGColor;
+            
         }
         else
         {
@@ -81,7 +85,9 @@ const NSString* PWSCalendarDayCellId = @"PWSCalendarDayCellId";
 
     }
 }
-
+-(void)setList:(NSMutableArray *)List {
+    _List = List;
+}
 - (void) SetDate:(NSDate*)_date
 {
     NSString* day = @"";
@@ -99,13 +105,36 @@ const NSString* PWSCalendarDayCellId = @"PWSCalendarDayCellId";
         m_date.layer.masksToBounds = YES;
         m_date.layer.borderWidth = 1;
         m_date.layer.borderColor = kPWSDefaultColor.CGColor;
+//        [self setSelected:YES];
     }
     else
     {
         [m_date setTextColor:[UIColor blackColor]];
+        m_date.layer.cornerRadius = 0;
+        m_date.layer.masksToBounds = NO;
+        m_date.layer.borderWidth = 0;
+        m_date.layer.borderColor = [[UIColor clearColor] CGColor];
+       
     }
     
     [m_date setText:day];
+   
+    if (self.List.count > 0) {
+        
+        NSDateFormatter* ff = [[NSDateFormatter alloc] init];
+        [ff setDateFormat:@"yyyy-MM-dd"];
+        NSString* date = [ff stringFromDate:_date];
+        for (NSDictionary *dic in self.List) {
+            if ([[dic objectForKey:@"wdate"] isEqualToString:date]) {
+                imageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH/7 - 16)/2, CGRectGetMaxY(m_date.frame) - 15, 16, 16)];
+                imageView.image = [UIImage imageNamed:@"user_info_gold_gold"];
+                imageView.hidden = NO;
+                [self addSubview:imageView];
+            }
+        }
+    }
+    
+    
 }
 
 

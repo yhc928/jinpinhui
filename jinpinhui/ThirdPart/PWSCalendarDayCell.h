@@ -10,5 +10,6 @@
 
 @interface PWSCalendarDayCell : UICollectionViewCell
 
-- (void) SetDate:(NSDate*)_date;;
+- (void) SetDate:(NSDate*)_date;
+@property(nonatomic ,strong) NSMutableArray *List;
 @end

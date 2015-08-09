@@ -34,7 +34,7 @@ single_implementation(LoginUser)
     return [self loadStringFromDefaultsWithKey:UserImageKey];
 }
 
-- (void)setuserimage:(NSString *)userimage
+- (void)setUserimage:(NSString *)userimage
 {
     [userimage saveToNSDefaultsWithKey:UserImageKey];
 }

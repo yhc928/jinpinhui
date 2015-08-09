@@ -23,6 +23,7 @@
         [_receiveBtn setTitle:@"邀请好友赚200" forState:UIControlStateNormal];
     }else{
         _currencyLab.hidden = YES;
+        _currencyImage.image = [UIImage imageNamed:@"weiling"];
         
     }
 }
@@ -57,6 +58,7 @@
     NSLog(@"%@",resultDic);
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         _currencyLab.hidden = NO;
+         _currencyImage.image = [UIImage imageNamed:@"huobao_bg"];
           [_receiveBtn setTitle:@"邀请好友赚200" forState:UIControlStateNormal];
         [[LoginUser sharedLoginUser] setRedpackets:@"1"];
         //金币变更通知

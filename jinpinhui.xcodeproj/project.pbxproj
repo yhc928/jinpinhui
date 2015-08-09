@@ -14,6 +14,8 @@
 		CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA21B522560009944C8 /* LoginViewController.xib */; };
 		CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */; };
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
+		CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC6F4CC1B763926008C9E5E /* ForgetPasswordViewController.m */; };
+		CDC6F4CF1B763926008C9E5E /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */; };
 		CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C51B6A6508008AD01E /* LoginUser.m */; };
 		CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C81B6A6818008AD01E /* NSString+Helper.m */; };
 		CDD013461B6CB1BE00958ECD /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD013441B6CB1BE00958ECD /* NickNameViewController.m */; };
@@ -148,6 +150,9 @@
 		CD852EA51B52AFC4009944C8 /* RegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisteredViewController.h; sourceTree = "<group>"; };
 		CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisteredViewController.m; sourceTree = "<group>"; };
 		CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredViewController.xib; sourceTree = "<group>"; };
+		CDC6F4CB1B763926008C9E5E /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		CDC6F4CC1B763926008C9E5E /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		CDCEA0C41B6A6508008AD01E /* LoginUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginUser.h; sourceTree = "<group>"; };
 		CDCEA0C51B6A6508008AD01E /* LoginUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginUser.m; sourceTree = "<group>"; };
 		CDCEA0C71B6A6818008AD01E /* NSString+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
@@ -403,6 +408,9 @@
 				CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */,
 				CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */,
 				CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */,
+				CDC6F4CB1B763926008C9E5E /* ForgetPasswordViewController.h */,
+				CDC6F4CC1B763926008C9E5E /* ForgetPasswordViewController.m */,
+				CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -1021,6 +1029,7 @@
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
 				D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */,
 				CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */,
+				CDC6F4CF1B763926008C9E5E /* ForgetPasswordViewController.xib in Resources */,
 				CDD013471B6CB1BE00958ECD /* NickNameViewController.xib in Resources */,
 				CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */,
 				CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */,
@@ -1075,7 +1084,7 @@
 				CDD0134A1B6CBD0E00958ECD /* MyCurrencyViewController.m in Sources */,
 				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
 				CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */,
-                D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */,
+				D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
@@ -1094,6 +1103,7 @@
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
 				D078C4B11B4A9C8D002C65CA /* MJRefreshConst.m in Sources */,
+				CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
 				D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */,
 				CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */,
@@ -1128,7 +1138,6 @@
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
-				D0E5639A1B64E2600042CD42 /* FirstCollectionCell.m in Sources */,
 				CDD0134D1B6CC50D00958ECD /* CurrencyTableViewCell.m in Sources */,
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,

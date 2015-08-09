@@ -13,6 +13,7 @@
 #import "SigninViewController.h"
 #import "InvitationViewController.h"
 #import "LoginUser.h"
+#import "UIImageView+WebCache.h"
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
 @property(nonatomic ,strong) UILabel *nicknameLab;
@@ -39,11 +40,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(NickNameNotification:) name:@"UpdateNickName" object:nil];
     //监听金币增加或减少通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(CurrencyAddNotification:) name:@"CurrencyAddNotification" object:nil];
+    //头像更新通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UpdateHeadImageNotification:) name:@"UpdateHeadImage" object:nil];
+    
 }
 - (void)ControllerView{
     //头像
     _headimageView = [[UIImageView alloc]initWithFrame:CGRectMake((SCREEN_WIDTH - 50 - 70) / 2 , 34, 70, 70)];
-    _headimageView.image = [UIImage imageNamed:@"testhead"];
+//    _headimageView.image = [UIImage imageNamed:@"testhead"];
+    NSLog(@"%@",[[LoginUser sharedLoginUser] userimage]);
+    [_headimageView sd_setImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] userimage]] placeholderImage:[UIImage imageNamed:@"testhead"]];
     _headimageView.layer.cornerRadius = 35;
     _headimageView.layer.masksToBounds = YES;
     [self.view addSubview:_headimageView];
@@ -130,6 +136,11 @@
     NSLog(@"%@",[resultDic objectForKey:@"error"]);
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         _currencyLab.text = [NSString stringWithFormat:@"%@金币",[resultDic objectForKey:@"ugold"]];
+        if ([[[LoginUser sharedLoginUser] realName] isEqualToString:@""]) {
+            _nicknameLab.text = [[LoginUser sharedLoginUser] userName];
+        }else  _nicknameLab.text = [resultDic objectForKey:@"nick"];
+        
+        [_headimageView sd_setImageWithURL:[NSURL URLWithString:[resultDic objectForKey:@"userimage"]] placeholderImage:[UIImage imageNamed:@"testhead"]];
         [[LoginUser sharedLoginUser] setAddress:[resultDic objectForKey:@"addr"]];
         [[LoginUser sharedLoginUser] setChecks:[resultDic objectForKey:@"checks"]];
         [[LoginUser sharedLoginUser] setUgold:[resultDic objectForKey:@"ugold"]];
@@ -199,6 +210,9 @@
 }
 -(void)CurrencyAddNotification:(NSNotification *)notifi{
     _currencyLab.text = [NSString stringWithFormat:@"%@金币",[[LoginUser sharedLoginUser] ugold]];
+}
+-(void)UpdateHeadImageNotification:(NSNotification *)notifi{
+    [_headimageView sd_setImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] userimage]] placeholderImage:[UIImage imageNamed:@"testhead"]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

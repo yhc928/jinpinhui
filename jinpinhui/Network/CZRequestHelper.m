@@ -98,9 +98,9 @@
     //网络请求
     [manager POST:request.urlStr parameters:request.parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         NSData *imageData = UIImageJPEGRepresentation(request.uploadImage, 0.75);
-        NSData *reply = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"yaoqing" ofType:@"txt"]];
+      
 
-        [formData appendPartWithFileData:reply name:@"picture1" fileName:@"test.txt" mimeType:@"text/plain"];
+        [formData appendPartWithFileData:imageData name:@"picture1" fileName:@"test.png" mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         //请求成功设置代理

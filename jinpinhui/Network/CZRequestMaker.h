@@ -32,6 +32,6 @@
  *  @return CZRequestModel
  */
 - (CZRequestModel *)publishActionParameters:(NSDictionary *)parameters
-                                uploadImage:(UIImage *)uploadImage;
+                                uploadImage:(UIImage *)uploadImage URL:(NSString *)url;
 
 @end

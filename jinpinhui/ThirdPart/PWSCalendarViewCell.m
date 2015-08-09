@@ -94,7 +94,10 @@ UICollectionViewDelegateFlowLayout>
     
     self.type = pCalendarType;
 }
-
+-(void)setSigninList:(NSMutableArray *)SigninList{
+    _SigninList = SigninList;
+    [m_collection_view reloadData];
+}
 // reference
 - (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -159,7 +162,9 @@ UICollectionViewDelegateFlowLayout>
     {
         if (cellDateComponents.month == firstOfMonthsComponents.month)
         {
+            cell.List =  self.SigninList;
             [cell SetDate:cell_date];
+            NSLog(@"%@",cell_date);
         }
         else
         {
@@ -173,6 +178,7 @@ UICollectionViewDelegateFlowLayout>
             [cell SetDate:cell_date];
         }
     }
+    
     return cell;
 }
 
