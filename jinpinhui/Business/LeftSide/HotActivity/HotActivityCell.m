@@ -9,7 +9,7 @@
 #import "HotActivityCell.h"
 
 #define image_width  (SCREEN_WIDTH-30) //图片宽度
-#define image_height (image_width*3/8) //图片高度
+#define image_height (image_width*4/8) //图片高度
 
 @implementation HotActivityCell
 

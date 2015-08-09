@@ -43,7 +43,7 @@
         self.tableView.tableHeaderView = self.cycleScrollView;
         
         //创建数组
-        self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
+//        self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
 }

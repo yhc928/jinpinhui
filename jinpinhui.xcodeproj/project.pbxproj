@@ -45,6 +45,8 @@
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
 		CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF079441B6910D1009A9EEF /* JPHpickView.m */; };
 		CDF079471B691353009A9EEF /* hangye.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF079461B691353009A9EEF /* hangye.plist */; };
+		D01D5B5A1B72118200202E1C /* HotDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D5B591B72118200202E1C /* HotDetailsViewController.m */; };
+		D01D5B5D1B7211A100202E1C /* GoldDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D5B5C1B7211A100202E1C /* GoldDetailsViewController.m */; };
 		D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F441B5CD4AE00457333 /* HotActivityViewController.m */; };
 		D0363F481B5CD4B900457333 /* GoldStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F471B5CD4B900457333 /* GoldStoreViewController.m */; };
 		D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0363F4A1B5CD4C600457333 /* MoreViewController.m */; };
@@ -203,6 +205,10 @@
 		CDF079431B6910D1009A9EEF /* JPHpickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHpickView.h; sourceTree = "<group>"; };
 		CDF079441B6910D1009A9EEF /* JPHpickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHpickView.m; sourceTree = "<group>"; };
 		CDF079461B691353009A9EEF /* hangye.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hangye.plist; sourceTree = "<group>"; };
+		D01D5B581B72118200202E1C /* HotDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotDetailsViewController.h; sourceTree = "<group>"; };
+		D01D5B591B72118200202E1C /* HotDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotDetailsViewController.m; sourceTree = "<group>"; };
+		D01D5B5B1B7211A100202E1C /* GoldDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldDetailsViewController.h; sourceTree = "<group>"; };
+		D01D5B5C1B7211A100202E1C /* GoldDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldDetailsViewController.m; sourceTree = "<group>"; };
 		D0363F431B5CD4AE00457333 /* HotActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityViewController.h; sourceTree = "<group>"; };
 		D0363F441B5CD4AE00457333 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
 		D0363F461B5CD4B900457333 /* GoldStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreViewController.h; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 		D0363F4C1B5CDAE900457333 /* more.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = more.plist; sourceTree = "<group>"; };
 		D0363F4E1B5CE2BA00457333 /* HotActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotActivityCell.h; sourceTree = "<group>"; };
 		D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityCell.m; sourceTree = "<group>"; };
+		D064BF4D1B778DB3005FC6B9 /* ImageSizeMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSizeMacro.h; sourceTree = "<group>"; };
 		D077A70A1B6A7047001BE852 /* ThirdIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdIndexCell.h; sourceTree = "<group>"; };
 		D077A70B1B6A7047001BE852 /* ThirdIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdIndexCell.m; sourceTree = "<group>"; };
 		D078C3DA1B4A970E002C65CA /* jinpinhui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jinpinhui.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -497,6 +504,8 @@
 				D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */,
 				D0363F461B5CD4B900457333 /* GoldStoreViewController.h */,
 				D0363F471B5CD4B900457333 /* GoldStoreViewController.m */,
+				D01D5B5B1B7211A100202E1C /* GoldDetailsViewController.h */,
+				D01D5B5C1B7211A100202E1C /* GoldDetailsViewController.m */,
 			);
 			path = GoldStore;
 			sourceTree = "<group>";
@@ -508,6 +517,8 @@
 				D0363F4F1B5CE2BA00457333 /* HotActivityCell.m */,
 				D0363F431B5CD4AE00457333 /* HotActivityViewController.h */,
 				D0363F441B5CD4AE00457333 /* HotActivityViewController.m */,
+				D01D5B581B72118200202E1C /* HotDetailsViewController.h */,
+				D01D5B591B72118200202E1C /* HotDetailsViewController.m */,
 			);
 			path = HotActivity;
 			sourceTree = "<group>";
@@ -619,6 +630,7 @@
 				D078C40D1B4A9C8D002C65CA /* NetworkMacro.h */,
 				D078C40E1B4A9C8D002C65CA /* NotificationMacro.h */,
 				D078C40F1B4A9C8D002C65CA /* ThirdPartMacro.h */,
+				D064BF4D1B778DB3005FC6B9 /* ImageSizeMacro.h */,
 			);
 			name = Macro;
 			path = Constant;
@@ -1095,7 +1107,9 @@
 				D0E5637F1B64DBEF0042CD42 /* TitleCollectionCell.m in Sources */,
 				D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */,
 				D0363F451B5CD4AE00457333 /* HotActivityViewController.m in Sources */,
+				D01D5B5D1B7211A100202E1C /* GoldDetailsViewController.m in Sources */,
 				CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */,
+				D01D5B5A1B72118200202E1C /* HotDetailsViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
 				CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */,

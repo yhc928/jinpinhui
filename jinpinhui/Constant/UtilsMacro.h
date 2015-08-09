@@ -33,8 +33,8 @@
 #define SCREEN_HEIGHT              ([[UIScreen mainScreen] bounds].size.height) //屏幕高度
 #define SCREEN_WIDTH               ([[UIScreen mainScreen] bounds].size.width)  //屏幕宽度
 
-//原点的y值
-#define ORIGIN_Y (IS_IOS_7 ? 64 : 0)
+//导航栏高度
+#define NAV_HEIGHT 64
 
 #define ITEM_FRAME                 CGRectMake(0, 0, 44, 44)                     //导航栏按钮坐标
 

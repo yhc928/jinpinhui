@@ -15,3 +15,4 @@
 #import "FontMacro.h"
 #import "ColorMacro.h"
 #import "ThirdPartMacro.h"
+#import "ImageSizeMacro.h"

@@ -8,9 +8,6 @@
 
 #import "GoldStoreCell.h"
 
-#define image_width ((SCREEN_WIDTH-30-5*4)/2)
-#define image_height image_width
-
 @implementation GoldStoreCell
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -18,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         //背景
-        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image_width+10, image_height+50)];
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, GOLD_IMAGE_WIDTH+10, GOLD_IMAGE_HEIGHT+50)];
         bgView.layer.shadowOffset = CGSizeMake(3, 3);
         bgView.layer.shadowOpacity = 0.3;
         bgView.backgroundColor = [UIColor whiteColor];
@@ -26,22 +23,31 @@
         
         //图片
         self.goodsImageView = [[UIImageView alloc] init];
-        self.goodsImageView.backgroundColor = [UIColor brownColor];
         self.goodsImageView.translatesAutoresizingMaskIntoConstraints = NO;
         [bgView addSubview:self.goodsImageView];
         
+        //剩余时间背景
+        UIView *dateBgView = [[UIView alloc] init];
+        dateBgView.backgroundColor = UIColorFromRGB(251, 108, 66);
+        dateBgView.translatesAutoresizingMaskIntoConstraints = NO;
+        [bgView addSubview:dateBgView];
+        
+        //剩余时间图标
+        UIImageView *dateImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gold_time_icon"]];
+        dateImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        [dateBgView addSubview:dateImageView];
+        
         //剩余时间时间
         self.dateLabel = [[UILabel alloc] init];
-        self.dateLabel.backgroundColor = UIColorFromRGB(251, 108, 66);
         self.dateLabel.textColor = [UIColor whiteColor];
-        self.dateLabel.font = FONT_24PX;
+        self.dateLabel.font = FONT_22PX;
         self.dateLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.goodsImageView addSubview:self.dateLabel];
+        [dateBgView addSubview:self.dateLabel];
         
         //标题
         self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.textColor = UIColorFromRGB(121, 193, 113);
-        self.titleLabel.font = FONT_24PX;
+        self.titleLabel.font = FONT_26PX;
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
         [bgView addSubview:self.titleLabel];
         
@@ -59,13 +65,15 @@
         
         //设置autoLayout
         NSDictionary *viewsDictionary = @{@"goodsImageView":self.goodsImageView,
+                                          @"dateBgView":dateBgView,
+                                          @"dateImageView":dateImageView,
                                           @"dateLabel":self.dateLabel,
                                           @"titleLabel":self.titleLabel,
                                           @"priceLabel":self.priceLabel,
                                           @"priceImageView":priceImageView};
         
-        NSDictionary *metrics = @{@"image_height":@image_width,
-                                  @"date_width":@(image_width/2)};
+        NSDictionary *metrics = @{@"image_height":@GOLD_IMAGE_HEIGHT,
+                                  @"date_width":@(GOLD_IMAGE_WIDTH/2)};
         
         //约束1 横向 Horizontal
         [bgView addConstraints:
@@ -75,13 +83,19 @@
                                                    views:viewsDictionary]];
         
         [bgView addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[titleLabel]->=0-[priceLabel]-5-[priceImageView(18)]-5-|"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[titleLabel]->=0-[priceLabel]-10-[priceImageView(18)]-10-|"
                                                  options:0
                                                  metrics:nil
                                                    views:viewsDictionary]];
         
-        [self.goodsImageView addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"H:[dateLabel(date_width)]|"
+        [bgView addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:[dateBgView(date_width)]-5-|"
+                                                 options:0
+                                                 metrics:metrics
+                                                   views:viewsDictionary]];
+        
+        [dateBgView addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-5-[dateImageView(10)]->=0-[dateLabel]-5-|"
                                                  options:0
                                                  metrics:metrics
                                                    views:viewsDictionary]];
@@ -105,8 +119,20 @@
                                                  metrics:nil
                                                    views:viewsDictionary]];
         
-        [self.goodsImageView addConstraints:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[dateLabel(16)]"
+        [bgView addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[dateBgView(16)]"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:viewsDictionary]];
+        
+        [bgView addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-3-[dateImageView(10)]-3-|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:viewsDictionary]];
+        
+        [bgView addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[dateLabel]|"
                                                  options:0
                                                  metrics:nil
                                                    views:viewsDictionary]];
