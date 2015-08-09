@@ -10,4 +10,6 @@
 
 @interface GoldDetailsViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *goodsId;
+
 @end

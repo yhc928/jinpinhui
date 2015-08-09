@@ -10,6 +10,7 @@
 #import "MyDrawerViewController.h"
 #import "HotActivityCell.h"
 #import "UIImageView+WebCache.h"
+#import "HotDetailsViewController.h"
 
 @interface HotActivityViewController ()
 
@@ -107,7 +108,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *tsub = self.dataArray[indexPath.row];
     
+    HotDetailsViewController *hotDetailsVC = [[HotDetailsViewController alloc] init];
+    hotDetailsVC.hotTitle = [tsub objectForKey:@"title"];
+    [self.navigationController pushViewController:hotDetailsVC animated:YES];
 }
 
 /**

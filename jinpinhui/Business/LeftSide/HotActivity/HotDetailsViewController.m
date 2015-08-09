@@ -7,6 +7,7 @@
 //
 
 #import "HotDetailsViewController.h"
+#import "MyDrawerViewController.h"
 
 @interface HotDetailsViewController ()
 
@@ -30,25 +31,26 @@
 //    NSString *urlStr = [NSString stringWithFormat:@"%@/wap/alipay/alipayapi.php?order_id=%@",API_DOMAIN,self.order_id];
 //    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
 //    [webView loadRequest:request];
-    [self showProgressHUD];
+//    [self showProgressHUD];
     
 //    NSLog(@"urlStr = %@",urlStr);
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //设置侧滑菜单不可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //设置侧滑菜单可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 }
-*/
 
 @end

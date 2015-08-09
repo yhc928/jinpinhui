@@ -11,6 +11,7 @@
  */
 #import <Foundation/Foundation.h>
 
+#define FONT_22PX ([UIFont systemFontOfSize:11]) //11号字体 22px
 #define FONT_24PX ([UIFont systemFontOfSize:12]) //12号字体 24px
 #define FONT_26PX ([UIFont systemFontOfSize:13]) //13号字体 26px
 #define FONT_28PX ([UIFont systemFontOfSize:14]) //14号字体 28px
