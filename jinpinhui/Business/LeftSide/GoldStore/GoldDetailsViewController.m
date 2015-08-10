@@ -81,7 +81,7 @@
     [self.view addSubview:self.buyButton];
     
     //网络请求
-    [self requestGoldStore];
+    [self requestGoldStoreDetails];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -121,9 +121,9 @@
 }
 
 /**
- *  金币商城网络请求
+ *  商品详情网络请求
  */
-- (void)requestGoldStore
+- (void)requestGoldStoreDetails
 {
     [self.Parameters setValue:@"GETC" forKey:@"cmd"];
     [self.Parameters setValue:self.goodsId forKey:@"para"];

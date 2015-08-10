@@ -100,6 +100,8 @@
 {
     [self.currentTableView.legendHeader endRefreshing];
     
+    NSLog(@"resultDic = %@",resultDic);
+    
     NSArray *thots = [resultDic objectForKey:@"Thot"];
     NSArray *ttypes = [resultDic objectForKey:@"Ttype"];
     

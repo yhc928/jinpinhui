@@ -7,7 +7,7 @@
 //
 
 /**
- *  热销活动cell
+ *  热门活动cell
  */
 #import <UIKit/UIKit.h>
 

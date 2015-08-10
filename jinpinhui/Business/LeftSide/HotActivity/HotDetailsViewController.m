@@ -18,6 +18,14 @@
     [super viewDidLoad];
     self.navigationItem.title = self.hotTitle;
     
+    //右侧按钮
+    UIButton *righButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    righButton.frame = ITEM_FRAME;
+    [righButton setImage:[UIImage imageNamed:@"nav_right_share"] forState:UIControlStateNormal];
+    righButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [righButton addTarget:self action:@selector(didShare) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
+    
     //网页视图
     UIWebView *webView = [[UIWebView alloc] init];
     webView.backgroundColor = [UIColor clearColor];
@@ -34,6 +42,14 @@
     
 //    NSLog(@"urlStr = %@",urlStr);
 
+}
+
+/**
+ *  点击分享
+ */
+- (void)didShare
+{
+    
 }
 
 @end
