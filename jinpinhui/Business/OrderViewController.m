@@ -53,7 +53,7 @@
 - (void)requestOrder
 {
     [self.Parameters setValue:@"GETD" forKey:@"cmd"];
-    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[NSString stringWithFormat:@"%zi",self.page] forKey:@"para"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
     
