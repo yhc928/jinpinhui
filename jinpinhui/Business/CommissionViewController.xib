@@ -8,7 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommissionViewController">
             <connections>
-                <outlet property="cumulativeLab" destination="xMe-sz-VCu" id="rmr-KJ-F1W"/>
+                <outlet property="cumulativeLab" destination="lF3-0O-Wus" id="Hv3-KA-o5u"/>
                 <outlet property="expectLab" destination="YEl-5b-qRz" id="XCJ-9C-0yJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -36,7 +36,7 @@
                                 <constraint firstAttribute="width" secondItem="YEl-5b-qRz" secondAttribute="height" multiplier="5:1" id="D7b-z3-Lvx"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>

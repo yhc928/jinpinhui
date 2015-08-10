@@ -139,7 +139,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM"];
     NSString *oneDayStr = [NSString stringWithFormat:@"%@-01",[dateFormatter stringFromDate:[NSDate date]]];
-    NSLog(@"%@",oneDayStr);
+   
     [self.Parameters setValue:@"GETY2" forKey:@"cmd"];
     [self.Parameters setValue:oneDayStr forKey:@"para"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
@@ -160,6 +160,7 @@
             
             [[LoginUser sharedLoginUser] setUgold:[resultDic objectForKey:@"gsum"]];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"CurrencyAddNotification" object:nil];
+            [self showCustomProgressHUDWithText:@"签到成功!"];
         }else{
             
             if ([[resultDic objectForKey:@"Tsub"] count] > 0) {

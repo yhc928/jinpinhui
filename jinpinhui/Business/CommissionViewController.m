@@ -18,8 +18,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的佣金";
+    [self.Parameters setValue:@"GETE" forKey:@"cmd"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:119 object:nil];
 }
-
+-(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
+    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+        _cumulativeLab.text = [resultDic objectForKey:@"info"];
+    }
+    NSLog(@"%@",resultDic);
+    NSLog(@"%@",[resultDic objectForKey:@"error"]);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

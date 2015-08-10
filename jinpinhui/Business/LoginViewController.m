@@ -126,35 +126,64 @@
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
     NSLog(@"%@",resultDic);
-    if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
-        [[LoginUser sharedLoginUser] setUserName:_accountText.text];
-        [[LoginUser sharedLoginUser] setPassword:_passwordText.text];
-        [[LoginUser sharedLoginUser] setLoginStatus:[NSString stringWithFormat:@"%zi",_loginStatus]];
-        /*//首页
-        IndexViewController *indexVC = [[IndexViewController alloc] init];
-        UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
-        
-        //左侧边栏
-        LeftSideViewController *leftSideVC = [[LeftSideViewController alloc] init];
-        
-        //右侧边栏
-        RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
-    
-        
-        MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
-                                                                               leftDrawerViewController:leftSideVC
-                                                                              rightDrawerViewController:rightSideVC];
-        
-        drawerController.showsShadow = YES;
-        drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
-        drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
-        drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
-        drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
-        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
-    }else {
-        [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
+    if (code == 111) {
+        if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+            [[LoginUser sharedLoginUser] setUserName:_accountText.text];
+            [[LoginUser sharedLoginUser] setPassword:_passwordText.text];
+            [[LoginUser sharedLoginUser] setLoginStatus:[NSString stringWithFormat:@"%zi",_loginStatus]];
+            /*//首页
+             IndexViewController *indexVC = [[IndexViewController alloc] init];
+             UINavigationController *indexNav = [[UINavigationController alloc] initWithRootViewController:indexVC];
+             
+             //左侧边栏
+             LeftSideViewController *leftSideVC = [[LeftSideViewController alloc] init];
+             
+             //右侧边栏
+             RightSideViewController *rightSideVC = [[RightSideViewController alloc] init];
+             
+             
+             MMDrawerController *drawerController = [[MMDrawerController alloc] initWithCenterViewController:indexNav
+             leftDrawerViewController:leftSideVC
+             rightDrawerViewController:rightSideVC];
+             
+             drawerController.showsShadow = YES;
+             drawerController.maximumLeftDrawerWidth = SCREEN_WIDTH-55;
+             drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
+             drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+             drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+            [self requestUserInfo];
+           
+        }else {
+            [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
+        }
+    }else{
+         if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
+             [[LoginUser sharedLoginUser] setAddress:[resultDic objectForKey:@"addr"]];
+             [[LoginUser sharedLoginUser] setChecks:[resultDic objectForKey:@"checks"]];
+             [[LoginUser sharedLoginUser] setUgold:[resultDic objectForKey:@"ugold"]];
+             [[LoginUser sharedLoginUser] setRealName:[resultDic objectForKey:@"nick"]];
+             [[LoginUser sharedLoginUser] setUserimage:[resultDic objectForKey:@"userimage"]];
+             [[LoginUser sharedLoginUser] setUsertrade:[resultDic objectForKey:@"usertrade"]];
+             [[LoginUser sharedLoginUser] setUservcard:[resultDic objectForKey:@"uservcard"]];
+             [[LoginUser sharedLoginUser] setCity:[resultDic objectForKey:@"area"]];
+             [[LoginUser sharedLoginUser] setConsignee:[resultDic objectForKey:@"uname"]];
+             [[LoginUser sharedLoginUser] setTel:[resultDic objectForKey:@"tel"]];
+             [[LoginUser sharedLoginUser] setRedpackets:[resultDic objectForKey:@"redpackets"]];
+              myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
+         }
     }
+    
+    
+}
+- (void)requestUserInfo{
+    [self.Parameters removeObjectForKey:@"para"];
+    [self.Parameters setValue:@"GETZ" forKey:@"cmd"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    NSLog(@"%@",self.Parameters);
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:115 object:nil];
     
 }
 -(void)dismissKeyboard{

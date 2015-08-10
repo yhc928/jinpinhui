@@ -14,6 +14,9 @@
 #import "InvitationViewController.h"
 #import "LoginUser.h"
 #import "UIImageView+WebCache.h"
+#import "ConventionViewController.h"
+#import "OrderViewController.h"
+
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
 @property(nonatomic ,strong) UILabel *nicknameLab;
@@ -92,6 +95,7 @@
         [button setImage:[UIImage imageNamed:[normalAry objectAtIndex:i]] forState:UIControlStateNormal];
           [button setImage:[UIImage imageNamed:[normalAry objectAtIndex:i]] forState:UIControlStateHighlighted];
         button.tag = 100 + i;
+        [button addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     }
     UIView *bottom_h_line = [[UIView alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(top_h_line.frame) + 10 + 45 + 10, SCREEN_WIDTH - 50 - 20 - 15, 0.5)];
@@ -192,7 +196,8 @@
         PersonalCenterViewController *personalcenter = [[PersonalCenterViewController alloc]init];
         [myAppDelegate.drawerController.navigationController pushViewController:personalcenter animated:YES];
     }else if (indexPath.row == 1){
-    
+        OrderViewController *orderView = [[OrderViewController alloc]init];
+        [myAppDelegate.drawerController.navigationController pushViewController:orderView animated:YES];
     }else if (indexPath.row == 2){
         CommissionViewController *commission =  [[CommissionViewController alloc]init];
         [myAppDelegate.drawerController.navigationController pushViewController:commission animated:YES];
@@ -213,6 +218,13 @@
 }
 -(void)UpdateHeadImageNotification:(NSNotification *)notifi{
     [_headimageView sd_setImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] userimage]] placeholderImage:[UIImage imageNamed:@"testhead"]];
+}
+-(void)BtnClick:(UIButton *)sender{
+    if (sender.tag == 100) {
+        //预约
+        ConventionViewController *convention = [[ConventionViewController alloc]init];
+        [self.navigationController pushViewController:convention animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

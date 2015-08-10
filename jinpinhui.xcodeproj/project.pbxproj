@@ -43,6 +43,10 @@
 		CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD542851B5BE7D000C6180B /* InvitationViewController.xib */; };
 		CDD69DE61B5556350062FD86 /* PersonalCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */; };
 		CDDE4BF81B57F8D0000B1DA1 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */; };
+		CDE0CDD11B78E0E100287F19 /* ConventionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0CDCF1B78E0E100287F19 /* ConventionViewController.m */; };
+		CDE0CDD21B78E0E100287F19 /* ConventionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDE0CDD01B78E0E100287F19 /* ConventionViewController.xib */; };
+		CDE0CDD61B78ED8200287F19 /* OrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0CDD51B78ED8200287F19 /* OrderViewController.m */; };
+		CDE0CDD91B78F30100287F19 /* orderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE0CDD81B78F30100287F19 /* orderTableViewCell.m */; };
 		CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF079441B6910D1009A9EEF /* JPHpickView.m */; };
 		CDF079471B691353009A9EEF /* hangye.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDF079461B691353009A9EEF /* hangye.plist */; };
 		D01D5B5A1B72118200202E1C /* HotDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D01D5B591B72118200202E1C /* HotDetailsViewController.m */; };
@@ -202,6 +206,13 @@
 		CDD69DE51B5556350062FD86 /* PersonalCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalCenterViewController.m; sourceTree = "<group>"; };
 		CDDE4BF61B57F8D0000B1DA1 /* AuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationViewController.h; sourceTree = "<group>"; };
 		CDDE4BF71B57F8D0000B1DA1 /* AuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationViewController.m; sourceTree = "<group>"; };
+		CDE0CDCE1B78E0E100287F19 /* ConventionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConventionViewController.h; sourceTree = "<group>"; };
+		CDE0CDCF1B78E0E100287F19 /* ConventionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConventionViewController.m; sourceTree = "<group>"; };
+		CDE0CDD01B78E0E100287F19 /* ConventionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConventionViewController.xib; sourceTree = "<group>"; };
+		CDE0CDD41B78ED8200287F19 /* OrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderViewController.h; sourceTree = "<group>"; };
+		CDE0CDD51B78ED8200287F19 /* OrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderViewController.m; sourceTree = "<group>"; };
+		CDE0CDD71B78F30100287F19 /* orderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderTableViewCell.h; sourceTree = "<group>"; };
+		CDE0CDD81B78F30100287F19 /* orderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderTableViewCell.m; sourceTree = "<group>"; };
 		CDF079431B6910D1009A9EEF /* JPHpickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPHpickView.h; sourceTree = "<group>"; };
 		CDF079441B6910D1009A9EEF /* JPHpickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPHpickView.m; sourceTree = "<group>"; };
 		CDF079461B691353009A9EEF /* hangye.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hangye.plist; sourceTree = "<group>"; };
@@ -497,6 +508,27 @@
 			name = Personalcenter;
 			sourceTree = "<group>";
 		};
+		CDE0CDCD1B78E0AE00287F19 /* Convention */ = {
+			isa = PBXGroup;
+			children = (
+				CDE0CDCE1B78E0E100287F19 /* ConventionViewController.h */,
+				CDE0CDCF1B78E0E100287F19 /* ConventionViewController.m */,
+				CDE0CDD01B78E0E100287F19 /* ConventionViewController.xib */,
+			);
+			name = Convention;
+			sourceTree = "<group>";
+		};
+		CDE0CDD31B78ED6700287F19 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				CDE0CDD41B78ED8200287F19 /* OrderViewController.h */,
+				CDE0CDD51B78ED8200287F19 /* OrderViewController.m */,
+				CDE0CDD71B78F30100287F19 /* orderTableViewCell.h */,
+				CDE0CDD81B78F30100287F19 /* orderTableViewCell.m */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
 		D0363F2B1B5CD43800457333 /* GoldStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +648,8 @@
 				CDD542591B5B703500C6180B /* Commission */,
 				CDD542611B5BB35D00C6180B /* Signin */,
 				CDD542821B5BE7A300C6180B /* invitation */,
+				CDE0CDCD1B78E0AE00287F19 /* Convention */,
+				CDE0CDD31B78ED6700287F19 /* Order */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -1039,6 +1073,7 @@
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
+				CDE0CDD21B78E0E100287F19 /* ConventionViewController.xib in Resources */,
 				D078C3EB1B4A970E002C65CA /* Images.xcassets in Resources */,
 				CDD542871B5BE7D000C6180B /* InvitationViewController.xib in Resources */,
 				CDC6F4CF1B763926008C9E5E /* ForgetPasswordViewController.xib in Resources */,
@@ -1097,6 +1132,7 @@
 				D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */,
 				CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */,
 				D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */,
+				CDE0CDD11B78E0E100287F19 /* ConventionViewController.m in Sources */,
 				D078C4991B4A9C8D002C65CA /* CZRequestMaker.m in Sources */,
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
@@ -1146,6 +1182,7 @@
 				D078C4AC1B4A9C8D002C65CA /* UIRefreshControl+AFNetworking.m in Sources */,
 				CDD542741B5BB4F900C6180B /* PWSCalendarDayCell.m in Sources */,
 				D0E563801B64DBEF0042CD42 /* TitleCollectionView.m in Sources */,
+				CDE0CDD61B78ED8200287F19 /* OrderViewController.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
 				CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
@@ -1162,6 +1199,7 @@
 				D078C49F1B4A9C8D002C65CA /* AFHTTPSessionManager.m in Sources */,
 				D0363F501B5CE2BA00457333 /* HotActivityCell.m in Sources */,
 				D078C4C41B4A9C8D002C65CA /* SDWebImageDownloader.m in Sources */,
+				CDE0CDD91B78F30100287F19 /* orderTableViewCell.m in Sources */,
 				D078C4AE1B4A9C8D002C65CA /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
