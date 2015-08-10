@@ -16,7 +16,7 @@
 @property (nonatomic, strong) TitleCollectionView *titleCollectionView;
 @property (nonatomic, strong) UICollectionView    *collectionView;//表格
 
-@property (nonatomic, strong) NSArray             *dataArray; //数据
+@property (nonatomic, strong) NSMutableArray      *dataArray; //数据
 @property (nonatomic, strong) NSArray             *imageArray; //轮播图
 
 @end
@@ -93,6 +93,8 @@
 //**************************************************数据***********************************************
     //产品网络请求
     [self loadNewData];
+    //数据源
+    self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -100,32 +102,43 @@
 {
     [self.currentTableView.legendHeader endRefreshing];
     
-    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *thots = [resultDic objectForKey:@"Thot"];
     NSArray *ttypes = [resultDic objectForKey:@"Ttype"];
     
+    //轮播图数据
     if (thots.count > 0) {
-        //轮播图数据
+        
         self.imageArray = thots;
     }
     
+    //列表数据
     if (ttypes.count > 0) {
-        //产品数据
-        self.dataArray = ttypes;
-        [self.collectionView reloadData];
-        
-//        for (<#initialization#>) {
-//            <#statements#>
-//        }
-        
         //产品标题
         self.titleCollectionView.dataArray = ttypes;
         [self.titleCollectionView reloadData];
+        
+        //设置产品标题的选中位置
+        self.titleCollectionView.isScroll = YES;
+        [self.titleCollectionView bgScrollViewDidScroll:0];
+        
+        //产品数据
+        [self.dataArray removeAllObjects];
+        for (NSDictionary *dict in ttypes) {
+            NSMutableDictionary *ttype = [NSMutableDictionary dictionaryWithDictionary:dict];
+            NSMutableArray *Tsubs = [NSMutableArray arrayWithArray:[ttype objectForKey:@"Tsub"]];
+            [ttype setObject:Tsubs forKey:@"Tsub"];
+            
+            [self.dataArray addObject:ttype];
+        }
+        
+        [self.collectionView reloadData];
+        
+        //设置collectionView偏移量
+        self.collectionView.contentOffset = CGPointMake(0, 0);
     }
-    
-//    NSLog(@"resultDic = %@",resultDic);
-    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -139,29 +152,33 @@
     if (indexPath.row == 0) {
         FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
                                                                               forIndexPath:indexPath];
+        
+        //取出每个页面的数据
         NSDictionary *ttype = self.dataArray[indexPath.row];
+        
+        //取出列表
         NSMutableArray *tsubs = [ttype objectForKey:@"Tsub"];
         cell.tpID = [ttype objectForKey:@"TpID"];
-        
-        
         
         if (![cell.imageArray isEqualToArray:self.imageArray]) {
             cell.imageArray = self.imageArray;
         }
         
-        cell.dataArray = tsubs;
-        
-//        if (![cell.dataArray isEqualToArray:tsubs]) {
-//            [cell.tableView reloadData];
-//        }
+        if (![cell.dataArray isEqualToArray:tsubs]) {
+             cell.dataArray = tsubs;
+            [cell.tableView reloadData];
+        }
         
         return cell;
     } else {
         SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
                                                                                forIndexPath:indexPath];
+        
+        //取出每个页面的数据
         NSDictionary *ttype = self.dataArray[indexPath.row];
-        cell.ttp = [ttype objectForKey:@"Ttp"];
-        NSArray *tsubs = [ttype objectForKey:@"Tsub"];
+        
+        NSMutableArray *tsubs = [ttype objectForKey:@"Tsub"];
+        cell.tpID = [ttype objectForKey:@"TpID"];
         
         if (![cell.dataArray isEqualToArray:tsubs]) {
             cell.dataArray = tsubs;
