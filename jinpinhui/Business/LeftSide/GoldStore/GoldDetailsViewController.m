@@ -7,7 +7,6 @@
 //
 
 #import "GoldDetailsViewController.h"
-#import "MyDrawerViewController.h"
 #import "UIImageView+WebCache.h"
 #import "LoginUser.h"
 
@@ -135,22 +134,6 @@
     [self jsonWithRequest:request delegate:self code:111 object:nil];
     
     [self showProgressHUD];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    //设置侧滑菜单不可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    //设置侧滑菜单可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 }
 
 @end

@@ -8,6 +8,9 @@
 
 #import "MoreViewController.h"
 #import "MyDrawerViewController.h"
+#import "AboutUsViewController.h"
+#import "FeedbackViewController.h"
+#import "ProtocolViewController.h"
 
 @interface MoreViewController ()
 
@@ -40,7 +43,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
     
     //表格
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -84,7 +87,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    switch (indexPath.row) {
+        case 0: {
+            AboutUsViewController *aboutUsVC = [[AboutUsViewController alloc] init];
+            [self.navigationController pushViewController:aboutUsVC animated:YES];
+            break;
+        }
+        case 1: {
+            [self showActionSheetWithTitle:SERVICE_TEL];
+            break;
+        }
+        case 2: {
+            FeedbackViewController *feedbackVC = [[FeedbackViewController alloc] init];
+            [self.navigationController pushViewController:feedbackVC animated:YES];
+            
+            break;
+        }
+        case 3: {
+            ProtocolViewController *protocolVC = [[ProtocolViewController alloc] init];
+            [self.navigationController pushViewController:protocolVC animated:YES];
+            break;
+        }
+            
+        default:
+            break;
+    }
 }
 
 /**
@@ -105,6 +134,22 @@
     [myAppDelegate.drawerController openDrawerSide:MMDrawerSideRight animated:YES completion:^(BOOL finished) {
         
     }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //设置侧滑菜单可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //设置侧滑菜单不可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
 }
 
 @end

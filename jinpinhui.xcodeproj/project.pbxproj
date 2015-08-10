@@ -113,6 +113,9 @@
 		D078C4CD1B4A9C8D002C65CA /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48A1B4A9C8D002C65CA /* UIImageView+WebCache.m */; };
 		D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */; };
 		D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */ = {isa = PBXBuildFile; fileRef = D078C4931B4A9C8D002C65CA /* RegExp.m */; };
+		D07AD8261B7848BD0083B2CD /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07AD8251B7848BD0083B2CD /* AboutUsViewController.m */; };
+		D07AD8291B7849290083B2CD /* ProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07AD8281B7849290083B2CD /* ProtocolViewController.m */; };
+		D07AD82C1B7852450083B2CD /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D07AD82B1B7852450083B2CD /* FeedbackViewController.m */; };
 		D08A1F1B1B6B7D02009CBF3C /* FirstCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08A1F181B6B7D02009CBF3C /* FirstCollectionCell.m */; };
 		D08A1F1C1B6B7D02009CBF3C /* SecondCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D08A1F1A1B6B7D02009CBF3C /* SecondCollectionCell.m */; };
 		D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D08F82371B52743300F6E7C9 /* UIView+AutoLayout.m */; };
@@ -354,6 +357,12 @@
 		D078C48C1B4A9C8D002C65CA /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D078C4921B4A9C8D002C65CA /* RegExp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegExp.h; sourceTree = "<group>"; };
 		D078C4931B4A9C8D002C65CA /* RegExp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegExp.m; sourceTree = "<group>"; };
+		D07AD8241B7848BD0083B2CD /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		D07AD8251B7848BD0083B2CD /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		D07AD8271B7849290083B2CD /* ProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolViewController.h; sourceTree = "<group>"; };
+		D07AD8281B7849290083B2CD /* ProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolViewController.m; sourceTree = "<group>"; };
+		D07AD82A1B7852450083B2CD /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		D07AD82B1B7852450083B2CD /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		D08A1F171B6B7D02009CBF3C /* FirstCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCollectionCell.h; sourceTree = "<group>"; };
 		D08A1F181B6B7D02009CBF3C /* FirstCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCollectionCell.m; sourceTree = "<group>"; };
 		D08A1F191B6B7D02009CBF3C /* SecondCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCollectionCell.h; sourceTree = "<group>"; };
@@ -528,6 +537,12 @@
 			children = (
 				D0363F491B5CD4C600457333 /* MoreViewController.h */,
 				D0363F4A1B5CD4C600457333 /* MoreViewController.m */,
+				D07AD8241B7848BD0083B2CD /* AboutUsViewController.h */,
+				D07AD8251B7848BD0083B2CD /* AboutUsViewController.m */,
+				D07AD82A1B7852450083B2CD /* FeedbackViewController.h */,
+				D07AD82B1B7852450083B2CD /* FeedbackViewController.m */,
+				D07AD8271B7849290083B2CD /* ProtocolViewController.h */,
+				D07AD8281B7849290083B2CD /* ProtocolViewController.m */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1074,6 +1089,7 @@
 				D078C49B1B4A9C8D002C65CA /* CZRequestOperationManager.m in Sources */,
 				D078C4A11B4A9C8D002C65CA /* AFSecurityPolicy.m in Sources */,
 				D078C4B21B4A9C8D002C65CA /* MJRefreshFooter.m in Sources */,
+				D07AD8291B7849290083B2CD /* ProtocolViewController.m in Sources */,
 				D078C4BE1B4A9C8D002C65CA /* UIViewController+MMDrawerController.m in Sources */,
 				D078C4BD1B4A9C8D002C65CA /* MMDrawerVisualState.m in Sources */,
 				CDD542761B5BB4F900C6180B /* PWSCalendarViewCell.m in Sources */,
@@ -1112,6 +1128,7 @@
 				D01D5B5A1B72118200202E1C /* HotDetailsViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
+				D07AD8261B7848BD0083B2CD /* AboutUsViewController.m in Sources */,
 				CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */,
 				CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
@@ -1149,6 +1166,7 @@
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
 				CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
+				D07AD82C1B7852450083B2CD /* FeedbackViewController.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D078C4C01B4A9C8D002C65CA /* NSData+ImageContentType.m in Sources */,
