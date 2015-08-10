@@ -7,7 +7,6 @@
 //
 
 #import "GoldDetailsViewController.h"
-#import "MyDrawerViewController.h"
 #import "UIImageView+WebCache.h"
 #import "LoginUser.h"
 
@@ -82,7 +81,7 @@
     [self.view addSubview:self.buyButton];
     
     //网络请求
-    [self requestGoldStore];
+    [self requestGoldStoreDetails];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -122,9 +121,9 @@
 }
 
 /**
- *  金币商城网络请求
+ *  商品详情网络请求
  */
-- (void)requestGoldStore
+- (void)requestGoldStoreDetails
 {
     [self.Parameters setValue:@"GETC" forKey:@"cmd"];
     [self.Parameters setValue:self.goodsId forKey:@"para"];
@@ -135,22 +134,6 @@
     [self jsonWithRequest:request delegate:self code:111 object:nil];
     
     [self showProgressHUD];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    //设置侧滑菜单不可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    //设置侧滑菜单可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 }
 
 @end

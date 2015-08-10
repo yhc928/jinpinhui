@@ -22,7 +22,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.title = @"热门活动";
     
     //左侧按钮
@@ -62,8 +61,8 @@
 {
     [self.tableView.legendHeader endRefreshing];
     
-    NSLog(@"resultDic = %@",resultDic);
-    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
+//    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
     if (tsubs.count > 0) {
@@ -103,7 +102,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 30+(SCREEN_WIDTH-30)*4/8+50;
+    return 30+HOT_IMAGE_HEIGHT+50;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -155,6 +154,22 @@
     
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:112 object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    //设置侧滑菜单可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    //设置侧滑菜单不可点
+    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
 }
 
 @end

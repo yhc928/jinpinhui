@@ -26,6 +26,6 @@
 /**
  *  下拉刷新回调方法，在cell中使用
  */
-//- (void)loadNewData;
+- (void)loadNewData;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "FirstCollectionCell.h"
 #import "IndexViewController.h"
-#import "FirstIndexCell.h"
+#import "IndexTableViewCell.h"
 #import "MJRefresh.h"
 
 @implementation FirstCollectionCell
@@ -39,11 +39,7 @@
         
         //轮播图
         self.cycleScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*174/320)];
-        self.cycleScrollView.imageArray = @[@"1",@"2",@"3"];
         self.tableView.tableHeaderView = self.cycleScrollView;
-        
-        //创建数组
-//        self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
     }
     return self;
 }
@@ -54,8 +50,8 @@
     [self.tableView.legendHeader endRefreshing];
     [self.tableView.legendFooter endRefreshing];
     
-    NSLog(@"resultDic = %@",resultDic);
-    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
+//    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
     
@@ -87,9 +83,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FirstIndexCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstIndexCell"];
+    IndexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstIndexCell"];
     if (!cell) {
-        cell = [[FirstIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
+        cell = [[IndexTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
     }
     
     NSDictionary *tsub = self.dataArray[indexPath.row];
@@ -98,40 +94,50 @@
     cell.titleLabel.text = [tsub objectForKey:@"Iname"];
     
     //状态
-    cell.statusLabel.text = [tsub objectForKey:@"Istate"];
+    cell.istate = [tsub objectForKey:@"Istate"];
     
-    //投资起点
-    cell.originLabel.text = [tsub objectForKey:@"Iup"];
+    NSArray *subinfos = [tsub objectForKey:@"subinfo"];
     
-    //投资期限
-    cell.deadlineLabel.text = [tsub objectForKey:@"Imon"];
-    
-    //预期收益
-    NSString *iear = [tsub objectForKey:@"Iear"];
-    cell.expectedLabel.text = [NSString stringWithFormat:@"%.2f%%",[iear floatValue]];
-    
-    //最高返佣
-    cell.rebateLabel.text = [tsub objectForKey:@"Tmax"];
-    
-    //已募集
-    NSString *ipro = [tsub objectForKey:@"Ipro"];
-    cell.raiseLabel.text = [NSString stringWithFormat:@"已募集%@%%",ipro];
-    
-    //进度条
-    cell.progressView.frame = CGRectMake(0, 0, 0, 6);
-    [UIView animateWithDuration:0.5 animations:^{
-        cell.progressView.frame = CGRectMake(0, 0, (SCREEN_WIDTH-85)*[ipro floatValue]*0.01, 6);
-    }];
-    
-    //状态背景颜色
-    cell.statusLabel.backgroundColor = UIColorFromRGB(251, 132, 50);
+    for (int i = 0; i < 4 & i < subinfos.count; i++) {
+        NSDictionary *subinfo = subinfos[i];
+        switch (i) {
+            case 0: {
+                //投资起点
+                cell.originLabel.text = [subinfo objectForKey:@"content"];
+                cell.originTitleLabel.text = [subinfo objectForKey:@"title"];
+                break;
+            }
+            case 1: {
+                //投资期限
+                cell.deadlineLabel.text = [subinfo objectForKey:@"content"];
+                cell.deadlineTitleLabel.text = [subinfo objectForKey:@"title"];
+                break;
+            }
+            case 2: {
+                //预期收益
+                cell.expectedLabel.text = [subinfo objectForKey:@"content"];
+                cell.expectedTitleLabel.text = [subinfo objectForKey:@"title"];
+                
+                break;
+            }
+            case 3: {
+                //最高返佣
+                cell.rebateLabel.text = [subinfo objectForKey:@"content"];
+                cell.rebateTitleLabel.text = [subinfo objectForKey:@"title"];
+                break;
+            }
+                
+            default:
+                break;
+        }
+    }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 121;
+    return 96;
 }
 
 //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
@@ -169,6 +175,13 @@
 {
     //网络请求
     [self requestProduct];
+}
+
+- (void)setImageArray:(NSArray *)imageArray
+{
+    _imageArray = imageArray;
+    
+    self.cycleScrollView.imageArray = _imageArray;
 }
 
 /**

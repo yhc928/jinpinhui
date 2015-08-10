@@ -7,7 +7,6 @@
 //
 
 #import "HotDetailsViewController.h"
-#import "MyDrawerViewController.h"
 
 @interface HotDetailsViewController ()
 
@@ -18,6 +17,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.hotTitle;
+    
+    //右侧按钮
+    UIButton *righButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    righButton.frame = ITEM_FRAME;
+    [righButton setImage:[UIImage imageNamed:@"nav_right_share"] forState:UIControlStateNormal];
+    righButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [righButton addTarget:self action:@selector(didShare) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
     
     //网页视图
     UIWebView *webView = [[UIWebView alloc] init];
@@ -37,20 +44,12 @@
 
 }
 
-- (void)viewWillAppear:(BOOL)animated
+/**
+ *  点击分享
+ */
+- (void)didShare
 {
-    [super viewWillAppear:animated];
     
-    //设置侧滑菜单不可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeNone;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    
-    //设置侧滑菜单可点
-    myAppDelegate.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
 }
 
 @end

@@ -23,15 +23,16 @@
 #define APP_VERSION    ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]) //app版本号
 #define SYSTEM_VERSION ([UIDevice currentDevice].systemVersion) //系统版本号
 
-#define ALIPAY              @"alipay"              //支付宝支付id
-#define MOBILEPAY           @"mobilepay"           //支付宝钱包
-#define OBSERVE_LOGIN       @"loginAndRegister"    //通知注册登录
+#define SERVICE_TEL   @"10000000"            //客服电话
+#define ALIPAY        @"alipay"              //支付宝支付id
+#define MOBILEPAY     @"mobilepay"           //支付宝钱包
+#define OBSERVE_LOGIN @"loginAndRegister"    //通知注册登录
 
-#define IS_IOS_7                   ([SYSTEM_VERSION floatValue] >= 7.0)         //是否iOS7以上
-#define IS_IOS_8                   ([SYSTEM_VERSION floatValue] >= 8.0)         //是否iOS8以上
+#define IS_IOS_7 ([SYSTEM_VERSION floatValue] >= 7.0)         //是否iOS7以上
+#define IS_IOS_8 ([SYSTEM_VERSION floatValue] >= 8.0)         //是否iOS8以上
 
-#define SCREEN_HEIGHT              ([[UIScreen mainScreen] bounds].size.height) //屏幕高度
-#define SCREEN_WIDTH               ([[UIScreen mainScreen] bounds].size.width)  //屏幕宽度
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height) //屏幕高度
+#define SCREEN_WIDTH  ([[UIScreen mainScreen] bounds].size.width)  //屏幕宽度
 
 //导航栏高度
 #define NAV_HEIGHT 64
@@ -47,17 +48,17 @@
 #define NULL_STR(str) (str == nil || (NSNull *)str == [NSNull null] || str.length == 0) //判断对象为空
 
 //登录信息、状态
-#define LOGINSTATUS @"loginstatus"   //记住密码、自动登录
-#define UserImageKey @"userimage"
-#define UserNameKey @"userName"
-#define PasswordKey @"password"
-#define RealNameKey @"realName"
-#define AddressKey @"address"
-#define ChecksKey @"checks"
-#define UgoldKey @"ugold"
-#define UsertradeKey @"usertrade"
-#define UservcardKey @"uservcard"
-#define CityKey @"city"
-#define ConsigneeKey @"consignee"
-#define TelKey @"tel"
+#define LOGINSTATUS   @"loginstatus"//记住密码、自动登录
+#define UserImageKey  @"userimage"
+#define UserNameKey   @"userName"
+#define PasswordKey   @"password"
+#define RealNameKey   @"realName"
+#define AddressKey    @"address"
+#define ChecksKey     @"checks"
+#define UgoldKey      @"ugold"
+#define UsertradeKey  @"usertrade"
+#define UservcardKey  @"uservcard"
+#define CityKey       @"city"
+#define ConsigneeKey  @"consignee"
+#define TelKey        @"tel"
 #define RedpacketsKey @"redpackets"

@@ -166,10 +166,9 @@
         [self.scrollView addSubview:imageView];
         
         //设置图片
-//        ImageModel *model = _curImageArray[i];
-//        NSURL *url = [NSURL URLWithString:model.image_url];
-//        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder_320x120.png"]];
-        imageView.backgroundColor = [UIColor brownColor];
+        NSDictionary *thot = _curImageArray[i];
+        NSURL *url = [thot objectForKey:@"simg"];
+        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholder_320x120.png"]];
         
         //tap手势
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapImage:)];

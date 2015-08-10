@@ -81,7 +81,7 @@
     //检测网络状态
     AFNetworkReachabilityStatus status = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
     
-    NSLog(@"status = %ld",(long)status);
+//    NSLog(@"status = %ld",(long)status);
     //-1 未知 0 无连接 1 3G 2 WIFI
     if (status == AFNetworkReachabilityStatusNotReachable) {
         //显示无网络提示
@@ -93,7 +93,7 @@
         self.noNetworkAlertView = [self showAlertViewWithTitle:@""
                                                        message:@"当前网络不可用，请检查您的网络设置…"
                                                         cancel:@"关闭"
-                                                         other:@"电话下单"];
+                                                         other:nil];
         
         //隐藏HUD、指示器
         [self hideProgressHUD];
