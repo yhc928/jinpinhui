@@ -17,8 +17,10 @@
     NSInteger _nextPage; //下一页
 }
 
-@property (nonatomic, strong) UITableView    *tableView; //产品tableView
-@property (nonatomic, strong) NSMutableArray *dataArray; //数据源
-@property (nonatomic, strong) NSString       *tpID;      //产品id
+@property (nonatomic, strong) UITableView         *tableView;//产品tableView
+@property (nonatomic, strong) NSMutableArray      *dataArray;//数据源
+@property (nonatomic, strong) NSString            *tpID;//产品id
+@property (nonatomic, strong) NSString            *tsubcount;//产品数量
+@property (nonatomic, strong) NSMutableDictionary *moreDict;
 
 @end

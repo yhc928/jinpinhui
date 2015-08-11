@@ -10,6 +10,7 @@
 #import "IndexViewController.h"
 #import "IndexTableViewCell.h"
 #import "MJRefresh.h"
+#import "IndexDetailsViewController.h"
 
 @implementation FirstCollectionCell
 
@@ -40,6 +41,9 @@
         //轮播图
         self.cycleScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*174/320)];
         self.tableView.tableHeaderView = self.cycleScrollView;
+        
+        //下一页
+        _nextPage = 2;
     }
     return self;
 }
@@ -50,15 +54,18 @@
     [self.tableView.legendHeader endRefreshing];
     [self.tableView.legendFooter endRefreshing];
     
-//    NSLog(@"resultDic = %@",resultDic);
+    NSLog(@"resultDic = %@",resultDic);
 //    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
     
     if (tsubs.count > 0) {
+        [[IndexViewController sharedClient] showCustomProgressHUDWithText:@"刷新成功"];
+        
         //下拉刷新清空数组
         if (_nextPage == 1) {
             [self.dataArray removeAllObjects];
+            [self.moreDict removeObjectForKey:self.tpID];
         }
         
         //下一页+1
@@ -72,72 +79,101 @@
     } else {
         //提示没有更多的数据
         [self.tableView.legendFooter noticeNoMoreData];
+        [self.moreDict setObject:@"noMore" forKey:self.tpID];
     }
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArray.count;
+    if (section == 0) {
+        return self.dataArray.count;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    IndexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstIndexCell"];
-    if (!cell) {
-        cell = [[IndexTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
-    }
-    
-    NSDictionary *tsub = self.dataArray[indexPath.row];
-    
-    //项目名称
-    cell.titleLabel.text = [tsub objectForKey:@"Iname"];
-    
-    //状态
-    cell.istate = [tsub objectForKey:@"Istate"];
-    
-    NSArray *subinfos = [tsub objectForKey:@"subinfo"];
-    
-    for (int i = 0; i < 4 & i < subinfos.count; i++) {
-        NSDictionary *subinfo = subinfos[i];
-        switch (i) {
-            case 0: {
-                //投资起点
-                cell.originLabel.text = [subinfo objectForKey:@"content"];
-                cell.originTitleLabel.text = [subinfo objectForKey:@"title"];
-                break;
-            }
-            case 1: {
-                //投资期限
-                cell.deadlineLabel.text = [subinfo objectForKey:@"content"];
-                cell.deadlineTitleLabel.text = [subinfo objectForKey:@"title"];
-                break;
-            }
-            case 2: {
-                //预期收益
-                cell.expectedLabel.text = [subinfo objectForKey:@"content"];
-                cell.expectedTitleLabel.text = [subinfo objectForKey:@"title"];
-                
-                break;
-            }
-            case 3: {
-                //最高返佣
-                cell.rebateLabel.text = [subinfo objectForKey:@"content"];
-                cell.rebateTitleLabel.text = [subinfo objectForKey:@"title"];
-                break;
-            }
-                
-            default:
-                break;
+    if (indexPath.section == 0) {
+        IndexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FirstIndexCell"];
+        if (!cell) {
+            cell = [[IndexTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FirstIndexCell"];
         }
+        
+        NSDictionary *tsub = self.dataArray[indexPath.row];
+        
+        //项目名称
+        cell.titleLabel.text = [tsub objectForKey:@"Iname"];
+        
+        //状态
+        cell.istate = [tsub objectForKey:@"Istate"];
+        
+        NSArray *subinfos = [tsub objectForKey:@"subinfo"];
+        
+        for (int i = 0; i < 4 & i < subinfos.count; i++) {
+            NSDictionary *subinfo = subinfos[i];
+            switch (i) {
+                case 0: {
+                    //投资起点
+                    cell.originLabel.text = [subinfo objectForKey:@"content"];
+                    cell.originTitleLabel.text = [subinfo objectForKey:@"title"];
+                    break;
+                }
+                case 1: {
+                    //投资期限
+                    cell.deadlineLabel.text = [subinfo objectForKey:@"content"];
+                    cell.deadlineTitleLabel.text = [subinfo objectForKey:@"title"];
+                    break;
+                }
+                case 2: {
+                    //预期收益
+                    cell.expectedLabel.text = [subinfo objectForKey:@"content"];
+                    cell.expectedTitleLabel.text = [subinfo objectForKey:@"title"];
+                    
+                    break;
+                }
+                case 3: {
+                    //最高返佣
+                    cell.rebateLabel.text = [subinfo objectForKey:@"content"];
+                    cell.rebateTitleLabel.text = [subinfo objectForKey:@"title"];
+                    break;
+                }
+                    
+                default:
+                    break;
+            }
+        }
+        return cell;
+        
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.textLabel.textAlignment = NSTextAlignmentCenter;
+            cell.textLabel.font = FONT_30PX;
+        }
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%@款产品",self.tsubcount];
+        
+        return cell;
     }
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 96;
+    if (indexPath.section == 0) {
+        return 96;
+    } else {
+        return 44;
+    }
 }
 
 //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题
@@ -154,7 +190,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (indexPath.section == 0) {
+        NSDictionary *tsub = self.dataArray[indexPath.row];
+        
+        IndexDetailsViewController *indexDetailsVC = [[IndexDetailsViewController alloc] init];
+        indexDetailsVC.iD = [tsub objectForKey:@"ID"];
+        indexDetailsVC.iname = [tsub objectForKey:@"Iname"];
+        [[IndexViewController sharedClient].navigationController pushViewController:indexDetailsVC animated:YES];
+    }
 }
 
 #pragma mark - CycleScrollViewDelegate

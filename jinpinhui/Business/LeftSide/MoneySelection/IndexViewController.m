@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSMutableArray      *dataArray; //数据
 @property (nonatomic, strong) NSArray             *imageArray; //轮播图
 
+//@property (nonatomic, strong) NSMutableDictionary *dateDict;
+@property (nonatomic, strong) NSMutableDictionary *moreDict;
+
 @end
 
 @implementation IndexViewController
@@ -85,16 +88,15 @@
     [self.view addSubview:self.collectionView];
     
     //注册cell
-    [self.collectionView registerClass:[FirstCollectionCell class]
-            forCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])];
-    [self.collectionView registerClass:[SecondCollectionCell class]
-            forCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])];
+    [self.collectionView registerClass:[FirstCollectionCell class] forCellWithReuseIdentifier:@"FirstCollectionCell"];
+    [self.collectionView registerClass:[SecondCollectionCell class] forCellWithReuseIdentifier:@"SecondCollectionCell"];
     
 //**************************************************数据***********************************************
     //产品网络请求
     [self loadNewData];
     //数据源
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.moreDict = [[NSMutableDictionary alloc] initWithCapacity:0];
 }
 
 #pragma mark - CZRequestHelperDelegate
@@ -102,7 +104,7 @@
 {
     [self.currentTableView.legendHeader endRefreshing];
     
-//    NSLog(@"resultDic = %@",resultDic);
+    NSLog(@"resultDic = %@",resultDic);
 //    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *thots = [resultDic objectForKey:@"Thot"];
@@ -110,12 +112,13 @@
     
     //轮播图数据
     if (thots.count > 0) {
-        
         self.imageArray = thots;
     }
     
     //列表数据
     if (ttypes.count > 0) {
+        [self showCustomProgressHUDWithText:@"刷新成功"];
+        
         //产品标题
         self.titleCollectionView.dataArray = ttypes;
         [self.titleCollectionView reloadData];
@@ -130,9 +133,11 @@
             NSMutableDictionary *ttype = [NSMutableDictionary dictionaryWithDictionary:dict];
             NSMutableArray *Tsubs = [NSMutableArray arrayWithArray:[ttype objectForKey:@"Tsub"]];
             [ttype setObject:Tsubs forKey:@"Tsub"];
-            
             [self.dataArray addObject:ttype];
         }
+        
+        //上拉加载更多
+        [self.moreDict removeAllObjects];
         
         [self.collectionView reloadData];
         
@@ -150,39 +155,89 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([FirstCollectionCell class])
-                                                                              forIndexPath:indexPath];
+        FirstCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FirstCollectionCell" forIndexPath:indexPath];
+        
+        //tableView下拉刷新的target都是cell本身
+        cell.tableView.legendHeader.refreshingTarget = cell;
+        
+        if (![cell.imageArray isEqualToArray:self.imageArray]) {
+            cell.imageArray = self.imageArray;
+        }
         
         //取出每个页面的数据
         NSDictionary *ttype = self.dataArray[indexPath.row];
         
         //取出列表
         NSMutableArray *tsubs = [ttype objectForKey:@"Tsub"];
-        cell.tpID = [ttype objectForKey:@"TpID"];
         
-        if (![cell.imageArray isEqualToArray:self.imageArray]) {
-            cell.imageArray = self.imageArray;
-        }
+        //tpid
+        NSString *tpID = [ttype objectForKey:@"TpID"];
+        cell.tpID = tpID;
+        
+        //tsubcount
+        NSString *tsubcount = [ttype objectForKey:@"Tsubcount"];
+        cell.tsubcount = tsubcount;
+        
+        cell.moreDict = self.moreDict;
         
         if (![cell.dataArray isEqualToArray:tsubs]) {
              cell.dataArray = tsubs;
             [cell.tableView reloadData];
         }
         
+        if ([tsubcount integerValue] > 0) {
+            cell.tableView.legendFooter.hidden = NO;
+        } else {
+            cell.tableView.legendFooter.hidden = YES;
+        }
+        
+        //设置上拉刷新状态
+        NSString *more = [self.moreDict objectForKey:tpID];
+        if ([more isEqual:@"noMore"]) {
+            [cell.tableView.legendFooter noticeNoMoreData];
+        } else {
+            [cell.tableView.legendFooter resetNoMoreData];
+        }
+        
         return cell;
     } else {
-        SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SecondCollectionCell class])
-                                                                               forIndexPath:indexPath];
+        SecondCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SecondCollectionCell" forIndexPath:indexPath];
+        
+        //tableView下拉刷新的target都是cell本身
+        cell.tableView.legendHeader.refreshingTarget = cell;
         
         //取出每个页面的数据
         NSDictionary *ttype = self.dataArray[indexPath.row];
         
         NSMutableArray *tsubs = [ttype objectForKey:@"Tsub"];
-        cell.tpID = [ttype objectForKey:@"TpID"];
+        
+        //tpid
+        NSString *tpID = [ttype objectForKey:@"TpID"];
+        cell.tpID = tpID;
+        
+        //tsubcount
+        NSString *tsubcount = [ttype objectForKey:@"Tsubcount"];
+        cell.tsubcount = tsubcount;
+        
+        cell.moreDict = self.moreDict;
         
         if (![cell.dataArray isEqualToArray:tsubs]) {
             cell.dataArray = tsubs;
             [cell.tableView reloadData];
+        }
+        
+        if ([tsubcount integerValue] > 0) {
+            cell.tableView.legendFooter.hidden = NO;
+        } else {
+            cell.tableView.legendFooter.hidden = YES;
+        }
+        
+        //设置上拉刷新状态
+        NSString *more = [self.moreDict objectForKey:tpID];
+        if ([more isEqual:@"noMore"]) {
+            [cell.tableView.legendFooter noticeNoMoreData];
+        } else {
+            [cell.tableView.legendFooter resetNoMoreData];
         }
         
         return cell;
