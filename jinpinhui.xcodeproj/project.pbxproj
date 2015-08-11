@@ -134,6 +134,7 @@
 		D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5638C1B64DCE50042CD42 /* MyDrawerViewController.m */; };
 		D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E563901B64DD450042CD42 /* CycleScrollView.m */; };
 		D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */; };
+		D0F7B7761B79D75F00DB992E /* IndexDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +399,8 @@
 		D0E563901B64DD450042CD42 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		D0E5639E1B650AA30042CD42 /* GoldStoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoldStoreCell.h; sourceTree = "<group>"; };
 		D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoldStoreCell.m; sourceTree = "<group>"; };
+		D0F7B7741B79D75F00DB992E /* IndexDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsViewController.h; sourceTree = "<group>"; };
+		D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -949,6 +952,8 @@
 				D08A1F1A1B6B7D02009CBF3C /* SecondCollectionCell.m */,
 				D0E563691B64DBEF0042CD42 /* IndexViewController.h */,
 				D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */,
+				D0F7B7741B79D75F00DB992E /* IndexDetailsViewController.h */,
+				D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */,
 			);
 			path = MoneySelection;
 			sourceTree = "<group>";
@@ -1162,6 +1167,7 @@
 				CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
 				D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */,
+				D0F7B7761B79D75F00DB992E /* IndexDetailsViewController.m in Sources */,
 				CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */,
 				D078C4CA1B4A9C8D002C65CA /* UIImage+MultiFormat.m in Sources */,
 				D078C4C31B4A9C8D002C65CA /* SDWebImageDecoder.m in Sources */,
