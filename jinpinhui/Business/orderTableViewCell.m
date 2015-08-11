@@ -46,7 +46,7 @@
         _settlementLab.textAlignment = NSTextAlignmentCenter;
         [self.contentView addSubview:_settlementLab];
         
-        UILabel *settlementInfo = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_amountLab.frame), CGRectGetMaxY(_commissionLab.frame), SCREEN_WIDTH / 4, 20)];
+        UILabel *settlementInfo = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_commissionLab.frame), CGRectGetMaxY(_commissionLab.frame), SCREEN_WIDTH / 4, 20)];
         settlementInfo.font = [UIFont systemFontOfSize:14];
         settlementInfo.text = @"结算情况";
         settlementInfo.textAlignment = NSTextAlignmentCenter;
@@ -55,9 +55,9 @@
         _dateLab = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_settlementLab.frame), CGRectGetMaxY(_titleLab.frame) + 10, SCREEN_WIDTH / 4, 20)];
         _dateLab.font = [UIFont systemFontOfSize:14];
         _dateLab.textAlignment = NSTextAlignmentCenter;
-        [self.contentView addSubview:_settlementLab];
+        [self.contentView addSubview:_dateLab];
         
-        UILabel *dateInfo = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_amountLab.frame), CGRectGetMaxY(_commissionLab.frame), SCREEN_WIDTH / 4, 20)];
+        UILabel *dateInfo = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_settlementLab.frame), CGRectGetMaxY(_commissionLab.frame), SCREEN_WIDTH / 4, 20)];
         dateInfo.font = [UIFont systemFontOfSize:14];
         dateInfo.text = @"成交日期";
         dateInfo.textAlignment = NSTextAlignmentCenter;
@@ -65,6 +65,14 @@
         
     }
     return self;
+}
+-(void)setDataDic:(NSDictionary *)dataDic{
+    _dataDic = dataDic;
+    _titleLab.text = [dataDic objectForKey:@"pid"];
+    _amountLab.text = [dataDic objectForKey:@"goldB"];
+    _commissionLab.text = [dataDic objectForKey:@"goldA"];
+    _settlementLab.text = [dataDic objectForKey:@"js"];
+    _dateLab.text = [dataDic objectForKey:@"cdate"];
 }
 - (void)awakeFromNib {
     // Initialization code
