@@ -62,7 +62,7 @@
     
     //网络请求
     [manager POST:request.urlStr parameters:request.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"responseObject = %@",responseObject);
+        NSLog(@"responseString = %@",operation.responseString);
         //调用系统方法解析json字符串
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:[operation.responseString dataUsingEncoding:NSUTF8StringEncoding]
                                                                   options:NSJSONReadingAllowFragments

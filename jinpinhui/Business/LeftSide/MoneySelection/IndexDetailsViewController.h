@@ -11,9 +11,9 @@
  */
 #import "BaseViewController.h"
 
-@interface IndexDetailsViewController : BaseViewController
+@interface IndexDetailsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) NSString *iname;
-@property (nonatomic, strong) NSString *iD;
+@property (nonatomic, strong) NSString *iname; //产品名称
+@property (nonatomic, strong) NSString *iD; //产品id
 
 @end
