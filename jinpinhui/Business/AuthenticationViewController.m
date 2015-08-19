@@ -257,23 +257,33 @@
                 [self jsonWithRequest:request delegate:self code:333 object:nil];
         }
     }else{
-        [self.Parameters setValue:@"SETC" forKey:@"cmd"];
-        [self.Parameters setValue:self.hangye forKey:@"para"];
-        [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
-        [self.Parameters setValue:[self encryption] forKey:@"md5"];
-        NSLog(@"%@",self.Parameters);
-        
-        
-        CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-        [self jsonWithRequest:request delegate:self code:333 object:nil];
+        if ([self.hangye isEqualToString:@"请选择"]) {
+            [self showCustomProgressHUDWithText:@"请选择行业！"];
+        }else if ([[_CardBtn currentImage] isEqual:[UIImage imageNamed:@"shenfen_bg"]]){
+            [self showCustomProgressHUDWithText:@"请选择名片"];
+        }else{
+            [self.Parameters setValue:@"SETC" forKey:@"cmd"];
+            [self.Parameters setValue:self.hangye forKey:@"para"];
+            [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+            [self.Parameters setValue:[self encryption] forKey:@"md5"];
+            NSLog(@"%@",self.Parameters);
+            
+            
+            CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+            [self jsonWithRequest:request delegate:self code:333 object:nil];
+        }
+       
     }
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
-        myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
-
+    if (alertView.tag == 120) {
+        if (buttonIndex) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+            myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
+            
+        }
     }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
