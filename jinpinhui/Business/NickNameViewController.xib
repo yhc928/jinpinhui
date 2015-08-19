@@ -26,8 +26,11 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-Bi-wwp">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-Bi-wwp">
                     <rect key="frame" x="40" y="155" width="295" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="rJh-Bi-wwp" secondAttribute="height" multiplier="295:43" id="rPa-6B-7eb"/>
+                    </constraints>
                     <state key="normal" title="保存修改" backgroundImage="loginback">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,8 +42,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="rJh-Bi-wwp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="U13-Pu-R2F"/>
                 <constraint firstAttribute="trailing" secondItem="DUa-2E-Usq" secondAttribute="trailing" id="VCZ-oj-KnX"/>
+                <constraint firstAttribute="trailing" secondItem="rJh-Bi-wwp" secondAttribute="trailing" constant="40" id="kq4-t8-1ns"/>
                 <constraint firstItem="DUa-2E-Usq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="t0g-AO-D7R"/>
+                <constraint firstItem="rJh-Bi-wwp" firstAttribute="top" secondItem="DUa-2E-Usq" secondAttribute="bottom" constant="70" id="yc4-EP-ddY"/>
                 <constraint firstItem="DUa-2E-Usq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yce-XE-XhU"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

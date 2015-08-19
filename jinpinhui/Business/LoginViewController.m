@@ -151,7 +151,7 @@
              drawerController.maximumRightDrawerWidth = SCREEN_WIDTH-55;
              drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
              drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll; */
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil userInfo:@{@"username":_accountText.text,@"password":_passwordText.text}];  //发送登录成功状态请求个人信息
             [self requestUserInfo];
            
         }else {
