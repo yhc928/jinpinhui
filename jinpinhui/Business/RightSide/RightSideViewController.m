@@ -16,6 +16,9 @@
 #import "UIImageView+WebCache.h"
 #import "ConventionViewController.h"
 #import "OrderViewController.h"
+#import "DaKuanViewController.h"
+#import "HeTongViewController.h"
+#import "FanYongViewController.h"
 
 @interface RightSideViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic ,strong) UIImageView *headimageView;
@@ -228,6 +231,18 @@
         //预约
         ConventionViewController *convention = [[ConventionViewController alloc]init];
         [self.navigationController pushViewController:convention animated:YES];
+    }else if (sender.tag == 101) {
+        //打款
+        DaKuanViewController *dakuan = [[DaKuanViewController alloc]init];
+        [self.navigationController pushViewController:dakuan animated:YES];
+    }else if (sender.tag == 102) {
+        //合同
+        HeTongViewController *hetong = [[HeTongViewController alloc]init];
+        [self.navigationController pushViewController:hetong animated:YES];
+    }else if (sender.tag == 103) {
+        //返佣
+        FanYongViewController *fanyong = [[FanYongViewController alloc]init];
+        [self.navigationController pushViewController:fanyong animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {

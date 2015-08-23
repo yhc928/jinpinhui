@@ -25,7 +25,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的产品经理会在第一时间联系你" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-Gs-Fle">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们的产品经理会在第一时间联系你" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-Gs-Fle">
                     <rect key="frame" x="0.0" y="95" width="320" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="7Wd-Gs-Fle" secondAttribute="height" multiplier="320:21" id="35d-FB-9zD"/>
@@ -61,6 +61,7 @@
                 <constraint firstItem="ryG-fb-flC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xvd-9m-Q1e"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="-98" y="83"/>
         </view>
     </objects>
     <resources>
