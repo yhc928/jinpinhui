@@ -66,16 +66,23 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"Cell"];
         cell.contentView.backgroundColor = [UIColor whiteColor];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.font = FONT_30PX;
+        cell.detailTextLabel.textColor = UIColorFromRGB(60, 149, 237);
     }
     
     NSDictionary *dict = self.dataArray[indexPath.row];
     NSString *iconNameStr = [dict objectForKey:@"icon"];
     cell.imageView.image = [UIImage imageNamed:iconNameStr];
     cell.textLabel.text = [dict objectForKey:@"title"];
+    
+    if (indexPath.row == 0) {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"V%@",APP_VERSION];
+    } else if (indexPath.row == 1) {
+        cell.detailTextLabel.text = SERVICE_TEL;
+    }
     
     return cell;
 }

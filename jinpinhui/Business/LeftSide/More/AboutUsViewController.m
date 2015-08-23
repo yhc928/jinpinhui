@@ -19,35 +19,61 @@
     self.navigationItem.title = @"关于我们";
     
     //背景
-    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_HEIGHT)];
-    [self.view addSubview:bgScrollView];
+//    UIScrollView *bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-NAV_HEIGHT)];
+//    [self.view addSubview:bgScrollView];
+//    
+//    //图标
+//    UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"about_us_icon"]];
+//    iconImageView.frame = CGRectMake((SCREEN_WIDTH-60)/2, 20, 60, 60);
+//    [bgScrollView addSubview:iconImageView];
+//    
+//    //版本号
+//    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-60)/2, 80, 60, 30)];
+//    versionLabel.text = [NSString stringWithFormat:@"V%@",APP_VERSION];
+//    versionLabel.textAlignment = NSTextAlignmentCenter;
+//    versionLabel.font = FONT_28PX;
+//    [bgScrollView addSubview:versionLabel];
+//    
+//    //取出协议字符串
+//    NSString *aboutUsPath = [[NSBundle mainBundle] pathForResource:@"aboutUs" ofType:@"txt"];
+//    NSString *aboutUsStr = [NSString stringWithContentsOfFile:aboutUsPath encoding:NSUTF8StringEncoding error:nil];
+//    
+//    //关于我们
+//    UILabel *aboutUsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 120, SCREEN_WIDTH-40, 0)];
+//    aboutUsLabel.text = aboutUsStr;
+//    aboutUsLabel.font = FONT_28PX;
+//    aboutUsLabel.numberOfLines = 0;
+//    [bgScrollView addSubview:aboutUsLabel];
+//    [aboutUsLabel sizeToFit];
+//    
+//    //设置scrollView的contentSize
+//    bgScrollView.contentSize = CGSizeMake(0, aboutUsLabel.frame.origin.y+CGRectGetHeight(aboutUsLabel.frame));
     
-    //图标
-    UIImageView *iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"about_us_icon"]];
-    iconImageView.frame = CGRectMake((SCREEN_WIDTH-60)/2, 20, 60, 60);
-    [bgScrollView addSubview:iconImageView];
+    //网页视图
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    webView.backgroundColor = [UIColor clearColor];
+    webView.scalesPageToFit = YES;
+    webView.delegate = self;
+    [self.view addSubview:webView];
+    [webView constrainSubviewToMatchSuperview];
     
-    //版本号
-    UILabel *versionLabel = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-60)/2, 80, 60, 30)];
-    versionLabel.text = [NSString stringWithFormat:@"V%@",APP_VERSION];
-    versionLabel.textAlignment = NSTextAlignmentCenter;
-    versionLabel.font = FONT_28PX;
-    [bgScrollView addSubview:versionLabel];
+    //加载链接
+    NSString *urlStr = [NSString stringWithFormat:@"%@/hotac/about.asp",DOMAIN_NAME];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
+    [webView loadRequest:request];
     
-    //取出协议字符串
-    NSString *aboutUsPath = [[NSBundle mainBundle] pathForResource:@"aboutUs" ofType:@"txt"];
-    NSString *aboutUsStr = [NSString stringWithContentsOfFile:aboutUsPath encoding:NSUTF8StringEncoding error:nil];
-    
-    //关于我们
-    UILabel *aboutUsLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 120, SCREEN_WIDTH-40, 0)];
-    aboutUsLabel.text = aboutUsStr;
-    aboutUsLabel.font = FONT_28PX;
-    aboutUsLabel.numberOfLines = 0;
-    [bgScrollView addSubview:aboutUsLabel];
-    [aboutUsLabel sizeToFit];
-    
-    //设置scrollView的contentSize
-    bgScrollView.contentSize = CGSizeMake(0, aboutUsLabel.frame.origin.y+CGRectGetHeight(aboutUsLabel.frame));
+    [self showProgressHUD];
+}
+
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideProgressHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideProgressHUD];
 }
 
 @end

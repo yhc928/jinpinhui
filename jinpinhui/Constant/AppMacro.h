@@ -11,7 +11,6 @@
  */
 #import "UtilsMacro.h"
 #import "NotificationMacro.h"
-#import "NetworkMacro.h"
 #import "FontMacro.h"
 #import "ColorMacro.h"
 #import "ThirdPartMacro.h"
