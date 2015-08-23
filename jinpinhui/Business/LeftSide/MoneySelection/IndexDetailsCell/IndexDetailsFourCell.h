@@ -10,4 +10,6 @@
 
 @interface IndexDetailsFourCell : UITableViewCell
 
+@property (nonatomic, strong) NSString *rowStr;
+
 @end

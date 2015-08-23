@@ -22,6 +22,8 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataArray;
 
+@property (nonatomic, assign) NSInteger expandIndex; //展开的位置
+
 @end
 
 @implementation IndexDetailsViewController
@@ -39,12 +41,15 @@
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
     
-    [self requestProduct];
+    [self requestProductDetails];
+    [self showProgressHUD];
+    self.expandIndex = -1;
 }
 
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
+    [self hideProgressHUD];
 //    NSLog(@"resultDic = %@",resultDic);
     
     if ([[resultDic objectForKey:@"resp_code"] integerValue] == 200) {
@@ -61,129 +66,117 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    NSDictionary *info = self.dataArray[section];
+    NSDictionary *info = self.dataArray[section];
+    NSInteger type = [[info objectForKey:@"type"] integerValue];
     
-    return 1;
+    //表格
+    if (type == 4) {
+        NSArray *content1s = [info objectForKey:@"content1"];
+        return content1s.count;
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //获取数据
     NSDictionary *info = self.dataArray[indexPath.section];
-    
     //取出数据类型
     NSInteger type = [[info objectForKey:@"type"] integerValue];
     
-    switch (type) {
-        case 0: {
-            IndexDetailsZeroCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsZeroCell"];
-            if (!cell) {
-                cell = [[IndexDetailsZeroCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsZeroCell"];
-            }
-            
-            return cell;
-            
-            break;
+    if (type == 1) {
+        IndexDetailsOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell1"];
+        if (!cell) {
+            cell = [[IndexDetailsOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell1"];
         }
-        case 1: {
-            IndexDetailsOneCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsOneCell"];
-            if (!cell) {
-                cell = [[IndexDetailsOneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsOneCell"];
-            }
-            cell.titleLabel.text = [info objectForKey:@"title"];
-            cell.contentLabel.text = [info objectForKey:@"content"];
-            [cell.contentLabel sizeToFit];
-            
-            return cell;
-            
-            break;
+        
+        cell.titleLabel.text = [info objectForKey:@"title"];
+        
+        NSString *content = [info objectForKey:@"content"];
+        cell.contentLabel.text = content;
+        
+        //设置frame
+        CGRect frame = cell.contentLabel.frame;
+        frame.size.height = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-95]+22;
+        cell.contentLabel.frame = frame;
+        
+        return cell;
+        
+    } else if (type == 2) {
+        IndexDetailsTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell2"];
+        if (!cell) {
+            cell = [[IndexDetailsTwoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell2"];
+            UITapGestureRecognizer *titleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapExpand:)];
+            [cell.titleLabel addGestureRecognizer:titleTap];
         }
-        case 2: {
-            IndexDetailsTwoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsTwoCell"];
-            if (!cell) {
-                cell = [[IndexDetailsTwoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsTwoCell"];
-            }
-            cell.subtitleLabel.text = [info objectForKey:@"subtitle"];
-            cell.contentLabel.text = [info objectForKey:@"content"];
-            [cell.contentLabel sizeToFit];
-            
-            return cell;
-            
-            break;
+        
+        cell.titleLabel.text = [info objectForKey:@"subtitle"];
+        cell.titleLabel.tag = indexPath.section;
+        
+        NSString *content = [info objectForKey:@"content"];
+        content = [content stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
+        cell.contentLabel.text = content;
+        
+        //设置frame
+        CGRect frame = cell.contentLabel.frame;
+        CGFloat contentHeight = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-30];
+        frame.size.height = contentHeight+22;
+        cell.contentLabel.frame = frame;
+        
+        return cell;
+        
+    } else if (type == 3) {
+        IndexDetailsThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell3"];
+        if (!cell) {
+            cell = [[IndexDetailsThreeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell3"];
         }
-        case 3: {
-            IndexDetailsThreeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsThreeCell"];
-            if (!cell) {
-                cell = [[IndexDetailsThreeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsThreeCell"];
-            }
-            cell.contentLabel.text = [info objectForKey:@"content"];
-            [cell.contentLabel sizeToFit];
-            
-            return cell;
-            
-            break;
-        }
-        case 4: {
-            IndexDetailsFourCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsFourCell"];
-            if (!cell) {
-                cell = [[IndexDetailsFourCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsFourCell"];
-            }
-            
-            return cell;
-            
-            break;
-        }
-        case 5: {
-            IndexDetailsFiveCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsFiveCell"];
-            if (!cell) {
-                cell = [[IndexDetailsFiveCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsFiveCell"];
-            }
-            
-            return cell;
-            
-            break;
-        }
-        case 6: {
-            IndexDetailsSixCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsSixCell"];
-            if (!cell) {
-                cell = [[IndexDetailsSixCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsSixCell"];
-            }
-            
-            return cell;
-            
-            break;
-        }
-        case 7: {
-            IndexDetailsSevenCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsSevenCell"];
-            if (!cell) {
-                cell = [[IndexDetailsSevenCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsSevenCell"];
-            }
-            
-            return cell;
-            
-            break;
-        }
-        case 8: {
-            IndexDetailsEightCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexDetailsEightCell"];
-            if (!cell) {
-                cell = [[IndexDetailsEightCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexDetailsEightCell"];
-            }
-            
-            return cell;
-            
-            break;
-        }
-        default: {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-            }
-            return cell;
-            
-            break;
-        }
+        
+        NSString *content = [info objectForKey:@"content"];
+        content = [content stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
+        cell.contentLabel.text = content;
+        
+        //设置frame
+        CGRect frame = cell.contentLabel.frame;
+        CGFloat contentHeight = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-30];
+        frame.size.height = contentHeight+22;
+        cell.contentLabel.frame = frame;
+        
+        return cell;
+        
     }
     
+    //表格
+    else if (type == 4) {
+        IndexDetailsFourCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell4"];
+        if (!cell) {
+            cell = [[IndexDetailsFourCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell4"];
+        }
+        
+        NSArray *content1s = [info objectForKey:@"content1"];
+        NSDictionary *content1 = content1s[indexPath.row];
+        cell.rowStr = [content1 objectForKey:@"row"];
+        
+        return cell;
+        
+    } else if (type == 5) {
+        IndexDetailsFiveCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell5"];
+        if (!cell) {
+            cell = [[IndexDetailsFiveCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell5"];
+        }
+        
+        cell.titleLabel.text = [info objectForKey:@"title"];
+        
+        return cell;
+        
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        }
+        return cell;
+        
+    }
     
 }
 
@@ -194,61 +187,50 @@
     NSInteger type = [[info objectForKey:@"type"] integerValue];
     
     switch (type) {
-//        case 0: {
-//
-//
-//            break;
-//        }
+        case 0: {
+            return 0;
+            break;
+        }
         case 1: {
             NSString *content = [info objectForKey:@"content"];
-            CGFloat height = [self heightWithText:content font:FONT_30PX width:SCREEN_WIDTH-90];
+            
+            CGFloat height = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-95];
             return height+22;
             break;
         }
         case 2: {
-            NSString *content = [info objectForKey:@"content"];
-            CGFloat height = [self heightWithText:content font:FONT_30PX width:SCREEN_WIDTH-120];
-            return height+22;
-            
+            if (self.expandIndex == indexPath.section) {
+                NSString *content = [info objectForKey:@"content"];
+                content = [content stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
+                
+                CGFloat height = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-30];
+                return 40.5+height+22;
+            } else {
+                return 40;
+            }
             break;
         }
-            
         case 3: {
             NSString *content = [info objectForKey:@"content"];
-            CGFloat height = [self heightWithText:content font:FONT_30PX width:SCREEN_WIDTH-20];
+            content = [content stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
+            
+            CGFloat height = [self heightWithText:content font:FONT_28PX width:SCREEN_WIDTH-30];
             return height+22;
-
             break;
         }
-//        case 4: {
-//
-//            break;
-//        }
-//        case 5: {
-//
-//            break;
-//        }
-//        case 6: {
-//
-//            break;
-//        }
-//        case 7: {
-//
-//            break;
-//        }
-//        case 8: {
-//
-//            break;
-//        }
-//        case 9: {
-//
-//            break;
-//        }
+            
+            //表格
+        case 4: {
+            return 40;
+            break;
+        }
+        case 5: {
+            return 40;
+            break;
+        }
             
         default: {
-            
-            return 0;
-            
+            return 40;
             break;
         }
     }
@@ -281,10 +263,10 @@
         headerView.backgroundColor = UIColorFromRGB(235, 235, 235);
         
         //标题
-        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, 44)];
+        UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, 40)];
         headerLabel.backgroundColor = [UIColor clearColor];
         headerLabel.text = title;
-        headerLabel.font = FONT_30PX;
+        headerLabel.font = FONT_28PX;
         [headerView addSubview:headerLabel];
         
         return headerView;
@@ -309,14 +291,33 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)tapExpand:(UITapGestureRecognizer *)tap
+{
+    NSArray *indexPaths = nil;
+    NSInteger currentIndex = tap.view.tag;
+    NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:currentIndex];
+    
+    if (self.expandIndex == -1) {
+        indexPaths = @[currentIndexPath];
+        self.expandIndex = currentIndex;
+    } else if (self.expandIndex == tap.view.tag){
+        indexPaths = @[currentIndexPath];
+        self.expandIndex = -1;
+    } else {
+        indexPaths = @[[NSIndexPath indexPathForRow:0 inSection:self.expandIndex],
+                       currentIndexPath];
+    }
+    
+    [self.tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+}
+
 //根据文字取出高度
 - (CGFloat)heightWithText:(NSString *)text font:(UIFont *)font width:(CGFloat)width
 {
     if (IS_IOS_7) {
         CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:[NSDictionary dictionaryWithObject:font
-                                                                             forKey:NSFontAttributeName]
+                                      attributes:[NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName]
                                          context:nil];
         return rect.size.height;
     } else {
@@ -328,9 +329,9 @@
 }
 
 /**
- *  获取产品
+ *  获取产品详情
  */
-- (void)requestProduct
+- (void)requestProductDetails
 {
     [self.Parameters setValue:@"GETAL" forKey:@"cmd"];
     [self.Parameters setValue:self.iD forKey:@"para"];

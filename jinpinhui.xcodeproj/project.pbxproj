@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820F917D1B8A0E1100355974 /* IndexDetailsTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F917C1B8A0E1100355974 /* IndexDetailsTwoCell.m */; };
+		820F91801B8A139700355974 /* IndexDetailsThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F917F1B8A139700355974 /* IndexDetailsThreeCell.m */; };
+		820F91831B8A253F00355974 /* ContentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F91821B8A253F00355974 /* ContentDetailsViewController.m */; };
 		CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD2A58641B580AB90007B8EE /* yaoqing.txt */; };
 		CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */; };
 		CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */; };
@@ -137,8 +140,6 @@
 		D0E563A01B650AA30042CD42 /* GoldStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E5639F1B650AA30042CD42 /* GoldStoreCell.m */; };
 		D0F7B7761B79D75F00DB992E /* IndexDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */; };
 		D0F7B77A1B79EC3D00DB992E /* IndexDetailsOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7791B79EC3D00DB992E /* IndexDetailsOneCell.m */; };
-		D0F7B77D1B79EC5500DB992E /* IndexDetailsTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B77C1B79EC5500DB992E /* IndexDetailsTwoCell.m */; };
-		D0F7B7801B79ECD300DB992E /* IndexDetailsThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B77F1B79ECD300DB992E /* IndexDetailsThreeCell.m */; };
 		D0F7B7831B79ECFC00DB992E /* IndexDetailsFourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7821B79ECFC00DB992E /* IndexDetailsFourCell.m */; };
 		D0F7B7861B79ED1700DB992E /* IndexDetailsFiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7851B79ED1700DB992E /* IndexDetailsFiveCell.m */; };
 		D0F7B7891B79F4F900DB992E /* IndexDetailsSixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F7B7881B79F4F900DB992E /* IndexDetailsSixCell.m */; };
@@ -157,6 +158,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		820F917B1B8A0E1100355974 /* IndexDetailsTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTwoCell.h; sourceTree = "<group>"; };
+		820F917C1B8A0E1100355974 /* IndexDetailsTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTwoCell.m; sourceTree = "<group>"; };
+		820F917E1B8A139700355974 /* IndexDetailsThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsThreeCell.h; sourceTree = "<group>"; };
+		820F917F1B8A139700355974 /* IndexDetailsThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsThreeCell.m; sourceTree = "<group>"; };
+		820F91811B8A253F00355974 /* ContentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentDetailsViewController.h; sourceTree = "<group>"; };
+		820F91821B8A253F00355974 /* ContentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentDetailsViewController.m; sourceTree = "<group>"; };
 		CD2A58641B580AB90007B8EE /* yaoqing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yaoqing.txt; sourceTree = "<group>"; };
 		CD6404561B6E1603006869F9 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
@@ -413,10 +420,6 @@
 		D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsViewController.m; sourceTree = "<group>"; };
 		D0F7B7781B79EC3D00DB992E /* IndexDetailsOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsOneCell.h; sourceTree = "<group>"; };
 		D0F7B7791B79EC3D00DB992E /* IndexDetailsOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsOneCell.m; sourceTree = "<group>"; };
-		D0F7B77B1B79EC5500DB992E /* IndexDetailsTwoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTwoCell.h; sourceTree = "<group>"; };
-		D0F7B77C1B79EC5500DB992E /* IndexDetailsTwoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTwoCell.m; sourceTree = "<group>"; };
-		D0F7B77E1B79ECD300DB992E /* IndexDetailsThreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsThreeCell.h; sourceTree = "<group>"; };
-		D0F7B77F1B79ECD300DB992E /* IndexDetailsThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsThreeCell.m; sourceTree = "<group>"; };
 		D0F7B7811B79ECFC00DB992E /* IndexDetailsFourCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsFourCell.h; sourceTree = "<group>"; };
 		D0F7B7821B79ECFC00DB992E /* IndexDetailsFourCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsFourCell.m; sourceTree = "<group>"; };
 		D0F7B7841B79ED1700DB992E /* IndexDetailsFiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsFiveCell.h; sourceTree = "<group>"; };
@@ -980,6 +983,8 @@
 				D0E5636A1B64DBEF0042CD42 /* IndexViewController.m */,
 				D0F7B7741B79D75F00DB992E /* IndexDetailsViewController.h */,
 				D0F7B7751B79D75F00DB992E /* IndexDetailsViewController.m */,
+				820F91811B8A253F00355974 /* ContentDetailsViewController.h */,
+				820F91821B8A253F00355974 /* ContentDetailsViewController.m */,
 			);
 			path = MoneySelection;
 			sourceTree = "<group>";
@@ -1022,10 +1027,10 @@
 				D0DF05411B7B1C3200BB8B0A /* IndexDetailsZeroCell.m */,
 				D0F7B7781B79EC3D00DB992E /* IndexDetailsOneCell.h */,
 				D0F7B7791B79EC3D00DB992E /* IndexDetailsOneCell.m */,
-				D0F7B77B1B79EC5500DB992E /* IndexDetailsTwoCell.h */,
-				D0F7B77C1B79EC5500DB992E /* IndexDetailsTwoCell.m */,
-				D0F7B77E1B79ECD300DB992E /* IndexDetailsThreeCell.h */,
-				D0F7B77F1B79ECD300DB992E /* IndexDetailsThreeCell.m */,
+				820F917B1B8A0E1100355974 /* IndexDetailsTwoCell.h */,
+				820F917C1B8A0E1100355974 /* IndexDetailsTwoCell.m */,
+				820F917E1B8A139700355974 /* IndexDetailsThreeCell.h */,
+				820F917F1B8A139700355974 /* IndexDetailsThreeCell.m */,
 				D0F7B7811B79ECFC00DB992E /* IndexDetailsFourCell.h */,
 				D0F7B7821B79ECFC00DB992E /* IndexDetailsFourCell.m */,
 				D0F7B7841B79ED1700DB992E /* IndexDetailsFiveCell.h */,
@@ -1175,10 +1180,12 @@
 				D078C4BD1B4A9C8D002C65CA /* MMDrawerVisualState.m in Sources */,
 				CDD542761B5BB4F900C6180B /* PWSCalendarViewCell.m in Sources */,
 				D078C4CB1B4A9C8D002C65CA /* UIImage+WebP.m in Sources */,
+				820F91831B8A253F00355974 /* ContentDetailsViewController.m in Sources */,
 				D078C4AB1B4A9C8D002C65CA /* UIProgressView+AFNetworking.m in Sources */,
 				D078C4A81B4A9C8D002C65CA /* UIAlertView+AFNetworking.m in Sources */,
 				D078C4A61B4A9C8D002C65CA /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D078C4B01B4A9C8D002C65CA /* MJRefreshComponent.m in Sources */,
+				820F91801B8A139700355974 /* IndexDetailsThreeCell.m in Sources */,
 				CDD38AD21B5A94C60086B5CB /* PersonalCenterTableViewCell.m in Sources */,
 				CDD5425D1B5B708800C6180B /* CommissionViewController.m in Sources */,
 				D078C4B91B4A9C8D002C65CA /* UIScrollView+MJRefresh.m in Sources */,
@@ -1188,7 +1195,6 @@
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
 				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
 				D078C4B61B4A9C8D002C65CA /* MJRefreshLegendFooter.m in Sources */,
-				D0F7B7801B79ECD300DB992E /* IndexDetailsThreeCell.m in Sources */,
 				D078C4B51B4A9C8D002C65CA /* MJRefreshHeader.m in Sources */,
 				D078C4A71B4A9C8D002C65CA /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D0F7B77A1B79EC3D00DB992E /* IndexDetailsOneCell.m in Sources */,
@@ -1221,6 +1227,7 @@
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
 				D078C4B11B4A9C8D002C65CA /* MJRefreshConst.m in Sources */,
 				CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */,
+				820F917D1B8A0E1100355974 /* IndexDetailsTwoCell.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
 				D08F823E1B5276D200F6E7C9 /* LeftSideViewController.m in Sources */,
 				D0F7B7761B79D75F00DB992E /* IndexDetailsViewController.m in Sources */,
@@ -1256,7 +1263,6 @@
 				CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D07AD82C1B7852450083B2CD /* FeedbackViewController.m in Sources */,
-				D0F7B77D1B79EC5500DB992E /* IndexDetailsTwoCell.m in Sources */,
 				D078C4B31B4A9C8D002C65CA /* MJRefreshGifFooter.m in Sources */,
 				D078C4A01B4A9C8D002C65CA /* AFNetworkReachabilityManager.m in Sources */,
 				D0F7B7891B79F4F900DB992E /* IndexDetailsSixCell.m in Sources */,

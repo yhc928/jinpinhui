@@ -10,4 +10,6 @@
 
 @interface IndexDetailsFiveCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *titleLabel;
+
 @end
