@@ -116,6 +116,10 @@
     self.dataList = [NSArray arrayWithContentsOfFile:leftSidePath];
 }
 - (void)LoginStatusSuccessfulDone:(NSNotification *)notifi{
+    NSDictionary *dic = [notifi userInfo];
+   
+    [self.Parameters setValue:[dic objectForKey:@"username"] forKey:@"username"];
+    [self.Parameters setValue:[dic objectForKey:@"password"] forKey:@"password"];
     [self requestUserInfo];
 }
 /**
