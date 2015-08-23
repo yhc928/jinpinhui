@@ -71,6 +71,7 @@
     //视图切换标题
     self.titleCollectionView = [[TitleCollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 33)];
     self.titleCollectionView.myDelegate = self;
+    self.titleCollectionView.hidden = YES;
     [self.view addSubview:self.titleCollectionView];
     
     //layout
@@ -94,6 +95,8 @@
 //**************************************************数据***********************************************
     //产品网络请求
     [self loadNewData];
+    [self showProgressHUD];
+    
     //数据源
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
     self.moreDict = [[NSMutableDictionary alloc] initWithCapacity:0];
@@ -103,8 +106,13 @@
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
     [self.currentTableView.legendHeader endRefreshing];
+    [self hideProgressHUD];
     
-    NSLog(@"resultDic = %@",resultDic);
+    if (self.titleCollectionView.hidden == YES) {
+        self.titleCollectionView.hidden = NO;
+    }
+    
+//    NSLog(@"resultDic = %@",resultDic);
 //    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *thots = [resultDic objectForKey:@"Thot"];

@@ -13,17 +13,17 @@
 #import "AppDelegate.h"
 
 //正式服务器
-//#define DOMAIN_NAME   @"http://yupala.com/bin_cmd/index.asp"
+//#define DOMAIN_NAME   @"http://yupala.com"
 
 //测试服务器
-#define DOMAIN_NAME @"http://yupala.com/bin_cmd/index.asp"
+#define DOMAIN_NAME @"http://yupala.com"
 
 #define myAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate]) //appdelegate
 
 #define APP_VERSION    ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]) //app版本号
 #define SYSTEM_VERSION ([UIDevice currentDevice].systemVersion) //系统版本号
 
-#define SERVICE_TEL   @"10000000"            //客服电话
+#define SERVICE_TEL @"10000000" //客服电话
 
 #define IS_IOS_7 ([SYSTEM_VERSION floatValue] >= 7.0)         //是否iOS7以上
 #define IS_IOS_8 ([SYSTEM_VERSION floatValue] >= 8.0)         //是否iOS8以上

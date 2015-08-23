@@ -193,7 +193,7 @@
         progressHUD.opacity = 0.7;
         progressHUD.cornerRadius = 5;
         progressHUD.margin = 10;
-        progressHUD.minSize = CGSizeMake(SCREEN_WIDTH-100, 0);
+//        progressHUD.minSize = CGSizeMake(SCREEN_WIDTH-100, 0);
         progressHUD.labelText = text;
         progressHUD.userInteractionEnabled = NO;
         [myAppDelegate.window addSubview:progressHUD];
