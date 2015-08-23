@@ -14,6 +14,12 @@
 		CD852EA41B522560009944C8 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA21B522560009944C8 /* LoginViewController.xib */; };
 		CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */; };
 		CD852EA91B52AFC4009944C8 /* RegisteredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */; };
+		CD9DCF2A1B89B97000B92E3C /* DaKuanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9DCF281B89B97000B92E3C /* DaKuanViewController.m */; };
+		CD9DCF2B1B89B97000B92E3C /* DaKuanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9DCF291B89B97000B92E3C /* DaKuanViewController.xib */; };
+		CD9DCF301B89BBEB00B92E3C /* HeTongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9DCF2E1B89BBEB00B92E3C /* HeTongViewController.m */; };
+		CD9DCF311B89BBEB00B92E3C /* HeTongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9DCF2F1B89BBEB00B92E3C /* HeTongViewController.xib */; };
+		CD9DCF361B89BC4900B92E3C /* FanYongViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9DCF341B89BC4900B92E3C /* FanYongViewController.m */; };
+		CD9DCF371B89BC4900B92E3C /* FanYongViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD9DCF351B89BC4900B92E3C /* FanYongViewController.xib */; };
 		CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDC6F4CC1B763926008C9E5E /* ForgetPasswordViewController.m */; };
 		CDC6F4CF1B763926008C9E5E /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */; };
 		CDCEA0C61B6A6508008AD01E /* LoginUser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCEA0C51B6A6508008AD01E /* LoginUser.m */; };
@@ -167,6 +173,15 @@
 		CD852EA51B52AFC4009944C8 /* RegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisteredViewController.h; sourceTree = "<group>"; };
 		CD852EA61B52AFC4009944C8 /* RegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisteredViewController.m; sourceTree = "<group>"; };
 		CD852EA71B52AFC4009944C8 /* RegisteredViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisteredViewController.xib; sourceTree = "<group>"; };
+		CD9DCF271B89B97000B92E3C /* DaKuanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DaKuanViewController.h; sourceTree = "<group>"; };
+		CD9DCF281B89B97000B92E3C /* DaKuanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaKuanViewController.m; sourceTree = "<group>"; };
+		CD9DCF291B89B97000B92E3C /* DaKuanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DaKuanViewController.xib; sourceTree = "<group>"; };
+		CD9DCF2D1B89BBEB00B92E3C /* HeTongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeTongViewController.h; sourceTree = "<group>"; };
+		CD9DCF2E1B89BBEB00B92E3C /* HeTongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeTongViewController.m; sourceTree = "<group>"; };
+		CD9DCF2F1B89BBEB00B92E3C /* HeTongViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeTongViewController.xib; sourceTree = "<group>"; };
+		CD9DCF331B89BC4900B92E3C /* FanYongViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanYongViewController.h; sourceTree = "<group>"; };
+		CD9DCF341B89BC4900B92E3C /* FanYongViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanYongViewController.m; sourceTree = "<group>"; };
+		CD9DCF351B89BC4900B92E3C /* FanYongViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FanYongViewController.xib; sourceTree = "<group>"; };
 		CDC6F4CB1B763926008C9E5E /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
 		CDC6F4CC1B763926008C9E5E /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
@@ -464,6 +479,36 @@
 				CDC6F4CD1B763926008C9E5E /* ForgetPasswordViewController.xib */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		CD9DCF261B89B94F00B92E3C /* DaKuan */ = {
+			isa = PBXGroup;
+			children = (
+				CD9DCF271B89B97000B92E3C /* DaKuanViewController.h */,
+				CD9DCF281B89B97000B92E3C /* DaKuanViewController.m */,
+				CD9DCF291B89B97000B92E3C /* DaKuanViewController.xib */,
+			);
+			name = DaKuan;
+			sourceTree = "<group>";
+		};
+		CD9DCF2C1B89BBCE00B92E3C /* HeTong */ = {
+			isa = PBXGroup;
+			children = (
+				CD9DCF2D1B89BBEB00B92E3C /* HeTongViewController.h */,
+				CD9DCF2E1B89BBEB00B92E3C /* HeTongViewController.m */,
+				CD9DCF2F1B89BBEB00B92E3C /* HeTongViewController.xib */,
+			);
+			name = HeTong;
+			sourceTree = "<group>";
+		};
+		CD9DCF321B89BC3A00B92E3C /* FanYong */ = {
+			isa = PBXGroup;
+			children = (
+				CD9DCF331B89BC4900B92E3C /* FanYongViewController.h */,
+				CD9DCF341B89BC4900B92E3C /* FanYongViewController.m */,
+				CD9DCF351B89BC4900B92E3C /* FanYongViewController.xib */,
+			);
+			name = FanYong;
 			sourceTree = "<group>";
 		};
 		CDD542591B5B703500C6180B /* Commission */ = {
@@ -936,6 +981,9 @@
 		D08F823B1B52767B00F6E7C9 /* RightSide */ = {
 			isa = PBXGroup;
 			children = (
+				CD9DCF321B89BC3A00B92E3C /* FanYong */,
+				CD9DCF2C1B89BBCE00B92E3C /* HeTong */,
+				CD9DCF261B89B94F00B92E3C /* DaKuan */,
 				D08F823F1B5276E400F6E7C9 /* RightSideViewController.h */,
 				D08F82401B5276E400F6E7C9 /* RightSideViewController.m */,
 			);
@@ -1128,12 +1176,15 @@
 				CDD38ACF1B5A48E20086B5CB /* rigthSide.plist in Resources */,
 				CDD5425E1B5B708800C6180B /* CommissionViewController.xib in Resources */,
 				D08F82491B527E5C00F6E7C9 /* registerProtocol.txt in Resources */,
+				CD9DCF2B1B89B97000B92E3C /* DaKuanViewController.xib in Resources */,
 				CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */,
 				CDD013571B6CDBEC00958ECD /* AddressViewController.xib in Resources */,
 				D0363F4D1B5CDAE900457333 /* more.plist in Resources */,
 				CDD013521B6CD1DA00958ECD /* RedEnvelopeViewController.xib in Resources */,
+				CD9DCF371B89BC4900B92E3C /* FanYongViewController.xib in Resources */,
 				CDF079471B691353009A9EEF /* hangye.plist in Resources */,
 				D08F82481B527E5C00F6E7C9 /* leftSide.plist in Resources */,
+				CD9DCF311B89BBEB00B92E3C /* HeTongViewController.xib in Resources */,
 				D078C4AF1B4A9C8D002C65CA /* MJRefresh.bundle in Resources */,
 				CDD542811B5BE1C000C6180B /* qiandao.txt in Resources */,
 				CDE0CDD21B78E0E100287F19 /* ConventionViewController.xib in Resources */,
@@ -1186,6 +1237,7 @@
 				D078C4B91B4A9C8D002C65CA /* UIScrollView+MJRefresh.m in Sources */,
 				D078C4BC1B4A9C8D002C65CA /* MMDrawerController.m in Sources */,
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
+				CD9DCF301B89BBEB00B92E3C /* HeTongViewController.m in Sources */,
 				D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
 				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
@@ -1228,6 +1280,7 @@
 				D0F7B7761B79D75F00DB992E /* IndexDetailsViewController.m in Sources */,
 				CDD5427D1B5BB53900C6180B /* PWSCalendarSegmentView.m in Sources */,
 				D078C4CA1B4A9C8D002C65CA /* UIImage+MultiFormat.m in Sources */,
+				CD9DCF2A1B89B97000B92E3C /* DaKuanViewController.m in Sources */,
 				D078C4C31B4A9C8D002C65CA /* SDWebImageDecoder.m in Sources */,
 				D078C49A1B4A9C8D002C65CA /* CZRequestModel.m in Sources */,
 				D078C4D11B4A9C8D002C65CA /* RegExp.m in Sources */,
@@ -1255,6 +1308,7 @@
 				D0E563801B64DBEF0042CD42 /* TitleCollectionView.m in Sources */,
 				CDE0CDD61B78ED8200287F19 /* OrderViewController.m in Sources */,
 				D078C4CE1B4A9C8D002C65CA /* UIView+WebCacheOperation.m in Sources */,
+				CD9DCF361B89BC4900B92E3C /* FanYongViewController.m in Sources */,
 				CDCEA0C91B6A6818008AD01E /* NSString+Helper.m in Sources */,
 				D078C4AA1B4A9C8D002C65CA /* UIImageView+AFNetworking.m in Sources */,
 				D07AD82C1B7852450083B2CD /* FeedbackViewController.m in Sources */,
