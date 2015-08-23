@@ -41,7 +41,7 @@
 {
     if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
-        _headerView.backgroundColor = UIColorFromRGBA(242, 244, 248, 1);
+        _headerView.backgroundColor = UIColorFromRGB(242, 244, 248);
         
         UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
         rightButton.frame = CGRectMake(SCREEN_WIDTH - 70, 0, 60, 30);

@@ -13,10 +13,10 @@
 #import "AppDelegate.h"
 
 //正式服务器
-//#define DOMAIN_NAME   @""
+//#define DOMAIN_NAME   @"http://yupala.com/bin_cmd/index.asp"
 
 //测试服务器
-#define DOMAIN_NAME @"http://111.202.34.253:25046/szmobileapi/mobile/"
+#define DOMAIN_NAME @"http://yupala.com/bin_cmd/index.asp"
 
 #define myAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate]) //appdelegate
 
@@ -24,9 +24,6 @@
 #define SYSTEM_VERSION ([UIDevice currentDevice].systemVersion) //系统版本号
 
 #define SERVICE_TEL   @"10000000"            //客服电话
-#define ALIPAY        @"alipay"              //支付宝支付id
-#define MOBILEPAY     @"mobilepay"           //支付宝钱包
-#define OBSERVE_LOGIN @"loginAndRegister"    //通知注册登录
 
 #define IS_IOS_7 ([SYSTEM_VERSION floatValue] >= 7.0)         //是否iOS7以上
 #define IS_IOS_8 ([SYSTEM_VERSION floatValue] >= 8.0)         //是否iOS8以上

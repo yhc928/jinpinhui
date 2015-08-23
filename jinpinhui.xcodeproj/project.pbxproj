@@ -255,7 +255,6 @@
 		D078C40A1B4A9C8D002C65CA /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
 		D078C40B1B4A9C8D002C65CA /* ColorMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorMacro.h; sourceTree = "<group>"; };
 		D078C40C1B4A9C8D002C65CA /* FontMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontMacro.h; sourceTree = "<group>"; };
-		D078C40D1B4A9C8D002C65CA /* NetworkMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMacro.h; sourceTree = "<group>"; };
 		D078C40E1B4A9C8D002C65CA /* NotificationMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationMacro.h; sourceTree = "<group>"; };
 		D078C40F1B4A9C8D002C65CA /* ThirdPartMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartMacro.h; sourceTree = "<group>"; };
 		D078C4101B4A9C8D002C65CA /* UtilsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
@@ -700,7 +699,6 @@
 				D078C4101B4A9C8D002C65CA /* UtilsMacro.h */,
 				D078C40B1B4A9C8D002C65CA /* ColorMacro.h */,
 				D078C40C1B4A9C8D002C65CA /* FontMacro.h */,
-				D078C40D1B4A9C8D002C65CA /* NetworkMacro.h */,
 				D078C40E1B4A9C8D002C65CA /* NotificationMacro.h */,
 				D078C40F1B4A9C8D002C65CA /* ThirdPartMacro.h */,
 				D064BF4D1B778DB3005FC6B9 /* ImageSizeMacro.h */,
