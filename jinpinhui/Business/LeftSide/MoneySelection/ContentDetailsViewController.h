@@ -10,6 +10,6 @@
 
 @interface ContentDetailsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray *contents;
+@property (nonatomic, strong) NSDictionary *info;
 
 @end

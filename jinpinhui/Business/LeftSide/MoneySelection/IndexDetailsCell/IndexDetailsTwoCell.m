@@ -24,9 +24,8 @@
         [self.contentView addSubview:self.titleLabel];
         
         //箭头
-        UIImageView *arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-30, 8, 24, 24)];
-        arrowImageView.image = [UIImage imageNamed:@"index_details_arrow"];
-        [self.contentView addSubview:arrowImageView];
+        self.arrowImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-30, 8, 24, 24)];
+        [self.contentView addSubview:self.arrowImageView];
         
         //分割线
         UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 0.5)];

@@ -17,13 +17,13 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         //标题
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 70, 40)];
+        self.titleLabel = [[UILabel alloc] init];
         self.titleLabel.textColor = [UIColor grayColor];
         self.titleLabel.font = FONT_28PX;
         [self.contentView addSubview:self.titleLabel];
         
         //正文
-        self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(80, 0, SCREEN_WIDTH-95, 0)];
+        self.contentLabel = [[UILabel alloc] init];
         self.contentLabel.font = FONT_28PX;
         self.contentLabel.numberOfLines = 0;
         [self.contentView addSubview:self.contentLabel];

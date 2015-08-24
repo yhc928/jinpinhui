@@ -10,4 +10,14 @@
 
 @interface IndexDetailsEightCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *subtitleLabel1;
+@property (nonatomic, strong) UILabel *subtitleLabel2;
+@property (nonatomic, strong) UILabel *detailsLabel1;
+@property (nonatomic, strong) UILabel *detailsLabel2;
+
+@property (nonatomic, strong) UIView *lineView1;
+@property (nonatomic, strong) UIView *lineView2;
+@property (nonatomic, strong) UIView *lineView3;
+
 @end
