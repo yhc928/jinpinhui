@@ -54,7 +54,7 @@
     [self.tableView.legendHeader endRefreshing];
     [self.tableView.legendFooter endRefreshing];
     
-    NSLog(@"resultDic = %@",resultDic);
+//    NSLog(@"resultDic = %@",resultDic);
 //    NSLog(@"error = %@",[resultDic objectForKey:@"error"]);
     
     NSArray *tsubs = [resultDic objectForKey:@"Tsub"];

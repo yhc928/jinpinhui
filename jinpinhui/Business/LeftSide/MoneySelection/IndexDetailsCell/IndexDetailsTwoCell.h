@@ -10,7 +10,8 @@
 
 @interface IndexDetailsTwoCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *subtitleLabel;
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UILabel     *titleLabel;
+@property (nonatomic, strong) UILabel     *contentLabel;
+@property (nonatomic, strong) UIImageView *arrowImageView;
 
 @end

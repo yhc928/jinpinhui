@@ -1,22 +1,20 @@
 //
-//  IndexDetailsViewController.m
+//  ContentDetailsViewController.m
 //  jinpinhui
 //
-//  Created by xiao7 on 15/8/11.
+//  Created by 陈震 on 15/8/23.
 //  Copyright (c) 2015年 chenzhen. All rights reserved.
 //
 
-#import "IndexDetailsViewController.h"
+#import "ContentDetailsViewController.h"
 #import "IndexDetailsOneCell.h"
 #import "IndexDetailsTwoCell.h"
 #import "IndexDetailsThreeCell.h"
 #import "IndexDetailsFourCell.h"
 #import "IndexDetailsEightCell.h"
-
-#import "ContentDetailsViewController.h"
 #import "IndexWebViewController.h"
 
-@interface IndexDetailsViewController ()
+@interface ContentDetailsViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -25,11 +23,11 @@
 
 @end
 
-@implementation IndexDetailsViewController
+@implementation ContentDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.iname;
+    self.navigationItem.title = [self.info objectForKey:@"title"];
     
     //城市表格
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
@@ -40,21 +38,8 @@
     [self.view addSubview:self.tableView];
     [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
     
-    [self requestProductDetails];
-    [self showProgressHUD];
     self.expandIndex = -1;
-}
-
-#pragma mark - CZRequestHelperDelegate
-- (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
-{
-    [self hideProgressHUD];
-//    NSLog(@"resultDic = %@",resultDic);
-    
-    if ([[resultDic objectForKey:@"resp_code"] integerValue] == 200) {
-        self.dataArray = [resultDic objectForKey:@"info"];
-        [self.tableView reloadData];
-    }
+    self.dataArray = [self.info objectForKey:@"content2"];
 }
 
 #pragma mark - UITableViewDataSource and UITableViewDelegate
@@ -468,20 +453,6 @@
     }
     
     return size.width;
-}
-
-/**
- *  获取产品详情
- */
-- (void)requestProductDetails
-{
-    [self.Parameters setValue:@"GETAL" forKey:@"cmd"];
-    [self.Parameters setValue:self.iD forKey:@"para"];
-    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
-    [self.Parameters setValue:[self encryption] forKey:@"md5"];
-    
-    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-    [self jsonWithRequest:request delegate:self code:112 object:nil];
 }
 
 //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题

@@ -11,6 +11,6 @@
  */
 #import "BaseViewController.h"
 
-@interface ProtocolViewController : BaseViewController
+@interface ProtocolViewController : BaseViewController<UIWebViewDelegate>
 
 @end

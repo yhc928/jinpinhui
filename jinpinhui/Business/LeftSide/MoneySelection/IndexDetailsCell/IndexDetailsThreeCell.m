@@ -17,8 +17,9 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         //正文
-        self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 11, SCREEN_WIDTH-20, 0)];
-        self.contentLabel.font = FONT_30PX;
+        self.contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, 0)];
+        self.contentLabel.textColor = [UIColor grayColor];
+        self.contentLabel.font = FONT_28PX;
         self.contentLabel.numberOfLines = 0;
         [self.contentView addSubview:self.contentLabel];
     }
