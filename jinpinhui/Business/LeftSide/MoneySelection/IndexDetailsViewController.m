@@ -196,14 +196,14 @@
         
         NSArray *blocks = [content4 objectForKey:@"block"];
         
-        NSDictionary *block1 = blocks[0];
+        NSDictionary *block1 = [blocks firstObject];
         NSString *subtitle1 = [block1 objectForKey:@"title"];
         NSString *content1 = [block1 objectForKey:@"content"];
         content1 = [content1 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         cell.subtitleLabel1.text = subtitle1;
         cell.detailsLabel1.text = content1;
         
-        NSDictionary *block2 = blocks[1];
+        NSDictionary *block2 = [blocks lastObject];
         NSString *subtitle2 = [block2 objectForKey:@"title"];
         NSString *content2 = [block2 objectForKey:@"content"];
         content2 = [content2 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
@@ -288,12 +288,12 @@
         
         NSArray *blocks = [content4 objectForKey:@"block"];
         
-        NSDictionary *block1 = blocks[0];
+        NSDictionary *block1 = [blocks firstObject];
         NSString *subtitle1 = [block1 objectForKey:@"title"];
         NSString *content1 = [block1 objectForKey:@"content"];
         content1 = [content1 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         
-        NSDictionary *block2 = blocks[1];
+        NSDictionary *block2 = [blocks lastObject];
         NSString *content2 = [block2 objectForKey:@"content"];
         content2 = [content2 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         
