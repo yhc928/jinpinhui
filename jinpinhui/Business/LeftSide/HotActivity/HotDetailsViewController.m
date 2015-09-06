@@ -27,21 +27,29 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
     
     //网页视图
-    UIWebView *webView = [[UIWebView alloc] init];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
     webView.backgroundColor = [UIColor clearColor];
     webView.scalesPageToFit = YES;
     webView.delegate = self;
     [self.view addSubview:webView];
-    [webView constrainSubviewToMatchSuperview]; //设置autoLayout
+    [webView constrainSubviewToMatchSuperview];
     
     //加载链接
-//    NSString *urlStr = [NSString stringWithFormat:@"%@/wap/alipay/alipayapi.php?order_id=%@",API_DOMAIN,self.order_id];
-//    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
-//    [webView loadRequest:request];
-//    [self showProgressHUD];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:self.bimg]];
+    [webView loadRequest:request];
     
-//    NSLog(@"urlStr = %@",urlStr);
+    [self showProgressHUD];
+}
 
+#pragma mark - UIWebViewDelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self hideProgressHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self hideProgressHUD];
 }
 
 /**

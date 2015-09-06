@@ -78,6 +78,7 @@
     [self.buyButton setTitle:@"立即兑换" forState:UIControlStateNormal];
     [self.buyButton setTitle:@"金币不足" forState:UIControlStateDisabled];
     self.buyButton.titleLabel.font = FONT_32PX;
+    [self.buyButton addTarget:self action:@selector(didBuyButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.buyButton];
     
     //网络请求
@@ -87,37 +88,47 @@
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
-    [self hideProgressHUD];
-    
-//    NSLog(@"resultDic = %@",resultDic);
-    
-    if (resultDic.count > 0) {
-        //图片
-        NSString *gimg = [resultDic objectForKey:@"Gimg"];
-        [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:gimg] placeholderImage:[UIImage imageNamed:@"gold_placeholder"]];
+    if (code == 1) {
+        [self hideProgressHUD];
         
-        //标题
-        self.goodsTitleLabel.text = [resultDic objectForKey:@"Gname"];
-        [self.goodsTitleLabel sizeToFit];
+        //    NSLog(@"resultDic = %@",resultDic);
         
-        //价格
-        NSString *gmoney = [resultDic objectForKey:@"gmoney"];
-        self.goodsPriceLabel.text = gmoney;
-        
-        //详细介绍
-        self.detailsLabel.text = [resultDic objectForKey:@"gread"];
-        [self.detailsLabel sizeToFit];
-        
-        //设置scrollView的contentSize
-        CGFloat contentHeight = self.detailsLabel.frame.origin.y + CGRectGetHeight(self.detailsLabel.frame);
-        self.bgScrollView.contentSize = CGSizeMake(0, contentHeight);
-        
-        //设置底部按钮
-        NSString *myGold = [[LoginUser sharedLoginUser] ugold];
-        if ([myGold integerValue] < [gmoney integerValue]) {
-            self.buyButton.enabled = NO;
+        if (resultDic.count > 0) {
+            //图片
+            NSString *gimg = [resultDic objectForKey:@"Gimg"];
+            [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:gimg] placeholderImage:[UIImage imageNamed:@"gold_placeholder"]];
+            
+            //标题
+            self.goodsTitleLabel.text = [resultDic objectForKey:@"Gname"];
+            [self.goodsTitleLabel sizeToFit];
+            
+            //价格
+            NSString *gmoney = [resultDic objectForKey:@"gmoney"];
+            self.goodsPriceLabel.text = gmoney;
+            
+            //详细介绍
+            self.detailsLabel.text = [resultDic objectForKey:@"gread"];
+            [self.detailsLabel sizeToFit];
+            
+            //设置scrollView的contentSize
+            CGFloat contentHeight = self.detailsLabel.frame.origin.y + CGRectGetHeight(self.detailsLabel.frame);
+            self.bgScrollView.contentSize = CGSizeMake(0, contentHeight);
+            
+            //设置底部按钮
+            NSString *myGold = [[LoginUser sharedLoginUser] ugold];
+            if ([myGold integerValue] < [gmoney integerValue]) {
+                self.buyButton.enabled = NO;
+            }
         }
+    } else if (code == 2) {
+        [self hideProgressHUD];
+        [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
     }
+}
+
+- (void)didBuyButton
+{
+    [self requestGoldStoreBuy];
 }
 
 /**
@@ -131,7 +142,23 @@
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
     
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-    [self jsonWithRequest:request delegate:self code:111 object:nil];
+    [self jsonWithRequest:request delegate:self code:1 object:nil];
+    
+    [self showProgressHUD];
+}
+
+/**
+ *  购买金币商城商品
+ */
+- (void)requestGoldStoreBuy
+{
+    [self.Parameters setValue:@"SETW" forKey:@"cmd"];
+    [self.Parameters setValue:self.goodsId forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:2 object:nil];
     
     [self showProgressHUD];
 }

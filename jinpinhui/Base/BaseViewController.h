@@ -43,21 +43,6 @@
 - (void)showAlertViewWithMessage:(NSString *)message;
 
 /**
- *  显示提示
- *
- *  @param title   标题
- *  @param message 内容
- *  @param cancel  取消按钮
- *  @param other   其他按钮
- *
- *  @return alertView
- */
-- (UIAlertView *)showAlertViewWithTitle:(NSString *)title
-                                message:(NSString *)message
-                                 cancel:(NSString *)cancel
-                                  other:(NSString *)other;
-
-/**
  *  显示打电话警告
  *
  *  @param title 电话号码
@@ -72,13 +57,6 @@
 - (void)showProgressHUD;
 
 /**
- *  显示有文字HUD
- *
- *  @param text 提示文字
- */
-- (void)showProgressHUDWithText:(NSString *)text;
-
-/**
  *  显示自定义HUD
  *
  *  @param text 提示文字
@@ -89,20 +67,6 @@
  * 隐藏HUD
  */
 - (void)hideProgressHUD;
-
-/**
- *  显示指示器
- *
- *  @param view  父视图
- *  @param frame 位置
- */
-- (void)showIndicatorView:(UIView *)view
-                    Frame:(CGRect)frame;
-
-/**
- * 隐藏指示器
- */
-- (void)hideIndicatorView;
 
 /**
  * 点击返回上一页面
