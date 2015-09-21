@@ -271,6 +271,8 @@
         return cell;
         
     } else {
+        NSLog(@"info = %@",info);
+        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -485,7 +487,7 @@
     if (IS_IOS_7) {
         CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:[NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName]
+                                      attributes:@{NSFontAttributeName:font}
                                          context:nil];
         return rect.size.height;
     } else {
