@@ -102,9 +102,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        IndexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+        IndexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"IndexTableViewCell"];
         if (!cell) {
-            cell = [[IndexTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+            cell = [[IndexTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"IndexTableViewCell"];
         }
         
         NSDictionary *tsub = self.dataArray[indexPath.row];
