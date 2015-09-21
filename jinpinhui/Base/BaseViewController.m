@@ -114,7 +114,16 @@
     [self showAlertViewWithTitle:@"提示" message:message cancel:@"关闭" other:nil];
 }
 
-//显示提示
+/**
+ *  显示提示
+ *
+ *  @param title   标题
+ *  @param message 内容
+ *  @param cancel  取消按钮
+ *  @param other   其他按钮
+ *
+ *  @return alertView
+ */
 - (UIAlertView *)showAlertViewWithTitle:(NSString *)title message:(NSString *)message cancel:(NSString *)cancel other:(NSString *)other
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
@@ -166,7 +175,11 @@
     [self showProgressHUDWithText:nil];
 }
 
-//显示有文字HUD
+/**
+ *  显示有文字HUD
+ *
+ *  @param text 提示文字
+ */
 - (void)showProgressHUDWithText:(NSString *)text
 {
     if (self.progressHUD) {
@@ -211,29 +224,6 @@
     }
 }
 
-//显示指示器
-- (void)showIndicatorView:(UIView *)view Frame:(CGRect)frame
-{
-    if (self.indicatorView) {
-        [self hideIndicatorView];
-    }
-    
-    self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.indicatorView.frame = frame;
-    [view addSubview:self.indicatorView];
-    [self.indicatorView startAnimating];
-}
-
-//隐藏指示器
-- (void)hideIndicatorView
-{
-    if (self.indicatorView) {
-        [self.indicatorView stopAnimating];
-        [self.indicatorView removeFromSuperview];
-        self.indicatorView = nil;
-    }
-}
-
 //点击返回上一页面
 - (void)didBack
 {
@@ -245,6 +235,7 @@
 {
     [self.view endEditing:YES];
 }
+
 - (NSString *)getMd5_32Bit_String:(NSString *)srcString{
     const char *cStr = [srcString UTF8String];
     unsigned char digest[CC_MD5_DIGEST_LENGTH];
@@ -255,6 +246,7 @@
     
     return result;
 }
+
 //MD5加密
 - (NSString *)encryption
 {
@@ -274,6 +266,7 @@
      NSLog("%02X", 0x4); //04
      */
 }
+
 //获取日期 yyyy-MM-dd HH:mm:ss
 -(NSString *)getCurrentTime{
 
@@ -282,6 +275,7 @@
     NSString *datetime = [formatter stringFromDate:[NSDate date]];
     return datetime;
 }
+
 //获取日期 yyyyMMdd HHmmss MD5加密需要的格式
 -(NSString *)getMD5Time:(NSString *)reqtime{
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
