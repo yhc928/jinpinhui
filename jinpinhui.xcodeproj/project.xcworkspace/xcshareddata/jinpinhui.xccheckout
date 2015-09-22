@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>5317D03A-B9A4-4E1D-AF6D-C3C391459C05</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>jinpinhui</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B155EC1CA0F4C237A527D8922CBC35B2D83BCA47</key>
 		<string>https://github.com/yhc928/jinpinhui.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>jinpinhui.xcodeproj/project.xcworkspace</string>
+	<string>jinpinhui.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B155EC1CA0F4C237A527D8922CBC35B2D83BCA47</key>
