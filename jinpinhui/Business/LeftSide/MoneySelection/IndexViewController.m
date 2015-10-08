@@ -58,15 +58,15 @@
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithCustomView:righButton];
     
     //搜索按钮
-    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = ITEM_FRAME;
-    [searchButton setImage:[UIImage imageNamed:@"navi_right_search_normal"] forState:UIControlStateNormal];
-    searchButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    [searchButton addTarget:self action:@selector(didSearch) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *searchButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
+//    UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    searchButton.frame = ITEM_FRAME;
+//    [searchButton setImage:[UIImage imageNamed:@"navi_right_search_normal"] forState:UIControlStateNormal];
+//    searchButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+//    [searchButton addTarget:self action:@selector(didSearch) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *searchButtonItem = [[UIBarButtonItem alloc] initWithCustomView:searchButton];
     
     //设置右侧按钮数组
-    self.navigationItem.rightBarButtonItems = @[rightButtonItem,searchButtonItem];
+    self.navigationItem.rightBarButtonItems = @[rightButtonItem];
     
     //视图切换标题
     self.titleCollectionView = [[TitleCollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 33)];

@@ -210,6 +210,8 @@
     }else if (code == 11){
         if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
             [self showCustomProgressHUDWithText:@"验证码已发送!"];
+        }else{
+             [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
         }
     }
     

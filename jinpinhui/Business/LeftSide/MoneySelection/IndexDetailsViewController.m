@@ -15,11 +15,13 @@
 
 #import "ContentDetailsViewController.h"
 #import "IndexWebViewController.h"
+#import "ConventionViewController.h" //预约
 
 @interface IndexDetailsViewController ()
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UILabel *orderNumberLabel;
 
 @property (nonatomic, assign) NSInteger expandIndex; //展开的位置
 
@@ -38,22 +40,58 @@
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.view addSubview:self.tableView];
-    [self.tableView constrainSubviewToMatchSuperview]; //设置autoLayout
+    [self.tableView constrainSubviewToMatchSuperviewWithEdgeInsets:UIEdgeInsetsMake(0, 0, 40, 0)]; //设置autoLayout
     
+    //立即预约
+    UIView *orderBgView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-40-NAV_HEIGHT, SCREEN_WIDTH, 40)];
+    orderBgView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:orderBgView];
+    
+    //分割线
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
+    lineView.backgroundColor = LAYER_COLOR;
+    [orderBgView addSubview:lineView];
+    
+    //0人预约
+    self.orderNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 100, 40)];
+    self.orderNumberLabel.text = @"0人预约";
+    self.orderNumberLabel.font = FONT_30PX;
+    [orderBgView addSubview:self.orderNumberLabel];
+    
+    //立即预约
+    UIButton *orderButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    orderButton.frame = CGRectMake(SCREEN_WIDTH-85, 5, 70, 30);
+    orderButton.layer.cornerRadius = 5;
+    orderButton.layer.borderWidth = 1;
+    orderButton.layer.borderColor = UIColorFromRGB(212, 106, 20).CGColor;
+    [orderButton setTitle:@"立即预约" forState:UIControlStateNormal];
+    [orderButton setTitleColor:UIColorFromRGB(212, 106, 20) forState:UIControlStateNormal];
+    orderButton.titleLabel.font = FONT_30PX;
+    [orderButton addTarget:self action:@selector(didOrder) forControlEvents:UIControlEventTouchUpInside];
+    [orderBgView addSubview:orderButton];
+
+    //数据
     [self requestProductDetails];
-    [self showProgressHUD];
     self.expandIndex = -1;
 }
 
 #pragma mark - CZRequestHelperDelegate
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
-    [self hideProgressHUD];
-//    NSLog(@"resultDic = %@",resultDic);
-    
-    if ([[resultDic objectForKey:@"resp_code"] integerValue] == 200) {
-        self.dataArray = [resultDic objectForKey:@"info"];
-        [self.tableView reloadData];
+    if (code == 1) {
+        [self hideProgressHUD];
+        //    NSLog(@"resultDic = %@",resultDic);
+        
+        if ([[resultDic objectForKey:@"resp_code"] integerValue] == 200) {
+            NSString *pidsum = [resultDic objectForKey:@"pidsum"];
+            self.orderNumberLabel.text = [NSString stringWithFormat:@"%@人预约",pidsum];
+            
+            self.dataArray = [resultDic objectForKey:@"info"];
+            [self.tableView reloadData];
+        }
+    } else if (code == 2) {
+        [self hideProgressHUD];
+        [self showCustomProgressHUDWithText:[resultDic objectForKey:@"error"]];
     }
 }
 
@@ -196,14 +234,14 @@
         
         NSArray *blocks = [content4 objectForKey:@"block"];
         
-        NSDictionary *block1 = blocks[0];
+        NSDictionary *block1 = [blocks firstObject];
         NSString *subtitle1 = [block1 objectForKey:@"title"];
         NSString *content1 = [block1 objectForKey:@"content"];
         content1 = [content1 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         cell.subtitleLabel1.text = subtitle1;
         cell.detailsLabel1.text = content1;
         
-        NSDictionary *block2 = blocks[1];
+        NSDictionary *block2 = [blocks lastObject];
         NSString *subtitle2 = [block2 objectForKey:@"title"];
         NSString *content2 = [block2 objectForKey:@"content"];
         content2 = [content2 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
@@ -233,6 +271,8 @@
         return cell;
         
     } else {
+        NSLog(@"info = %@",info);
+        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -288,12 +328,12 @@
         
         NSArray *blocks = [content4 objectForKey:@"block"];
         
-        NSDictionary *block1 = blocks[0];
+        NSDictionary *block1 = [blocks firstObject];
         NSString *subtitle1 = [block1 objectForKey:@"title"];
         NSString *content1 = [block1 objectForKey:@"content"];
         content1 = [content1 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         
-        NSDictionary *block2 = blocks[1];
+        NSDictionary *block2 = [blocks lastObject];
         NSString *content2 = [block2 objectForKey:@"content"];
         content2 = [content2 stringByReplacingOccurrencesOfString:@"<BR>" withString:@"\n"];
         
@@ -447,7 +487,7 @@
     if (IS_IOS_7) {
         CGRect rect = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                      attributes:[NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName]
+                                      attributes:@{NSFontAttributeName:font}
                                          context:nil];
         return rect.size.height;
     } else {
@@ -471,6 +511,15 @@
 }
 
 /**
+ *  立即预约
+ */
+- (void)didOrder
+{
+    ConventionViewController *conventionVC = [[ConventionViewController alloc] init];
+    [self.navigationController pushViewController:conventionVC animated:YES];
+}
+
+/**
  *  获取产品详情
  */
 - (void)requestProductDetails
@@ -481,7 +530,9 @@
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
     
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
-    [self jsonWithRequest:request delegate:self code:112 object:nil];
+    [self jsonWithRequest:request delegate:self code:1 object:nil];
+    
+    [self showProgressHUD];
 }
 
 //解决iOS8中tableView分割线设置[cell setSeparatorInset:UIEdgeInsetsZero]无效问题

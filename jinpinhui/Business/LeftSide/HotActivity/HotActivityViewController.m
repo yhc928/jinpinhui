@@ -111,6 +111,7 @@
     
     HotDetailsViewController *hotDetailsVC = [[HotDetailsViewController alloc] init];
     hotDetailsVC.hotTitle = [tsub objectForKey:@"title"];
+    hotDetailsVC.bimg = [tsub objectForKey:@"bimg"];
     [self.navigationController pushViewController:hotDetailsVC animated:YES];
 }
 

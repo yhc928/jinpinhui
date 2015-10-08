@@ -21,7 +21,14 @@
     _nickNameText.layer.borderWidth = 1;
     _nickNameText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _nickNameText.clearButtonMode = UITextFieldViewModeWhileEditing;
-    _nickNameText.text = self.nickName;
+    if ([self.nickName isEqualToString:@"请输入您的昵称："]) {
+        _nickNameText.text = @"";
+        _nickNameText.placeholder = @"请输入您的昵称";
+    }else{
+        _nickNameText.text = self.nickName;
+    }
+    
+    
     _saveBtn.adjustsImageWhenHighlighted = NO;
 //    [_saveBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
     
