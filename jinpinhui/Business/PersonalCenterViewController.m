@@ -95,11 +95,11 @@
     [headbtn_bg addSubview:_headBtn];
     //昵称
     _nicknameBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _nicknameBtn.frame = CGRectMake((SCREEN_WIDTH - 70) / 2, CGRectGetMaxY(headbtn_bg.frame) + 10, 70, 70);
+    _nicknameBtn.frame = CGRectMake((SCREEN_WIDTH - 130) / 2, CGRectGetMaxY(headbtn_bg.frame) + 10, 130, 70);
     _nicknameBtn.adjustsImageWhenHighlighted = NO;
     _nicknameBtn.titleLabel.font = [UIFont systemFontOfSize:16];
     if ([[[LoginUser sharedLoginUser] realName] isEqualToString:@""]) {
-         [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
+         [_nicknameBtn setTitle:@"请输入您的昵称：" forState:UIControlStateNormal];
     }else  [_nicknameBtn setTitle:[[LoginUser sharedLoginUser] realName] forState:UIControlStateNormal];
 //    [_nicknameBtn setTitle:@"设置昵称" forState:UIControlStateNormal];
     [_nicknameBtn setTitleColor:UIColorFromRGB(65, 65, 61) forState:UIControlStateNormal];
@@ -242,7 +242,7 @@
 }
 - (void)updateNickAction{
     NickNameViewController *nickName = [[NickNameViewController alloc]init];
-    if ([[_nicknameBtn currentTitle] isEqualToString:@"设置昵称"]) {
+    if ([[_nicknameBtn currentTitle] isEqualToString:@"请输入您的昵称："]) {
          nickName.nickName = @"";
     }else{
         nickName.nickName = [_nicknameBtn currentTitle];

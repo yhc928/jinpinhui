@@ -223,7 +223,7 @@
         //图片上传成功
         if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
              if (self.IsRegistered) {
-                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil];  //发送登录成功状态请求个人信息
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"LoginStatusSuccessful" object:nil userInfo:@{@"username":[[LoginUser sharedLoginUser] userName],@"password":[[LoginUser sharedLoginUser] password]}];  //发送登录成功状态请求个人信息
                  myAppDelegate.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:myAppDelegate.drawerController];
              }else{
                  [self showCustomProgressHUDWithText:@"您的信息已提交,请等待审核！"];
@@ -239,8 +239,8 @@
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示"
                                                                 message:@"你确定要跳过？"
                                                                delegate:self
-                                                      cancelButtonTitle:@"确定"
-                                                      otherButtonTitles:@"取消", nil];
+                                                      cancelButtonTitle:@"取消"
+                                                      otherButtonTitles:@"确定", nil];
             alertView.tag = 120;
             [alertView show];
 
