@@ -10,7 +10,9 @@
 		820F917D1B8A0E1100355974 /* IndexDetailsTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F917C1B8A0E1100355974 /* IndexDetailsTwoCell.m */; };
 		820F91801B8A139700355974 /* IndexDetailsThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F917F1B8A139700355974 /* IndexDetailsThreeCell.m */; };
 		820F91831B8A253F00355974 /* ContentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F91821B8A253F00355974 /* ContentDetailsViewController.m */; };
+		8278DCE81BC6C5EC005F3E8F /* IndexDetailsTenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */; };
 		8280DCC41B8B66880010A952 /* IndexWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8280DCC31B8B66880010A952 /* IndexWebViewController.m */; };
+		82DD35BF1BB84A8100EAD9A8 /* IndexDetailsTenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */; };
 		CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD2A58641B580AB90007B8EE /* yaoqing.txt */; };
 		CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */; };
 		CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */; };
@@ -167,8 +169,12 @@
 		820F917F1B8A139700355974 /* IndexDetailsThreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsThreeCell.m; sourceTree = "<group>"; };
 		820F91811B8A253F00355974 /* ContentDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentDetailsViewController.h; sourceTree = "<group>"; };
 		820F91821B8A253F00355974 /* ContentDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentDetailsViewController.m; sourceTree = "<group>"; };
+		8278DCE61BC6C5EC005F3E8F /* IndexDetailsTenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTenView.h; sourceTree = "<group>"; };
+		8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenView.m; sourceTree = "<group>"; };
 		8280DCC21B8B66880010A952 /* IndexWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexWebViewController.h; sourceTree = "<group>"; };
 		8280DCC31B8B66880010A952 /* IndexWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexWebViewController.m; sourceTree = "<group>"; };
+		82DD35BD1BB84A8100EAD9A8 /* IndexDetailsTenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTenCell.h; sourceTree = "<group>"; };
+		82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenCell.m; sourceTree = "<group>"; };
 		CD2A58641B580AB90007B8EE /* yaoqing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yaoqing.txt; sourceTree = "<group>"; };
 		CD6404561B6E1603006869F9 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
@@ -1074,6 +1080,10 @@
 				D0F7B7821B79ECFC00DB992E /* IndexDetailsFourCell.m */,
 				D0F7B78D1B79F55700DB992E /* IndexDetailsEightCell.h */,
 				D0F7B78E1B79F55700DB992E /* IndexDetailsEightCell.m */,
+				82DD35BD1BB84A8100EAD9A8 /* IndexDetailsTenCell.h */,
+				82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */,
+				8278DCE61BC6C5EC005F3E8F /* IndexDetailsTenView.h */,
+				8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */,
 			);
 			path = IndexDetailsCell;
 			sourceTree = "<group>";
@@ -1257,6 +1267,7 @@
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
 				D07AD8261B7848BD0083B2CD /* AboutUsViewController.m in Sources */,
 				CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */,
+				8278DCE81BC6C5EC005F3E8F /* IndexDetailsTenView.m in Sources */,
 				CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
@@ -1306,6 +1317,7 @@
 				CDD0134D1B6CC50D00958ECD /* CurrencyTableViewCell.m in Sources */,
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
+				82DD35BF1BB84A8100EAD9A8 /* IndexDetailsTenCell.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
 				CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */,
 				D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */,
