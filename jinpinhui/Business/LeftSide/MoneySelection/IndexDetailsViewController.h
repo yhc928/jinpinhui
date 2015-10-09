@@ -10,8 +10,9 @@
  *  产品详情
  */
 #import "BaseViewController.h"
+#import "IndexDetailsTenView.h"
 
-@interface IndexDetailsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+@interface IndexDetailsViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate,IndexDetailsTenViewDelegate>
 
 @property (nonatomic, strong) NSString *iname; //产品名称
 @property (nonatomic, strong) NSString *iD; //产品id

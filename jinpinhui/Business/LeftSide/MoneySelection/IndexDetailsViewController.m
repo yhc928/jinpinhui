@@ -12,6 +12,7 @@
 #import "IndexDetailsThreeCell.h"
 #import "IndexDetailsFourCell.h"
 #import "IndexDetailsEightCell.h"
+#import "IndexDetailsTenView.h"
 
 #import "ContentDetailsViewController.h"
 #import "IndexWebViewController.h"
@@ -19,11 +20,13 @@
 
 @interface IndexDetailsViewController ()
 
-@property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) UILabel *orderNumberLabel;
+@property (nonatomic, strong) UITableView         *tableView;
+@property (nonatomic, strong) NSArray             *dataArray;
+@property (nonatomic, strong) UILabel             *orderNumberLabel;
+@property (nonatomic, strong) IndexDetailsTenView *tenView;
+@property (nonatomic, assign) NSInteger           tenIndex;
 
-@property (nonatomic, assign) NSInteger expandIndex; //展开的位置
+@property (nonatomic, assign) NSInteger           expandIndex;//展开的位置
 
 @end
 
@@ -69,6 +72,10 @@
     orderButton.titleLabel.font = FONT_30PX;
     [orderButton addTarget:self action:@selector(didOrder) forControlEvents:UIControlEventTouchUpInside];
     [orderBgView addSubview:orderButton];
+    
+    //section
+    self.tenView = [[IndexDetailsTenView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    self.tenView.delegate = self;
 
     //数据
     [self requestProductDetails];
@@ -270,9 +277,13 @@
         
         return cell;
         
+    } else if (type == 10) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell10"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell10"];
+        }
+        return cell;
     } else {
-        NSLog(@"info = %@",info);
-        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
@@ -372,6 +383,10 @@
     
     if (type == 1 || type == 6 || type == 9) {
         return nil;
+    } else if (type == 10) {
+        self.tenView.dataArray = info[@"content5"];
+        self.tenView.tag = section;
+        return self.tenView;
     } else {
         NSString *title = [info objectForKey:@"title"];
         
@@ -425,6 +440,13 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+#pragma mark - IndexDetailsTenViewDelegate
+- (void)indexDetailsTenView:(IndexDetailsTenView *)indexDetailsTenView didSelectedIndex:(NSInteger)index
+{
+    self.tenIndex = index;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexDetailsTenView.tag] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /**
