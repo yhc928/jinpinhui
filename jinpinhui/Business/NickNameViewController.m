@@ -21,9 +21,9 @@
     _nickNameText.layer.borderWidth = 1;
     _nickNameText.layer.borderColor = [UIColorFromRGB(202, 202, 208) CGColor];
     _nickNameText.clearButtonMode = UITextFieldViewModeWhileEditing;
-    if ([self.nickName isEqualToString:@"请输入您的昵称："]) {
+    if ([self.nickName isEqualToString:@""]) {
         _nickNameText.text = @"";
-        _nickNameText.placeholder = @"请输入您的昵称";
+//        _nickNameText.placeholder = @"请输入您的昵称";
     }else{
         _nickNameText.text = self.nickName;
     }
