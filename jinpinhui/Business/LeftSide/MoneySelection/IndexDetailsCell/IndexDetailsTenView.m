@@ -27,6 +27,10 @@
             button.tag = i + 1;
             [button addTarget:self action:@selector(didButton:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
+            
+            if (i == 0) {
+                [button setBackgroundImage:[UIImage imageNamed:@"index_details_button_sel"] forState:UIControlStateNormal];
+            }
         }
     }
     return self;
@@ -37,9 +41,9 @@
     _dataArray = dataArray;
     
     for (int i = 0; i < 4; i ++) {
+        UIButton *button = self.subviews[i];
         NSDictionary *content5 = _dataArray[i];
         NSString *title = content5[@"title"];
-        UIButton *button = (UIButton *)[self viewWithTag:i+1];
         [button setTitle:title forState:UIControlStateNormal];
     }
 }
@@ -49,13 +53,16 @@
     UIImage *selImage = [UIImage imageNamed:@"index_details_button_sel"];
     UIImage *norImage = [UIImage imageNamed:@"index_details_button_nor"];
     
-    for (int i = 0; i < 4; i ++) {
-        UIButton *button = (UIButton *)[self viewWithTag:i + 1];
+    for (UIButton *button in self.subviews) {
         if (button == sender) {
             [button setBackgroundImage:selImage forState:UIControlStateNormal];
         } else {
             [button setBackgroundImage:norImage forState:UIControlStateNormal];
         }
+    }
+    
+    if ([_delegate respondsToSelector:@selector(indexDetailsTenView:didSelectedIndex:)]) {
+        [_delegate indexDetailsTenView:self didSelectedIndex:sender.tag-1];
     }
 }
 

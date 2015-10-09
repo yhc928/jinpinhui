@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSArray             *dataArray;
 @property (nonatomic, strong) UILabel             *orderNumberLabel;
 @property (nonatomic, strong) IndexDetailsTenView *tenView;
+@property (nonatomic, assign) NSInteger           tenIndex;
 
 @property (nonatomic, assign) NSInteger           expandIndex;//展开的位置
 
@@ -277,7 +278,6 @@
         return cell;
         
     } else if (type == 10) {
-        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell10"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell10"];
@@ -385,6 +385,7 @@
         return nil;
     } else if (type == 10) {
         self.tenView.dataArray = info[@"content5"];
+        self.tenView.tag = section;
         return self.tenView;
     } else {
         NSString *title = [info objectForKey:@"title"];
@@ -439,6 +440,13 @@
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+#pragma mark - IndexDetailsTenViewDelegate
+- (void)indexDetailsTenView:(IndexDetailsTenView *)indexDetailsTenView didSelectedIndex:(NSInteger)index
+{
+    self.tenIndex = index;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexDetailsTenView.tag] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /**
