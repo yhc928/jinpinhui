@@ -120,6 +120,7 @@
     [titleButton setTitle:@"可兑换商品" forState:UIControlStateNormal];
     [titleButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     titleButton.titleLabel.font = FONT_28PX;
+    [titleButton addTarget:self action:@selector(didTitleButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:titleButton];
 }
 
@@ -127,14 +128,13 @@
 - (void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj
 {
     [self.collectionView.legendHeader endRefreshing];
+    [self hideProgressHUD];
     
 //    NSLog(@"resultDic = %@",resultDic);
     
     NSArray *tsubs = [resultDic objectForKey:@"Tsub"];
-    if (tsubs.count > 0) {
-        self.dataArray = tsubs;
-        [self.collectionView reloadData];
-    }
+    self.dataArray = tsubs;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -193,6 +193,11 @@
     [self.navigationController pushViewController:goldDetailsVC animated:YES];
 }
 
+- (void)didTitleButton
+{
+    [self requestGoldStore2];
+}
+
 /**
  *  下拉刷新
  */
@@ -233,6 +238,22 @@
     
     CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
     [self jsonWithRequest:request delegate:self code:111 object:nil];
+}
+
+/**
+ *  金币商城网络请求
+ */
+- (void)requestGoldStore2
+{
+    [self.Parameters setValue:@"GETCL" forKey:@"cmd"];
+    [self.Parameters setValue:@"" forKey:@"para"];
+    [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
+    [self.Parameters setValue:[self encryption] forKey:@"md5"];
+    
+    CZRequestModel *request = [[CZRequestMaker sharedClient] getBin_cmdWithParameters:self.Parameters];
+    [self jsonWithRequest:request delegate:self code:111 object:nil];
+    
+    [self showProgressHUD];
 }
 
 - (void)viewWillAppear:(BOOL)animated

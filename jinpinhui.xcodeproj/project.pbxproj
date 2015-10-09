@@ -12,7 +12,14 @@
 		820F91831B8A253F00355974 /* ContentDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 820F91821B8A253F00355974 /* ContentDetailsViewController.m */; };
 		8278DCE81BC6C5EC005F3E8F /* IndexDetailsTenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */; };
 		8280DCC41B8B66880010A952 /* IndexWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8280DCC31B8B66880010A952 /* IndexWebViewController.m */; };
-		82DD35BF1BB84A8100EAD9A8 /* IndexDetailsTenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */; };
+		8281732A1BC8133000FA1BFE /* IndexDetailsTenCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173291BC8133000FA1BFE /* IndexDetailsTenCell3.m */; };
+		8281732D1BC816E700FA1BFE /* IndexDetailsTenCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 8281732C1BC816E700FA1BFE /* IndexDetailsTenCell2.m */; };
+		8281733B1BC8188200FA1BFE /* PNBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173301BC8188200FA1BFE /* PNBar.m */; };
+		8281733C1BC8188200FA1BFE /* PNBarChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173321BC8188200FA1BFE /* PNBarChart.m */; };
+		8281733D1BC8188200FA1BFE /* PNChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173341BC8188200FA1BFE /* PNChart.m */; };
+		8281733E1BC8188200FA1BFE /* PNChartLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173361BC8188200FA1BFE /* PNChartLabel.m */; };
+		8281733F1BC8188200FA1BFE /* PNColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 828173381BC8188200FA1BFE /* PNColor.m */; };
+		828173401BC8188200FA1BFE /* PNLineChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8281733A1BC8188200FA1BFE /* PNLineChart.m */; };
 		CD2A58651B580AB90007B8EE /* yaoqing.txt in Resources */ = {isa = PBXBuildFile; fileRef = CD2A58641B580AB90007B8EE /* yaoqing.txt */; };
 		CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */; };
 		CD64045A1B6E1603006869F9 /* ModifyPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD6404581B6E1603006869F9 /* ModifyPasswordViewController.xib */; };
@@ -173,8 +180,22 @@
 		8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenView.m; sourceTree = "<group>"; };
 		8280DCC21B8B66880010A952 /* IndexWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexWebViewController.h; sourceTree = "<group>"; };
 		8280DCC31B8B66880010A952 /* IndexWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexWebViewController.m; sourceTree = "<group>"; };
-		82DD35BD1BB84A8100EAD9A8 /* IndexDetailsTenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTenCell.h; sourceTree = "<group>"; };
-		82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenCell.m; sourceTree = "<group>"; };
+		828173281BC8133000FA1BFE /* IndexDetailsTenCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTenCell3.h; sourceTree = "<group>"; };
+		828173291BC8133000FA1BFE /* IndexDetailsTenCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenCell3.m; sourceTree = "<group>"; };
+		8281732B1BC816E700FA1BFE /* IndexDetailsTenCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexDetailsTenCell2.h; sourceTree = "<group>"; };
+		8281732C1BC816E700FA1BFE /* IndexDetailsTenCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexDetailsTenCell2.m; sourceTree = "<group>"; };
+		8281732F1BC8188200FA1BFE /* PNBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBar.h; sourceTree = "<group>"; };
+		828173301BC8188200FA1BFE /* PNBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBar.m; sourceTree = "<group>"; };
+		828173311BC8188200FA1BFE /* PNBarChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNBarChart.h; sourceTree = "<group>"; };
+		828173321BC8188200FA1BFE /* PNBarChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNBarChart.m; sourceTree = "<group>"; };
+		828173331BC8188200FA1BFE /* PNChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChart.h; sourceTree = "<group>"; };
+		828173341BC8188200FA1BFE /* PNChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChart.m; sourceTree = "<group>"; };
+		828173351BC8188200FA1BFE /* PNChartLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNChartLabel.h; sourceTree = "<group>"; };
+		828173361BC8188200FA1BFE /* PNChartLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNChartLabel.m; sourceTree = "<group>"; };
+		828173371BC8188200FA1BFE /* PNColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNColor.h; sourceTree = "<group>"; };
+		828173381BC8188200FA1BFE /* PNColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNColor.m; sourceTree = "<group>"; };
+		828173391BC8188200FA1BFE /* PNLineChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNLineChart.h; sourceTree = "<group>"; };
+		8281733A1BC8188200FA1BFE /* PNLineChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNLineChart.m; sourceTree = "<group>"; };
 		CD2A58641B580AB90007B8EE /* yaoqing.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yaoqing.txt; sourceTree = "<group>"; };
 		CD6404561B6E1603006869F9 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		CD6404571B6E1603006869F9 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
@@ -462,6 +483,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8281732E1BC8188200FA1BFE /* PNChart */ = {
+			isa = PBXGroup;
+			children = (
+				8281732F1BC8188200FA1BFE /* PNBar.h */,
+				828173301BC8188200FA1BFE /* PNBar.m */,
+				828173311BC8188200FA1BFE /* PNBarChart.h */,
+				828173321BC8188200FA1BFE /* PNBarChart.m */,
+				828173331BC8188200FA1BFE /* PNChart.h */,
+				828173341BC8188200FA1BFE /* PNChart.m */,
+				828173351BC8188200FA1BFE /* PNChartLabel.h */,
+				828173361BC8188200FA1BFE /* PNChartLabel.m */,
+				828173371BC8188200FA1BFE /* PNColor.h */,
+				828173381BC8188200FA1BFE /* PNColor.m */,
+				828173391BC8188200FA1BFE /* PNLineChart.h */,
+				8281733A1BC8188200FA1BFE /* PNLineChart.m */,
+			);
+			path = PNChart;
+			sourceTree = "<group>";
+		};
 		CD852E9F1B52250B009944C8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +811,7 @@
 		D078C41D1B4A9C8D002C65CA /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				8281732E1BC8188200FA1BFE /* PNChart */,
 				CDD5426B1B5BB4C700C6180B /* Calendar */,
 				D078C41E1B4A9C8D002C65CA /* AFNetworking */,
 				D078C4451B4A9C8D002C65CA /* MBProgressHUD */,
@@ -1080,8 +1121,10 @@
 				D0F7B7821B79ECFC00DB992E /* IndexDetailsFourCell.m */,
 				D0F7B78D1B79F55700DB992E /* IndexDetailsEightCell.h */,
 				D0F7B78E1B79F55700DB992E /* IndexDetailsEightCell.m */,
-				82DD35BD1BB84A8100EAD9A8 /* IndexDetailsTenCell.h */,
-				82DD35BE1BB84A8100EAD9A8 /* IndexDetailsTenCell.m */,
+				8281732B1BC816E700FA1BFE /* IndexDetailsTenCell2.h */,
+				8281732C1BC816E700FA1BFE /* IndexDetailsTenCell2.m */,
+				828173281BC8133000FA1BFE /* IndexDetailsTenCell3.h */,
+				828173291BC8133000FA1BFE /* IndexDetailsTenCell3.m */,
 				8278DCE61BC6C5EC005F3E8F /* IndexDetailsTenView.h */,
 				8278DCE71BC6C5EC005F3E8F /* IndexDetailsTenView.m */,
 			);
@@ -1224,6 +1267,7 @@
 				D078C4BE1B4A9C8D002C65CA /* UIViewController+MMDrawerController.m in Sources */,
 				D078C4BD1B4A9C8D002C65CA /* MMDrawerVisualState.m in Sources */,
 				CDD542761B5BB4F900C6180B /* PWSCalendarViewCell.m in Sources */,
+				828173401BC8188200FA1BFE /* PNLineChart.m in Sources */,
 				D078C4CB1B4A9C8D002C65CA /* UIImage+WebP.m in Sources */,
 				820F91831B8A253F00355974 /* ContentDetailsViewController.m in Sources */,
 				D078C4AB1B4A9C8D002C65CA /* UIProgressView+AFNetworking.m in Sources */,
@@ -1238,6 +1282,7 @@
 				D078C49E1B4A9C8D002C65CA /* AFHTTPRequestOperationManager.m in Sources */,
 				CD9DCF301B89BBEB00B92E3C /* HeTongViewController.m in Sources */,
 				D0363F4B1B5CD4C600457333 /* MoreViewController.m in Sources */,
+				8281733C1BC8188200FA1BFE /* PNBarChart.m in Sources */,
 				D078C4A91B4A9C8D002C65CA /* UIButton+AFNetworking.m in Sources */,
 				CDD542641B5BB37500C6180B /* SigninViewController.m in Sources */,
 				8280DCC41B8B66880010A952 /* IndexWebViewController.m in Sources */,
@@ -1254,7 +1299,9 @@
 				D0E5638D1B64DCE50042CD42 /* MyDrawerViewController.m in Sources */,
 				D08F82411B5276E400F6E7C9 /* RightSideViewController.m in Sources */,
 				D078C4BB1B4A9C8D002C65CA /* MMDrawerBarButtonItem.m in Sources */,
+				8281733B1BC8188200FA1BFE /* PNBar.m in Sources */,
 				D08F82381B52743300F6E7C9 /* UIView+AutoLayout.m in Sources */,
+				8281733E1BC8188200FA1BFE /* PNChartLabel.m in Sources */,
 				D078C4AD1B4A9C8D002C65CA /* UIWebView+AFNetworking.m in Sources */,
 				D0E5637B1B64DBEF0042CD42 /* IndexViewController.m in Sources */,
 				D0E5637F1B64DBEF0042CD42 /* TitleCollectionCell.m in Sources */,
@@ -1265,13 +1312,16 @@
 				D01D5B5A1B72118200202E1C /* HotDetailsViewController.m in Sources */,
 				D078C4C81B4A9C8D002C65CA /* UIButton+WebCache.m in Sources */,
 				D078C4B71B4A9C8D002C65CA /* MJRefreshLegendHeader.m in Sources */,
+				8281732D1BC816E700FA1BFE /* IndexDetailsTenCell2.m in Sources */,
 				D07AD8261B7848BD0083B2CD /* AboutUsViewController.m in Sources */,
+				8281733F1BC8188200FA1BFE /* PNColor.m in Sources */,
 				CDD013511B6CD1DA00958ECD /* RedEnvelopeViewController.m in Sources */,
 				8278DCE81BC6C5EC005F3E8F /* IndexDetailsTenView.m in Sources */,
 				CDF079451B6910D1009A9EEF /* JPHpickView.m in Sources */,
 				D078C4C11B4A9C8D002C65CA /* SDImageCache.m in Sources */,
 				D078C4C21B4A9C8D002C65CA /* SDWebImageCompat.m in Sources */,
 				D078C4B11B4A9C8D002C65CA /* MJRefreshConst.m in Sources */,
+				8281733D1BC8188200FA1BFE /* PNChart.m in Sources */,
 				CDC6F4CE1B763926008C9E5E /* ForgetPasswordViewController.m in Sources */,
 				820F917D1B8A0E1100355974 /* IndexDetailsTwoCell.m in Sources */,
 				D078C4C71B4A9C8D002C65CA /* SDWebImagePrefetcher.m in Sources */,
@@ -1293,6 +1343,7 @@
 				D078C4A51B4A9C8D002C65CA /* AFURLSessionManager.m in Sources */,
 				D078C4A41B4A9C8D002C65CA /* AFURLResponseSerialization.m in Sources */,
 				CDD5427F1B5BB53900C6180B /* PWSHelper.m in Sources */,
+				8281732A1BC8133000FA1BFE /* IndexDetailsTenCell3.m in Sources */,
 				CD852EA81B52AFC4009944C8 /* RegisteredViewController.m in Sources */,
 				D0F7B7831B79ECFC00DB992E /* IndexDetailsFourCell.m in Sources */,
 				D078C4B41B4A9C8D002C65CA /* MJRefreshGifHeader.m in Sources */,
@@ -1317,7 +1368,6 @@
 				CDD0134D1B6CC50D00958ECD /* CurrencyTableViewCell.m in Sources */,
 				CDD542861B5BE7D000C6180B /* InvitationViewController.m in Sources */,
 				D078C3E01B4A970E002C65CA /* main.m in Sources */,
-				82DD35BF1BB84A8100EAD9A8 /* IndexDetailsTenCell.m in Sources */,
 				D078C49D1B4A9C8D002C65CA /* AFHTTPRequestOperation.m in Sources */,
 				CD6404591B6E1603006869F9 /* ModifyPasswordViewController.m in Sources */,
 				D0E563951B64DD450042CD42 /* CycleScrollView.m in Sources */,

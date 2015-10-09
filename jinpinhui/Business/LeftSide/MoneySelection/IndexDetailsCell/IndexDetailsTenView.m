@@ -23,7 +23,7 @@
             [button setBackgroundImage:[UIImage imageNamed:@"index_details_button_nor"] forState:UIControlStateNormal];
             [button setBackgroundImage:[UIImage imageNamed:@"index_details_button_hl"] forState:UIControlStateHighlighted];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            button.titleLabel.font = FONT_28PX;
+            button.titleLabel.font = FONT_30PX;
             button.tag = i + 1;
             [button addTarget:self action:@selector(didButton:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
