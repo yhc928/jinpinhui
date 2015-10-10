@@ -10,7 +10,10 @@
 #import "PNChart.h"
 
 @interface IndexDetailsTenCell2 : UITableViewCell
+{
+    PNLineChart *_lineChart;
+}
 
-@property (nonatomic, strong) PNLineChart *lineChart;
+@property (nonatomic, strong) NSArray *blocks;
 
 @end

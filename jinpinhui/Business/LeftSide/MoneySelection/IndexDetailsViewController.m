@@ -174,6 +174,7 @@
             if (!cell) {
                 cell = [[IndexDetailsTenCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell102"];
             }
+            cell.blocks = content5[@"block"];
             
             return cell;
         }
@@ -334,9 +335,10 @@
     
     if (type == 10) {
         NSDictionary *content5 = info[@"content5"][self.tenSelectedIndex];
+        NSArray *blocks = content5[@"block"];
         
-        if ([content5[@"block"] count] > 0) {
-            info = content5[@"block"][indexPath.row];
+        if (blocks.count > 0) {
+            info = blocks[indexPath.row];
             type = [[info objectForKey:@"type"] integerValue];
         }
         
@@ -348,7 +350,7 @@
             
             return height+22+40.5;
         } else if (self.tenSelectedIndex == 1) {
-            return 225;
+            return 220+blocks.count*30;
         }
     }
     
