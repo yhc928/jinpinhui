@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CommissionViewController">
             <connections>
-                <outlet property="cumulativeLab" destination="lF3-0O-Wus" id="Hv3-KA-o5u"/>
-                <outlet property="expectLab" destination="YEl-5b-qRz" id="XCJ-9C-0yJ"/>
+                <outlet property="cumulativeLab" destination="YEl-5b-qRz" id="zya-aC-wEP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预计赚取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dm-5B-npL">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计赚取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dm-5B-npL">
                     <rect key="frame" x="10" y="10" width="310" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="0dm-5B-npL" secondAttribute="height" multiplier="310:21" id="zXd-T5-bJY"/>
@@ -30,7 +29,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1X-MB-aCx">
                     <rect key="frame" x="0.0" y="41" width="320" height="66"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456789" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEl-5b-qRz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEl-5b-qRz">
                             <rect key="frame" x="0.0" y="0.0" width="310" height="62"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="YEl-5b-qRz" secondAttribute="height" multiplier="5:1" id="D7b-z3-Lvx"/>
@@ -48,51 +47,15 @@
                         <constraint firstAttribute="width" secondItem="K1X-MB-aCx" secondAttribute="height" multiplier="160:33" id="qrj-kq-2YD"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累计赚取" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMe-sz-VCu">
-                    <rect key="frame" x="10" y="117" width="310" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="xMe-sz-VCu" secondAttribute="height" multiplier="310:21" id="W23-xp-SnH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.054901960780000002" green="0.57254901960000004" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZW1-ad-0hU">
-                    <rect key="frame" x="0.0" y="148" width="320" height="66"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345678" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lF3-0O-Wus">
-                            <rect key="frame" x="0.0" y="0.0" width="310" height="62"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="lF3-0O-Wus" secondAttribute="height" multiplier="5:1" id="aDV-RZ-MS1"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                            <color key="textColor" red="0.78431372549019607" green="0.30980392156862746" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="lF3-0O-Wus" firstAttribute="top" secondItem="ZW1-ad-0hU" secondAttribute="top" id="ANV-nn-Gd1"/>
-                        <constraint firstAttribute="width" secondItem="ZW1-ad-0hU" secondAttribute="height" multiplier="160:33" id="Mmk-tC-Wqu"/>
-                        <constraint firstItem="lF3-0O-Wus" firstAttribute="leading" secondItem="ZW1-ad-0hU" secondAttribute="leading" id="qGJ-Ha-HjR"/>
-                        <constraint firstAttribute="trailing" secondItem="lF3-0O-Wus" secondAttribute="trailing" constant="10" id="vTZ-OX-Ozl"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="0dm-5B-npL" secondAttribute="trailing" id="3dY-V7-ugI"/>
-                <constraint firstItem="ZW1-ad-0hU" firstAttribute="top" secondItem="xMe-sz-VCu" secondAttribute="bottom" constant="10" id="51N-R6-ziO"/>
-                <constraint firstItem="xMe-sz-VCu" firstAttribute="top" secondItem="K1X-MB-aCx" secondAttribute="bottom" constant="10" id="5Cp-M6-NMJ"/>
                 <constraint firstItem="0dm-5B-npL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="MMk-35-UJG"/>
-                <constraint firstItem="ZW1-ad-0hU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NKL-Ct-pxe"/>
                 <constraint firstAttribute="trailing" secondItem="K1X-MB-aCx" secondAttribute="trailing" id="WCf-rP-kDd"/>
-                <constraint firstAttribute="trailing" secondItem="ZW1-ad-0hU" secondAttribute="trailing" id="WMn-tV-V2v"/>
-                <constraint firstAttribute="trailing" secondItem="xMe-sz-VCu" secondAttribute="trailing" id="WQ1-aA-QnJ"/>
                 <constraint firstItem="K1X-MB-aCx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aJP-uc-0EL"/>
                 <constraint firstItem="K1X-MB-aCx" firstAttribute="top" secondItem="0dm-5B-npL" secondAttribute="bottom" constant="10" id="sTJ-ZJ-thv"/>
                 <constraint firstItem="0dm-5B-npL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="w4K-z1-gLt"/>
-                <constraint firstItem="xMe-sz-VCu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="zJ2-Az-aPV"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
