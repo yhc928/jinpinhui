@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @interface CommissionViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UILabel *expectLab;  // 预计赚取
+
 @property (weak, nonatomic) IBOutlet UILabel *cumulativeLab;//累计赚取
 
 @end
