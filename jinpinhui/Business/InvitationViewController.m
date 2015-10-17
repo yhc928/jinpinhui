@@ -20,7 +20,10 @@
     self.title = @"邀请好友赚金币";
      [_invitationBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
 }
+- (IBAction)InvitationAction:(id)sender{
 
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

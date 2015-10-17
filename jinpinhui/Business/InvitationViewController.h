@@ -11,4 +11,5 @@
 @interface InvitationViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *invitationBtn;
+- (IBAction)InvitationAction:(id)sender;
 @end
