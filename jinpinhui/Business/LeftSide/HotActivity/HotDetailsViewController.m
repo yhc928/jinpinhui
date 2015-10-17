@@ -7,6 +7,7 @@
 //
 
 #import "HotDetailsViewController.h"
+#import "UMSocialHelper.h"
 
 @interface HotDetailsViewController ()
 
@@ -57,7 +58,7 @@
  */
 - (void)didShare
 {
-    
+    [UMSocialHelper shareWithModel:@"qqqqqq" viewController:self];
 }
 
 @end

@@ -13,7 +13,7 @@
  *  System Versioning Preprocessor Macros
  */
 
-#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
+//#define SCREEN_WIDTH    ([UIScreen mainScreen].bounds.size.width)
 
 #define PNGrey          [UIColor colorWithRed:246.0 / 255.0 green:246.0 / 255.0 blue:246.0 / 255.0 alpha:1.0f]
 #define PNLightBlue     [UIColor colorWithRed:94.0 / 255.0 green:147.0 / 255.0 blue:196.0 / 255.0 alpha:1.0f]

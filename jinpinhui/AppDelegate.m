@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AFNetworkActivityIndicatorManager.h" //AFNetworking状态栏指示器
 #import "AFNetworkReachabilityManager.h"      //AFNetworking网络检测
+#import "UMSocialHelper.h"
 
 #import "MyDrawerViewController.h"
 
@@ -39,6 +40,9 @@
             
         }
     }];
+    
+    //友盟分享
+    [UMSocialHelper startUMSocial];
     
     //导航栏通用设置 标题颜色：白色 按钮颜色：白色
     UIImage *navBgImage = nil;
@@ -88,6 +92,20 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+//打开第三方app的系统回调
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    //友盟url回调
+    return [UMSocialSnsService handleOpenURL:url];
+}
+
+//打开第三方app的系统回调
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //友盟url回调
+    return [UMSocialSnsService handleOpenURL:url];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

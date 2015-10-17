@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的佣金";
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    if ([userDefault objectForKey:@"Commission"]) {
+         _cumulativeLab.text = [userDefault objectForKey:@"Commission"];
+    }
     [self.Parameters setValue:@"GETE" forKey:@"cmd"];
     [self.Parameters setValue:[self getCurrentTime] forKey:@"date"];
     [self.Parameters setValue:[self encryption] forKey:@"md5"];
@@ -28,6 +32,9 @@
 -(void)czRequestForResultDic:(NSDictionary *)resultDic code:(NSInteger)code object:(id)obj{
     if ([[resultDic objectForKey:@"resp_code"] isEqualToString:@"200"]) {
         _cumulativeLab.text = [resultDic objectForKey:@"info"];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setValue:[resultDic objectForKey:@"info"] forKey:@"Commission"];
+        [userDefault synchronize];
     }
     NSLog(@"%@",resultDic);
     NSLog(@"%@",[resultDic objectForKey:@"error"]);

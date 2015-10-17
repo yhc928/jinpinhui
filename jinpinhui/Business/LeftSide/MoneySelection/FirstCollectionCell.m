@@ -11,6 +11,7 @@
 #import "IndexTableViewCell.h"
 #import "MJRefresh.h"
 #import "IndexDetailsViewController.h"
+#import "IndexBannerWebViewController.h"
 
 @implementation FirstCollectionCell
 
@@ -40,6 +41,7 @@
         
         //轮播图
         self.cycleScrollView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*174/320)];
+        self.cycleScrollView.delegate = self;
         self.tableView.tableHeaderView = self.cycleScrollView;
         
         //下一页
@@ -203,7 +205,11 @@
 #pragma mark - CycleScrollViewDelegate
 - (void)cycleScrollView:(CycleScrollView *)cycleScrollView didSelectImageView:(NSInteger)index
 {
+    NSDictionary *imageDict = self.imageArray[index];
     
+    IndexBannerWebViewController *indexBannerWebVC = [[IndexBannerWebViewController alloc] init];
+    indexBannerWebVC.urlStr = imageDict[@"simg"];
+    [[IndexViewController sharedClient].navigationController pushViewController:indexBannerWebVC animated:YES];
 }
 
 //下拉刷新回调方法
