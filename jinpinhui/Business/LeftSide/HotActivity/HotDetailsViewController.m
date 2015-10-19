@@ -58,7 +58,7 @@
  */
 - (void)didShare
 {
-    [UMSocialHelper shareWithModel:@"qqqqqq" viewController:self];
+    [UMSocialHelper shareWithModel:@"分享model" viewController:self];
 }
 
 @end

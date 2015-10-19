@@ -7,6 +7,7 @@
 //
 
 #import "InvitationViewController.h"
+#import "UMSocialHelper.h"
 
 @interface InvitationViewController ()
 
@@ -21,8 +22,7 @@
      [_invitationBtn setBackgroundImage:[UIImage imageNamed:@"loginback_highlighted"] forState:UIControlStateHighlighted];
 }
 - (IBAction)InvitationAction:(id)sender{
-
-    
+    [UMSocialHelper shareWithModel:@"分享" viewController:self];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

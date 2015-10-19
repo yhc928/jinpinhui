@@ -21,10 +21,10 @@
                                                 UMShareToQQ]];
     
     //设置微信AppId、appSecret，分享url
-    [UMSocialWechatHandler setWXAppId:WX_APPID appSecret:WX_APPSECRET url:nil];
+    [UMSocialWechatHandler setWXAppId:WX_APPID appSecret:WX_APPSECRET url:@"http://www.umeng.com/social"];
     
     //设置分享到QQ/Qzone的应用Id，和分享url链接
-    [UMSocialQQHandler setQQWithAppId:QQ_APPID appKey:QQ_APPKEY url:nil];
+    [UMSocialQQHandler setQQWithAppId:QQ_APPID appKey:QQ_APPKEY url:@"http://www.umeng.com/social"];
 }
 
 //分享的方法
