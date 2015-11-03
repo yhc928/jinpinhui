@@ -208,7 +208,7 @@
     NSDictionary *imageDict = self.imageArray[index];
     
     IndexBannerWebViewController *indexBannerWebVC = [[IndexBannerWebViewController alloc] init];
-    indexBannerWebVC.urlStr = imageDict[@"simg"];
+    indexBannerWebVC.urlStr = imageDict[@"bimg"];
     [[IndexViewController sharedClient].navigationController pushViewController:indexBannerWebVC animated:YES];
 }
 

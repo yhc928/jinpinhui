@@ -16,7 +16,7 @@
 //#define DOMAIN_NAME   @"http://yupala.com"
 
 //测试服务器
-#define DOMAIN_NAME @"http://yupala.com"
+#define DOMAIN_NAME @"http://m.getianan.com"
 
 #define myAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate]) //appdelegate
 
