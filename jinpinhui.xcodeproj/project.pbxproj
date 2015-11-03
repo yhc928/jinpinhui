@@ -1374,6 +1374,7 @@
 				TargetAttributes = {
 					D078C3D91B4A970E002C65CA = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = C2W448M6B2;
 					};
 					D078C3F21B4A970E002C65CA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1722,7 +1723,7 @@
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shenqu001.jinpinhui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shequ001.jinpinhui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1749,7 +1750,7 @@
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shenqu001.jinpinhui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shequ001.jinpinhui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
