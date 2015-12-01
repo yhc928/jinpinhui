@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"打款";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://yupala.com/hotac/remit.asp"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/hotac/remit.asp",DOMAIN_NAME]];
     [_webView loadRequest:[NSURLRequest requestWithURL:url]];
     [self.webView reload];
 }

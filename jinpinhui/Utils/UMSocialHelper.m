@@ -33,7 +33,7 @@
     if (model) {
         [UMSocialSnsService presentSnsIconSheetView:viewController
                                              appKey:UMSOCIAL_KEY
-                                          shareText:@"金品汇改变您的生活"
+                                          shareText:[NSString stringWithFormat:@"金品汇——独立理财师联盟，下载地址:%@/hotac/download.asp",DOMAIN_NAME]
                                          shareImage:[UIImage imageNamed:@"about_us_icon"]
                                     shareToSnsNames:@[UMShareToWechatTimeline,
                                                       UMShareToWechatSession,
@@ -43,7 +43,7 @@
         
         //通用设置图片
         [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:nil];
-        NSString *share_url = @"www.baidu.com";
+        NSString *share_url = [NSString stringWithFormat:@"%@/hotac/download.asp",DOMAIN_NAME];
         
         //微信朋友圈
         [UMSocialData defaultData].extConfig.wechatTimelineData.title = @"金品汇";

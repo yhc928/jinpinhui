@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"合同";
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://yupala.com/hotac/contracts.asp"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/hotac/contracts.asp",DOMAIN_NAME]];
     [_webView loadRequest:[NSURLRequest requestWithURL:url]];
     [self.webView reload];
 }
