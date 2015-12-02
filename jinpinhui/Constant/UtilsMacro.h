@@ -23,7 +23,7 @@
 #define APP_VERSION    ([[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]) //app版本号
 #define SYSTEM_VERSION ([UIDevice currentDevice].systemVersion) //系统版本号
 
-#define SERVICE_TEL @"0451-51022912" //客服电话
+#define SERVICE_TEL @"0451-86632518" //客服电话
 
 #define IS_IOS_7 ([SYSTEM_VERSION floatValue] >= 7.0)         //是否iOS7以上
 #define IS_IOS_8 ([SYSTEM_VERSION floatValue] >= 8.0)         //是否iOS8以上
