@@ -114,7 +114,7 @@
         else if (indexPath.row == 2){
              cell.backgroundColor = [UIColor clearColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone; 
-            UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 150)];
+            UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 50)];
             backView.backgroundColor = [UIColor whiteColor];
             [cell.contentView addSubview:backView];
             NSString *checks;
@@ -126,7 +126,7 @@
                 checks = @"认证申请中";
             }
 
-            UILabel *lable1 = [[UILabel alloc]initWithFrame:CGRectMake(15, 20, SCREEN_WIDTH, 20)];
+            UILabel *lable1 = [[UILabel alloc]initWithFrame:CGRectMake(15, 15, SCREEN_WIDTH, 20)];
             NSMutableAttributedString *AttributedString = [[NSMutableAttributedString alloc]initWithString:[NSString stringWithFormat:@"状  态： %@",checks]];
             [AttributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, AttributedString.length - 3)];
             [AttributedString addAttribute:NSForegroundColorAttributeName value:UIColorFromRGB(31, 125, 225) range:NSMakeRange(AttributedString.length - 3, 3)];
@@ -134,14 +134,14 @@
             [AttributedString addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:16] range:NSMakeRange(AttributedString.length - 3, 3)];
             lable1.attributedText = AttributedString;
             [backView addSubview:lable1];
-            NSData *reply = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"yaoqing" ofType:@"txt"]];
-            NSString *yaoqing =  [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
-            UILabel *lable2 = [[UILabel alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(lable1.frame), SCREEN_WIDTH - 25, 110)];
-            lable2.font = [UIFont systemFontOfSize:16];
-            lable2.text = yaoqing;
-            lable2.numberOfLines = 0;
-            lable2.lineBreakMode = NSLineBreakByWordWrapping;
-            [backView addSubview:lable2];
+//            NSData *reply = [[NSData alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"yaoqing" ofType:@"txt"]];
+//            NSString *yaoqing =  [[NSString alloc] initWithData:reply encoding:NSUTF8StringEncoding];
+//            UILabel *lable2 = [[UILabel alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(lable1.frame), SCREEN_WIDTH - 25, 110)];
+//            lable2.font = [UIFont systemFontOfSize:16];
+//            lable2.text = yaoqing;
+//            lable2.numberOfLines = 0;
+//            lable2.lineBreakMode = NSLineBreakByWordWrapping;
+//            [backView addSubview:lable2];
         }
         
     }
