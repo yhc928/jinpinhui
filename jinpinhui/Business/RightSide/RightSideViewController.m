@@ -58,6 +58,9 @@
     [_headimageView sd_setImageWithURL:[NSURL URLWithString:[[LoginUser sharedLoginUser] userimage]] placeholderImage:[UIImage imageNamed:@"testhead"]];
     _headimageView.layer.cornerRadius = 35;
     _headimageView.layer.masksToBounds = YES;
+    _headimageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapheadImage)];
+    [_headimageView addGestureRecognizer:tap];
     [self.view addSubview:_headimageView];
     //昵称
     _nicknameLab = [[UILabel alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_headimageView.frame) + 10, (SCREEN_WIDTH - 50) / 2 , 20)];
@@ -85,7 +88,7 @@
     _levelLab.font = [UIFont systemFontOfSize:16];
     _levelLab.textAlignment = NSTextAlignmentCenter;
     _levelLab.text = @"LV0  击败了全国0%的用户";
-    [self.view addSubview:_levelLab];
+//    [self.view addSubview:_levelLab];
     //上部横向线
     UIView *top_h_line = [[UIView alloc]initWithFrame:CGRectMake(20, CGRectGetMaxY(_levelLab.frame) + 20, SCREEN_WIDTH - 50 - 20 - 15, 0.5)];
     top_h_line.backgroundColor = [UIColor whiteColor];
@@ -124,6 +127,11 @@
     [self.Parameters setValue:[dic objectForKey:@"username"] forKey:@"username"];
     [self.Parameters setValue:[dic objectForKey:@"password"] forKey:@"password"];
     [self requestUserInfo];
+}
+
+-(void)tapheadImage{
+    PersonalCenterViewController *personalcenter = [[PersonalCenterViewController alloc]init];
+    [myAppDelegate.drawerController.navigationController pushViewController:personalcenter animated:YES];
 }
 /**
  *  获取用户信息
