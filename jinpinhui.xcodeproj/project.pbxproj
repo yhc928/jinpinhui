@@ -1374,7 +1374,7 @@
 				TargetAttributes = {
 					D078C3D91B4A970E002C65CA = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = C2W448M6B2;
+						DevelopmentTeam = 29UHZSB4QP;
 					};
 					D078C3F21B4A970E002C65CA = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1706,7 +1706,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shouhong Yu (PWQAK7YVRE)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1723,9 +1723,9 @@
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shequ001.jinpinhui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinpinhui.jinpinhui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a74ed180-26e8-41a3-80d0-b7dbb0e47507";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1734,8 +1734,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Huaxiahui Information Technology (Beijing) Co.,Ltd. (C2W448M6B2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huaxiahui Information Technology (Beijing) Co.,Ltd. (C2W448M6B2)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shouhong Yu (29UHZSB4QP)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shouhong Yu (29UHZSB4QP)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1752,9 +1752,9 @@
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/jinpinhui/ThirdPart/UMSocialSDK/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shequ001.jinpinhui;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinpinhui.jinpinhui;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a74ed180-26e8-41a3-80d0-b7dbb0e47507";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
