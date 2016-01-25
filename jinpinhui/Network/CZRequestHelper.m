@@ -51,7 +51,7 @@
                  delegate:(id<CZRequestHelperDelegate>)delegate
                      code:(NSInteger)code object:(id)obj
 {
-    NSLog(@"urlStr = %@",request.urlStr);
+//    NSLog(@"urlStr = %@",request.urlStr);
     
     CZRequestOperationManager *manager = [CZRequestOperationManager sharedClient];
     
@@ -62,7 +62,7 @@
     
     //网络请求
     [manager POST:request.urlStr parameters:request.parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"responseString = %@",operation.responseString);
+//        NSLog(@"responseString = %@",operation.responseString);
         //调用系统方法解析json字符串
         NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:[operation.responseString dataUsingEncoding:NSUTF8StringEncoding]
                                                                   options:NSJSONReadingAllowFragments
@@ -86,7 +86,7 @@
                           delegate:(id<CZRequestHelperDelegate>)delegate
                               code:(NSInteger)code object:(id)obj
 {
-    NSLog(@"urlStr = %@",request.urlStr);
+//    NSLog(@"urlStr = %@",request.urlStr);
     
     CZRequestOperationManager *manager = [CZRequestOperationManager sharedClient];
     
@@ -102,7 +102,7 @@
 
         [formData appendPartWithFileData:imageData name:@"picture1" fileName:@"test.png" mimeType:@"image/png"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+//        NSLog(@"%@",responseObject);
         //请求成功设置代理
         if ([delegate respondsToSelector:@selector(czRequestForResultDic:code:object:)]) {
             [delegate czRequestForResultDic:responseObject code:code object:obj];

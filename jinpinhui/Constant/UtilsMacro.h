@@ -12,10 +12,10 @@
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
 
-//正式服务器
+//测试服务器
 //#define DOMAIN_NAME   @"http://yupala.com"
 
-//测试服务器
+//正式服务器
 #define DOMAIN_NAME @"http://m.getianan.com"
 
 #define myAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate]) //appdelegate
